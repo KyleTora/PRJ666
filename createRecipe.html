@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Create a Recipe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  <!--<link href="/css/default.css" rel="stylesheet" type="text/css" media="all" />-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("header.php");
+    });
+  </script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      margin: auto;
+      min-height: 200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none;
+      }
+    }
+
+    #description {
+      width: 100%;
+      resize: none;
+      overflow-y: scroll;
+      border: 10px solid #4d4d4d;
+    }
+
+    #ingredient-list {
+      list-style: none;
+      max-height: 360px;
+      margin: 0;
+      overflow-y: scroll;
+      text-indent: 10px;
+      border: 10px solid #4d4d4d;
+    }
+
+    #cookware-list {
+      list-style: none;
+      max-height: 200px;
+      overflow-y: scroll;
+      text-indent: 10px;
+      border: 10px solid #4d4d4d;
+    }
+
+    #recipe-instruction {
+      max-height: 200px;
+      overflow-y: scroll;
+      border: 10px solid #4d4d4d;
+    }
+
+    #tips-and-notes {
+      max-height: 200px;
+      width: 100%;
+      margin: 0;
+      overflow-y: scroll;
+      text-indent: 10px;
+      resize: none;
+      border: 10px solid #4d4d4d;
+    }
+
+    #extra {
+      background-color: orange;
+      padding: 4%;
+      margin: 5%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+            <div class="container-fluid">
+              <label class="navbar-brand mr-3">Recipe Name</label>
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="recipeCollapse">
+                <div class="navbar-nav ml-auto">
+                  <a href="" class="nav-item nav-link">Favourite</a>
+                  <a href="" class="nav-item nav-link">Rate Recipe</a>
+                  <a href="" class="nav-item nav-link">Save Recipe</a>
+                  <a href="" class="nav-item nav-link">Share</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- First Row for Ingredients and Image -->
+  <div class="container text-center size">
+    <div class="row">
+      <div class="col-sm-4" style="padding-top: 30px;">
+        <label>Ingredients</label>
+        <ul id="ingredient-list">
+          <li>Ingredient 1</li>
+          <li>Ingredient 2</li>
+          <li>Ingredient 3</li>
+          <li>Ingredient 4</li>
+          <li>Ingredient 5</li>
+          <li>Ingredient 6</li>
+          <li>Ingredient 7</li>
+          <li>Ingredient 8</li>
+          <li>Ingredient 9</li>
+          <li>Ingredient 10</li>
+          <li>Ingredient 11</li>
+          <li>Ingredient 12</li>
+          <li>Ingredient 13</li>
+          <li>Ingredient 14</li>
+          <li>Ingredient 15</li>
+          <li>Ingredient 16</li>
+          <li>Ingredient 17</li>
+        </ul>
+      </div>
+      <div class="col-sm-8" style="margin-top: 32px;">
+        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+        <button type="button" style="margin-top: 10px;">Add Photo</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <!-- First Row for Description, Cook Time, and Number of Servings -->
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="well">
+          <label class="sectionTitle">Description</label>
+          <textarea id="description" rows="5" placeholder="Description"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-4" style="margin-top: 15px;">
+        <div class="well" id="extra">
+          <p>Cook Time</p>
+        </div>
+        <div class="well" id="extra">
+          <p>Number of Servings</p>
+        </div>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-4">
+        <label class="sectionTitle">Instructions</label>
+        <ol id="recipe-instruction">
+          <li>Step 1</li>
+          <li>Step 2</li>
+          <li>Step 3</li>
+          <li>Step 4</li>
+          <li>Step 5</li>
+          <li>Step 6</li>
+          <li>Step 7</li>
+          <li>Step 8</li>
+          <li>Step 9</li>
+          <li>Step 10</li>
+        </ol>
+      </div>
+      <div class="col-sm-4">
+        <label class="sectionTitle">Cookware</label>
+        <ul id="cookware-list">
+          <li>Cookware 1</li>
+          <li>Cookware 2</li>
+          <li>Cookware 3</li>
+          <li>Cookware 4</li>
+          <li>Cookware 5</li>
+          <li>Cookware 6</li>
+          <li>Cookware 7</li>
+          <li>Cookware 8</li>
+          <li>Cookware 9</li>
+          <li>Cookware 10</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <label class="sectionTitle">Tips & Notes</label>
+        <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes"></textarea>
+      </div>
+    </div>
+  </div><br>
+
+</body>
+
+</html>

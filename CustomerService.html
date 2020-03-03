@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Create a Recipe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  <!--<link href="/css/default.css" rel="stylesheet" type="text/css" media="all" />-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("header.php");
+    });
+  </script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      margin: auto;
+      min-height: 200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none;
+      }
+    }
+
+    #request-description {
+      width: 100%;
+      height: 200px;
+      resize: none;
+      overflow-y: scroll;
+      border: 10px solid #4d4d4d;
+    }
+
+    #ingredient-list {
+      list-style: none;
+      max-height: 360px;
+      margin: 0;
+      overflow-y: scroll;
+      text-indent: 10px;
+      border: 10px solid #4d4d4d;
+    }
+
+    #cookware-list {
+      list-style: none;
+      max-height: 200px;
+      overflow-y: scroll;
+      text-indent: 10px;
+      border: 10px solid #4d4d4d;
+    }
+
+    #recipe-instruction {
+      max-height: 200px;
+      overflow-y: scroll;
+      border: 10px solid #4d4d4d;
+    }
+
+    #tips-and-notes {
+      max-height: 200px;
+      width: 100%;
+      margin: 0;
+      overflow-y: scroll;
+      text-indent: 10px;
+      resize: none;
+      border: 10px solid #4d4d4d;
+    }
+
+    #extra {
+      background-color: orange;
+      padding: 4%;
+      margin: 5%;
+    }
+
+    #request-submission {
+        border: solid;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 16px;
+        width: 15%;
+        float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+            <div class="container-fluid">
+              <label class="navbar-brand mr-3">Request Customer Support</label>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- First Row for Description, Cook Time, and Number of Servings -->
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <textarea id="request-description" rows="5" placeholder="Write your customer service request here"></textarea>
+          <button id="request-submission">Send Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

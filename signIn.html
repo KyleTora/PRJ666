@@ -1,0 +1,105 @@
+<head>
+    <title>Sign In</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            $('#header').load("header.php");
+        });
+    </script>
+
+    <style>
+        #errorMsg {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            width: 300px;
+            text-align: center;
+            margin: auto;
+        }
+
+        #successMsg {
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            width: 300px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .login-form {
+            width: 300px;
+            margin: 0 auto;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+
+        .links {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 24px;
+        }
+
+        .login-form input[type="password"],
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #535b63;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <div class="login-form">
+        <br>
+        <br>
+        <form action="/log/validate.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Sign In">
+            <!--test
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+            -->
+        </form>
+    </div>
+
+    <div class="links">
+        <h4>
+            <a> <br>
+                Don't have an account?
+            </a>
+        </h4>
+
+        <a href="/signUp.html">Create an Account</a>
+
+        <h4>
+            <a><br>Forgot your password?</a>
+        </h4>
+
+        <a href="/resetPassword.html">Forgot Password?</a>
+    </div>
+</body>

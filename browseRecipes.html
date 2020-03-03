@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Browse</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+  <script>
+    $(function () {
+      $("#header").load("header.php");
+    });
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+
+      margin-left: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .heads {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      /* IE 10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE 10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create two equal columns that sits next to each other */
+    .column {
+      -ms-flex: 50%;
+      /* IE 10 */
+      flex: 50%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+
+    .recipe-title {
+      text-align: center;
+      margin: 3px;
+    }
+
+    /* Style the buttons */
+    .btn {
+      border: none;
+      outline: none;
+      padding: 10px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+
+    /* style dropdowns*/
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <!--
+  <div class="heads" id="myHeader">
+    <h1>Browse</h1>
+    <p>Click on the buttons to change the grid view.</p>
+    <button class="btn active" onclick="two()">2</button>
+    <button class="btn" onclick="five()">5</button>
+  </div>
+  -->
+
+  <!-- Photo Grid -->
+  <!--
+  <div class="row">
+    <div class="column">
+      <a href="/recipePage.html">
+        <img src="/image/Meat.jpg" style="width:100%;" class="dropdown">
+        <div class="dropdown-content" >
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a href="/recipePage.html">
+        <img src="/image/Vegetables.jpg" style="width:100%;" class="dropdown">
+        <div class="dropdown-content" >
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </a>
+    </div>
+       <div class="column">
+      <a href="/recipePage.html">
+        <img src="/image/Grains.jpg" style="width:100%;" class="dropdown">
+        <div class="dropdown-content" >
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a href="/recipePage.html">
+        <img src="/image/Dairy.jpg" style="width:100%;" class="dropdown">
+        <div class="dropdown-content" >
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </a>
+    </div>
+  </div>
+  -->
+
+  <div id="header" style="padding: 0px;"></div>
+
+  <h1 style="text-align: center;">Browse</h1>
+  <br>
+  <br>
+
+  <input type="text" placeholder="Search..." style="align">
+  <br>
+
+  <!-- Meal Type -->
+  <h2 style="text-align: center;">Meal Type</h2>
+  <br>
+
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/Breakfast.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Lunch.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Dinner.jpg" style="flex: 10%;">
+    </a>
+  </div>
+  <br>
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/Appetizers.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Dessert.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Snacks.jpg" style="flex: 10%;">
+    </a>
+  </div>
+
+  <!-- Lifestyle -->
+  <br>
+  <br>
+  <h2 style="text-align: center;">Lifestyle</h2>
+  <br>
+
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/Keto.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Vegetarian.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Vegan.jpg" style="flex: 10%;">
+    </a>
+  </div>
+  <br>
+
+  <!-- Regions -->
+  <br>
+  <br>
+  <h2 style="text-align: center;">Regions</h2>
+  <br>
+
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/European.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Asian.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/MiddleEastern.jpg" style="flex: 10%;">
+    </a>
+  </div>
+  <br>
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/SouthAmerica.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Mediterranean.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/African.jpg" style="flex: 10%;">
+    </a>
+  </div>
+
+  <!-- Ingredients -->
+  <br>
+  <br>
+  <h2 style="text-align: center;">Ingredients</h2>
+  <br>
+
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/Breakfast.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Lunch.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Dinner.jpg" style="flex: 10%;">
+    </a>
+  </div>
+  <br>
+  <div class="column" style="padding-left: 350px;">
+    <a href="/recipePage.html">
+      <img src="/image/Appetizers.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Dessert.jpg" style="flex: 10%;">
+    </a>
+    <a href="/recipePage.html">
+      <img src="/image/Snacks.jpg" style="flex: 10%;">
+    </a>
+  </div>
+
+  <script>
+    // Get the elements with class="column"
+    var elements = document.getElementsByClassName("column");
+
+    // Declare a loop variable
+    var i;
+
+    // Two images side by side
+    function two() {
+      for (i = 0; i < elements.length; i++) {
+        elements[i].style.msFlex = "50%";  // IE10
+        elements[i].style.flex = "50%";
+      }
+    }
+
+    // Four images side by side
+    function four() {
+      for (i = 0; i < elements.length; i++) {
+        elements[i].style.msFlex = "25%";  // IE10
+        elements[i].style.flex = "25%";
+      }
+    }
+
+    // Four images side by side
+    function five() {
+      for (i = 0; i < elements.length; i++) {
+        elements[i].style.msFlex = "20%";
+        elements[i].style.flex = "20%";
+      }
+    }
+
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myHeader");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+  </script>
+
+  <!-- /.container -->
+</body>
