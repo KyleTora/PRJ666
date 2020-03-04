@@ -1,0 +1,60 @@
+h3 {
+    color: cornflowerblue;
+    -webkit-text-fill-color: white;
+}
+
+.carousel-caption2 {
+    position: absolute;
+    right: 15%;
+    bottom: 548px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center
+}
+
+.carousel-caption3 {
+    position: absolute;
+    right: 15%;
+    bottom: 150px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center
+}
+
+.gettingStartedButton {
+    background-color: orange;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    height: 80px;
+    width: 400px;
+    font-size: 25;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

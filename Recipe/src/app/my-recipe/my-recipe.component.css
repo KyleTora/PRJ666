@@ -1,0 +1,129 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */
+ .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  /* Add a gray background color and some padding to the footer */
+  footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    margin: auto;
+    min-height: 200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+
+  #description {
+    width: 100%;
+    resize: none;
+    overflow-y: scroll;
+    border: 10px solid #4d4d4d;
+  }
+
+  #recipe-list {
+    list-style: none;
+    max-height: 700px;
+    overflow-y: scroll;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+    background-color: #4d4d4d;
+    color: white;
+  }
+
+  #eachrecipe {
+    overflow-y: scroll;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+    background-color: #4d4d4d;
+    color: white;
+  }
+
+  #playlist-list {
+    text-align: left;
+    list-style: none;
+    max-height: 700px;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+  }
+
+  #options-list {
+    list-style: none;
+    max-height: 700px;
+    height: 700px;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+    background-color: #4d4d4d;
+  }
+
+  #cookware-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: scroll;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+  }
+
+  #recipe-instruction {
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 10px solid #4d4d4d;
+  }
+
+  #tips-and-notes {
+    max-height: 200px;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    text-indent: 10px;
+    resize: none;
+    border: 10px solid #4d4d4d;
+  }
+
+  #extra {
+    background-color: orange;
+    padding: 4%;
+    margin: 5%;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .options {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .deleteOption {
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+    background-color: rgb(248, 83, 83);
+  }
+
+  #playlist-item {
+    color: white;
+  }
