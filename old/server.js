@@ -16,7 +16,11 @@ var transporter = nodemailer.createTransport({
         auth:{
                 user: 'prj666_201a06@myseneca.ca',
                 pass: 'GFss7@2*g(6&',
+        },
+        tls:{
+                rejectUnauthorized: false
         }
+
 });
 transporter.verify(function(error, success) {
         if (error) {
