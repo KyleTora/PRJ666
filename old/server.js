@@ -12,7 +12,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
         service: 'smtp.office365.com',
         port: 587,
-        secure: true,
+        secure: false,
         auth:{
                 user: 'prj666_201a06@myseneca.ca',
                 pass: 'GFss7@2*g(6&',
@@ -92,7 +92,7 @@ app.post('/signupCheck', function(request, response) {
 				request.session.loggedin = true;
                                 request.session.username = username;
                                 var mailOptions = {
-                                        from: 'prj666_201a06@myseneca.ca',
+                                      //  from: 'prj666_201a06@myseneca.ca',
                                         to: email,
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
