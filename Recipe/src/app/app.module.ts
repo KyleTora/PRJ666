@@ -9,6 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+//import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,16 @@ import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.componen
     HeaderComponent,
     RegisterComponent,
     BrowseRecipesComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
+  ],
+  exports:[
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
