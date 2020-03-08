@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 var nodemailer = require('nodemailer');
+const cors = require('cors');
 
 //set our email
 var transporter = nodemailer.createTransport({
@@ -44,6 +45,8 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+
+app.use(cors());
 
 app.get("/", (req, res) => {
         res.sendFile(__dirname + "/index.html");

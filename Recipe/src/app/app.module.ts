@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http';
+
 //import { ServicesComponent } from './services/services.component';
 
 @NgModule({
@@ -26,7 +28,9 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   exports:[
     FormsModule,
