@@ -62,6 +62,7 @@ app.get("/signin", (req, res) => {
 
 
 app.post('/signinCheck', function(request, response) {
+        res.send(yeet);
 	var username = request.body.username;
 	var password = request.body.password;
 	if (username && password) {

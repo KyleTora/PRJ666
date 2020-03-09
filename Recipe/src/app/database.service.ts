@@ -17,7 +17,7 @@ export class DatabaseService {
     try {
       const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
       const body = { email, username, password, password2};
-      const result: RegisterResult = await this.http.post(`${"http://myvmlab.senecacollege.ca:6897"}/signupcheck`, body, { headers }).toPromise() as RegisterResult;
+      const result: RegisterResult = await this.http.post(`${"http://myvmlab.senecacollege.ca:6897"}/signupCheck`, body, { headers }).toPromise() as RegisterResult;
 
       return result;
     } catch (err) {
