@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
+import { registerLocaleData } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+  email: string;
+  password: string;
+  password2: string;
 
+  
+  constructor(public db:DatabaseService) { 
+    
+  }
+
+  register(){
+    this.db.register(this.email, this.username, this.password, this.password2);
+
+  }
   ngOnInit() {
   }
 
