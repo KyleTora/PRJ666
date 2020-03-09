@@ -9,7 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RecipeListComponent } from './recipe-list/recipe-list.component'
 //import { ServicesComponent } from './services/services.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
     HomepageComponent,
     HeaderComponent,
     RegisterComponent,
-    BrowseRecipesComponent
+    BrowseRecipesComponent,
+    RecipeListComponent
 
   ],
   imports: [
