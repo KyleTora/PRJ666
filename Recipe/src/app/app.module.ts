@@ -28,7 +28,9 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   exports:[
     FormsModule,
