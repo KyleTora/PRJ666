@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'
+import { HttpClientModule } from '@angular/common/http';
 //import { ServicesComponent } from './services/services.component';
 
 @NgModule({
