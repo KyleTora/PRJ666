@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomepageComponent,
     HeaderComponent,
     RegisterComponent,
-    BrowseRecipesComponent
+    BrowseRecipesComponent,
+    NavComponent
 
   ],
   imports: [

@@ -1,7 +1,8 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
-const hostname = '10.102.112.179';
+// const hostname = '10.102.112.179'; // On VM
+const hostname = 'localhost'; // Locally
 const port = 10034;
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,25 +10,26 @@ const session = require('express-session');
 var nodemailer = require('nodemailer');
 const cors = require('cors');
 
-//set our email
-var transporter = nodemailer.createTransport({
-        service: 'smtp.office365.com',
-        port: 587,
-        secure: true,
-        auth:{
-                user: 'prj666_201a06@myseneca.ca',
-                pass: 'GFss7@2*g(6&',
-        }
-});
-transporter.verify(function(error, success) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Server is ready to take our messages");
-        }
-      });
+// //set our email
+// var transporter = nodemailer.createTransport({
+//         service: 'smtp.office365.com',
+//         port: 587,
+//         secure: true,
+//         auth:{
+//                 user: 'prj666_201a06@myseneca.ca',
+//                 pass: 'GFss7@2*g(6&',
+//         }
+// });
 
-var connection = require('./js/config');
+// transporter.verify(function(error, success) {
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           console.log("Server is ready to take our messages");
+//         }
+//       });
+
+var connection = require('./config');
 var recipe;
 connection.query("SELECT * FROM Recipe", function (err,result,fields){
         if(err) throw err;
@@ -35,9 +37,20 @@ connection.query("SELECT * FROM Recipe", function (err,result,fields){
         recipe = {1: result[0].recipe_name, 2: result[0].ingredients, 3: result[0].servings, 4: result[0].description};
 });
 var app = express();
+
+
 //app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(cors());
+
+app.use(function (req, res, next) {
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+        next();
+});
+
 app.use(express.static(path.join(__dirname)));
 app.set('view engine', 'ejs');
 app.use(session({
@@ -46,7 +59,6 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-app.use(cors());
 
 app.get("/", (req, res) => {
         res.sendFile(__dirname + "/index.html");
@@ -60,7 +72,6 @@ app.get("/signin", (req, res) => {
         res.sendFile(__dirname + "/signIn.html");
 });
 
-
 app.post('/signinCheck', function(request, response) {
 	var username = request.body.username;
 	var password = request.body.password;
@@ -68,8 +79,10 @@ app.post('/signinCheck', function(request, response) {
 		connection.query('SELECT * FROM User WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
-				request.session.username = username;
-				response.redirect('/');
+                                request.session.username = username;
+                                //returning user object
+                                response.json(results[0]);
+                                response.redirect('/');
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -212,9 +225,11 @@ app.post('/signupCheck', function(request, response) {
 }
 */
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+require('http')
+        .createServer(app)
+        .listen(port, () => {
+                console.log(`Server running at http://${hostname}:${port}/`);
+        });
 
 app.on('error', (err) => {
 	console.log(err.message);

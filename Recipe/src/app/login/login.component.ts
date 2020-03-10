@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { runInThisContext } from 'vm';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router,
+              private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -23,7 +25,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit(){  
     console.log(this.loginForm.value);
+
+    this.databaseService.login("wrong username", "wrong password").then((result)=>{
+      console.log("Login Result: ", result);
+    });
   }
 }
