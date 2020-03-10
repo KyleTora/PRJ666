@@ -9,9 +9,10 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RecipeListComponent } from './recipe-list/recipe-list.component'
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
+
 //import { ServicesComponent } from './services/services.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     RegisterComponent,
     BrowseRecipesComponent,
-    RecipeListComponent
+    NavComponent
+
 
   ],
   imports: [
