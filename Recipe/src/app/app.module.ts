@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 
+
 //import { ServicesComponent } from './services/services.component';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NavComponent } from './nav/nav.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent
+
 
   ],
   imports: [

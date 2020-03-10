@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { runInThisContext } from 'vm';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 
@@ -13,15 +13,15 @@ import { DatabaseService } from '../services/database.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
-
+  name = new FormControl('');
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.required]
+      username: '',
+      password: ''
     });
   }
 
@@ -31,5 +31,6 @@ export class LoginComponent implements OnInit {
     this.databaseService.login("wrong username", "wrong password").then((result)=>{
       console.log("Login Result: ", result);
     });
+
   }
 }
