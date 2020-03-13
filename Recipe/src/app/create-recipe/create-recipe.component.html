@@ -1,19 +1,117 @@
-<div class="container text-center size" style="background-color: #4d4d4d;" style="color: white;">
-    <br>
-    <ul id="play-list" style="color: white;"><br>
-      <div class="row">
-        <label>Playlist Name:</label>
+<div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+            <div class="container-fluid">
+              <label class="navbar-brand mr-3">Recipe Name</label>
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="recipeCollapse">
+                <div class="navbar-nav ml-auto">
+                  <a href="" class="nav-item nav-link">Favourite</a>
+                  <a href="" class="nav-item nav-link">Rate Recipe</a>
+                  <a href="" class="nav-item nav-link">Save Recipe</a>
+                  <a href="" class="nav-item nav-link">Share</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
-      <div class="row" style="margin-top: 10px;">
-        <textarea id="playlistName" rows="1" placeholder="Name"></textarea>
-      </div><br>
-      <div class="row" style="margin-top: 10px;">
-        <label>Description:</label>
-      </div>
-      <div class="row"  style="margin-top: 10px;">
-        <textarea id="playlistDescription" style="width: 700px;" rows="5" placeholder="(Optional)"></textarea>
-      </div><br>
-      <div class="row"  style="margin-top: 10px;">
-      <button type="button" style="margin-top: 10px;" style="float: left;" class="options">Create Playlist</button>
-      </div>
+    </div>
   </div>
+
+  <!-- First Row for Ingredients and Image -->
+  <div class="container text-center size">
+    <div class="row">
+      <div class="col-sm-4" style="padding-top: 30px;">
+        <label>Ingredients</label>
+        <ul id="ingredient-list">
+          <li>Ingredient 1</li>
+          <li>Ingredient 2</li>
+          <li>Ingredient 3</li>
+          <li>Ingredient 4</li>
+          <li>Ingredient 5</li>
+          <li>Ingredient 6</li>
+          <li>Ingredient 7</li>
+          <li>Ingredient 8</li>
+          <li>Ingredient 9</li>
+          <li>Ingredient 10</li>
+          <li>Ingredient 11</li>
+          <li>Ingredient 12</li>
+          <li>Ingredient 13</li>
+          <li>Ingredient 14</li>
+          <li>Ingredient 15</li>
+          <li>Ingredient 16</li>
+          <li>Ingredient 17</li>
+        </ul>
+      </div>
+      <div class="col-sm-8" style="margin-top: 32px;">
+        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+        <button type="button" style="margin-top: 10px;">Add Photo</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <!-- First Row for Description, Cook Time, and Number of Servings -->
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="well">
+          <label class="sectionTitle">Description</label>
+          <textarea id="description" rows="5" placeholder="Description"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-4" style="margin-top: 15px;">
+        <div class="well" id="extra">
+          <p>Cook Time</p>
+        </div>
+        <div class="well" id="extra">
+          <p>Number of Servings</p>
+        </div>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-4">
+        <label class="sectionTitle">Instructions</label>
+        <ol id="recipe-instruction">
+          <li>Step 1</li>
+          <li>Step 2</li>
+          <li>Step 3</li>
+          <li>Step 4</li>
+          <li>Step 5</li>
+          <li>Step 6</li>
+          <li>Step 7</li>
+          <li>Step 8</li>
+          <li>Step 9</li>
+          <li>Step 10</li>
+        </ol>
+      </div>
+      <div class="col-sm-4">
+        <label class="sectionTitle">Cookware</label>
+        <ul id="cookware-list">
+          <li>Cookware 1</li>
+          <li>Cookware 2</li>
+          <li>Cookware 3</li>
+          <li>Cookware 4</li>
+          <li>Cookware 5</li>
+          <li>Cookware 6</li>
+          <li>Cookware 7</li>
+          <li>Cookware 8</li>
+          <li>Cookware 9</li>
+          <li>Cookware 10</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <label class="sectionTitle">Tips & Notes</label>
+        <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes"></textarea>
+      </div>
+    </div>
+  </div><br>
