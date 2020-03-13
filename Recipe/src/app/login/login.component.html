@@ -1,7 +1,7 @@
-
+<p>TEST</p>
 
 <form [formGroup]="loginForm">
-    <p>Value: aaaaa {{ password.value }}</p>
+    <p>Value: {{ name.value }}</p>
     <div>
         <input id="username" type="text" placeholder="Username" [formControl]="name">
     </div>
@@ -24,7 +24,7 @@
         <a routerLink="/register">Create an Account</a>
 
         <h4>
-            <a><br>Forgot your credentials?</a>
+            <a><br>Forgot your Password?</a>
         </h4>
 
         <a href="/resetPassword.html">Forgot Password?</a>
