@@ -10,6 +10,19 @@ const session = require('express-session');
 var nodemailer = require('nodemailer');
 const cors = require('cors');
 
+let ssl;
+
+
+try {
+        ssl = {
+          key: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.key")).toString(),
+          cert: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.crt")).toString()
+        };
+      } catch (err) {
+        console.error("Test SSL is: ", err);
+      }
+      
+
 // //set our email
 // var transporter = nodemailer.createTransport({
 //         service: 'smtp.office365.com',
@@ -31,32 +44,32 @@ const cors = require('cors');
 
 var connection = require('./config');
 var recipe;
-connection.query("SELECT * FROM Recipe", function (err,result,fields){
-        if(err) throw err;
+connection.query("SELECT * FROM Recipe", function (err, result, fields) {
+        if (err) throw err;
         //console.log(result[0].recipe_name);
-        recipe = {1: result[0].recipe_name, 2: result[0].ingredients, 3: result[0].servings, 4: result[0].description};
+        recipe = { 1: result[0].recipe_name, 2: result[0].ingredients, 3: result[0].servings, 4: result[0].description };
 });
 var app = express();
 
 
 //app.engine('html', require('ejs').renderFile);
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use(function (req, res, next) {
-res.header("Access-Control-Allow-Origin", "*");
-res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
         next();
 });
 
-app.use(express.static(path.join(__dirname+'/dist/Recipe')));
+app.use(express.static(path.join(__dirname + '/dist/Recipe')));
 app.set('view engine', 'ejs');
 app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
 }));
 
 app.get("/", (req, res) => {
@@ -71,40 +84,40 @@ app.get("/signin", (req, res) => {
         res.sendFile(__dirname + "/signIn.html");
 });
 
-app.post('/signinCheck', function(request, response) {
-	var username = request.body.username;
-	var password = request.body.password;
-	if (username && password) {
-		connection.query('SELECT * FROM User WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			if (results.length > 0) {
-				request.session.loggedin = true;
+app.post('/signinCheck', function (request, response) {
+        var username = request.body.username;
+        var password = request.body.password;
+        if (username && password) {
+                connection.query('SELECT * FROM User WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
+                        if (results.length > 0) {
+                                request.session.loggedin = true;
                                 request.session.username = username;
                                 //returning user object
                                 response.json(results[0]);
                                 response.redirect('/');
-			} else {
-				response.send('Incorrect Username and/or Password!');
-			}			
-			response.end();
-		});
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
-	}
+                        } else {
+                                response.send('Incorrect Username and/or Password!');
+                        }
+                        response.end();
+                });
+        } else {
+                response.send('Please enter Username and Password!');
+                response.end();
+        }
 });
 
-app.post('/signupCheck', function(request, response) {
+app.post('/signupCheck', function (request, response) {
         var email = request.body.email;
-	var username = request.body.username;
+        var username = request.body.username;
         var password = request.body.password;
         var password2 = request.body.password2;
 
-	if ((email && username && password && password2) && (password == password2)) {
-                connection.query("INSERT INTO User (username, password, email) VALUES(?, ?, ?)", [username, password, email], function(error, results, fields){
+        if ((email && username && password && password2) && (password == password2)) {
+                connection.query("INSERT INTO User (username, password, email) VALUES(?, ?, ?)", [username, password, email], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Username and/or Password!');
-			} else {
-				request.session.loggedin = true;
+                        } else {
+                                request.session.loggedin = true;
                                 request.session.username = username;
                                 var mailOptions = {
                                         from: 'prj666_201a06@myseneca.ca',
@@ -112,128 +125,142 @@ app.post('/signupCheck', function(request, response) {
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
-                                transporter.sendMail(mailOptions, function(error, info){
-                                        if(error){
+                                transporter.sendMail(mailOptions, function (error, info) {
+                                        if (error) {
                                                 console.log(error);
-                                        }else{
+                                        } else {
                                                 console.log('Email sent: ' + info.response);
                                         }
                                 })
-                                
-				response.redirect('/');
-			}			
-			response.end();
-		});
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
-	}
+
+                                response.redirect('/');
+                        }
+                        response.end();
+                });
+        } else {
+                response.send('Please enter Username and Password!');
+                response.end();
+        }
 });
 
 
-  app.get("/resetPass", (req, res) => {
+app.get("/resetPass", (req, res) => {
         res.sendFile(__dirname + "/resetPassword.html");
-  });
+});
 
-  app.get("/editProfile", (req, res) => {
-          if(req.session && req.ression.user){
+app.get("/editProfile", (req, res) => {
+        if (req.session && req.ression.user) {
                 res.locals.user = user;
                 res.render(__dirname + "/profilePage.html");
-          }else{
-                  req.session.reset();
-                  res.redirect('/signIn.html');
-          }
+        } else {
+                req.session.reset();
+                res.redirect('/signIn.html');
+        }
         //res.sendFile(__dirname + "/profilePage.html");
-  });
+});
 
-  app.get("/recipePage", function(req, res){
-    
-        
+app.get("/recipePage", function (req, res) {
+
+
         res.render('recipePage', {
-                recipe_name : recipe[1],
-                ingredients: recipe[2], 
-                servings: recipe[3], 
+                recipe_name: recipe[1],
+                ingredients: recipe[2],
+                servings: recipe[3],
                 description: recipe[4]
         });
         //res.render(__dirname + "/recipePage.html");
-  });
+});
 
 
-  /*
-  if(req.url === "/signup"){
-        fs.readFile("signUp.html", function (error, pgResp){
-                if(error){
-                        res.writeHead(404);
-                        res.write('404 page');
-                }else{
-                        res.writeHead(200, {'Content-Type': 'text/html'});
-                        res.write(pgResp);
-                }
-                res.end();
+/*
+if(req.url === "/signup"){
+      fs.readFile("signUp.html", function (error, pgResp){
+              if(error){
+                      res.writeHead(404);
+                      res.write('404 page');
+              }else{
+                      res.writeHead(200, {'Content-Type': 'text/html'});
+                      res.write(pgResp);
+              }
+              res.end();
 
-        });
-   }else if(req.url === "/signin"){
-        fs.readFile("signIn.html", function (error, pgResp){
-                if(error){
-                        res.writeHead(404);
-                        res.write('404 page');
-                }else{
-                        res.writeHead(200, {'Content-Type': 'text/html'});
-                        res.write(pgResp);		
-		}
-                res.end();
+      });
+ }else if(req.url === "/signin"){
+      fs.readFile("signIn.html", function (error, pgResp){
+              if(error){
+                      res.writeHead(404);
+                      res.write('404 page');
+              }else{
+                      res.writeHead(200, {'Content-Type': 'text/html'});
+                      res.write(pgResp);		
+              }
+              res.end();
 
-        });
-  }else if(req.url === "/forgotPassword"){
-        fs.readFile("forgotPass.html", function (error, pgResp){
-                if(error){
-                        res.writeHead(404);
-                        res.write('404 page');
-                }else{
-                        res.writeHead(200, {'Content-Type': 'text/html'});
-                        res.write(pgResp);
-                }
-                res.end();
+      });
+}else if(req.url === "/forgotPassword"){
+      fs.readFile("forgotPass.html", function (error, pgResp){
+              if(error){
+                      res.writeHead(404);
+                      res.write('404 page');
+              }else{
+                      res.writeHead(200, {'Content-Type': 'text/html'});
+                      res.write(pgResp);
+              }
+              res.end();
 
-        });
-  
-    }else if(req.url === "/editProfile"){
-        fs.readFile("userEditProfile.php", function (error, pgResp){
-                if(error){
-                        res.writeHead(404);
-                        res.write('404 page');
-                }else{
-                        res.writeHead(200, {'Content-Type': 'text/html'});
-                        res.write(pgResp);
-                }
-                res.end();
+      });
+ 
+  }else if(req.url === "/editProfile"){
+      fs.readFile("userEditProfile.php", function (error, pgResp){
+              if(error){
+                      res.writeHead(404);
+                      res.write('404 page');
+              }else{
+                      res.writeHead(200, {'Content-Type': 'text/html'});
+                      res.write(pgResp);
+              }
+              res.end();
 
-        });
-  }else if(req.url === "/recipePage"){
-        fs.readFile("recipePage.html", function (error, pgResp){
-                if(error){
-                        res.writeHead(404);
-                        res.write('404 page');
-                }else{
-                        res.writeHead(200, {'Content-Type': 'text/html'});
-                        res.write(pgResp);
-                }
-                res.end();
+      });
+}else if(req.url === "/recipePage"){
+      fs.readFile("recipePage.html", function (error, pgResp){
+              if(error){
+                      res.writeHead(404);
+                      res.write('404 page');
+              }else{
+                      res.writeHead(200, {'Content-Type': 'text/html'});
+                      res.write(pgResp);
+              }
+              res.end();
 
-        });
+      });
 }
 */
 
 app.get("/*", (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist', 'Recipe', 'index.html'));
+        res.sendFile(path.join(__dirname, 'dist', 'Recipe', 'index.html'));
 });
 
-require('http')
-        .createServer(app)
-        .listen(port, () => {
-                console.log(`Server running at http://${hostname}:${port}/`);
-        });
+// require('http')
+//         .createServer(app)
+//         .listen(port, () => {
+//                 console.log(`Server running at http://${hostname}:${port}/`);
+//         });
+
+
+if (ssl)
+        require("https")
+                .createServer(ssl, app)
+                .listen(port, () => {
+                        console.log(`Server running on port ${port} using https`);
+                });
+else
+        require("http")
+                .createServer(app)
+                .listen(port, () => {
+                        console.log(`Server running on port ${port} using http`);
+                });
 
 app.on('error', (err) => {
-	console.log(err.message);
+        console.log(err.message);
 });
