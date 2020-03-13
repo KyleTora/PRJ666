@@ -1,15 +1,16 @@
 
 
 <form [formGroup]="loginForm">
-    <p>Value: {{ name.value }}</p>
+    <p>Value: aaaaa {{ password.value }}</p>
     <div>
         <input id="username" type="text" placeholder="Username" [formControl]="name">
     </div>
+    
     <div>
-        <input id="password" type="password" placeholder="Password" formControlName="password">
+        <input id="password" type="password" placeholder="Password" [formControl]="password">
     </div>
 
-    <button (click) = "update()">Sign In</button>
+    <button (click)="update()">Sign In</button>
 </form>
 
 
@@ -23,7 +24,7 @@
         <a routerLink="/register">Create an Account</a>
 
         <h4>
-            <a><br>Forgot your password?</a>
+            <a><br>Forgot your credentials?</a>
         </h4>
 
         <a href="/resetPassword.html">Forgot Password?</a>

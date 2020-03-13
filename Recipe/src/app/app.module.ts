@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MyRecipeComponent } from './my-recipe/my-recipe.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
@@ -23,7 +22,6 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     MyRecipeComponent,
     LoginComponent,
     HomepageComponent,
-    HeaderComponent,
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
