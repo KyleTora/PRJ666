@@ -51,7 +51,7 @@ res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Ty
         next();
 });
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname+'/dist/Recipe')));
 app.set('view engine', 'ejs');
 app.use(session({
 	secret: 'secret',
@@ -59,9 +59,8 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-
 app.get("/", (req, res) => {
-        res.sendFile(__dirname + "/index.html");
+        res.sendFile(__dirname + "/dist/Recipe/index.html");
 });
 
 app.get("/signup", (req, res) => {
@@ -224,6 +223,10 @@ app.post('/signupCheck', function(request, response) {
         });
 }
 */
+
+app.get("/*", (req, res) => {
+	res.sendFile(path.join(__dirname, 'dist', 'Recipe', 'index.html'));
+});
 
 require('http')
         .createServer(app)
