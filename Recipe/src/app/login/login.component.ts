@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
   name = new FormControl('');
+  password = new FormControl('');
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private databaseService: DatabaseService) { }
