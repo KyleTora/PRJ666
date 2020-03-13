@@ -10,7 +10,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component'
 const routes: Routes = [
   {
     path: '',
-    component: MyRecipeComponent
+    component: HomepageComponent
   },
   {
     path: 'my-recipe',
