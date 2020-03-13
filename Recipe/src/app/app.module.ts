@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { MyRecipeComponent } from './my-recipe/my-recipe.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component'
+
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -22,11 +23,11 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component'
     MyRecipeComponent,
     LoginComponent,
     HomepageComponent,
-    HeaderComponent,
     RegisterComponent,
     BrowseRecipesComponent,
-    NavComponent,
-    RecipeListComponent
+
+    NavComponent, 
+    RecipeListComponent, CreateRecipeComponent
 
 
   ],
