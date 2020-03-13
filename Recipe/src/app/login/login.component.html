@@ -6,7 +6,7 @@
         <input id="username" type="text" placeholder="Username" [formControl]="name">
     </div>
     <div>
-        <input id="password" type="password" placeholder="Password" formControlName="password">
+        <input id="password" type="password" placeholder="Password" [formControl]="password">
     </div>
 
     <button (click)="update()">Sign In</button>
