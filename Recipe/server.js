@@ -17,7 +17,7 @@ const cors = require('cors');
 //         secure: true,
 //         auth:{
 //                 user: 'prj666_201a06@myseneca.ca',
-//                 pass: 'GFss7@2*g(6&',
+//                 pass: '15NBgf@g65J', // new password
 //         }
 // });
 
