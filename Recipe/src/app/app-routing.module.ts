@@ -6,6 +6,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component'
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'recipe-list',
     component: RecipeListComponent
+  },
+  {
+    path: 'create-recipe',
+    component: CreateRecipeComponent
   }
 
 ];
