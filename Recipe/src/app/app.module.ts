@@ -11,6 +11,7 @@ import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.componen
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
+
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
@@ -24,6 +25,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     HomepageComponent,
     RegisterComponent,
     BrowseRecipesComponent,
+
     NavComponent, 
     RecipeListComponent, CreateRecipeComponent
 

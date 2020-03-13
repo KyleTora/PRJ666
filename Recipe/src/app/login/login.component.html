@@ -1,7 +1,9 @@
 
 
 <form [formGroup]="loginForm">
-    <p>Value: aaaaa {{ password.value }}</p>
+
+    <p>Value: {{ name.value }}, {{password.value}}</p>
+
     <div>
         <input id="username" type="text" placeholder="Username" [formControl]="name">
     </div>

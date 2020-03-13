@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
   name = new FormControl('');
+  password = new FormControl('');
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private databaseService: DatabaseService) { }
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){  
+  update(){  
     console.log(this.loginForm.value);
 
     this.databaseService.login("wrong username", "wrong password").then((result)=>{
@@ -33,5 +34,5 @@ export class LoginComponent implements OnInit {
     });
 
   }
-	update() {}
+
 }
