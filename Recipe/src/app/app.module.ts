@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -23,8 +24,9 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
     HomepageComponent,
     RegisterComponent,
     BrowseRecipesComponent,
-    NavComponent,
-    RecipeListComponent
+    NavComponent, 
+    RecipeListComponent, CreateRecipeComponent
+
 
   ],
   imports: [
