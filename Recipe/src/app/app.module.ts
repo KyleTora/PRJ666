@@ -12,6 +12,7 @@ import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.componen
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component'
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -24,7 +25,8 @@ import { NavComponent } from './nav/nav.component';
     HeaderComponent,
     RegisterComponent,
     BrowseRecipesComponent,
-    NavComponent
+    NavComponent,
+    RecipeListComponent
 
 
   ],
