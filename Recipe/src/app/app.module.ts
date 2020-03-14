@@ -15,6 +15,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -27,7 +28,7 @@ import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent
 
 
   ],
