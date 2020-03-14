@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component'
+import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'create-recipe',
     component: CreateRecipeComponent
+  },
+  {
+    path: 'create-playlist',
+    component: CreatePlaylistComponent
   }
 
 ];
