@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    this.db.register(this.email, this.username, this.password, this.password2);
+    this.db.register("email", "Username", "Password", "Password");
 
   }
   ngOnInit() {
