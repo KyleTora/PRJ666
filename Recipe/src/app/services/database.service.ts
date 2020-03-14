@@ -11,6 +11,7 @@ export interface RegisterResult {
 })
 export class DatabaseService {
   user?: any;
+  isUserLoggedIn = false;
 
   constructor(public http: HttpClient) { }
 
@@ -34,8 +35,9 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = { username, password};
+      this.isUserLoggedIn = true;
       const result = await this.http.post(`${`${HOST}:${PORT}`}/signinCheck`, body, { headers }).toPromise();
-
+    
       return result;
     } catch (err) {
       throw err;

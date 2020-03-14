@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service'
+import { User } from '../global.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,14 @@ import { DatabaseService } from '../services/database.service'
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  logged = false;
 
-  constructor(public databaseService: DatabaseService) { }
+  constructor(public databaseService: DatabaseService, private user: User) { 
+    if(databaseService.isUserLoggedIn){
+      this.logged = true;
+    }
+  }
 
-  ngOnInit() { }
-
+  ngOnInit() { 
+  }
 }

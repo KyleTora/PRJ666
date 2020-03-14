@@ -16,6 +16,8 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { User } from './global.service';
+import { LogoutComponent } from './logout/logout.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -28,8 +30,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent
-
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent
+    
 
   ],
   imports: [
@@ -43,7 +45,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

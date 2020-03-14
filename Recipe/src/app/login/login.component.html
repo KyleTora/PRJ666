@@ -1,28 +1,32 @@
-    <p>Value: {{ name }} {{ password }}</p>
+<div id="errMsg" *ngIf="showErrorMessage">
+    <h5>Invalid username or password!</h5>
+</div>
+
+<div class="login-form">
+<br>
+<br>
     <div>
         <input id="username" type="text" placeholder="Username" [(ngModel)]="name">
     </div>
-    
+
     <div>
         <input id="password" type="password" placeholder="Password" [(ngModel)]="password">
     </div>
-
     <button (click)="update()">Sign In</button>
 
+</div>
+<div class="links">
+    <h4>
+        <a> <br>
+            Don't have an account?
+        </a>
+    </h4>
 
+    <a routerLink="/register">Create an Account</a>
 
-    <div class="links">
-        <h4>
-            <a> <br>
-                Don't have an account?
-            </a>
-        </h4>
+    <h4>
+        <a><br>Forgot your Password?</a>
+    </h4>
 
-        <a routerLink="/register">Create an Account</a>
-
-        <h4>
-            <a><br>Forgot your Password?</a>
-        </h4>
-
-        <a href="/resetPassword.html">Forgot Password?</a>
-    </div>
+    <a href="/resetPassword.html">Forgot Password?</a>
+</div>

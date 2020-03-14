@@ -1,8 +1,8 @@
-#errorMsg {
+#errMsg {
     padding: 20px;
     background-color: #f44336;
     color: white;
-    width: 300px;
+    width: 400px;
     text-align: center;
     margin: auto;
 }
@@ -42,7 +42,8 @@
     box-sizing: border-box;
 }
 
-.login-form input[type="submit"] {
+
+button{
     width: 100%;
     padding: 15px;
     background-color: #535b63;
