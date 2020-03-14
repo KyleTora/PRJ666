@@ -10,24 +10,17 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class LoginComponent {
   invalidLogin: boolean = false;
-  name = new FormControl('');
-  password = new FormControl('');
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private databaseService: DatabaseService) { }
+  name: string;
+  password: string;
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: '',
-      password: ''
-    });
-  }
+  constructor(private formBuilder: FormBuilder, private router: Router, private databaseService: DatabaseService) { }
 
 	update() {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
+    console.log(this.name);
+    console.log(this.password);
 
     this.databaseService.login("wrong username", "wrong password").then((result)=>{
       console.log("Login Result: ", result);

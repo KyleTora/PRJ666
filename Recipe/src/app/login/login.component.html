@@ -1,17 +1,17 @@
 <p>TEST</p>
 
-<form [formGroup]="loginForm">
-    <p>Value: {{ name.value }} {{ password.value }}</p>
+
+    <p>Value: {{ name }} {{ password }}</p>
     <div>
-        <input id="username" type="text" placeholder="Username" [formControl]="name">
+        <input id="username" type="text" placeholder="Username" [(ngModel)]="name">
     </div>
     
     <div>
-        <input id="password" type="password" placeholder="Password" [formControl]="password">
+        <input id="password" type="password" placeholder="Password" [(ngModel)]="password">
     </div>
 
     <button (click)="update()">Sign In</button>
-</form>
+
 
 
     <div class="links">
