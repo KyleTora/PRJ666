@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -25,7 +26,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent
 
 
   ],
