@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){  
+	update() {
     console.log(this.loginForm.value);
 
     this.databaseService.login("wrong username", "wrong password").then((result)=>{
       console.log("Login Result: ", result);
+    }).catch((err) => {
+      console.log("Login Error: ", err);  
     });
-
   }
-	update() {}
 }

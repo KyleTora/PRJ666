@@ -15,13 +15,13 @@ let ssl;
 
 try {
         ssl = {
-          key: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.key")).toString(),
-          cert: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.crt")).toString()
+                key: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.key")).toString(),
+                cert: fs.readFileSync(path.join(__dirname, "ssl/prj666-2021.crt")).toString()
         };
-      } catch (err) {
+} catch (err) {
         console.error("Test SSL is: ", err);
-      }
-      
+}
+
 
 // //set our email
 // var transporter = nodemailer.createTransport({
@@ -53,7 +53,7 @@ var app = express();
 
 
 //app.engine('html', require('ejs').renderFile);
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -94,15 +94,12 @@ app.post('/signinCheck', function (request, response) {
                                 request.session.username = username;
                                 //returning user object
                                 response.json(results[0]);
-                                response.redirect('/');
                         } else {
                                 response.send('Incorrect Username and/or Password!');
                         }
-                        response.end();
                 });
         } else {
                 response.send('Please enter Username and Password!');
-                response.end();
         }
 });
 
@@ -135,11 +132,9 @@ app.post('/signupCheck', function (request, response) {
 
                                 response.redirect('/');
                         }
-                        response.end();
                 });
         } else {
                 response.send('Please enter Username and Password!');
-                response.end();
         }
 });
 
