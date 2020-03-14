@@ -9,6 +9,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component'
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component'
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'edit-playlist',
     component: EditPlaylistComponent
+  },
+  {
+    path: 'profile-page',
+    component: ProfilePageComponent
   }
 
 ];
