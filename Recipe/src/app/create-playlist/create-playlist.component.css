@@ -24,10 +24,18 @@
   }
 
   #description {
-    width: 100%;
+    width: 50%;
+    max-width: 80%;
     resize: none;
     overflow-y: scroll;
-    border: 10px solid #4d4d4d;
+    border: 3px solid #4d4d4d;
+  }
+
+  #name {
+    width: 50%;
+    max-width: 80%;
+    border: 3px solid #4d4d4d;
+    resize: none;
   }
 
   #play-list {
