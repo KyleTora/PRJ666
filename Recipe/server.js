@@ -23,24 +23,24 @@ try {
 }
 
 
-// //set our email
-// var transporter = nodemailer.createTransport({
-//         service: 'smtp.office365.com',
-//         port: 587,
-//         secure: true,
-//         auth:{
-//                 user: 'prj666_201a06@myseneca.ca',
-//                 pass: '15NBgf@g65J', // new password
-//         }
-// });
+//set our email
+var transporter = nodemailer.createTransport({
+        service: 'smtp.office365.com',
+        port: 587,
+        secure: true,
+        auth:{
+                user: 'prj666_201a06@myseneca.ca',
+                pass: '15NBgf@g65J', // new password
+        }
+});
 
-// transporter.verify(function(error, success) {
-//         if (error) {
-//           console.log(error);
-//         } else {
-//           console.log("Server is ready to take our messages");
-//         }
-//       });
+transporter.verify(function(error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Server is ready to take our messages");
+        }
+      });
 
 var connection = require('./config');
 var recipe;

@@ -9,11 +9,11 @@ import { User } from '../global.service';
 @Injectable()
 
 export class ProfilePageComponent{
-  private name: string = null;
-  private email: string = null;
-  private id = 0;
+  name: string = null;
+  email: string = null;
+  id = 0;
 
-  constructor(private user: User){
+  constructor(user: User){
     console.log(this.name);
     this.name = user.getUsername();
     this.email = user.getEmail();

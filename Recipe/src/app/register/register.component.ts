@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
-import { registerLocaleData } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,15 +13,20 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   password2: string;
-
+  showErrorMessage = false;
   
-  constructor(public db:DatabaseService) { 
+  constructor(private db:DatabaseService, public router: Router) { 
     
   }
 
   register(){
-    this.db.register("email", "Username", "Password", "Password");
-
+    this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
+      console.log("Register Result: ", result);
+   //  this.router.navigate(['/']);
+    }).catch((err) => {
+      console.log("Login Error: ", err);  
+      this.showErrorMessage = true
+    });
   }
   ngOnInit() {
   }

@@ -23,8 +23,8 @@ export class LoginComponent {
 
 	update() {
     // console.log(this.loginForm.value);
-    console.log(this.name);
-    console.log(this.password);
+   // console.log(this.name);
+   // console.log(this.password);
 
     this.databaseService.login(this.name, this.password).then((result)=>{
       console.log("Login Result: ", result);
