@@ -30,7 +30,7 @@ var transporter = nodemailer.createTransport({
         secure: false,
         auth:{
                 user: 'prj666_201a06@myseneca.ca',
-                pass: '15NBgf@g65J' // new password
+                pass: '15NBgf*@g65J' // new password
         },
         tls:{
                 rejectUnauthorized: false
