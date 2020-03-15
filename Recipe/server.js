@@ -122,7 +122,6 @@ app.post('/signupCheck', function (request, response) {
                                 request.session.loggedin = true;
                                 request.session.username = username;
                                 var mailOptions = {
-                                        from: 'Recipe6@domain.com',
                                         to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
