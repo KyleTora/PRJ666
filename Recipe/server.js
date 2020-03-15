@@ -25,7 +25,7 @@ try {
 
 //set our email
 var transporter = mailer.createTransport({
-        service: 'smtp.office365.com',
+        host: 'smtp.office365.com',
         port: 587,
         secure: false,
         auth:{
