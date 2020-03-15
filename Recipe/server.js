@@ -7,7 +7,7 @@ const port = 10034;
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-var nodemailer = require('nodemailer');
+var mailer = require('nodemailer');
 const cors = require('cors');
 
 let ssl;
@@ -24,7 +24,7 @@ try {
 
 
 //set our email
-var transporter = nodemailer.createTransport({
+var transporter = mailer.createTransport({
         service: 'smtp.office365.com',
         port: 587,
         secure: false,
