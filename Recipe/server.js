@@ -122,8 +122,8 @@ app.post('/signupCheck', function (request, response) {
                                 request.session.loggedin = true;
                                 request.session.username = username;
                                 var mailOptions = {
-                                        from: 'prj666_201a06@myseneca.ca',
-                                        to: email,
+                                        from: 'Recipe6',
+                                        to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
@@ -131,7 +131,7 @@ app.post('/signupCheck', function (request, response) {
                                         if (error) {
                                                 console.log(error);
                                         } else {
-                                                console.log('Email sent: ' + info.response);
+                                                console.log('Email sent: ' + info);
                                         }
                                 })
 
