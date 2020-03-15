@@ -131,7 +131,7 @@ app.post('/signupCheck', function (request, response) {
                                         if (error) {
                                                 console.log(error);
                                         } else {
-                                                console.log('Email sent: ' + info.email);
+                                                console.log('Email sent: ' + mailOptions.email);
                                         }
                                 })
 
