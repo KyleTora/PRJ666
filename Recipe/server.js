@@ -27,11 +27,16 @@ try {
 var transporter = nodemailer.createTransport({
         service: 'smtp.office365.com',
         port: 587,
-        secure: true,
+        secure: false,
         auth:{
                 user: 'prj666_201a06@myseneca.ca',
                 pass: '15NBgf@g65J', // new password
+        },
+        tls:{
+                rejectUnauthorized: false
         }
+
+
 });
 
 transporter.verify(function(error, success) {
@@ -40,7 +45,7 @@ transporter.verify(function(error, success) {
         } else {
           console.log("Server is ready to take our messages");
         }
-      });
+});
 
 var connection = require('./config');
 var recipe;
