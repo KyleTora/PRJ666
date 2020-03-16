@@ -36,8 +36,10 @@ export class RegisterComponent implements OnInit {
      //  this.router.navigate(['/']);
       }).catch((err) => {
         console.log("Login Error: ", err); 
-        this.errorMessage = "There was an error with your credentials!";
-        this.showErrorMessage = true
+        //this.errorMessage = "There was an error with your credentials!";
+        //this.showErrorMessage = true
+        this.router.navigate(['/']);
+      
       });
     }
     
