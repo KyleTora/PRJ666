@@ -142,6 +142,21 @@ app.post('/signupCheck', function (request, response) {
         }
 });
 
+app.post('/checkEmail', function (request, response) {
+        var email = request.body.email;
+        if (email) {
+                connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
+                        if (results.length > 0) {
+                                //returning user object
+                                response.json(results[0]);
+                        } else {
+                                response.send('Invalid Email Address!');
+                        }
+                });
+        } else {
+                response.send('Enter an Email Address!');
+        }
+});
 
 app.get("/resetPass", (req, res) => {
         res.sendFile(__dirname + "/resetPassword.html");
