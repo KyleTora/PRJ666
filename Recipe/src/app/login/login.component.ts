@@ -18,10 +18,10 @@ export class LoginComponent {
   name: string;
   password: string;
   showErrorMessage = false;
- // public user: User;
+  public user: User;
   
- // constructor(public userX: User, private router: Router, private databaseService: DatabaseService) {}
-  constructor(private cookieService: CookieService, private router: Router, private databaseService: DatabaseService) {}
+  constructor(public userX: User, private router: Router, private databaseService: DatabaseService) {}
+ // constructor(private cookieService: CookieService, private router: Router, private databaseService: DatabaseService) {}
 
 	update() {
     // console.log(this.loginForm.value);
@@ -32,18 +32,18 @@ export class LoginComponent {
     this.databaseService.login(this.name, this.password).then((result)=>{
       console.log("Login Result: ", result);
 
-    if(result.success){
-      this.databaseService.user = {
-        id: result.user._id,
-        email: result.user._id,
-        password: result.user._password,
-        username: result.user._username
-      };
-      this.cookieService.set(SESSION_NAME, JSON.stringify(this.databaseService.user), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
-    }      
+    // if(result.success){
+    //   this.databaseService.user = {
+    //     id: result.user._id,
+    //     email: result.user._id,
+    //     password: result.user._password,
+    //     username: result.user._username
+    //   };
+    //   this.cookieService.set(SESSION_NAME, JSON.stringify(this.databaseService.user), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
+    // }      
 
-   //   this.userX.setUser(result.id, result.username, result.password, result.email);
-     // this.userX.logged = true;
+     this.userX.setUser(result.id, result.username, result.password, result.email);
+     this.userX.logged = true;
       this.router.navigate(['/profile-page']);
     }).catch((err) => {
       console.log("Login Error: ", err);  
