@@ -35,12 +35,15 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = { username, password};
-      this.isUserLoggedIn = true;
       const result = await this.http.post(`${`${HOST}:${PORT}`}/signinCheck`, body, { headers }).toPromise();
+      this.isUserLoggedIn = true;
     
       return result;
     } catch (err) {
+      this.isUserLoggedIn = false;
+
       throw err;
+      
     }
   }
 }
