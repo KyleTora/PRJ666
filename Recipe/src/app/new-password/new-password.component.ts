@@ -18,21 +18,20 @@ export class NewPasswordComponent implements OnInit {
   constructor(private databaseService: DatabaseService) { }
 
   reset(){
+    this.showErrorMessage = false;
+    this.showSuccessMessage = false;
+
     if(this.password != this.password2){
       this.showErrorMessage = true;
       this.errorMessage = "Passwords are not the same!";
-    }else if(this.password.length < 8 && this.password.length > 30){
+    }else if(this.password.length < 8 || this.password.length > 30){
       this.showErrorMessage = true;
       this.errorMessage = "Password must be at least 8 characters!";
     }else{
       this.databaseService.newPassword(this.email, this.password).then((result)=>{
-        console.log("Reset Result: ", result);
-        if(!result){
-          this.showErrorMessage = false;
-        }else{
-          this.showSuccessMessage = true;
-          this.successMessage = "Password has successfully been reset!";
-        }
+      console.log("Reset Result: ", result);
+        this.showSuccessMessage = true;
+        this.successMessage = "Password has successfully been reset!";
       }).catch((err) => {
         console.log("Reset Error: ", err);  
         this.showErrorMessage = true;

@@ -165,9 +165,9 @@ app.post('/resetPass', function (request, response) {
         if (password) {
                 connection.query('UPDATE User SET password = ? WHERE email = ?', [password, email], function (error, results, fields) {
                         if (error) {
-                                response.send('No such account!');
+                                response.send('error');
                         } else {
-                                response.json(results[0]);
+                                response.send(results[0]);
                         }
                 });
         } else {
