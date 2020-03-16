@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyRecipeComponent } from './my-recipe/my-recipe.component';
@@ -16,12 +16,12 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { User } from './global.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import { DatabaseService } from './services/database.service';
 
-//import { ServicesComponent } from './services/services.component';
+//import { ServicesComponent } from './services/services.component';z
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [User],
+  providers: [DatabaseService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
