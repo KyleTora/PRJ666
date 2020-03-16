@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -10,16 +11,17 @@ export class ResetPasswordComponent {
   email: string;
   showErrorMessage = false;
 
-  constructor( private databaseService: DatabaseService) { }
+  constructor( private databaseService: DatabaseService, public router: Router) { }
 
   reset(){
     this.databaseService.resetPassword(this.email ).then((result)=>{
       console.log("Reset Result: ", result);
-    
-  //    this.router.navigate(['/profile-page']);
+      this.showErrorMessage = false;
+
+       this.router.navigate(['/new-password']);
     }).catch((err) => {
       console.log("Reset Error: ", err);  
-      this.showErrorMessage = true
+      this.showErrorMessage = true;
     });
   }
   ngOnInit() {
