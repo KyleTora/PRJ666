@@ -144,6 +144,7 @@ app.post('/signupCheck', function (request, response) {
 
 app.post('/checkEmail', function (request, response) {
         var email = request.body.email;
+        console.log("EMAIL: " + email);
         if (email) {
                 connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
                         if (results.length > 0) {
