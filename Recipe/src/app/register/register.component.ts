@@ -15,10 +15,10 @@ export class RegisterComponent implements OnInit {
   password2: string;
   showErrorMessage = false;
   errorMessage: string;
+  showSuccessMessage = false;
+  successMessage: string;
 
-  constructor(private db:DatabaseService, public router: Router) { 
-    
-  }
+  constructor(private db:DatabaseService, public router: Router) {   }
 
   register(){
     if(this.password.length < 8){
@@ -34,9 +34,10 @@ export class RegisterComponent implements OnInit {
       this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
         console.log("Register Result: ", result);
         this.showErrorMessage = false;
-        this.router.navigate(['']);
+        this.showSuccessMessage = true;
+        this.successMessage = ("Account has been created! Welcome " + this.username);
       }).catch((err) => {
-        console.log("Login Error: ", err); 
+        console.log("Register Error: ", err); 
         //this.errorMessage = "There was an error with your credentials!";
         this.showErrorMessage = false;
         this.router.navigate(['']);

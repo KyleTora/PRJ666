@@ -121,6 +121,8 @@ app.post('/signupCheck', function (request, response) {
                         } else {
                                 request.session.loggedin = true;
                                 request.session.username = username;
+                                response.json(results[0]);
+
                               /*  var mailOptions = {
                                         //to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
@@ -134,7 +136,6 @@ app.post('/signupCheck', function (request, response) {
                                         }
                                 })
 */
-                                response.redirect('/');
                         }
                 });
         } else {
@@ -147,7 +148,6 @@ app.post('/checkEmail', function (request, response) {
         if (email) {
                 connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
                         if (results.length > 0) {
-                                console.log("yello: " + email);
                                 //returning user object
                                 response.json(results[0]);
                         } else {
