@@ -11,6 +11,7 @@ import { CreatePlaylistComponent } from './create-playlist/create-playlist.compo
 import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   }
 
 ];

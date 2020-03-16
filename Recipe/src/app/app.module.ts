@@ -18,6 +18,7 @@ import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { User } from './global.service';
 import { LogoutComponent } from './logout/logout.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 //import { ServicesComponent } from './services/services.component';
 
@@ -30,7 +31,7 @@ import { LogoutComponent } from './logout/logout.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent, ResetPasswordComponent
     
 
   ],
