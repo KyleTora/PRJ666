@@ -16,14 +16,17 @@ export class ResetPasswordComponent {
   reset(){
     this.databaseService.resetPassword(this.email ).then((result)=>{
       console.log("Reset Result: ", result);
-      this.showErrorMessage = false;
-
-       this.router.navigate(['/new-password']);
+      if(!result){
+        this.showErrorMessage = true;
+      }else{
+        this.router.navigate(['/new-password']);
+      }
     }).catch((err) => {
       console.log("Reset Error: ", err);  
       this.showErrorMessage = true;
     });
   }
+  
   ngOnInit() {
   }
 
