@@ -147,14 +147,15 @@ app.post('/checkEmail', function (request, response) {
         if (email) {
                 connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
                         if (results.length > 0) {
+                                console.log("yello: " + email);
                                 //returning user object
                                 response.json(results[0]);
                         } else {
-                                response.send('Invalid Email Address!');
+                                console.log('Invalid Email Address!');
                         }
                 });
         } else {
-                response.send('Enter an Email Address!');
+                console.log('Enter an Email Address!');
         }
 });
 
