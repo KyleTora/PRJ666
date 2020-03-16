@@ -22,7 +22,7 @@ try {
         console.error("Test SSL is: ", err);
 }
 
-
+/*
 //set our email
 var transporter = mailer.createTransport({
         host: 'smtp.office365.com',
@@ -46,7 +46,7 @@ transporter.verify(function(error, success) {
           console.log("Server is ready to take our messages");
         }
 });
-
+*/
 var connection = require('./config');
 var recipe;
 connection.query("SELECT * FROM Recipe", function (err, result, fields) {
@@ -121,8 +121,8 @@ app.post('/signupCheck', function (request, response) {
                         } else {
                                 request.session.loggedin = true;
                                 request.session.username = username;
-                                var mailOptions = {
-                                        to: "kyletora1@gmail.com",
+                              /*  var mailOptions = {
+                                        //to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
@@ -133,7 +133,7 @@ app.post('/signupCheck', function (request, response) {
                                                 console.log('Email sent: ' + info.response);
                                         }
                                 })
-
+*/
                                 response.redirect('/');
                         }
                 });
