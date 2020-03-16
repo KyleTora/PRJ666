@@ -3,18 +3,14 @@
 </div>
 
 <div class="login-form">
-<br>
-<br>
-    <div>
+    <br>
+    <form method="POST">
         <input id="username" type="text" placeholder="Username" [(ngModel)]="name">
-    </div>
-
-    <div>
         <input id="password" type="password" placeholder="Password" [(ngModel)]="password">
-    </div>
-    <button (click)="update()">Sign In</button>
-
+        <input type="submit" value="Sign In" (click)="update()">
+    </form>
 </div>
+
 <div class="links">
     <h4>
         <a> <br>

@@ -43,7 +43,7 @@
 }
 
 
-button{
+.login-form input[type="submit"] {
     width: 100%;
     padding: 15px;
     background-color: #535b63;

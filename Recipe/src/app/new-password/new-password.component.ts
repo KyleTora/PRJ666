@@ -30,8 +30,13 @@ export class NewPasswordComponent implements OnInit {
     }else{
       this.databaseService.newPassword(this.email, this.password).then((result)=>{
       console.log("Reset Result: ", result);
+      if(result == 1){
         this.showSuccessMessage = true;
         this.successMessage = "Password has successfully been reset!";
+      }else{
+        this.showErrorMessage = true;
+        this.errorMessage = "No account with that email was found!";
+      }
       }).catch((err) => {
         console.log("Reset Error: ", err);  
         this.showErrorMessage = true;

@@ -14,7 +14,7 @@
                 <a *ngIf="databaseService.isUserLoggedIn" routerLink="/profile-page" class="nav-item nav-link">Profile</a>
                 <a *ngIf="databaseService.isUserLoggedIn" href="/logout" class="nav-item nav-link">Sign Out</a>
                 <a *ngIf="!databaseService.isUserLoggedIn" routerLink="/register" class="nav-item nav-link">Register</a>
-                <a *ngIf="!databaseService.isUserLoggedIn" routerLink="/login" class="nav-item nav-link">Login</a>
+                <a *ngIf="!databaseService.isUserLoggedIn" routerLink="/login" class="nav-item nav-link">Sign In</a>
             </div>
         </div>
     </div>
