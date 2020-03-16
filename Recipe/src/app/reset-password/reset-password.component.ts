@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ResetPasswordComponent {
   email: string;
   showErrorMessage = false;
+  errorMessage: string;
 
   constructor( private databaseService: DatabaseService, public router: Router) { }
 
@@ -18,15 +19,17 @@ export class ResetPasswordComponent {
       console.log("Reset Result: ", result);
       if(!result){
         this.showErrorMessage = true;
+        this.errorMessage = "Enter a valid email address!";
       }else{
         this.router.navigate(['/new-password']);
       }
     }).catch((err) => {
       console.log("Reset Error: ", err);  
       this.showErrorMessage = true;
+      this.errorMessage = "Error while connecting to database!";
     });
   }
-  
+
   ngOnInit() {
   }
 

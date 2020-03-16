@@ -159,8 +159,21 @@ app.post('/checkEmail', function (request, response) {
         }
 });
 
-app.get("/resetPass", (req, res) => {
-        res.sendFile(__dirname + "/resetPassword.html");
+app.post('/resetPass', function (request, response) {
+        var password = request.body.password;
+        var email = request.body.email;
+        if (password) {
+                connection.query('UPDATE User SET password = ? WHERE email = ?', [password, email], function (error, results, fields) {
+                        if (results.length > 0) {
+                                //returning user object
+                                response.json(results[0]);
+                        } else {
+                                response.send(error);
+                        }
+                });
+        } else {
+                response.send('Enter a password');
+        }
 });
 
 app.get("/editProfile", (req, res) => {
