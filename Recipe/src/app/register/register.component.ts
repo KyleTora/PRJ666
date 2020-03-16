@@ -21,6 +21,9 @@ export class RegisterComponent implements OnInit {
   constructor(private db:DatabaseService, public router: Router) {   }
 
   register(){
+    this.showSuccessMessage = false;
+    this.showErrorMessage = false;
+
     if(this.password.length < 8){
       this.errorMessage = "Password must be at least 8 characters!";
       this.showErrorMessage = true;
@@ -35,7 +38,7 @@ export class RegisterComponent implements OnInit {
         console.log("Register Result: ", result);
         this.showErrorMessage = false;
         this.showSuccessMessage = true;
-        this.successMessage = ("Account has been created! Welcome " + this.username);
+        this.successMessage = ("Your account has been created!   Welcome " + this.username);
       }).catch((err) => {
         console.log("Register Error: ", err); 
         //this.errorMessage = "There was an error with your credentials!";

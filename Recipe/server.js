@@ -164,11 +164,10 @@ app.post('/resetPass', function (request, response) {
         var email = request.body.email;
         if (password) {
                 connection.query('UPDATE User SET password = ? WHERE email = ?', [password, email], function (error, results, fields) {
-                        if (results.length > 0) {
-                                //returning user object
-                                response.json(results[0]);
+                        if (error) {
+                                response.send('No such account!');
                         } else {
-                                response.send(error);
+                                response.json(results[0]);
                         }
                 });
         } else {
