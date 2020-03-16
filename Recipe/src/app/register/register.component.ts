@@ -33,12 +33,13 @@ export class RegisterComponent implements OnInit {
     }else{
       this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
         console.log("Register Result: ", result);
+        this.showErrorMessage = false;
      //  this.router.navigate(['/']);
       }).catch((err) => {
         console.log("Login Error: ", err); 
         //this.errorMessage = "There was an error with your credentials!";
-        //this.showErrorMessage = true
-        this.router.navigate(['/homepage']);
+        this.showErrorMessage = false;
+        this.router.navigate(['/']);
       
       });
     }
