@@ -1,19 +1,48 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { HOST, PORT } from '../../constants'
+import { HOST, PORT } from '../constants'
+import { CookieService } from 'ngx-cookie-service'
+import { SESSION_NAME, SESSION_EXPIRY_DAYS, SESSION_SECURE } from 'src/app/constants';
 
 export interface RegisterResult {
   success: boolean;
   error?: any;
 }
+export interface getUserResult{
+  success: boolean;
+  error?: any;
+  user?: dbUser;
+}
+
+export interface User{
+  id: string;
+  email:string;
+  password:string;
+  username:string;
+  //securityQuestion:string;
+  //securityAnswer:string;
+}
+export interface dbUser{
+  _id: string;
+  _email:string;
+  _password:string;
+  _username:string;
+  //_securityQuestion:string;
+  //_securityAnswer:string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
-  user?: any;
+  user?: User;
   isUserLoggedIn = false;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private cookieService: CookieService) { }
+
+  refreshCookie(): void {
+    this.cookieService.delete('user')
+    this.cookieService.set(SESSION_NAME, JSON.stringify(this.user), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
+  }
 
   async register(email:string, username:string, password:string, password2:string): Promise<RegisterResult> {
     try {
@@ -35,9 +64,14 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = { username, password};
-      const result = await this.http.post(`${`${HOST}:${PORT}`}/signinCheck`, body, { headers }).toPromise();
-      this.isUserLoggedIn = true;
-    
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/signinCheck`, body, { headers }).toPromise() as getUserResult;
+     // this.isUserLoggedIn = true;
+      const user: User = {
+        id: result.user._id,
+        email: result.user._email,
+        password: result.user._password,
+        username: result.user._username
+      };
       return result;
     } catch (err) {
       this.isUserLoggedIn = false;
