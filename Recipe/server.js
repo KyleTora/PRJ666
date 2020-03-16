@@ -167,7 +167,7 @@ app.post('/resetPass', function (request, response) {
                         if (error) {
                                 response.send('error');
                         } else {
-                                response.send(results[0]);
+                                response.send(results.affectedRows);
                         }
                 });
         } else {
