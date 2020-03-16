@@ -1,25 +1,27 @@
+<div id="errorMessage" *ngIf="showErrorMessage">
+    <h5>{{errorMessage}}</h5>
+</div>
+<div id="successMsg" *ngIf="showSuccessMessage">
+    <h5>{{successMessage}}</h5>
+</div>
 
+<div class="login-form">
+    <br>
+    <form method="POST">
+        <input type="text" name="email" placeholder="Email" [(ngModel)]="email" required>
+        <input type="text" name="username" placeholder="Username" [(ngModel)]="username" required>
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="password"required>
+        <input type="password" name="password2" placeholder="Re-Enter Password" [(ngModel)]="password2"required>
+        <input type="submit" value="Register" (click)="register()">
+    </form>
+</div>
 
-    <div class="login-form">
-        <br>
-        <br>
-        <form method="POST">
-            <input type="text" name="email" placeholder="Email" [(ngModel)]="email" required>
-            <input type="text" name="username" placeholder="Username" [(ngModel)]="username" required>
-            <input type="password" name="password" placeholder="Password" [(ngModel)]="password"required>
-            <input type="password" name="password2" placeholder="Re-Enter Password" [(ngModel)]="password2"required>
-            <input type="submit" value="Register" (click)="register()">
-        </form>
-    </div>
+<div class="links">
+    <h4>
+        <a> <br>
+            Already have an account?
+        </a>
+    </h4>
 
-
-
-    <div class="links">
-        <h4>
-            <a> <br>
-                Already have an account?
-            </a>
-        </h4>
-
-        <a routerLink="/login">Sign In</a>
-    </div>
+    <a routerLink="/login">Sign In</a>
+</div>

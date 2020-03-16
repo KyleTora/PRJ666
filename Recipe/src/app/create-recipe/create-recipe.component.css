@@ -1,0 +1,70 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  /* Add a gray background color and some padding to the footer */
+  footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    margin: auto;
+    min-height: 200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+
+  #description {
+    width: 100%;
+    resize: none;
+    overflow-y: scroll;
+    border: 10px solid #4d4d4d;
+  }
+
+  #ingredient-list {
+    list-style: none;
+    max-height: 360px;
+    margin: 0;
+    overflow-y: scroll;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+  }
+
+  #cookware-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: scroll;
+    text-indent: 10px;
+    border: 10px solid #4d4d4d;
+  }
+
+  #recipe-instruction {
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 10px solid #4d4d4d;
+  }
+
+  #tips-and-notes {
+    max-height: 200px;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    text-indent: 10px;
+    resize: none;
+    border: 10px solid #4d4d4d;
+  }
+
+  #extra {
+    background-color: orange;
+    padding: 4%;
+    margin: 5%;
+  }
