@@ -5,8 +5,8 @@
 <div class="login-form">
     <br>
     <form method="POST">
-        <input id="username" type="text" placeholder="Username" [(ngModel)]="name">
-        <input id="password" type="password" placeholder="Password" [(ngModel)]="password">
+        <input name="name" type="text" placeholder="Username" [(ngModel)]="name">
+        <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
         <input type="submit" value="Sign In" (click)="update()">
     </form>
 </div>

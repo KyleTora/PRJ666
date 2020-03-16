@@ -25,6 +25,7 @@ export class LoginComponent {
     // console.log(this.loginForm.value);
    // console.log(this.name);
    // console.log(this.password);
+   this.showErrorMessage = false;
 
     this.databaseService.login(this.name, this.password).then((result)=>{
       console.log("Login Result: ", result);
