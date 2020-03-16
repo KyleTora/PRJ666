@@ -14,19 +14,33 @@ export class RegisterComponent implements OnInit {
   password: string;
   password2: string;
   showErrorMessage = false;
-  
+  errorMessage: string;
+
   constructor(private db:DatabaseService, public router: Router) { 
     
   }
 
   register(){
-    this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
-      console.log("Register Result: ", result);
-   //  this.router.navigate(['/']);
-    }).catch((err) => {
-      console.log("Login Error: ", err);  
-      this.showErrorMessage = true
-    });
+    if(this.password.length < 8){
+      this.errorMessage = "Password must be at least 8 characters!";
+      this.showErrorMessage = true;
+    }else if(this.username == this.password){
+      this.errorMessage = "Username and Password cannot be the same!";
+      this.showErrorMessage = true;
+    }else if(this.password != this.password2){
+      this.errorMessage = "Passwords must be the same!";
+      this.showErrorMessage = true;
+    }else{
+      this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
+        console.log("Register Result: ", result);
+     //  this.router.navigate(['/']);
+      }).catch((err) => {
+        console.log("Login Error: ", err); 
+        this.errorMessage = "There was an error with your credentials!";
+        this.showErrorMessage = true
+      });
+    }
+    
   }
   ngOnInit() {
   }
