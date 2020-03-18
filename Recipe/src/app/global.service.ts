@@ -29,4 +29,12 @@ export class User{
     getLogged(){
         return this.logged;
     }
+    getAll() {
+        return {
+            id: this.id,
+            username: this.username,
+            password: this.password,
+            email: this.email
+        };
+    }
 };
