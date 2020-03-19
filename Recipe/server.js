@@ -49,11 +49,7 @@ transporter.verify(function(error, success) {
 */
 var connection = require('./config');
 var recipe;
-connection.query("SELECT * FROM Recipe", function (err, result, fields) {
-        if (err) throw err;
-        //console.log(result[0].recipe_name);
-        recipe = { 1: result[0].recipe_name, 2: result[0].ingredients, 3: result[0].servings, 4: result[0].description };
-});
+
 var app = express();
 
 
