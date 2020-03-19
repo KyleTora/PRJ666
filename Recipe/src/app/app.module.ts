@@ -41,13 +41,13 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   exports:[
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [User],
+  providers: [User, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

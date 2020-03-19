@@ -20,7 +20,7 @@ export class LoginComponent {
   showErrorMessage = false;
   public user: User;
   
-  constructor(public userX: User, private router: Router, private databaseService: DatabaseService) {}
+  constructor(public userX: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {}
  // constructor(private cookieService: CookieService, private router: Router, private databaseService: DatabaseService) {}
 
 	update() {
@@ -39,10 +39,12 @@ export class LoginComponent {
     //     password: result.user._password,
     //     username: result.user._username
     //   };
-    //   this.cookieService.set(SESSION_NAME, JSON.stringify(this.databaseService.user), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
     // }      
 
      this.userX.setUser(result.id, result.username, result.password, result.email);
+
+     this.cookieService.set(SESSION_NAME, JSON.stringify(this.userX.getAll()), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
+
      this.userX.logged = true;
       this.router.navigate(['/profile-page']);
     }).catch((err) => {

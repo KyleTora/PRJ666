@@ -8,14 +8,13 @@ import { User } from '../global.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  logged = false;
 
-  constructor(public databaseService: DatabaseService, private user: User) { 
-    if(databaseService.isUserLoggedIn){
-      this.logged = true;
-    }
-  }
+  constructor(public databaseService: DatabaseService, public user: User) { }
 
   ngOnInit() { 
+    // if(this.databaseService.isUserLoggedIn || this.user.logged === true){
+    //   this.logged = true;
+    // }
+    console.log('Nav: ', this.user.logged);
   }
 }
