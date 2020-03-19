@@ -6,7 +6,7 @@
         <div class="well">
           <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-              <input class="navbar-brand mr-3" type="text" placeholder="Recipe Name" style="color: black;" [(ngModel)]="recipeName">
+              <input class="navbar-brand mr-3" type="text" placeholder="Recipe Name" style="color: black;" [(ngModel)]="recipeName" name="recipeName">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,7 +32,7 @@
       <div class="col-sm-3" style="padding-top: 30px;">
         <label for="mealType">Select the Type of Meal</label>
         <br>
-        <select id="mealType" [(ngModel)]="mealType">
+        <select id="mealType" [(ngModel)]="mealType" name="mealType">
           <option value= "breakfast">Breakfast</option>
           <option value= "lunch">Lunch</option>
           <option value= "dinner">Dinner</option>
@@ -45,7 +45,7 @@
       <div class="col-sm-3" style="padding-top: 30px;">
         <label for="region">Select the Region</label>
         <br>
-        <select id="region" [(ngModel)]="region">
+        <select id="region" [(ngModel)]="region" name="region">
           <option value= "european">European</option>
           <option value= "asian">Asian</option>
           <option value= "middleEastern">Middle Eastern</option>
@@ -73,14 +73,14 @@
         
         <div class="well" id="extra">
           <label style="margin-right: 5px;">Total Cooktime: </label>
-          <input type="number" placeholder="0" min="0" max = "10" step=".1" [(ngModel)]="cooktime">
+          <input type="number" placeholder="0" min="0" max = "10" step=".1" [(ngModel)]="cooktime" name="cooktime">
           <label style="margin-left: 5px;"> hours</label>
 
         </div>
 
         <div class="well" id="extra">
           <label for="mealType" style="margin-right: 5px;">Number of Servings</label>
-          <select id="mealType" [(ngModel)]="servings">
+          <select id="mealType" [(ngModel)]="servings" name="servings">
             <option value= "one">1</option>
             <option value= "two">2</option>
             <option value= "three">3</option>
