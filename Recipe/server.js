@@ -7,7 +7,7 @@ const port = 10034;
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-var nodemailer = require('nodemailer');
+var mailer = require('nodemailer');
 const cors = require('cors');
 
 let ssl;
@@ -22,26 +22,31 @@ try {
         console.error("Test SSL is: ", err);
 }
 
+/*
+//set our email
+var transporter = mailer.createTransport({
+        host: 'smtp.office365.com',
+        port: 587,
+        secure: false,
+        auth:{
+                user: 'prj666_201a06@myseneca.ca',
+                pass: '15NBgf*@g65J' // new password
+        },
+        tls:{
+                rejectUnauthorized: false
+        }
 
-// //set our email
-// var transporter = nodemailer.createTransport({
-//         service: 'smtp.office365.com',
-//         port: 587,
-//         secure: true,
-//         auth:{
-//                 user: 'prj666_201a06@myseneca.ca',
-//                 pass: '15NBgf@g65J', // new password
-//         }
-// });
 
-// transporter.verify(function(error, success) {
-//         if (error) {
-//           console.log(error);
-//         } else {
-//           console.log("Server is ready to take our messages");
-//         }
-//       });
+});
 
+transporter.verify(function(error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Server is ready to take our messages");
+        }
+});
+*/
 var connection = require('./config');
 var recipe;
 connection.query("SELECT * FROM Recipe", function (err, result, fields) {
@@ -116,9 +121,10 @@ app.post('/signupCheck', function (request, response) {
                         } else {
                                 request.session.loggedin = true;
                                 request.session.username = username;
-                                var mailOptions = {
-                                        from: 'prj666_201a06@myseneca.ca',
-                                        to: email,
+                                response.json(results[0]);
+
+                              /*  var mailOptions = {
+                                        //to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
@@ -129,8 +135,7 @@ app.post('/signupCheck', function (request, response) {
                                                 console.log('Email sent: ' + info.response);
                                         }
                                 })
-
-                                response.redirect('/');
+*/
                         }
                 });
         } else {
@@ -138,9 +143,58 @@ app.post('/signupCheck', function (request, response) {
         }
 });
 
+app.post('/checkEmail', function (request, response) {
+        var email = request.body.email;
+        if (email) {
+                connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
+                        if (results.length > 0) {
+                                //returning user object
+                                response.json(results[0]);
+                        } else {
+                                response.send(error);
+                        }
+                });
+        } else {
+                response.send('Enter an Email Address!');
+        }
+});
 
-app.get("/resetPass", (req, res) => {
-        res.sendFile(__dirname + "/resetPassword.html");
+app.post('/resetPass', function (request, response) {
+        var password = request.body.password;
+        var email = request.body.email;
+        if (password) {
+                connection.query('UPDATE User SET password = ? WHERE email = ?', [password, email], function (error, results, fields) {
+                        if (error) {
+                                response.send('error');
+                        } else {
+                                response.json(results.affectedRows);
+                        }
+                });
+        } else {
+                response.send('Enter a password');
+        }
+});
+
+app.post('/newRecipe', function (request, response) {
+        var name = request.body.recipeName;
+        var type = request.body.mealType;
+        var region = request.body.region;
+        var cooktime = request.body.cooktime;
+        var servings = request.body.servings;
+        var chef = "kyletora";
+
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("INSERT INTO Temp (name, type, region, cooktime, servings, chef) VALUES(?, ?, ?, ?, ?)", [name, type, region, cooktime, servings], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results[0]);
+
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
 });
 
 app.get("/editProfile", (req, res) => {

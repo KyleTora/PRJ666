@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -6,8 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-recipe.component.css']
 })
 export class CreateRecipeComponent implements OnInit {
+  recipeName: string;
+  mealType: string;
+  region: string;
+  cooktime: number;
+  servings: number;
 
-  constructor() { }
+  constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) { }
+
+
+  save(){
+    this.databaseService.newRecipe(this.recipeName, this.mealType, this.region, this.cooktime, this.servings).then((result)=>{
+      console.log("Recipe Result: ", result);
+
+    }).catch((err)=>{
+      console.log("Recipe Error: ", err);
+
+    })
+  }
 
   ngOnInit() {
   }

@@ -7,6 +7,12 @@ import { RegisterComponent } from './register/register.component';
 import { BrowseRecipesComponent } from './browse-recipes/browse-recipes.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component'
+import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
+import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 const routes: Routes = [
   {
@@ -36,6 +42,30 @@ const routes: Routes = [
   {
     path: 'create-recipe',
     component: CreateRecipeComponent
+  },
+  {
+    path: 'create-playlist',
+    component: CreatePlaylistComponent
+  },
+  {
+    path: 'edit-playlist',
+    component: EditPlaylistComponent
+  },
+  {
+    path: 'profile-page',
+    component: ProfilePageComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+  },
+  {
+    path: 'new-password',
+    component: NewPasswordComponent
   }
 
 ];

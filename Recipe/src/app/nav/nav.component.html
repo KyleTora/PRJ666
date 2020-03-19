@@ -8,14 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="/browse" class="nav-item nav-link">Browse</a>
-                <a routerLink="/my-recipe" class="nav-item nav-link">Recipes</a>
-                <a href="#" class="nav-item nav-link">Search</a>
+                <a *ngIf="user.logged" routerLink="/my-recipe" class="nav-item nav-link">Recipes</a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a *ngIf="databaseService.user" href="/profilePage.php" class="nav-item nav-link">Profile</a>
-                <a *ngIf="databaseService.user" href="/signOut.php" class="nav-item nav-link">Sign Out</a>
-                <a *ngIf="!databaseService.user" routerLink="/register" class="nav-item nav-link">Register</a>
-                <a *ngIf="!databaseService.user" routerLink="/login" class="nav-item nav-link">Login</a>
+                <a *ngIf="user.logged" routerLink="/profile-page" class="nav-item nav-link">Profile</a>
+                <a *ngIf="user.logged" routerLink="/logout" class="nav-item nav-link">Sign Out</a>
+                <a *ngIf="!user.logged" routerLink="/register" class="nav-item nav-link">Register</a>
+                <a *ngIf="!user.logged" routerLink="/login" class="nav-item nav-link">Sign In</a>
             </div>
         </div>
     </div>

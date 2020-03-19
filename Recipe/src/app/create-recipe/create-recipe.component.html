@@ -1,19 +1,18 @@
+<form>
+
 <div class="container text-center">
     <div class="row">
       <div class="col-sm-12">
         <div class="well">
           <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-              <label class="navbar-brand mr-3">Recipe Name</label>
+              <input class="navbar-brand mr-3" type="text" placeholder="Recipe Name" style="color: black;" [(ngModel)]="recipeName">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="recipeCollapse">
                 <div class="navbar-nav ml-auto">
-                  <a href="" class="nav-item nav-link">Favourite</a>
-                  <a href="" class="nav-item nav-link">Rate Recipe</a>
-                  <a href="" class="nav-item nav-link">Save Recipe</a>
-                  <a href="" class="nav-item nav-link">Share</a>
+                  <a href="" class="nav-item nav-link" style="color: white;">Save Recipe</a>
                 </div>
               </div>
             </div>
@@ -22,35 +21,39 @@
       </div>
     </div>
   </div>
-
   <!-- First Row for Ingredients and Image -->
   <div class="container text-center size">
     <div class="row">
-      <div class="col-sm-4" style="padding-top: 30px;">
-        <label>Ingredients</label>
-        <ul id="ingredient-list">
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
-          <li>Ingredient 4</li>
-          <li>Ingredient 5</li>
-          <li>Ingredient 6</li>
-          <li>Ingredient 7</li>
-          <li>Ingredient 8</li>
-          <li>Ingredient 9</li>
-          <li>Ingredient 10</li>
-          <li>Ingredient 11</li>
-          <li>Ingredient 12</li>
-          <li>Ingredient 13</li>
-          <li>Ingredient 14</li>
-          <li>Ingredient 15</li>
-          <li>Ingredient 16</li>
-          <li>Ingredient 17</li>
-        </ul>
-      </div>
-      <div class="col-sm-8" style="margin-top: 32px;">
+      <div class="col-sm-6" style="margin-top: 32px;">
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         <button type="button" style="margin-top: 10px;">Add Photo</button>
+      </div>
+
+      <div class="col-sm-3" style="padding-top: 30px;">
+        <label for="mealType">Select the Type of Meal</label>
+        <br>
+        <select id="mealType" [(ngModel)]="mealType">
+          <option value= "breakfast">Breakfast</option>
+          <option value= "lunch">Lunch</option>
+          <option value= "dinner">Dinner</option>
+          <option value= "appetizer">Appetizer</option>
+          <option value= "dessert">Dessert</option>
+          <option value= "snack">Snack</option>
+          <option value= "other">Other</option>
+        </select>
+      </div>
+      <div class="col-sm-3" style="padding-top: 30px;">
+        <label for="region">Select the Region</label>
+        <br>
+        <select id="region" [(ngModel)]="region">
+          <option value= "european">European</option>
+          <option value= "asian">Asian</option>
+          <option value= "middleEastern">Middle Eastern</option>
+          <option value= "southAmerican">South American</option>
+          <option value= "mediterranean">Mediterranean</option>
+          <option value= "african">African</option>
+          <option value= "other">Other</option>
+        </select>
       </div>
     </div>
   </div>
@@ -67,11 +70,28 @@
         </div>
       </div>
       <div class="col-sm-4" style="margin-top: 15px;">
+        
         <div class="well" id="extra">
-          <p>Cook Time</p>
+          <label style="margin-right: 5px;">Total Cooktime: </label>
+          <input type="number" placeholder="0" min="0" max = "10" step=".1" [(ngModel)]="cooktime">
+          <label style="margin-left: 5px;"> hours</label>
+
         </div>
+
         <div class="well" id="extra">
-          <p>Number of Servings</p>
+          <label for="mealType" style="margin-right: 5px;">Number of Servings</label>
+          <select id="mealType" [(ngModel)]="servings">
+            <option value= "one">1</option>
+            <option value= "two">2</option>
+            <option value= "three">3</option>
+            <option value= "four">4</option>
+            <option value= "five">5</option>
+            <option value= "six">6</option>
+            <option value= "seven">7</option>
+            <option value= "eight">8</option>
+            <option value= "nine">9</option>
+            <option value= "ten">10+</option>
+          </select>        
         </div>
       </div>
     </div>
@@ -115,3 +135,6 @@
       </div>
     </div>
   </div><br>
+  <input type="submit" value="Save Recipe" (click)="save()">
+
+  </form>

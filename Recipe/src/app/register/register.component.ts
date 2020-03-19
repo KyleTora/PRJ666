@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
-import { registerLocaleData } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,15 +13,41 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   password2: string;
+  showErrorMessage = false;
+  errorMessage: string;
+  showSuccessMessage = false;
+  successMessage: string;
 
-  
-  constructor(public db:DatabaseService) { 
-    
-  }
+  constructor(private db:DatabaseService, public router: Router) {   }
 
   register(){
-    this.db.register("email", "Username", "Password", "Password");
+    this.showSuccessMessage = false;
+    this.showErrorMessage = false;
 
+    if(this.password.length < 8){
+      this.errorMessage = "Password must be at least 8 characters!";
+      this.showErrorMessage = true;
+    }else if(this.username == this.password){
+      this.errorMessage = "Username and Password cannot be the same!";
+      this.showErrorMessage = true;
+    }else if(this.password != this.password2){
+      this.errorMessage = "Passwords must be the same!";
+      this.showErrorMessage = true;
+    }else{
+      this.db.register(this.email, this.username, this.password, this.password2).then((result)=>{
+        console.log("Register Result: ", result);
+        this.showErrorMessage = false;
+        this.showSuccessMessage = true;
+        this.successMessage = ("Your account has been created!   Welcome " + this.username);
+      }).catch((err) => {
+        console.log("Register Error: ", err); 
+        //this.errorMessage = "There was an error with your credentials!";
+        this.showErrorMessage = false;
+        this.router.navigate(['']);
+      
+      });
+    }
+    
   }
   ngOnInit() {
   }
