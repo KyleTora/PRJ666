@@ -14,12 +14,13 @@ export class CreateRecipeComponent implements OnInit {
   region: string;
   cooktime: number;
   servings: number;
+  chef = "kyletora";
+  description: string;
 
-  constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) { }
-
+  constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  }
 
   save(){
-    this.databaseService.newRecipe(this.recipeName, this.mealType, this.region, this.cooktime, this.servings).then((result)=>{
+    this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
       console.log("Recipe Result: ", result);
 
     }).catch((err)=>{

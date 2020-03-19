@@ -66,31 +66,31 @@
       <div class="col-sm-8">
         <div class="well">
           <label class="sectionTitle">Description</label>
-          <textarea id="description" rows="5" placeholder="Description"></textarea>
+          <textarea id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"></textarea>
         </div>
       </div>
       <div class="col-sm-4" style="margin-top: 15px;">
         
         <div class="well" id="extra">
           <label style="margin-right: 5px;">Total Cooktime: </label>
-          <input type="number" placeholder="0" min="0" max = "10" step=".1" [(ngModel)]="cooktime" name="cooktime">
-          <label style="margin-left: 5px;"> hours</label>
+          <input type="number" placeholder="0" min="0" max = "10" step=".25" [(ngModel)]="cooktime" name="cooktime">
+          <label style="margin-left: 5px;"> hour(s)</label>
 
         </div>
 
         <div class="well" id="extra">
-          <label for="mealType" style="margin-right: 5px;">Number of Servings</label>
+          <label for="mealType" style="margin-right: 5px;">Number of Servings:</label>
           <select id="mealType" [(ngModel)]="servings" name="servings">
-            <option value= "one">1</option>
-            <option value= "two">2</option>
-            <option value= "three">3</option>
-            <option value= "four">4</option>
-            <option value= "five">5</option>
-            <option value= "six">6</option>
-            <option value= "seven">7</option>
-            <option value= "eight">8</option>
-            <option value= "nine">9</option>
-            <option value= "ten">10+</option>
+            <option value= "1">1</option>
+            <option value= "2">2</option>
+            <option value= "3">3</option>
+            <option value= "4">4</option>
+            <option value= "5">5</option>
+            <option value= "6">6</option>
+            <option value= "7">7</option>
+            <option value= "8">8</option>
+            <option value= "9">9</option>
+            <option value= "10">10+</option>
           </select>        
         </div>
       </div>
