@@ -16,17 +16,32 @@ export class CreateRecipeComponent implements OnInit {
   servings: number;
   chef = "kyletora";
   description: string;
+  errorMessage: string;
+  showErrorMessage: boolean;
 
   constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  }
 
   save(){
-    this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
-      console.log("Recipe Result: ", result);
+    this.showErrorMessage = false;
 
-    }).catch((err)=>{
-      console.log("Recipe Error: ", err);
+    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description){
+      this.errorMessage = "Please fill out all required fields!";
+      this.showErrorMessage = true;
+    }else if(this.description.length > 200){
+      this.errorMessage = "Description is too long!";
+      this.showErrorMessage = true;
+    }else if(this.recipeName.length > 32){
+      this.errorMessage = "Recipe name is too long!";
+      this.showErrorMessage = true;
+    }else{
+      this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
+        console.log("Recipe Result: ", result);
 
-    })
+      }).catch((err)=>{
+        console.log("Recipe Error: ", err);
+
+      })
+    }
   }
 
   ngOnInit() {
