@@ -184,7 +184,7 @@ app.post('/newRecipe', function (request, response) {
         var chef = "kyletora";
 
         if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Temp (name, type, region, cooktime, servings, chef) VALUES(?, ?, ?, ?, ?)", [name, type, region, cooktime, servings], function (error, results, fields) {
+                connection.query("INSERT INTO Temp (name, type, region, cooktime, servings, chef) VALUES(?, ?, ?, ?, ?, ?)", [name, type, region, cooktime, servings, chef], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
