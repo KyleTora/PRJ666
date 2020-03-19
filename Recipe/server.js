@@ -175,6 +175,28 @@ app.post('/resetPass', function (request, response) {
         }
 });
 
+app.post('/newRecipe', function (request, response) {
+        var name = request.body.recipeName;
+        var type = request.body.mealType;
+        var region = request.body.region;
+        var cooktime = request.body.cooktime;
+        var servings = request.body.servings;
+        var chef = "kyletora";
+
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("INSERT INTO Temp (name, type, region, cooktime, servings, chef) VALUES(?, ?, ?, ?, ?)", [name, type, region, cooktime, servings], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results[0]);
+
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
 app.get("/editProfile", (req, res) => {
         if (req.session && req.ression.user) {
                 res.locals.user = user;
