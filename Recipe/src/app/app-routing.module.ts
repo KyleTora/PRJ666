@@ -13,6 +13,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'new-password',
     component: NewPasswordComponent
+  },
+  {
+    path: 'view-recipe',
+    component: ViewRecipeComponent
   }
 
 ];

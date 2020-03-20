@@ -4,14 +4,6 @@
     border-radius: 0;
   }
 
-  #errorMessage {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-    width: auto;
-    text-align: center;
-    margin: auto;
-}
   /* Add a gray background color and some padding to the footer */
   footer {
     background-color: #f2f2f2;

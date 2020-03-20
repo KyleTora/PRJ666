@@ -20,6 +20,7 @@ import { User } from './global.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 
 //import { ServicesComponent } from './services/services.component';z
 
@@ -32,7 +33,7 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent, ResetPasswordComponent, NewPasswordComponent
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent, ResetPasswordComponent, NewPasswordComponent, ViewRecipeComponent
     
 
   ],

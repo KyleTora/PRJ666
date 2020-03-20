@@ -21,10 +21,14 @@
       </div>
     </div>
   </div>
+
+  <div id="errorMessage" *ngIf="showErrorMessage">
+    <h5>{{errorMessage}}</h5>
+</div>
   <!-- First Row for Ingredients and Image -->
   <div class="container text-center size">
     <div class="row">
-      <div class="col-sm-6" style="margin-top: 32px;">
+      <div class="col-sm-4" style="margin-top: 32px;">
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         <button type="button" style="margin-top: 10px;">Add Photo</button>
       </div>
@@ -115,7 +119,7 @@
         </ol>
       </div>
       <div class="col-sm-4">
-        <label class="sectionTitle">Cookware</label>
+        <label class="sectionTitle">Cookware (Optional)</label>
         <ul id="cookware-list">
           <li>Cookware 1</li>
           <li>Cookware 2</li>
@@ -130,7 +134,7 @@
         </ul>
       </div>
       <div class="col-sm-4">
-        <label class="sectionTitle">Tips & Notes</label>
+        <label class="sectionTitle">Tips & Notes (Optional)</label>
         <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes"></textarea>
       </div>
     </div>
