@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-recipe.component.css']
 })
 export class ViewRecipeComponent implements OnInit {
-
+  recipeName = "Chicken";
+  
   constructor() { }
 
   ngOnInit() {

@@ -4,15 +4,17 @@
         <div class="well">
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-                <input class="navbar-brand mr-3" type="text" placeholder="Recipe Name" style="color: black;" [(ngModel)]="recipeName" name="recipeName">
+                <label class="navbar-brand mr-3">{{recipeName}}</label>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="recipeCollapse">
-                <div class="navbar-nav ml-auto">
-                    <a href="" class="nav-item nav-link" style="color: white;">Save Recipe</a>
-                </div>
-                </div>
+                    <div class="navbar-nav ml-auto">
+                      <a href="" class="nav-item nav-link">Favourite</a>
+                      <a href="" class="nav-item nav-link">Rate Recipe</a>
+                      <a href="" class="nav-item nav-link">Share</a>
+                    </div>
+                  </div>
             </div>
             </nav>
         </div>
