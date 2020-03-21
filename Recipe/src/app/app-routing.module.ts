@@ -41,6 +41,10 @@ const routes: Routes = [
     component: RecipeListComponent
   },
   {
+    path: 'recipe-list/:type',
+    component: RecipeListComponent
+  },
+  {
     path: 'create-recipe',
     component: CreateRecipeComponent
   },

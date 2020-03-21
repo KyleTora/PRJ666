@@ -7,60 +7,38 @@
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
-              <p contenteditable="true">Filter options</p> 
+              <p contenteditable="true" style="text-transform: capitalize;">{{type}}</p> 
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <img src="assets/western.jfif" class="img-circle" height="55" width="55" alt="Avatar">
+
+      <a *ngFor="let recipe of recipes">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="well">
+            <img src="assets/western.jfif" class="img-circle" height="55" width="55" alt="Avatar">
+            </div>
           </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Recipe Description</p>
+          <div class="col-sm-2">
+            <div class="well">
+              <p>{{recipe.name}}</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <img src="assets/western.jfif" class="img-circle" height="55" width="55" alt="Avatar">
+          <div class="col-sm-6">
+            <div class="well">
+              <p>{{recipe.description}}</p>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Recipe Description</p>
+          <div class="col-sm-2">
+            <div class="well">
+              <a [routerLink] = "['/view-recipe', recipe.id]">View Recipe</a>
+
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <img src="assets/western.jfif" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Recipe Description</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <img src="assets/western.jfif" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Recipe Description</p>
-          </div>
-        </div>
-      </div>     
+        </div>  
+
+      </a> 
     </div>
   </div>
 </div>

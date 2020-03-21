@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseRecipesComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log();
+
+
+   }
 
   ngOnInit() {
-    console.log();
+  }
+
+  breakfast(){
+    console.log("hellow");
   }
 
 }
