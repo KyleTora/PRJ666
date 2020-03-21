@@ -1,5 +1,4 @@
 <form>
-
 <div class="container text-center">
     <div class="row">
       <div class="col-sm-12">
@@ -46,7 +45,7 @@
           <option value= "other">Other</option>
         </select>
       </div>
-      <div class="col-sm-3" style="padding-top: 30px;">
+      <div class="col-sm-2" style="padding-top: 30px;">
         <label for="region">Select the Region</label>
         <br>
         <select id="region" [(ngModel)]="region" name="region">
@@ -59,7 +58,24 @@
           <option value= "other">Other</option>
         </select>
       </div>
+      <div class="col-sm-3" style="padding-top: 30px;">
+        <label for="region">Select the Lifestyle</label>
+        <br>
+        <select id="lifestyle" [(ngModel)]="lifestyle" name="lifestyle">
+          <option value= "vegan">Vegan</option>
+          <option value= "vegetarian">Vegetarian</option>
+          <option value= "keto">Keto</option>
+          <option value= "other">Other</option>
+          <option value= "none">None</option>
+        </select>
+      </div>
     </div>
+
+    <form id = "ingredients">
+      <input type="checkbox">Option 1
+    </form>
+
+    
   </div>
   <br>
   <br>
@@ -106,16 +122,15 @@
       <div class="col-sm-4">
         <label class="sectionTitle">Instructions</label>
         <ol id="recipe-instruction">
-          <li>Step 1</li>
-          <li>Step 2</li>
-          <li>Step 3</li>
-          <li>Step 4</li>
-          <li>Step 5</li>
-          <li>Step 6</li>
-          <li>Step 7</li>
-          <li>Step 8</li>
-          <li>Step 9</li>
-          <li>Step 10</li>
+          <input type="text" placeholder="Step 1" style="color: black;" [(ngModel)]="step1" name="step1">
+          <input type="text" placeholder="Step 2" style="color: black;" [(ngModel)]="step2" name="step2">
+          <input type="text" placeholder="Step 3" style="color: black;" [(ngModel)]="step3" name="step3">
+          <input type="text" placeholder="Step 4" style="color: black;" [(ngModel)]="step4" name="step4">
+          <input type="text" placeholder="Step 5" style="color: black;" [(ngModel)]="step5" name="step5">
+          <input type="text" placeholder="Step 6" style="color: black;" [(ngModel)]="step6" name="step6">
+          <input type="text" placeholder="Step 7" style="color: black;" [(ngModel)]="step7" name="step7">
+          <input type="text" placeholder="Step 8" style="color: black;" [(ngModel)]="step8" name="step8">
+          <input type="text" placeholder="Step 9" style="color: black;" [(ngModel)]="step9" name="step9">
         </ol>
       </div>
       <div class="col-sm-4">

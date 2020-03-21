@@ -14,10 +14,26 @@ export class CreateRecipeComponent implements OnInit {
   region: string;
   cooktime: number;
   servings: number;
-  chef = "kyletora";
+  chef = "kyletora"; // get cookie for current user
   description: string;
   errorMessage: string;
   showErrorMessage: boolean;
+
+//display ingredients
+  meats = [
+    {id: 1, name:'Pork'},
+    {id: 2, name:'Steak'},
+    {id: 5, name:'Chicken'},
+    {id: 3, name:'Lamb'},
+    {id: 4, name:'Other'}
+  ];
+  other = [
+    {id: 1, name:'Pork'},
+    {id: 2, name:'Steak'},
+    {id: 5, name:'Chicken'},
+    {id: 3, name:'Lamb'},
+    {id: 4, name:'Other'}
+  ];
 
   constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  }
 
@@ -39,12 +55,10 @@ export class CreateRecipeComponent implements OnInit {
 
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
-
       })
     }
   }
 
   ngOnInit() {
   }
-
 }
