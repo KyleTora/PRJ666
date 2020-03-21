@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRecipeComponent implements OnInit {
   recipeName = "Chicken";
-  
+  mealType = "temp";
+  region = "temp";
+  description = "temp";
+  cooktime = "temp";
+  servings = "temp";
+
   constructor() { }
 
   ngOnInit() {

@@ -20,20 +20,20 @@ export class CreateRecipeComponent implements OnInit {
   showErrorMessage: boolean;
 
 //display ingredients
-  meats = [
-    {id: 1, name:'Pork'},
-    {id: 2, name:'Steak'},
-    {id: 5, name:'Chicken'},
-    {id: 3, name:'Lamb'},
-    {id: 4, name:'Other'}
-  ];
-  other = [
-    {id: 1, name:'Pork'},
-    {id: 2, name:'Steak'},
-    {id: 5, name:'Chicken'},
-    {id: 3, name:'Lamb'},
-    {id: 4, name:'Other'}
-  ];
+  // meats = [
+  //   {id: 1, name:'Pork'},
+  //   {id: 2, name:'Steak'},
+  //   {id: 5, name:'Chicken'},
+  //   {id: 3, name:'Lamb'},
+  //   {id: 4, name:'Other'}
+  // ];
+  // other = [
+  //   {id: 1, name:'Pork'},
+  //   {id: 2, name:'Steak'},
+  //   {id: 5, name:'Chicken'},
+  //   {id: 3, name:'Lamb'},
+  //   {id: 4, name:'Other'}
+  // ];
 
   constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  }
 
