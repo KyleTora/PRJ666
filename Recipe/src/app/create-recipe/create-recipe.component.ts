@@ -18,6 +18,17 @@ export class CreateRecipeComponent implements OnInit {
   description: string;
   errorMessage: string;
   showErrorMessage: boolean;
+  lifestyle: string;
+  
+  step1: string;
+  step2: string;
+  step3: string;
+  step4: string;
+  step5: string;
+  step6: string;
+  step7: string;
+  step8: string;
+  step9: string;
 
 //display ingredients
   // meats = [
