@@ -55,92 +55,21 @@
     <div class="col-sm-8">
       <label>My Recipes</label>
       <ul id="recipe-list"><br>
+        <a *ngFor="let x of id; let i = index">
 
         <div class="row">
           <div class="img">
             <img src="assets/western.jfif" alt="Image 1">
           </div>
           <ul id="eachRecipe">
-          <li>Recipe 1</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
+          <li>{{name[i]}}</li>
+          <li>Description: {{desc[i]}}</li>
+          <li>Ingreadients: </li>
         </ul>
 
         </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 2</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 3</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 4</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 5</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 6</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>Recipe 7</li>
-          <li>Creator: Name</li>
-          <li>Ingreadients: Ingredients 1, Ingredients 2</li>
-        </ul>
-
-        </div><br>
-
-      </ul>
+        </a>
+     </ul>  
     </div>
   </div>
 </div>

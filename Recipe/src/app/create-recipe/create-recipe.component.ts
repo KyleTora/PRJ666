@@ -78,6 +78,7 @@ export class CreateRecipeComponent implements OnInit {
     }else{
       this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
+        this.router.navigate(['/my-recipe']);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
