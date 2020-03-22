@@ -32,7 +32,7 @@ export class LoginComponent {
     this.databaseService.login(this.name, this.password).then((result)=>{
       console.log("Login Result: ", result);
 
-     this.userX.setUser(result.user_id, result.username, result.password, result.email);
+     this.userX.setUser(result.user_ID, result.username, result.password, result.email);
 
      this.cookieService.set(SESSION_NAME, JSON.stringify(this.userX.getAll()), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
 

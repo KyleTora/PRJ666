@@ -229,6 +229,25 @@ app.post('/loadRecipeType', function (request, response) {
         }
 });
 
+app.post('/loadUserRecipe', function (request, response) {
+        var id = request.body.userID;
+     
+        if (type) {
+                connection.query("SELECT * FROM Recipes WHERE userid = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
+
+
+
 app.get("/editProfile", (req, res) => {
         if (req.session && req.ression.user) {
                 res.locals.user = user;

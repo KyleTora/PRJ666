@@ -30,10 +30,10 @@
             <div class="col-md-4">
                 <div class="profile-work">
                   <p>Name</p>
-                    <a href="/myRecipes.html">Recipes</a><br/>
-                    <a href="/createPlaylist.html">Playlists</a><br/>
-                    <a href="/browseRecipes.html">Favourites</a>
-                </div>
+                    <a routerLink= "/my-recipe">Recipes</a><br>
+                    <a routerLink= "/my-playlists">Playlists</a><br>
+                    <a [routerLink] = "['/recipe-list', 'favourites']">Favourites</a>
+                    </div>
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">

@@ -15,8 +15,6 @@ export class RecipeListComponent implements OnInit {
   desc = [];
   size: number;
 
-  //recipes = [{id:0},{name: " "},{desc: " "}];
-
   constructor(private route: ActivatedRoute, private db: DatabaseService){ }
 
   ngOnInit() {

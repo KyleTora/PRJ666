@@ -14,9 +14,11 @@ export class ProfilePageComponent{
   id = 0;
 
   constructor(user: User){
-    console.log(this.name);
     this.name = user.getUsername();
     this.email = user.getEmail();
-    this.id = user.getId();
+    this.id = user.getId();    
+    console.log(this.name);
+
+    
   }
 }

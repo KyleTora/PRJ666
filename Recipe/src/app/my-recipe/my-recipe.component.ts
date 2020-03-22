@@ -25,15 +25,15 @@ export class MyRecipeComponent implements OnInit {
    }
 
   ngOnInit() {      
-      // this.db.loadUserRecipe(this.userID).then((result)=>{
-      //   console.log("Recipe Result: ", result);
-      //   var i = 0;
-      //   for (let recipe of result){
-      //     this.id[i] = recipe.recipe_id;
-      //     this.name[i] = recipe.recipeName;
-      //     this.desc[i] = recipe.description;
-      //     i++;
-      //   }
-      // })
+      this.db.loadUserRecipe(this.userID).then((result)=>{
+        console.log("Recipe Result: ", result);
+        var i = 0;
+        for (let recipe of result){
+          this.id[i] = recipe.recipe_id;
+          this.name[i] = recipe.recipeName;
+          this.desc[i] = recipe.description;
+          i++;
+        }
+      })
     }
 }
