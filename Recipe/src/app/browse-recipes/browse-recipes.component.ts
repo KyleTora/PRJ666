@@ -9,15 +9,8 @@ export class BrowseRecipesComponent implements OnInit {
 
   constructor() {
     console.log();
-
-
    }
 
   ngOnInit() {
   }
-
-  breakfast(){
-    console.log("hellow");
-  }
-
 }

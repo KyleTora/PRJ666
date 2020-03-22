@@ -194,29 +194,21 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
-app.post('/getRecipes', function (request, response) {
-        var name = request.body.recipeName;
-        var type = request.body.mealType;
-        var region = request.body.region;
-        var description = request.body.description;
-        var cooktime = request.body.cooktime;
-        var servings = request.body.servings;
-        var chef = request.body.chef;
-
-        if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Recipes (recipeName, chef, mealType, region, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?)", [name, chef, type, region, description, cooktime, servings], function (error, results, fields) {
+app.post('/loadRecipe', function (request, response) {
+        var id = request.body.id;
+     
+        if (id > 0) {
+                connection.query("SELECT * FROM Recipes WHERE recipe_id = ?", [id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
                                 response.json(results[0]);
-
                         }
                 });
         } else {
                 response.send('Please enter Recipe!');
         }
 });
-
 
 app.get("/editProfile", (req, res) => {
         if (req.session && req.ression.user) {

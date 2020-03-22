@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CookieService } from 'ngx-cookie-service';
+import { User } from '../global.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -14,12 +15,12 @@ export class CreateRecipeComponent implements OnInit {
   region: string;
   cooktime: number;
   servings: number;
-  chef = "kyletora"; // get cookie for current user
+  chef: string; // get cookie for current user
   description: string;
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
-  
+
   step1: string;
   step2: string;
   step3: string;
@@ -46,11 +47,12 @@ export class CreateRecipeComponent implements OnInit {
   //   {id: 4, name:'Other'}
   // ];
 
-  constructor(private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  }
+  constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
+    this.chef = user.getUsername();
+  }
 
   save(){
     this.showErrorMessage = false;
-
     if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description){
       this.errorMessage = "Please fill out all required fields!";
       this.showErrorMessage = true;

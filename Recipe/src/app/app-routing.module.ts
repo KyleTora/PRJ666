@@ -75,6 +75,10 @@ const routes: Routes = [
   {
     path: 'view-recipe',
     component: ViewRecipeComponent
+  },
+  {
+    path: 'view-recipe/:id',
+    component: ViewRecipeComponent
   }
 
 ];
