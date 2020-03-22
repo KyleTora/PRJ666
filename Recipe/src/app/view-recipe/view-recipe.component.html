@@ -26,35 +26,31 @@
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <button type="button" style="margin-top: 10px;">Add Photo</button>
         </div>
 
         <div class="col-sm-3" style="padding-top: 30px;">
-        <label for="mealType">Select the Type of Meal</label>
-        <br>
-        <select id="mealType" [(ngModel)]="mealType" name="mealType">
-            <option value= "breakfast">Breakfast</option>
-            <option value= "lunch">Lunch</option>
-            <option value= "dinner">Dinner</option>
-            <option value= "appetizer">Appetizer</option>
-            <option value= "dessert">Dessert</option>
-            <option value= "snack">Snack</option>
-            <option value= "other">Other</option>
-        </select>
+            <div class="extra">Type of Meal:</div>
         </div>
         <div class="col-sm-3" style="padding-top: 30px;">
-        <label for="region">Select the Region</label>
-        <br>
-        <select id="region" [(ngModel)]="region" name="region">
-            <option value= "european">European</option>
-            <option value= "asian">Asian</option>
-            <option value= "middleEastern">Middle Eastern</option>
-            <option value= "southAmerican">South American</option>
-            <option value= "mediterranean">Mediterranean</option>
-            <option value= "african">African</option>
-            <option value= "other">Other</option>
-        </select>
+            <label>{{mealType}}</label>
         </div>
+
+
+        <div class="col-sm-3" style="padding-top: 30px;">
+            <div class="extra">Region:</div>
+        </div>
+        <div class="col-sm-3" style="padding-top: 30px;">
+            <label>{{region}}</label>
+        </div>
+
+
+        <div class="col-sm-3" style="padding-top: 30px;">
+            <div class="extra">Lifestyle:</div>
+        </div>
+        <div class="col-sm-3" style="padding-top: 30px;">
+            <label>{{lifeStyle}}</label>
+        </div>
+
     </div>
     </div>
     <br>
@@ -66,32 +62,20 @@
         <div class="col-sm-8">
         <div class="well">
             <label class="sectionTitle">Description</label>
-            <textarea id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"></textarea>
+            <label id="description" rows="5">{{description}}</label>
         </div>
         </div>
         <div class="col-sm-4" style="margin-top: 15px;">
         
-        <div class="well" id="extra">
+        <div class="well" id="extra" style="margin-top: 25px;">
             <label style="margin-right: 5px;">Total Cooktime: </label>
-            <input type="number" placeholder="0" min="0" max = "10" step=".25" [(ngModel)]="cooktime" name="cooktime">
-            <label style="margin-left: 5px;"> hour(s)</label>
+            <label style="margin-left: 5px;">{{cooktime}} hour(s)</label>
 
         </div>
 
         <div class="well" id="extra">
             <label for="mealType" style="margin-right: 5px;">Number of Servings:</label>
-            <select id="mealType" [(ngModel)]="servings" name="servings">
-            <option value= "1">1</option>
-            <option value= "2">2</option>
-            <option value= "3">3</option>
-            <option value= "4">4</option>
-            <option value= "5">5</option>
-            <option value= "6">6</option>
-            <option value= "7">7</option>
-            <option value= "8">8</option>
-            <option value= "9">9</option>
-            <option value= "10">10+</option>
-            </select>        
+            <label>{{servings}}</label>
         </div>
         </div>
     </div>
@@ -102,16 +86,15 @@
         <div class="col-sm-4">
         <label class="sectionTitle">Instructions</label>
         <ol id="recipe-instruction">
-            <li>Step 1</li>
-            <li>Step 2</li>
-            <li>Step 3</li>
-            <li>Step 4</li>
-            <li>Step 5</li>
-            <li>Step 6</li>
-            <li>Step 7</li>
-            <li>Step 8</li>
-            <li>Step 9</li>
-            <li>Step 10</li>
+            <li>{{step1}}</li>
+            <li>{{step2}} 2</li>
+            <li>{{step3}} 3</li>
+            <li>{{step4}} 4</li>
+            <li>{{step5}} 5</li>
+            <li>{{step6}} 6</li>
+            <li>{{step7}} 7</li>
+            <li>{{step8}} 8</li>
+            <li>{{step9}} 9</li>
         </ol>
         </div>
         <div class="col-sm-4">

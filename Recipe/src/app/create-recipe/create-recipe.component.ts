@@ -65,7 +65,6 @@ export class CreateRecipeComponent implements OnInit {
     }else{
       this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
         console.log("Recipe Result: ", result);
-
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })

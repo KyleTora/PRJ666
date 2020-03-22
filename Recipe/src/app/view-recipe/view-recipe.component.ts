@@ -11,12 +11,12 @@ export class ViewRecipeComponent implements OnInit {
   id: number;
   private sub: any;
 
-  recipeName = "Chicken";
-  mealType = "temp";
-  region = "temp";
-  description = "temp";
-  cooktime = "temp";
-  servings = "temp";
+  recipeName: string;
+  mealType: string;
+  region: string;
+  description: string;
+  cooktime: number;
+  servings: number;
 
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
 
@@ -24,10 +24,16 @@ export class ViewRecipeComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
 
-      console.log(this.id);
       this.db.loadRecipe(this.id).then((result)=>{
         console.log("Recipe Result: ", result);
-
+        this.recipeName = result.recipeName;
+        this.mealType = result.mealType;
+        this.region = result.region;
+        this.description = result.description;
+        this.cooktime = result.cooktime;
+        this.servings = result.servings;
+    
+     
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
