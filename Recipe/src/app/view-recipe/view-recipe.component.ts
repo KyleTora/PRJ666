@@ -17,7 +17,7 @@ export class ViewRecipeComponent implements OnInit {
   description: string;
   cooktime: number;
   servings: number;
-
+  lifestyle: string;
   instructions = [];
   
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
@@ -34,8 +34,8 @@ export class ViewRecipeComponent implements OnInit {
         this.description = result.description;
         this.cooktime = result.cooktime;
         this.servings = result.servings;
-        
-     
+        this.lifestyle = result.lifestyle;
+        //set instrucitons
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
