@@ -210,6 +210,22 @@ app.post('/loadRecipe', function (request, response) {
         }
 });
 
+app.post('/loadRecipeType', function (request, response) {
+        var type = request.body.type;
+     
+        if (type) {
+                connection.query("SELECT * FROM Recipes WHERE mealType = ?", [type], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
 app.get("/editProfile", (req, res) => {
         if (req.session && req.ression.user) {
                 res.locals.user = user;
