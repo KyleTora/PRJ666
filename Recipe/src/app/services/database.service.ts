@@ -115,14 +115,14 @@ export class DatabaseService {
     }
   }
 
-  async newRecipe(recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
+  async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {recipeName, chef, mealType, region, description, cooktime, servings};
+      const body = {userID, recipeName, chef, mealType, region, description, cooktime, servings,lifestyle};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newRecipe`, body, { headers }).toPromise();
     
       return result;
@@ -158,6 +158,23 @@ export class DatabaseService {
       });
       const body = {type};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/loadRecipeType`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+  async loadUserRecipe(userID: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {userID};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadUserRecipe`, body, { headers }).toPromise();
     
       return result;
     } catch (err) {

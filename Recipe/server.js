@@ -172,6 +172,7 @@ app.post('/resetPass', function (request, response) {
 });
 
 app.post('/newRecipe', function (request, response) {
+        var userID = request.body.userID;
         var name = request.body.recipeName;
         var type = request.body.mealType;
         var region = request.body.region;
@@ -183,7 +184,7 @@ app.post('/newRecipe', function (request, response) {
 
 
         if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Recipes (recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
+                connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {

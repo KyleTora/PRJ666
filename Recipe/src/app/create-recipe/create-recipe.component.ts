@@ -16,12 +16,13 @@ export class CreateRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
   chef: string; // get cookie for current user
+  userID: number; // getuserid
   description: string;
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
   tips: string;
-  
+
   step1: string;
   step2: string;
   step3: string;
@@ -60,6 +61,7 @@ export class CreateRecipeComponent implements OnInit {
 
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
     this.chef = user.getUsername();
+    this.userID = user.getId();
   }
 
   save(){
@@ -74,7 +76,7 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
     }else{
-      this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
