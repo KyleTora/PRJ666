@@ -179,9 +179,11 @@ app.post('/newRecipe', function (request, response) {
         var cooktime = request.body.cooktime;
         var servings = request.body.servings;
         var chef = request.body.chef;
+        var lifestyle = request.body.lifestyle;
+
 
         if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Recipes (recipeName, chef, mealType, region, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?)", [name, chef, type, region, description, cooktime, servings], function (error, results, fields) {
+                connection.query("INSERT INTO Recipes (recipeName, chef, mealType, region, description, cooktime, servings, lifestyle) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [name, chef, type, region, description, cooktime, servings, lifestyle], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {

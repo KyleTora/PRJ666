@@ -115,7 +115,7 @@ export class DatabaseService {
     }
   }
 
-  async newRecipe(recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number): Promise<any>{
+  async newRecipe(recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',

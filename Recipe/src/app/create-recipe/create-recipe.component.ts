@@ -53,7 +53,7 @@ export class CreateRecipeComponent implements OnInit {
 
   save(){
     this.showErrorMessage = false;
-    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description){
+    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifestyle){
       this.errorMessage = "Please fill out all required fields!";
       this.showErrorMessage = true;
     }else if(this.description.length > 200){
@@ -63,7 +63,7 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
     }else{
-      this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
+      this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
