@@ -20,7 +20,8 @@ export class CreateRecipeComponent implements OnInit {
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
-
+  tips: string;
+  
   step1: string;
   step2: string;
   step3: string;
@@ -30,6 +31,16 @@ export class CreateRecipeComponent implements OnInit {
   step7: string;
   step8: string;
   step9: string;
+
+  cookware1: string;
+  cookware2: string;
+  cookware3: string;
+  cookware4: string;
+  cookware5: string;
+  cookware6: string;
+  cookware7: string;
+  cookware8: string;
+  cookware9: string;
 
 //display ingredients
   // meats = [
