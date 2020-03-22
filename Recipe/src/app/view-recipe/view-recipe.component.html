@@ -86,15 +86,9 @@
         <div class="col-sm-4">
         <label class="sectionTitle">Instructions</label>
         <ol id="recipe-instruction">
-            <li>{{step1}}</li>
-            <li>{{step2}} 2</li>
-            <li>{{step3}} 3</li>
-            <li>{{step4}} 4</li>
-            <li>{{step5}} 5</li>
-            <li>{{step6}} 6</li>
-            <li>{{step7}} 7</li>
-            <li>{{step8}} 8</li>
-            <li>{{step9}} 9</li>
+            <a *ngFor="let steps of instructions">
+                <p>{{steps}}</p>
+            </a>
         </ol>
         </div>
         <div class="col-sm-4">

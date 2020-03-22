@@ -18,6 +18,8 @@ export class ViewRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
 
+  instructions = [];
+  
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class ViewRecipeComponent implements OnInit {
         this.description = result.description;
         this.cooktime = result.cooktime;
         this.servings = result.servings;
-    
+        
      
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
