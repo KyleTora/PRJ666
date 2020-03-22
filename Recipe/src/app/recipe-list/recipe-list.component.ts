@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-recipe-list',
@@ -10,28 +11,29 @@ import { DatabaseService } from '../services/database.service';
 export class RecipeListComponent implements OnInit {
   type: string;
   private sub: any;
-  id:number;
-  name: string;
-  desc: string;
+  id = [];
+  name = [];
+  desc = [];
+  size: number;
 
-  recipes = [{id:0},{name:""},{desc:""}]
+  //recipes = [{id:0},{name: " "},{desc: " "}];
 
   constructor(private route: ActivatedRoute, private db: DatabaseService){ }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.type = params['type'];
-
+      
       this.db.loadRecipeType(this.type).then((result)=>{
         console.log("Recipe Result: ", result);
-        
-        this.recipes[1].id = result.recipe_id;
-        this.recipes[1].name = result.recipeName;
-        this.recipes[1].desc = result.description;
+        var i = 0;
+        for (let recipe of result){
+          this.id[i] = recipe.recipe_id;
+          this.name[i] = recipe.recipeName;
+          this.desc[i] = recipe.description;
+          i++;
+        }
       })
     })
-    console.log(this.type);
-
   }
-
 }

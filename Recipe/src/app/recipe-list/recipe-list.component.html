@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <a *ngFor="let recipe of recipes">
+      <a *ngFor="let x of id; let i = index">
         <div class="row">
           <div class="col-sm-2">
             <div class="well">
@@ -22,17 +22,17 @@
           </div>
           <div class="col-sm-2">
             <div class="well">
-              <p>{{recipe.name}}</p>
+              <p>{{name[i]}}</p>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="well">
-              <p>{{recipe.desc}}</p>
+              <p>{{desc[i]}}</p>
             </div>
           </div>
           <div class="col-sm-2">
             <div class="well">
-              <a [routerLink] = "['/view-recipe', recipe.id]">View Recipe</a>
+              <a [routerLink] = "['/view-recipe', x]">View Recipe</a>
 
             </div>
           </div>
