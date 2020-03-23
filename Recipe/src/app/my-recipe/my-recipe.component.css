@@ -27,7 +27,7 @@
     width: 100%;
     resize: none;
     overflow-y: scroll;
-    border: 10px solid #4d4d4d;
+    border: 10px solid #353a40;
   }
 
   #recipe-list {
@@ -35,16 +35,16 @@
     max-height: 700px;
     overflow-y: scroll;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
-    background-color: #4d4d4d;
+    border: 10px solid #353a40;
+    background-color: #353a40;
     color: white;
   }
 
   #eachrecipe {
     overflow-y: scroll;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
-    background-color: #4d4d4d;
+    border: 10px solid #353a40;
+    background-color: #353a40;
     color: white;
   }
 
@@ -53,7 +53,7 @@
     list-style: none;
     max-height: 700px;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
+    border: 10px solid #353a40;
   }
 
   #options-list {
@@ -61,8 +61,8 @@
     max-height: 700px;
     height: 700px;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
-    background-color: #4d4d4d;
+    border: 10px solid #353a40;
+    background-color: #353a40;
   }
 
   #cookware-list {
@@ -70,13 +70,13 @@
     max-height: 200px;
     overflow-y: scroll;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
+    border: 10px solid #353a40;
   }
 
   #recipe-instruction {
     max-height: 200px;
     overflow-y: scroll;
-    border: 10px solid #4d4d4d;
+    border: 10px solid #353a40;
   }
 
   #tips-and-notes {
@@ -86,7 +86,7 @@
     overflow-y: scroll;
     text-indent: 10px;
     resize: none;
-    border: 10px solid #4d4d4d;
+    border: 10px solid #353a40;
   }
 
   #extra {

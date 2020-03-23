@@ -94,3 +94,50 @@ body{
     font-weight: 600;
     color: #0062cc;
 }
+
+
+/* Custom Stylings */
+
+.button {
+    float: right;
+}
+
+#backgroundColour {
+    background-color: #353a40;
+}
+
+.profileImage img {
+    width: 380px;
+    height: 270px;
+}
+
+#borderImage {
+    border: 1px solid white;
+}
+
+.profileName {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.profileBio{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.profileDescription{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.editButton{
+    border: none;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.colBorder{
+    border-radius: 2rem;
+}
