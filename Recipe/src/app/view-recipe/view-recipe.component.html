@@ -4,7 +4,7 @@
         <div class="well">
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-                <label class="navbar-brand mr-3">{{recipeName}}</label>
+                <label class="navbar-brand mr-3" style="margin-top: 5px;">{{recipeName}}</label>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,31 +25,14 @@
     <div class="container text-center size">
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+            <img src="assets/western.jfif" class="img-responsive" style="width:100%" alt="Image">
         </div>
-
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <div class="extra">Type of Meal:</div>
-        </div>
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <label>{{mealType}}</label>
-        </div>
-
-
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <div class="extra">Region:</div>
-        </div>
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <label>{{region}}</label>
-        </div>
-
-
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <div class="extra">Lifestyle:</div>
-        </div>
-        <div class="col-sm-3" style="padding-top: 30px;">
-            <label>{{lifeStyle}}</label>
-        </div>
+        <div class = "col-sm-6" style="margin-top: 32px;">
+            <div class="extra">Ingredients:</div><br>
+            <a *ngFor="let ings of ingredients">
+                <p>{{ings}}</p>
+            </a>       
+        
 
     </div>
     </div>
@@ -57,6 +40,35 @@
     <br>
 
     <!-- First Row for Description, Cook Time, and Number of Servings -->
+        
+    <div class="row">
+    <div class="col-sm-4" style="padding-top: 30px;">
+        <div class="extra">Type of Meal</div>
+    </div>
+
+    <div class="col-sm-4" style="padding-top: 30px;">
+        <div class="extra">Region</div>
+    </div>
+  
+    <div class="col-sm-4" style="padding-top: 30px;">
+        <div class="extra">Lifestyle</div>
+    </div>
+ 
+</div>
+<div class="row">
+
+    <div class="col-sm-4">
+        <div class="extra">{{mealType}}</div>
+    </div>
+    <div class="col-sm-4">
+        <div class="extra">{{region}}</div>
+    </div>
+    <div class="col-sm-4" >
+        <div class="extra">{{lifeStyle}}</div>
+    </div>
+</div>
+
+
     <div class="container text-center">
     <div class="row">
         <div class="col-sm-8">

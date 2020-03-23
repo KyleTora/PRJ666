@@ -19,6 +19,7 @@ export class ViewRecipeComponent implements OnInit {
   servings: number;
   lifeStyle: string;
   instructions = [];
+  ingredients = ["Ingredient 1","Ingredient 2","Ingredient 3","Ingredient 4"]
   
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
 
