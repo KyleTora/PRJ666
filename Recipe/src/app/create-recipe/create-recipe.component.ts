@@ -16,10 +16,12 @@ export class CreateRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
   chef: string; // get cookie for current user
+  userID: number; // getuserid
   description: string;
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
+  tips: string;
 
   step1: string;
   step2: string;
@@ -30,6 +32,16 @@ export class CreateRecipeComponent implements OnInit {
   step7: string;
   step8: string;
   step9: string;
+
+  cookware1: string;
+  cookware2: string;
+  cookware3: string;
+  cookware4: string;
+  cookware5: string;
+  cookware6: string;
+  cookware7: string;
+  cookware8: string;
+  cookware9: string;
 
 //display ingredients
   // meats = [
@@ -49,11 +61,12 @@ export class CreateRecipeComponent implements OnInit {
 
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
     this.chef = user.getUsername();
+    this.userID = user.getId();
   }
 
   save(){
     this.showErrorMessage = false;
-    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description){
+    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifestyle){
       this.errorMessage = "Please fill out all required fields!";
       this.showErrorMessage = true;
     }else if(this.description.length > 200){
@@ -63,8 +76,9 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
     }else{
-      this.databaseService.newRecipe(this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings).then((result)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
+        this.router.navigate(['/my-recipe']);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })

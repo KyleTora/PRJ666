@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,8 +14,6 @@ export class RecipeListComponent implements OnInit {
   name = [];
   desc = [];
   size: number;
-
-  //recipes = [{id:0},{name: " "},{desc: " "}];
 
   constructor(private route: ActivatedRoute, private db: DatabaseService){ }
 

@@ -172,6 +172,7 @@ app.post('/resetPass', function (request, response) {
 });
 
 app.post('/newRecipe', function (request, response) {
+        var userID = request.body.userID;
         var name = request.body.recipeName;
         var type = request.body.mealType;
         var region = request.body.region;
@@ -179,9 +180,11 @@ app.post('/newRecipe', function (request, response) {
         var cooktime = request.body.cooktime;
         var servings = request.body.servings;
         var chef = request.body.chef;
+        var lifestyle = request.body.lifestyle;
+
 
         if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Recipes (recipeName, chef, mealType, region, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?)", [name, chef, type, region, description, cooktime, servings], function (error, results, fields) {
+                connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
@@ -225,6 +228,25 @@ app.post('/loadRecipeType', function (request, response) {
                 response.send('Please enter Recipe!');
         }
 });
+
+app.post('/loadUserRecipe', function (request, response) {
+        var id = request.body.userID;
+     
+        if (id > 0) {
+                connection.query("SELECT * FROM Recipes WHERE userid = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
+
+
 
 app.get("/editProfile", (req, res) => {
         if (req.session && req.ression.user) {

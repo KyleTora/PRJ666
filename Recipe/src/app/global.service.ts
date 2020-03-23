@@ -4,7 +4,7 @@ import { Injectable, Directive } from '@angular/core';
 
 export class User{
     logged: boolean;
-    id = 0;
+    id: number;
     username: string;
     password: string;
     email: string;
