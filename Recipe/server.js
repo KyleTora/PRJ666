@@ -211,7 +211,7 @@ app.post('/newRecipe', function (request, response) {
         } else {
                 response.send('Please enter Recipe!');
         }
-        if(instructions && recipe_id >= 0){
+        if(instructions ){
                 connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [instructions[0], 6], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Ingredient Format!');
