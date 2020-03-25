@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from '../global.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-recipe',
@@ -22,10 +23,19 @@ export class CreateRecipeComponent implements OnInit {
   showErrorMessage: boolean;
   lifestyle: string;
   tips: string;
-  instructions: string[] = new Array("Step 1", "Step 2", "Step 3");
+  instructions = new Array;
+  step1: string;
+  step2: string;
+  step3: string;
+  step4: string;
+  step5: string;
+  step6: string;
+  step7: string;
+  step8: string;
+  step9: string;
 
 
-//display ingredients
+  //display ingredients
   // meats = [
   //   {id: 1, name:'Pork'},
   //   {id: 2, name:'Steak'},
@@ -46,7 +56,37 @@ export class CreateRecipeComponent implements OnInit {
     this.userID = user.getId();
   }
 
-  save(){
+  save(){      
+    if(this.step1){
+      this.instructions.push(this.step1);
+    }
+    if(this.step2){
+      this.instructions.push(this.step2);
+    }
+    if(this.step3){
+      this.instructions.push(this.step3);
+    }
+    if(this.step4){
+      this.instructions.push(this.step4);
+    }
+    if(this.step5){
+      this.instructions.push(this.step5);
+    }
+    if(this.step6){
+      this.instructions.push(this.step6);
+    }
+    if(this.step7){
+      this.instructions.push(this.step7);
+    }
+    if(this.step8){
+      this.instructions.push(this.step8);
+    }
+    if(this.step9){
+      this.instructions.push(this.step9);
+    }
+    
+    console.log(this.instructions); 
+
     this.showErrorMessage = false;
     if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifestyle){
       this.errorMessage = "Please fill out all required fields!";
@@ -57,13 +97,21 @@ export class CreateRecipeComponent implements OnInit {
     }else if(this.recipeName.length > 32){
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
-    }else{     
-      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions).then((result)=>{
-        console.log("Recipe Result: ", result);
-        this.router.navigate(['/my-recipe']);
-      }).catch((err)=>{
-        console.log("Recipe Error: ", err);
-      })
+    }else if(!this.step1){
+      this.errorMessage = "Enter at least one instruction!"; 
+      this.showErrorMessage = true;
+    }else{   
+     // this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions).then((result)=>{
+       // console.log("Recipe Result: ", result);
+        this.databaseService.newSteps(this.instructions, 2).then((result2)=>{
+          console.log("Steps Result: ", result2);
+        }).catch((err) =>{
+          console.log("Steps Error: ", err);
+        })
+      //  this.router.navigate(['/my-recipe']);
+     // }).catch((err)=>{
+     //   console.log("Recipe Error: ", err);
+     // })
     }
   }
 

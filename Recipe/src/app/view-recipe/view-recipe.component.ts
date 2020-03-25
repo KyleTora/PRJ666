@@ -40,12 +40,9 @@ export class ViewRecipeComponent implements OnInit {
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
-        var a = 0;
      
-
-          this.instructions = "yeet";
+        this.instructions = "yeet";
          console.log(this.instructions);
-        var c = 0;
       
         //set instrucitons
       }).catch((err)=>{

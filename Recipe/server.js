@@ -197,30 +197,48 @@ app.post('/newRecipe', function (request, response) {
         var servings = request.body.servings;
         var chef = request.body.chef;
         var lifestyle = request.body.lifestyle;
-        var instructions = request.body.instructions;
       //  var recipe_id = -1;
-        // if (name && type && region && cooktime && servings && chef) {
-        //         connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
-        //                 if (error) {
-        //                         response.send('Incorrect Recipe Format!');
-        //                 } else {
-        //                         recipe_id = result.recipe_id;
-        //                         response.json(results[0]);
-        //                 }
-        //         });
-        // } else {
-        //         response.send('Please enter Recipe!');
-        // }
-        if(instructions ){
-                connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [name, userID],  function (error, results, fields) {
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
-                                response.send('Incorrect Ingredient Format!');
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                recipe_id = result.recipe_id;
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+        
+        // if(instructions ){
+        //         connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [name, userID],  function (error, results, fields) {
+        //                 if (error) {
+        //                         response.send('Incorrect Ingredient Format!');
+        //                 } else {
+        //                         response.json(results);
+        //                 }   
+        //         });
+        // }else {
+        //         response.send('Please enter Ingredients!');
+        // }
+});
+
+app.post('/addSteps', function(req, res){
+        var instructions = req.body.instructions;
+        var recipe = req.body.recipe_id;
+        //var size = instructions.length;
+        
+        if(instructions ){
+                connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions],  function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Instructions Format!');
                         } else {
                                 response.json(results);
                         }   
                 });
         }else {
-                response.send('Please enter Ingredients!');
+                response.send('Please enter Instructions!');
         }
 });
 
