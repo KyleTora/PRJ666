@@ -214,7 +214,7 @@ app.post('/newRecipe', function (request, response) {
         if(instructions ){
                 connection.query("INSERT INTO Ingredient(ingredient_name, recipe_id) VALUES('yeet',6)",  function (error, results, fields) {
                         if (error) {
-                                response.send('Incorrect Ingredient Format!');
+                                response.send('Incorrect Ingredient Format');
                         } else {
                                 response.json(results);
                         }   
