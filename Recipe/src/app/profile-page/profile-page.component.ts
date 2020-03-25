@@ -12,11 +12,13 @@ export class ProfilePageComponent{
   name: string = null;
   email: string = null;
   id = 0;
+  bio: string;
 
   constructor(user: User){
     this.name = user.getUsername();
     this.email = user.getEmail();
     this.id = user.getId();    
+    this.bio = user.getBio();
     console.log(this.name);
 
     

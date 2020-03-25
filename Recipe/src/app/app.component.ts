@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     if (this.cookieService.check(SESSION_NAME)) {
       const user = JSON.parse(this.cookieService.get(SESSION_NAME));
-      this.userX.setUser(user.id, user.username, user.password, user.email);
+      this.userX.setUser(user.id, user.username, user.password, user.email, user.bio);
     }
     console.log("Cookie: ", this.userX.getAll());
   }

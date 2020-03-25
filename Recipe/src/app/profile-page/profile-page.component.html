@@ -3,48 +3,21 @@
 <div class="container emp-profile">
     <form method="post">
         <div class="row">
-
-            <!-- Profile Links -->
-            <div style="background-color: #353a40; margin-bottom: 50px;">
-                <div class="col-md-2" style="padding-top: 100px;">
-                    <a href="/myRecipes.html" style="color: white;">
-                        <h5>Recipes</h5>
-                    </a><br />
-                    <a href="/createPlaylist.html" style="color: white;">
-                        <h5>Playlists</h5>
-                    </a><br />
-                    <a href="/browseRecipes.html" style="color: white;">
-                        <h5>Favourites</h5>
-                    </a>
-                </div>
+            <div class="col-md-3">
+                <img src = "img_avater.png" alt="Avatar">
             </div>
-
             <!-- Image, Name, Bio -->
-            <div style="background-color: #353a40; margin-left: 10px; margin-bottom: 50px;">
-                <div class="col-md-5">
-                    <div class="profileImage" style=" margin-bottom: 50px;">
-                        <img id="borderImage" src="../../assets/userPhoto.jfif" alt=""
-                            style="margin-top: 30px; margin-left: 20px; margin-right: 20px;" />
-                        <br><br>
+            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">
+                <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
+                    {{name}}
+                </p>
+                <br>
 
-                        <p class="profileName" style="color: white; margin-left: 20px;">
-                            {{name}}
-                        </p>
-                        <br>
-
-                        <p class="profileDescription" style="color: white; margin-left: 20px;">
-                            <span>Bio not set yet</span>
-                        </p>
-                    </div>
-                </div>
+                <p class="profileDescription" style="color: white; margin-left: 20px;">
+                    <span>About me: <br>{{bio}}</span>
+                </p>
             </div>
 
-            <!-- Edit Profile-->
-            <div style="background-color: #353a40; margin-bottom: 50px; padding:  50px 50px 0px 290px;">
-                <div class="col-md-5">
-                    <input type="submit" class="editButton" name="btnAddMore" value="Edit Profile" />
-                </div>
-            </div>
         </div>
 
         <div class="row">
