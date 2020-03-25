@@ -212,9 +212,9 @@ app.post('/newRecipe', function (request, response) {
         //         response.send('Please enter Recipe!');
         // }
         if(instructions ){
-                connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", ["Steps", 4],  function (error, results, fields) {
+                connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [chef, userID],  function (error, results, fields) {
                         if (error) {
-                                response.send('Incorrect Ingredient Format');
+                                response.send('Incorrect Ingredient Format!');
                         } else {
                                 response.json(results);
                         }   
