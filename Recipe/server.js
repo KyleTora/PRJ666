@@ -197,14 +197,14 @@ app.post('/newRecipe', function (request, response) {
         var servings = request.body.servings;
         var chef = request.body.chef;
         var lifestyle = request.body.lifestyle;
-
+        var ingredients = request.body.ingredients;
 
         if (name && type && region && cooktime && servings && chef) {
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                response.json(results[0]);
+                                response.json(ingredients);
 
                         }
                 });

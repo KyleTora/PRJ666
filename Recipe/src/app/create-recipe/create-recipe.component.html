@@ -11,7 +11,7 @@
               </button>
               <div class="collapse navbar-collapse" id="recipeCollapse">
                 <div class="navbar-nav ml-auto">
-                  <a href="" class="nav-item nav-link" style="color: white;">Save Recipe</a>
+                  <button class="save" (click)=save()>Save Recipe</button>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@
       <div class="col-sm-4" style="margin-top: 15px;">
         
         <div class="well" id="extra">
-          <label style="margin-right: 5px;">Total Cooktime: </label>
+          <label style="margin-right: 5px;">Cooktime: </label>
           <input type="number" placeholder="0" min="0" max = "10" step=".25" [(ngModel)]="cooktime" name="cooktime">
           <label style="margin-left: 5px;"> hour(s)</label>
 
@@ -148,6 +148,4 @@
       </div>
     </div>
   </div><br>
-  <input type="submit" value="Save Recipe" (click)="save()">
-
   </form>

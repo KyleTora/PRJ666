@@ -22,26 +22,8 @@ export class CreateRecipeComponent implements OnInit {
   showErrorMessage: boolean;
   lifestyle: string;
   tips: string;
+  instructions: string[] = new Array("Step 1", "Step 2", "Step 3");
 
-  step1: string;
-  step2: string;
-  step3: string;
-  step4: string;
-  step5: string;
-  step6: string;
-  step7: string;
-  step8: string;
-  step9: string;
-
-  cookware1: string;
-  cookware2: string;
-  cookware3: string;
-  cookware4: string;
-  cookware5: string;
-  cookware6: string;
-  cookware7: string;
-  cookware8: string;
-  cookware9: string;
 
 //display ingredients
   // meats = [
@@ -75,8 +57,8 @@ export class CreateRecipeComponent implements OnInit {
     }else if(this.recipeName.length > 32){
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
-    }else{
-      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
+    }else{     
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions).then((result)=>{
         console.log("Recipe Result: ", result);
         this.router.navigate(['/my-recipe']);
       }).catch((err)=>{

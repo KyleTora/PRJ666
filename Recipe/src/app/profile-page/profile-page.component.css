@@ -12,6 +12,9 @@ body{
 
 img{
     border-radius: 50%;
+    margin-left: 50px;
+    margin-top: 5px;
+    height: 150px;
 }
 
 .profile-img .file {

@@ -7,10 +7,10 @@
 <div id="grid" style="grid-auto-flow: row;">
   <a *ngFor="let x of id; let i = index">
     <figure>
-      <p>{{name[i]}}</p>
+      <label style="text-transform: capitalize;">{{name[i]}}</label> by <label style="text-transform: capitalize;">{{chef[i]}}</label>
       <a [routerLink] = "['/view-recipe', x]"><img src="assets/western.jfif"></a>
 
-      <figcaption>{{desc[i]}} </figcaption>
+      <figcaption style="text-transform: capitalize;">Description: {{desc[i]}} </figcaption>
     </figure>
   
   </a>

@@ -10,7 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ViewRecipeComponent implements OnInit {
   id: number;
   private sub: any;
-
+  
+  chef: string;
   recipeName: string;
   mealType: string;
   region: string;
@@ -18,8 +19,10 @@ export class ViewRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
   lifeStyle: string;
-  instructions = [];
-  ingredients = ["Ingredient 1","Ingredient 2","Ingredient 3","Ingredient 4"]
+  instructions: string;
+  ingredients = [];
+  cookware = [];
+  notes: string;
   
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
 
@@ -36,6 +39,14 @@ export class ViewRecipeComponent implements OnInit {
         this.cooktime = result.cooktime;
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
+        this.chef = result.chef;
+        var a = 0;
+     
+
+          this.instructions = "yeet";
+         console.log(this.instructions);
+        var c = 0;
+      
         //set instrucitons
       }).catch((err)=>{
         console.log("Recipe Error: ", err);

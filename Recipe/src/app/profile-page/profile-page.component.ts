@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../global.service';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -13,12 +14,18 @@ export class ProfilePageComponent{
   email: string = null;
   id = 0;
   bio: string;
+  recipes: number;
 
-  constructor(user: User){
+  constructor(user: User, private db: DatabaseService){
     this.name = user.getUsername();
     this.email = user.getEmail();
     this.id = user.getId();    
     this.bio = user.getBio();
+
+    this.db.loadUserRecipe(this.id).then((result)=>{
+      this.recipes = result.length;
+
+    });
     console.log(this.name);
 
     
