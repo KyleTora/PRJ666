@@ -198,21 +198,21 @@ app.post('/newRecipe', function (request, response) {
         var chef = request.body.chef;
         var lifestyle = request.body.lifestyle;
         var instructions = request.body.instructions;
-        var recipe_id = -1;
-        if (name && type && region && cooktime && servings && chef) {
-                connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
-                        if (error) {
-                                response.send('Incorrect Recipe Format!');
-                        } else {
-                                recipe_id = result.recipe_id;
-                                response.json(results[0]);
-                        }
-                });
-        } else {
-                response.send('Please enter Recipe!');
-        }
+      //  var recipe_id = -1;
+        // if (name && type && region && cooktime && servings && chef) {
+        //         connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
+        //                 if (error) {
+        //                         response.send('Incorrect Recipe Format!');
+        //                 } else {
+        //                         recipe_id = result.recipe_id;
+        //                         response.json(results[0]);
+        //                 }
+        //         });
+        // } else {
+        //         response.send('Please enter Recipe!');
+        // }
         if(instructions ){
-                connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [instructions[0], 6], function (error, results, fields) {
+                connection.query("INSERT INTO Ingredients (ingredient_name, recipe_id) VALUES(?,?)", ["yeet", 6], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Ingredient Format!');
                         } else {
