@@ -210,18 +210,6 @@ app.post('/newRecipe', function (request, response) {
         } else {
                 response.send('Please enter Recipe!');
         }
-        
-        // if(instructions ){
-        //         connection.query("INSERT INTO Ingredients(ingredient_name, recipe_id) VALUES(?,?)", [name, userID],  function (error, results, fields) {
-        //                 if (error) {
-        //                         response.send('Incorrect Ingredient Format!');
-        //                 } else {
-        //                         response.json(results);
-        //                 }   
-        //         });
-        // }else {
-        //         response.send('Please enter Ingredients!');
-        // }
 });
 
 app.post('/addSteps', function(req, res){
