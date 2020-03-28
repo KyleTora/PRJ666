@@ -284,7 +284,7 @@ app.post('/loadSteps', function (req, res){
                         if (error) {
                                 res.send('Incorrect Recipe Format!');
                         } else {
-                                res.json(results[0]);
+                                res.json(results);
                         }
                 });
         } else {
