@@ -203,7 +203,7 @@ app.post('/newRecipe', function (request, response) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                response.json(results[0]);
+                                response.json(results);
                         }
                 });
         } else {
