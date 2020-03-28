@@ -212,7 +212,7 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
-app.post('/addSteps', function(req, res){
+app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
         //var size = instructions.length;

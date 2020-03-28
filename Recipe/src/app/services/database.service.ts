@@ -141,7 +141,7 @@ export class DatabaseService {
       });
       const body = {instructions, recipe_id};
       console.log("database" , instructions);
-      const result = await this.http.post(`${`${HOST}:${PORT}`}/newRecipe`, body, { headers }).toPromise();
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/newSteps`, body, { headers }).toPromise();
     
       return result;
     } catch (err) {
