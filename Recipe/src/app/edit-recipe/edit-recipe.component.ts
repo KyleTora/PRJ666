@@ -3,19 +3,14 @@ import { DatabaseService } from '../services/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-view-recipe',
-  templateUrl: './view-recipe.component.html',
-  styleUrls: ['./view-recipe.component.css']
+  selector: 'app-edit-recipe',
+  templateUrl: './edit-recipe.component.html',
+  styleUrls: ['./edit-recipe.component.css']
 })
-export class ViewRecipeComponent implements OnInit {
+export class EditRecipeComponent implements OnInit {
   id: number;
   private sub: any;
-
-
-  amount = ["21", "1", "125 mL", "25 g"];
-  ingredients = ["oranges", "egg", "water", "sugar"];
-
-
+  
   chef: string;
   recipeName: string;
   mealType: string;
@@ -24,7 +19,8 @@ export class ViewRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
   lifeStyle: string;
-  instructions = [];
+  instructions: string;
+  ingredients = [];
   cookware = [];
   notes: string;
   
@@ -44,12 +40,9 @@ export class ViewRecipeComponent implements OnInit {
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
-        
-        this.db.loadSteps(this.id).then((result) => {
-          this.instructions.push(result);
-        }).catch((err) => {
-          console.log("Instructions Error: " , err);
-        })
+     
+        this.instructions = "yeet";
+         console.log(this.instructions);
       
         //set instrucitons
       }).catch((err)=>{

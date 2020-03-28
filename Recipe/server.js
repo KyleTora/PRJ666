@@ -276,7 +276,21 @@ app.post('/loadUserRecipe', function (request, response) {
         }
 });
 
-
+app.post('/loadSteps', function (req, res){
+        var id = req.body.id;
+     
+        if (id > 0) {
+                connection.query("SELECT * FROM Instructions WHERE recipe_id = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                res.send('Incorrect Recipe Format!');
+                        } else {
+                                res.json(results[0]);
+                        }
+                });
+        } else {
+                res.send('Please enter Steps!');
+        }
+});
 
 
 app.get("/editProfile", (req, res) => {
