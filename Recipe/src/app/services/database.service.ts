@@ -115,14 +115,14 @@ export class DatabaseService {
     }
   }
 
-  async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string, instructions: string[]): Promise<any>{
+  async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {userID, recipeName, chef, mealType, region, description, cooktime, servings,lifestyle, instructions};
+      const body = {userID, recipeName, chef, mealType, region, description, cooktime, servings,lifestyle};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newRecipe`, body, { headers }).toPromise();
     
       return result;

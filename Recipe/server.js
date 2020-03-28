@@ -197,13 +197,12 @@ app.post('/newRecipe', function (request, response) {
         var servings = request.body.servings;
         var chef = request.body.chef;
         var lifestyle = request.body.lifestyle;
-      //  var recipe_id = -1;
+
         if (name && type && region && cooktime && servings && chef) {
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                recipe_id = result.recipe_id;
                                 response.json(results[0]);
                         }
                 });
@@ -215,12 +214,8 @@ app.post('/newRecipe', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
-        var size = instructions.length;
         
-        if(instructions ){
-                for(i = 0; i < size; i++){
-                        
-              
+        if(instructions ){                        
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions],  function (error, results, fields) {
                                 if (error) {
                                         response.send('Incorrect Instructions Format!');
@@ -228,7 +223,6 @@ app.post('/newSteps', function(req, res){
                                         response.json(results);
                                 }   
                         });
-                }
         }else {
                 response.send('Please enter Instructions!');
         }
