@@ -203,9 +203,6 @@ app.post('/newRecipe', function (request, response) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                connection.query("SELECT LAST_INSERT_ID();", function (error, results, fields) {
-                                        response.json(results);
-                                });
                                 response.json(results[0]);
                         }
                 });
