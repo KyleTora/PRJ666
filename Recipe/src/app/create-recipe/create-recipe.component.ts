@@ -33,7 +33,7 @@ export class CreateRecipeComponent implements OnInit {
   step8: string;
   step9: string;
 
-
+  isAvailable: any;
   //display ingredients
   fruit = ["Lemon","Apple","Banana","Lime","Strawberry","Orange","Pineapple","Blueberry","Raisin", "Coconut","Grape","Peach","Raspberry","Cranberry","Mango","Pear","Blackberry","Cherry"];
   vegetable = [ "Onion", "Garlic", "Tomato", "Potato", "Carrot", "Bell Pepper", "Basil", "Parsley", "Broccoli", "Corn", "Spinach", "Mushroom", "Ginger", "Chili Pepper","Avacado", "Olive", "Cilantro"];
