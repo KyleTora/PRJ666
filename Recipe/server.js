@@ -214,17 +214,17 @@ app.post('/newRecipe', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
-        console.log("DATABASE STEPS!", instructions);
+        alert("DATABASE STEPS!", instructions);
         if(instructions){                        
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions],  function (error, results, fields) {
                                 if (error) {
-                                        response.send('Incorrect Instructions Format!');
+                                        res.send('Incorrect Instructions Format!');
                                 } else {
-                                        response.json(results);
+                                        res.json(results);
                                 }   
                         });
         }else {
-                response.send('Please enter Instructions!');
+                res.send('Please enter Instructions!');
         }
 });
 
