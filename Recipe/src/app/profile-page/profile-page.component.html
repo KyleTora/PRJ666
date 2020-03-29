@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 
 <div id="page-wrapper">
-<div class="container emp-profile">
+    <div class="container emp-profile">
         <div class="row">
             <div class="col-md-3">
-                <img src = "assets/img_avatar.png" alt="Avatar">
+                <img src="assets/img_avatar.png" alt="Avatar">
             </div>
             <!-- Image, Name, Bio -->
-            <div class="col-md-9"style="background-color: #353a40; margin-bottom: 50px;">
+            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
                     {{name}}
                 </p>
                 <br>
 
                 <p class="profileDescription" style="color: white; margin-left: 20px;">
-                    <span>About me: <br>{{bio}}</span>
+                    <span>About Me: <br>{{bio}}</span>
                 </p>
             </div>
 
         </div>
 
-            <!-- About Information -->
+        <!-- About Information -->
         <div class="row">
             <div class="col-md-3">
-                <div class="profile-work" style="background-color: lightskyblue; margin-top: 5px;" >
-                    <h4 routerLink= "/my-recipe">Recipes</h4><br>
-                    <h4 routerLink= "/edit-playlist">Playlists</h4><br>
-                    <h4 [routerLink] = "['/recipe-list', 'favourite']">Favourited</h4>
+                <div class="profile-work" style="background-color: lightskyblue; margin-top: 5px;">
+                    <h4 routerLink="/my-recipe" style="cursor: pointer;">Recipes</h4><br>
+                    <h4 routerLink="/edit-playlist" style="cursor: pointer;">Playlists</h4><br>
+                    <h4 [routerLink]="['/recipe-list', 'favourite']" style="cursor: pointer;">Favourited</h4>
                 </div>
             </div>
             <div class="col-md-9" style="background-color: #353a40;">
@@ -61,8 +61,8 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
 </div>
 <!--
 

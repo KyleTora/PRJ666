@@ -78,6 +78,6 @@ h3 {
 
 .borderImage {
     margin-top: 25px;
-    box-shadow: 0 0 0 5px #353a40;
+    box-shadow: 0 0 0 5px transparent;
     border-radius: 30px;
 }
