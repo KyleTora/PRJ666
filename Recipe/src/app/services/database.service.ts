@@ -260,7 +260,7 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = {userID};
-      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadUserRecipe`, body, { headers }).toPromise();
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadFavourite`, body, { headers }).toPromise();
     
       return result;
     } catch (err) {
