@@ -14,6 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: 'my-recipe',
     component: MyRecipeComponent
   },
+  {
+    path: 'my-recipe/:type',
+    component: MyRecipeComponent
+  },  
   {
     path: 'browse',
     component: BrowseRecipesComponent
@@ -79,6 +84,10 @@ const routes: Routes = [
   {
     path: 'view-recipe/:id',
     component: ViewRecipeComponent
+  },
+  {
+    path: 'edit-recipe/:id',
+    component: EditRecipeComponent
   }
 
 ];

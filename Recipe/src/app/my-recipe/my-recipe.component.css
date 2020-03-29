@@ -38,6 +38,7 @@
     border: 10px solid #353a40;
     background-color: #353a40;
     color: white;
+    text-align: left;
   }
 
   #eachrecipe {
@@ -99,6 +100,7 @@
   img {
     max-width: 100px;
     max-height: 100px;
+ 
   }
 
   .options {
@@ -111,6 +113,7 @@
     display: inline-block;
     font-size: 16px;
     width: 200px;
+    cursor: pointer;
   }
 
   .deleteOption {
@@ -123,8 +126,18 @@
     font-size: 16px;
     width: 200px;
     background-color: rgb(248, 83, 83);
+    cursor: pointer;
   }
 
   #playlist-item {
     color: white;
+  }
+
+  .rad {
+    cursor: pointer;
+  }
+
+  .view{
+    color: green;
+    text-align: right;
   }

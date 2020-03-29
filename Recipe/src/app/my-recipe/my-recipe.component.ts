@@ -16,24 +16,53 @@ export class MyRecipeComponent implements OnInit {
   desc = [];
   size: number;
 
-
+  type: string;
   //recipes = [{id:0},{name: " "},{desc: " "}];
 
   constructor(user: User, private route: ActivatedRoute, private db: DatabaseService){
     this.userID = user.getId();
     console.log("user id: ", this.userID);
    }
-
+  
   ngOnInit() {      
-      this.db.loadUserRecipe(this.userID).then((result)=>{
-        console.log("Recipe Result: ", result);
-        var i = 0;
-        for (let recipe of result){
-          this.id[i] = recipe.recipe_id;
-          this.name[i] = recipe.recipeName;
-          this.desc[i] = recipe.description;
-          i++;
-        }
-      })
-    }
+    this.sub = this.route.params.subscribe(params => {
+      this.type = params['type'];
+      if(this.type == "recipe"){
+        this.db.loadUserRecipe(this.userID).then((result)=>{
+          console.log("Recipe Result: ", result);
+          var i = 0;
+          for (let recipe of result){
+            this.id[i] = recipe.recipe_id;
+            this.name[i] = recipe.recipeName;
+            this.desc[i] = recipe.description;
+            i++;
+          }
+        })
+      }else if(this.type = "playlist"){
+        this.db.loadPlaylist(this.userID).then((result) => {
+          console.log("Playlist Result: ", result);
+          var i = 0;
+          for (let recipe of result){
+            this.id[i] = recipe.recipe_id;
+            this.name[i] = recipe.recipeName;
+            this.desc[i] = recipe.description;
+            i++;
+          }
+        })
+      }else if(this.type = "favourite"){
+        this.db.loadFavourite(this.userID).then((result) => {
+          console.log("Favourite Result: ", result);
+          var i = 0;
+          for (let recipe of result){
+            this.id[i] = recipe.recipe_id;
+            this.name[i] = recipe.recipeName;
+            this.desc[i] = recipe.description;
+            i++;
+          }
+        })
+      }else{
+        console.log("Not a valid type!");
+      }
+    })
+  }
 }
