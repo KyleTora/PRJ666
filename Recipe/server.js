@@ -220,10 +220,10 @@ app.post('/newSteps', function(req, res){
         if(instructions){   
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
-                                if (error) {
-                                        res.send('Incorrect Instructions Format!');
+                                if (error) { throw error;
+                                        //res.send('Incorrect Instructions Format!');
                                 } else {
-                                        res.json(results);
+                                        //res.json(results);
                                 }   
                         });
                 }
