@@ -1,5 +1,3 @@
-
-
 <div id="header"></div>
 <div class="container text-center">
   <div class="row">
@@ -32,7 +30,8 @@
       <br>
       <ul id="options-list"><br>
         <div class="row">
-          <button type="button" onclick="window.location.href='/create-recipe'" style="margin-top: 10px;" class="options">Upload Recipe</button>
+          <button type="button" onclick="window.location.href='/create-recipe'" style="margin-top: 10px;"
+            class="options">Upload Recipe</button>
         </div><br>
         <div class="row">
           <button type="button" style="margin-top: 10px;" class="options">Edit Recipe</button>
@@ -41,15 +40,10 @@
           <button type="button" style="margin-top: 10px;" class="deleteOption">Delete Recipe</button>
         </div><br>
         <div class="row">
-          <button type="button" onclick="window.location.href='/create-playlist'" style="margin-top: 100px;" class="options">Create Playlist</button>
-        </div><br><br>
-            <ul id="playlist-list" style="color: white;" >
-              <h3>Playlists:</h3><br>
-                <li><a id="playlist-item" href="/edit-playlist" class=""><h5>Playlist1</h5></a></li>
-                <li><a id="playlist-item" href="/edit-playlist" class=""><h5>Playlist2</h5></a></li>
-                <li><a id="playlist-item" href="/edit-playlist" class=""><h5>Playlist3</h5></a></li>
-            </ul>
-        </ul>
+          <button type="button" onclick="window.location.href='/create-playlist'" style="margin-top: 100px;"
+            class="options">View Playlists</button>
+        </div>
+      </ul>
     </div>
 
 
@@ -58,19 +52,19 @@
       <ul id="recipe-list"><br>
         <a *ngFor="let x of id; let i = index">
 
-        <div class="row">
-          <div class="img">
-            <img src="assets/western.jfif" alt="Image 1">
-          </div>
-          <ul id="eachRecipe">
-          <li>{{name[i]}}</li>
-          <li>Description: {{desc[i]}}</li>
-          <li>Ingreadients: </li>
-        </ul>
+          <div class="row">
+            <div class="img">
+              <img src="assets/western.jfif" alt="Image 1">
+            </div>
+            <ul id="eachRecipe">
+              <input type="radio" id="eachRecipe" name="recipeChoice" value="i" class="rad">
+              <label>{{name[i]}}</label>
+              <label>|| {{desc[i]}}</label>
+            </ul>
 
-        </div><br>
+          </div><br>
         </a>
-     </ul>  
+      </ul>
     </div>
   </div>
 </div>
