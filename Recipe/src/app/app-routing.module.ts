@@ -26,6 +26,10 @@ const routes: Routes = [
     component: MyRecipeComponent
   },
   {
+    path: 'my-recipe/:type',
+    component: MyRecipeComponent
+  },  
+  {
     path: 'browse',
     component: BrowseRecipesComponent
   },

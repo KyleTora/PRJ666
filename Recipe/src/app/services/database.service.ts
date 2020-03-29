@@ -234,4 +234,39 @@ export class DatabaseService {
       
     }
   }
+
+  async loadPlaylist(userID: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {userID};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadUserRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+  async loadFavourite(userID: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {userID};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadUserRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
 }

@@ -3,18 +3,18 @@
     <div class="col-sm-12">
       <div class="well">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-          <div class="container-fluid">
-            <label class="navbar-brand mr-3">My Recipes</label>
+          <div class="container-fluid"style="text-transform: capitalize;">
+            <label class="navbar-brand mr-3" >My {{type}}s</label>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="recipeCollapse">
-              <div class="navbar-nav ml-auto">
-                <a href="" class="nav-item nav-link">Favourite</a>
-                <a href="" class="nav-item nav-link">Rate Recipe</a>
-                <a href="" class="nav-item nav-link">Save Recipe</a>
+             <!-- <div class="navbar-nav ml-auto">
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Favourite</a>
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Rate {{type}}</a>
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Save {{type}}</a>
                 <a href="" class="nav-item nav-link">Share</a>
-              </div>
+              </div> -->
             </div>
           </div>
         </nav>
@@ -30,27 +30,37 @@
       <ul id="options-list"><br>
         <div class="row">
           <button type="button" onclick="window.location.href='/create-recipe'" style="margin-top: 10px;"
-            class="options">Upload Recipe</button>
-        </div><br>
+            class="options">Create Recipe</button>
+        </div>
+        
         <div class="row">
-          <button type="button" [routerLink] = "['/view-recipe']" style="margin-top: 10px;" class="options">Edit Recipe</button>
+          <button type="button" onclick="window.location.href='/create-playlist'" style="margin-top: 30px;"
+            class="options">Create Playlist</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <button *ngIf="type != 'recipe'" type="button" onclick="window.location.href='/my-recipe/recipe'" style="margin-top: 30px;"
+            class="options">View My Recipes</button>
+        </div>
 
+        <div class="row">
+          <button *ngIf="type != 'favourite'" type="button" onclick="window.location.href='/my-recipe/favourite'" style="margin-top: 30px;"
+            class="options">View My Favourites</button>
+        </div>
 
-        </div><br>
         <div class="row">
-          <button type="button" style="margin-top: 10px;" class="deleteOption">Delete Recipe</button>
-        </div><br>
-        <div class="row">
-          <button type="button" onclick="window.location.href='/create-playlist'" style="margin-top: 100px;"
-            class="options">View Playlists</button>
+          <button *ngIf="type != 'playlist'" type="button" onclick="window.location.href='/my-recipe/playlist'" style="margin-top: 30px;"
+            class="options">View My Playlists</button>
         </div>
       </ul>
     </div>
 
 
     <div class="col-sm-8">
-      <label class="col-sm-8 text-center">My Recipes</label>
-      <ul id="recipe-list"><br>
+      <ul id="recipe-list" style="margin-top: 32px;"><br>
         <a *ngFor="let x of id; let i = index">
 
           <div class="row">
@@ -58,10 +68,9 @@
               <img src="assets/western.jfif" alt="Image 1">
             </div>
             <ul id="eachRecipe">
-              <input type="radio" id="eachRecipe" name="recipeChoice" value="x" class="rad">
-              <label style="text-transform: capitalize;">{{name[i]}}</label>
-              <label>|| {{desc[i]}}</label><br>
-              <a [routerLink] = "['/view-recipe', x]" class="view" >View Recipe</a>
+              <label style="text-transform: capitalize;">{{name[i]}}</label><br>
+              <label style="margin-left: 10px;"> {{desc[i]}}</label><br>
+              <a [routerLink] = "['/view-recipe', x]" class="view" style="margin-left: 20px;" >View Recipe</a>
             </ul>
 
           </div><br>

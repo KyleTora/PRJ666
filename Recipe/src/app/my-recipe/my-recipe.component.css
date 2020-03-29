@@ -38,6 +38,7 @@
     border: 10px solid #353a40;
     background-color: #353a40;
     color: white;
+    text-align: left;
   }
 
   #eachrecipe {
@@ -99,6 +100,7 @@
   img {
     max-width: 100px;
     max-height: 100px;
+ 
   }
 
   .options {
