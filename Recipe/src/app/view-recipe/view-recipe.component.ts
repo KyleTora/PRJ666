@@ -29,7 +29,7 @@ export class ViewRecipeComponent implements OnInit {
   instructions = [];
   cookware = [];
   notes: string;
-  
+  isFav: boolean;
   usersRecipe : boolean;
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
@@ -78,7 +78,15 @@ export class ViewRecipeComponent implements OnInit {
         }else{
           this.usersRecipe = false;
         }
-        
+        this.db.loadFavourite(this.userX.getId()).then((result) => {
+          console.log("Favourite result: ", result);
+          this.isFav = false;
+          for(var i = 0; i < result.length; i++){
+            if(this.id == result[i].recipe_id){
+              this.isFav = true;
+            }
+          }
+        })
         //only gets first step
         this.db.loadSteps(this.id).then((result) => {
           console.log("Steps result: ", result);

@@ -10,7 +10,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="recipeCollapse">
                     <div class="navbar-nav ml-auto">
-                        <input class="nav-item nav-link" style="background-color:transparent; border: transparent;" type="submit" value="Favourite Recipe" (click)="favourite()">
+                        <input *ngIf="!isFav" class="nav-item nav-link" style="background-color:transparent; border: transparent;" type="submit" value="Favourite Recipe" (click)="favourite()">
                         <a href="" class="nav-item nav-link">Rate Recipe</a>
                       <a href="" class="nav-item nav-link">Share</a>
                       <a [routerLink] = "['/edit-recipe', id]" class="nav-item nav-link">Edit Recipe</a>
