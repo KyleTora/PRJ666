@@ -130,6 +130,45 @@
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Fruits</legend>
+          <a *ngFor="let x of fruit">
+            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="fruitOther" [(ngModel)]="fruitOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="fruitOtherText" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Vegetables</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="vegetableOther" [(ngModel)]="vegetableOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="vegetableOtherText" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Dairy Products</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="dairyOther" [(ngModel)]="dairyOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="dairyOther" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+    </div>
+  </div>
+
       <!--
       <div class="col-sm-4">
         <label class="sectionTitle">Cookware (Optional)</label>
@@ -144,10 +183,6 @@
           <input type="text" placeholder="Cookware 8" style="color: black;" [(ngModel)]="cookware8" name="cookware8">
           <input type="text" placeholder="Cookware 9" style="color: black;" [(ngModel)]="cookware9" name="cookware9">
         </ul>
-      </div>
-      <div class="col-sm-4">
-        <label class="sectionTitle">Tips & Notes (Optional)</label>
-        <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes" [(ngModel)]="tips" name="tips"></textarea>
       </div>
     </div>
   </div><br>
