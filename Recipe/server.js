@@ -212,6 +212,27 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
+app.post('/newFav', function (request, response) {
+        var userID = request.body.userID;
+        var name = request.body.recipeName;
+        var description = request.body.description;
+   
+
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("INSERT INTO FavouriteRecipes (userid, recipeName, description) VALUES(?, ?, ?)", [userID, name, description], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
+
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
