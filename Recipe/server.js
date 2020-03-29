@@ -214,7 +214,6 @@ app.post('/newRecipe', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
-        alert("DATABASE STEPS!", instructions);
         if(instructions){                        
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions],  function (error, results, fields) {
                                 if (error) {
