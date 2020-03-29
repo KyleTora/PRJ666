@@ -48,12 +48,12 @@ export class ViewRecipeComponent implements OnInit {
         //only gets first step
         this.db.loadSteps(this.id).then((result) => {
           console.log("Steps result: ", result);
-          this.instructions.push(result.step);
+          for(var i = 0; i < result.length; i++){
+            this.instructions.push(result[i].step);
+          }
         }).catch((err) => {
           console.log("Instructions Error: " , err);
         })
-      
-        //set instrucitons
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
