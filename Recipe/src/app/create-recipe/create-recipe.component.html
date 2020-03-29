@@ -137,9 +137,9 @@
         <fieldset>
           <legend>Fruits</legend>
           <a *ngFor="let x of fruit">
-            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
           </a>
-          <input type="checkbox" name="fruitOther" [(ngModel)]="fruitOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="fruitOtherText" ><br>
+          <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="fruit" ><br>
           <br>
         </fieldset>
       </div>
@@ -148,9 +148,9 @@
         <fieldset>
           <legend>Vegetables</legend>
           <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
           </a>
-          <input type="checkbox" name="vegetableOther" [(ngModel)]="vegetableOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="vegetableOtherText" ><br>
+          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="vegetable" ><br>
           <br>
         </fieldset>
       </div>
@@ -159,9 +159,9 @@
         <fieldset>
           <legend>Dairy Products</legend>
           <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked] = "isAvailable" (change)="isAvailable">{{x}}<br>
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
           </a>
-          <input type="checkbox" name="dairyOther" [(ngModel)]="dairyOther">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="dairyOther" ><br>
+          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="dairy" ><br>
           <br>
         </fieldset>
       </div>
