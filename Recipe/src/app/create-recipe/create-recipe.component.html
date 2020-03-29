@@ -117,19 +117,58 @@
       <div class="col-sm-4">
         <label class="sectionTitle">Instructions</label>
         <ul id="recipe-instruction">
-          <input type="text" placeholder="Step 1" style="color: black;" [(ngModel)]="step1" name="step1">
-          <input type="text" placeholder="Step 2" style="color: black;" [(ngModel)]="step2" name="step2">
-          <input type="text" placeholder="Step 3" style="color: black;" [(ngModel)]="step3" name="step3">
-          <input type="text" placeholder="Step 4" style="color: black;" [(ngModel)]="step4" name="step4">
-          <input type="text" placeholder="Step 5" style="color: black;" [(ngModel)]="step5" name="step5">
-          <input type="text" placeholder="Step 6" style="color: black;" [(ngModel)]="step6" name="step6">
-          <input type="text" placeholder="Step 7" style="color: black;" [(ngModel)]="step7" name="step7">
-          <input type="text" placeholder="Step 8" style="color: black;" [(ngModel)]="step8" name="step8">
-          <input type="text" placeholder="Step 9" style="color: black;" [(ngModel)]="step9" name="step9">
+          <input type="text" maxlength="90" placeholder="Step 1" style="color: black;" [(ngModel)]="step1" name="step1">
+          <input type="text" maxlength="90" placeholder="Step 2" style="color: black;" [(ngModel)]="step2" name="step2">
+          <input type="text" maxlength="90" placeholder="Step 3" style="color: black;" [(ngModel)]="step3" name="step3">
+          <input type="text" maxlength="90" placeholder="Step 4" style="color: black;" [(ngModel)]="step4" name="step4">
+          <input type="text" maxlength="90" placeholder="Step 5" style="color: black;" [(ngModel)]="step5" name="step5">
+          <input type="text" maxlength="90" placeholder="Step 6" style="color: black;" [(ngModel)]="step6" name="step6">
+          <input type="text" maxlength="90" placeholder="Step 7" style="color: black;" [(ngModel)]="step7" name="step7">
+          <input type="text" maxlength="90" placeholder="Step 8" style="color: black;" [(ngModel)]="step8" name="step8">
+          <input type="text" maxlength="90" placeholder="Step 9" style="color: black;" [(ngModel)]="step9" name="step9">
         </ul>
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Fruits</legend>
+          <a *ngFor="let x of fruit">
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="fruit" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Vegetables</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="vegetable" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-3">
+        <fieldset>
+          <legend>Dairy Products</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other: <input type="text" placeholder="Enter Ingredient" maxlength="20" [(ngModel)]="dairy" ><br>
+          <br>
+        </fieldset>
+      </div>
+
+    </div>
+  </div>
+
       <!--
       <div class="col-sm-4">
         <label class="sectionTitle">Cookware (Optional)</label>
@@ -144,10 +183,6 @@
           <input type="text" placeholder="Cookware 8" style="color: black;" [(ngModel)]="cookware8" name="cookware8">
           <input type="text" placeholder="Cookware 9" style="color: black;" [(ngModel)]="cookware9" name="cookware9">
         </ul>
-      </div>
-      <div class="col-sm-4">
-        <label class="sectionTitle">Tips & Notes (Optional)</label>
-        <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes" [(ngModel)]="tips" name="tips"></textarea>
       </div>
     </div>
   </div><br>

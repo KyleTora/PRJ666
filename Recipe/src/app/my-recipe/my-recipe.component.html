@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <div id="header"></div>
@@ -20,6 +21,25 @@
                   <a href="" class="nav-item nav-link">Share</a>
                 </div>
               </div>
+=======
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+          <div class="container-fluid"style="text-transform: capitalize;">
+            <label class="navbar-brand mr-3" >My {{type}}s</label>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="recipeCollapse">
+             <!-- <div class="navbar-nav ml-auto">
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Favourite</a>
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Rate {{type}}</a>
+                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Save {{type}}</a>
+                <a href="" class="nav-item nav-link">Share</a>
+              </div> -->
+>>>>>>> 9e7710216143278c9a0793eeeb105654d85672ff
             </div>
           </nav>
         </div>
@@ -27,6 +47,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4" style="margin-top: 8px;">
@@ -58,12 +79,54 @@
         <label>My Recipes</label>
         <ul id="recipe-list"><br>
           <a *ngFor="let x of id; let i = index">
+=======
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" style="margin-top: 8px;">
+      <br>
+      <ul id="options-list"><br>
+        <div class="row">
+          <button type="button" onclick="window.location.href='/create-recipe'" style="margin-top: 10px;"
+            class="options">Create Recipe</button>
+        </div>
+        
+        <div class="row">
+          <button type="button" onclick="window.location.href='/create-playlist'" style="margin-top: 30px;"
+            class="options">Create Playlist</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <button *ngIf="type != 'recipe'" type="button" onclick="window.location.href='/my-recipe/recipe'" style="margin-top: 30px;"
+            class="options">View My Recipes</button>
+        </div>
+
+        <div class="row">
+          <button *ngIf="type != 'favourite'" type="button" onclick="window.location.href='/my-recipe/favourite'" style="margin-top: 30px;"
+            class="options">View My Favourites</button>
+        </div>
+
+        <div class="row">
+          <button *ngIf="type != 'playlist'" type="button" onclick="window.location.href='/my-recipe/playlist'" style="margin-top: 30px;"
+            class="options">View My Playlists</button>
+        </div>
+      </ul>
+    </div>
+
+
+    <div class="col-sm-8">
+      <ul id="recipe-list" style="margin-top: 32px;"><br>
+        <a *ngFor="let x of id; let i = index">
+>>>>>>> 9e7710216143278c9a0793eeeb105654d85672ff
 
           <div class="row">
             <div class="img">
               <img src="assets/western.jfif" alt="Image 1">
             </div>
             <ul id="eachRecipe">
+<<<<<<< HEAD
             <li>{{name[i]}}</li>
             <li>Description: {{desc[i]}}</li>
             <li>Ingreadients: </li>
@@ -73,6 +136,16 @@
           </a>
       </ul>  
       </div>
+=======
+              <label style="text-transform: capitalize;">{{name[i]}}</label><br>
+              <label style="margin-left: 10px;"> {{desc[i]}}</label><br>
+              <a [routerLink] = "['/view-recipe', x]" class="view" style="margin-left: 20px;" >View Recipe</a>
+            </ul>
+
+          </div><br>
+        </a>
+      </ul>
+>>>>>>> 9e7710216143278c9a0793eeeb105654d85672ff
     </div>
   </div>
 </div>

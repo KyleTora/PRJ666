@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from '../global.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-recipe',
@@ -22,7 +21,7 @@ export class CreateRecipeComponent implements OnInit {
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
-  tips: string;
+  //tips: string;
   instructions = new Array;
   step1: string;
   step2: string;
@@ -34,29 +33,29 @@ export class CreateRecipeComponent implements OnInit {
   step8: string;
   step9: string;
 
-
+  isAvailable: any;
   //display ingredients
-  // meats = [
-  //   {id: 1, name:'Pork'},
-  //   {id: 2, name:'Steak'},
-  //   {id: 5, name:'Chicken'},
-  //   {id: 3, name:'Lamb'},
-  //   {id: 4, name:'Other'}
-  // ];
-  // other = [
-  //   {id: 1, name:'Pork'},
-  //   {id: 2, name:'Steak'},
-  //   {id: 5, name:'Chicken'},
-  //   {id: 3, name:'Lamb'},
-  //   {id: 4, name:'Other'}
-  // ];
+  fruit = ["Lemon","Apple","Banana","Lime","Strawberry","Orange","Pineapple","Blueberry","Raisin", "Coconut","Grape","Peach","Raspberry","Cranberry","Mango","Pear","Blackberry","Cherry"];
+  vegetable = [ "Onion", "Garlic", "Tomato", "Potato", "Carrot", "Bell Pepper", "Basil", "Parsley", "Broccoli", "Corn", "Spinach", "Mushroom", "Ginger", "Chili Pepper","Avacado", "Olive", "Cilantro"];
+  dairy = [  "Milk",  "Cream",  "Yogurt",  "Ice Cream",  "Yogurt",  "Butter",  "Egg"];
+  bakingAndGrain = ["Rice","Pasta","Flour","Bread","Baking Powder", "Baking Soda", "Bread Crumbs", "Cornstarch", "Yeast"];
+  sweet = ["Sugar","Brown Sugar", "Honey", "Maple Syrup", "Molasses"];
+  spice = ["Cinnamon", "Vanilla", "Garlic Powder", "Paprika", " Oregano", "Chili Powder", "Cayenne", "Thyme", "Chive"];
+  meat = ["Chicken Breast", " Chicken Thighs", "Chicken Leg", "Chicken Wings", "Ground Beef", "Bacon", "Sausage", "Steak", "Ham", "Hot Dog", "Pork Chops", "Turkey", "Pork", "Pepporoni", "Ribs", "Lamb"];
+  seafood = ["Shrimp", "Crab", "Scallop", "Lobster", "Calamari", "Canned Tuna","Salmon","Tilapia","Fish Fillets","Cod","Canned Salmon", "Anchovy", "Smoked Salmon", "Sardines", "Halibut","Trout"];
+  //condiments, sauces, seasoning
+  oil = ["Olive Oil", "Vegetable Oil", "Cooking Spray", "Canola Oil", "Peanut Oil", "Sesame Oil"];
+  alcohol = ["White Wine", "Red Wine", "Beer", "Whiskey", "Vodka", "Rum"];
+  soup = ["Chicken Broth", "Mushroom Soup", "Beef Broth", "Tomato Soup", "Vegetable Stock"];
+  nut = ["Peanut Butter", "Almond", "Walnut", "Pecan", "Peanut", "Cashew", "Flax"];
 
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
     this.chef = user.getUsername();
     this.userID = user.getId();
   }
 
-  save(){      
+  save(){   
+    this.instructions = [];
     if(this.step1){
       this.instructions.push(this.step1);
     }
@@ -101,19 +100,21 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Enter at least one instruction!"; 
       this.showErrorMessage = true;
     }else{   
-     // this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions).then((result)=>{
-       // console.log("Recipe Result: ", result);
-        this.databaseService.newSteps(this.instructions, 2).then((result2)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
+        console.log("Recipe Result: ", result);
+        this.databaseService.newSteps(this.instructions, result).then((result2)=>{
           console.log("Steps Result: ", result2);
         }).catch((err) =>{
           console.log("Steps Error: ", err);
         })
-      //  this.router.navigate(['/my-recipe']);
-     // }).catch((err)=>{
-     //   console.log("Recipe Error: ", err);
-     // })
+        this.router.navigate(['/my-recipe']);
+      }).catch((err)=>{
+        console.log("Recipe Error: ", err);
+      })
     }
   }
+
+
 
   ngOnInit() {
   }
