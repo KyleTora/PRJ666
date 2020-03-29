@@ -133,7 +133,6 @@ export class DatabaseService {
   }
 
   async newSteps(instructions: string[], recipe_id: number): Promise<any>{
-    console.log("INSTURCTIONS: ", instructions);
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -141,7 +140,6 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = {instructions, recipe_id};
-      console.log("database" , instructions);
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newSteps`, body, { headers }).toPromise();
     
       return result;

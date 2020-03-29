@@ -56,7 +56,8 @@ export class CreateRecipeComponent implements OnInit {
     this.userID = user.getId();
   }
 
-  save(){      
+  save(){   
+    this.instructions = [];
     if(this.step1){
       this.instructions.push(this.step1);
     }
@@ -103,8 +104,7 @@ export class CreateRecipeComponent implements OnInit {
     }else{   
       this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
-        console.log("instructions: ", this.instructions);
-        this.databaseService.newSteps(this.instructions, 9).then((result2)=>{
+        this.databaseService.newSteps(this.instructions, result).then((result2)=>{
           console.log("Steps Result: ", result2);
         }).catch((err) =>{
           console.log("Steps Error: ", err);
