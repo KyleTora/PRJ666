@@ -134,3 +134,8 @@
   .rad {
     cursor: pointer;
   }
+
+  .view{
+    color: green;
+    text-align: right;
+  }
