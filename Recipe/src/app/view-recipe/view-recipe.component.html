@@ -14,6 +14,7 @@
                       <a href="" class="nav-item nav-link">Rate Recipe</a>
                       <a href="" class="nav-item nav-link">Share</a>
                       <a [routerLink] = "['/edit-recipe', id]" class="nav-item nav-link">Edit Recipe</a>
+                      <input *ngIf="usersRecipe" class="nav-item nav-link" style="background-color:transparent; border: transparent;" type="submit" value="Delete Recipe" (click)="delete()">
                     </div>
                   </div>
             </div>

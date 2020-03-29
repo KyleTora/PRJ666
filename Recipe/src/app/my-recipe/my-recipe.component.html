@@ -33,7 +33,9 @@
             class="options">Upload Recipe</button>
         </div><br>
         <div class="row">
-          <button type="button" style="margin-top: 10px;" class="options">Edit Recipe</button>
+          <button type="button" [routerLink] = "['/view-recipe']" style="margin-top: 10px;" class="options">Edit Recipe</button>
+
+
         </div><br>
         <div class="row">
           <button type="button" style="margin-top: 10px;" class="deleteOption">Delete Recipe</button>
@@ -56,7 +58,7 @@
               <img src="assets/western.jfif" alt="Image 1">
             </div>
             <ul id="eachRecipe">
-              <input type="radio" id="eachRecipe" name="recipeChoice" value="i" class="rad">
+              <input type="radio" id="eachRecipe" name="recipeChoice" value="x" class="rad">
               <label style="text-transform: capitalize;">{{name[i]}}</label>
               <label>|| {{desc[i]}}</label><br>
               <a [routerLink] = "['/view-recipe', x]" class="view" >View Recipe</a>

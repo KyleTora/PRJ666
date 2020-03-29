@@ -23,7 +23,7 @@ export class MyRecipeComponent implements OnInit {
     this.userID = user.getId();
     console.log("user id: ", this.userID);
    }
-
+  
   ngOnInit() {      
       this.db.loadUserRecipe(this.userID).then((result)=>{
         console.log("Recipe Result: ", result);

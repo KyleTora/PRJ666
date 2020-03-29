@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { User } from '../global.service';
 
 @Component({
   selector: 'app-view-recipe',
@@ -28,7 +30,22 @@ export class ViewRecipeComponent implements OnInit {
   cookware = [];
   notes: string;
   
-  constructor(private db: DatabaseService, private route: ActivatedRoute) { }
+  usersRecipe : boolean;
+
+  constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
+
+  delete(){
+    if(this.userX.getUsername() == this.chef){
+      if(confirm("  Are you sure you want to delete this recipe?\n  This action can not be reversed!")){ 
+        this.db.deleteRecipe(this.id).then((result) => {
+          alert(this.recipeName + " has been deleted!");
+          this.router.navigate(['/my-recipe']);
+        }).catch((err) => {
+          console.log("Delete Error: ", err);
+        })
+      } 
+    }
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -44,6 +61,11 @@ export class ViewRecipeComponent implements OnInit {
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
+        if(this.chef == this.userX.getUsername()){
+          this.usersRecipe = true;
+        }else{
+          this.usersRecipe = false;
+        }
         
         //only gets first step
         this.db.loadSteps(this.id).then((result) => {
