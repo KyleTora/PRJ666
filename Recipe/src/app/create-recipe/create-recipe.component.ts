@@ -56,7 +56,8 @@ export class CreateRecipeComponent implements OnInit {
     this.userID = user.getId();
   }
 
-  save(){      
+  save(){   
+    this.instructions = [];
     if(this.step1){
       this.instructions.push(this.step1);
     }
@@ -101,17 +102,17 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Enter at least one instruction!"; 
       this.showErrorMessage = true;
     }else{   
-     // this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions).then((result)=>{
-       // console.log("Recipe Result: ", result);
-        this.databaseService.newSteps(this.instructions, 2).then((result2)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
+        console.log("Recipe Result: ", result);
+        this.databaseService.newSteps(this.instructions, result).then((result2)=>{
           console.log("Steps Result: ", result2);
         }).catch((err) =>{
           console.log("Steps Error: ", err);
         })
-      //  this.router.navigate(['/my-recipe']);
-     // }).catch((err)=>{
-     //   console.log("Recipe Error: ", err);
-     // })
+        this.router.navigate(['/my-recipe']);
+      }).catch((err)=>{
+        console.log("Recipe Error: ", err);
+      })
     }
   }
 

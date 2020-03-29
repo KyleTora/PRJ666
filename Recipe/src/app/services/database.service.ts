@@ -115,14 +115,14 @@ export class DatabaseService {
     }
   }
 
-  async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string, instructions: string[]): Promise<any>{
+  async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {userID, recipeName, chef, mealType, region, description, cooktime, servings,lifestyle, instructions};
+      const body = {userID, recipeName, chef, mealType, region, description, cooktime, servings,lifestyle};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newRecipe`, body, { headers }).toPromise();
     
       return result;
@@ -140,8 +140,8 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = {instructions, recipe_id};
-      console.log("database" , instructions);
-      const result = await this.http.post(`${`${HOST}:${PORT}`}/newRecipe`, body, { headers }).toPromise();
+      console.log(instructions);
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/newSteps`, body, { headers }).toPromise();
     
       return result;
     } catch (err) {
@@ -167,6 +167,22 @@ export class DatabaseService {
     }
   }
 
+  async loadSteps(id: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadSteps`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
   async loadRecipeType(type: string): Promise<any>{
     try {
       const headers = new HttpHeaders({
