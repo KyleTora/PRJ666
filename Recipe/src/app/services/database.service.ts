@@ -140,6 +140,7 @@ export class DatabaseService {
         'Access-Control-Allow-Origin': '*'
       });
       const body = {instructions, recipe_id};
+      console.log(instructions);
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newSteps`, body, { headers }).toPromise();
     
       return result;

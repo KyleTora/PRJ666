@@ -215,6 +215,8 @@ app.post('/newRecipe', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
+        console.log("server/ks: ", instructions.length, instructions); 
+        )
         if(instructions){   
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
