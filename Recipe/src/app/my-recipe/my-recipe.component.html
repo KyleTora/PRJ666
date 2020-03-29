@@ -68,12 +68,13 @@
 
           <div class="row">
             <div class="img">
-              <img src="assets/western.jfif" alt="Image 1">
+              <img class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
+              <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button>
             </div>
             <ul id="eachRecipe">
-              <label style="text-transform: capitalize;">{{name[i]}}</label><br>
-              <label style="margin-left: 10px;"> {{desc[i]}}</label><br>
-              <a [routerLink] = "['/view-recipe', x]" class="view" style="margin-left: 20px;" >View Recipe</a>
+              <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
+              <label style="margin-left: 10px; max-width: 350px; max-height: 50px;"> {{desc[i]}}</label><br>
+              <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
             </ul>
 
           </div><br>
