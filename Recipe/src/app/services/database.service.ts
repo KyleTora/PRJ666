@@ -184,14 +184,14 @@ export class DatabaseService {
     }
   }
 
-  async addFavourite(userID: number, recipeName: string, description: string): Promise<any>{
+  async addFavourite(recipeid: number, userid: number, recipeName: string, description: string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {userID, recipeName, description};
+      const body = {recipeid, userid, recipeName, description};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newFav`, body, { headers }).toPromise();
     
       return result;

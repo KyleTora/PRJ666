@@ -49,7 +49,7 @@ export class ViewRecipeComponent implements OnInit {
 
   favourite(){
     if(confirm("  Add this recipe to your list of favourites?")){
-      this.db.addFavourite(this.id, this.recipeName, this.description).then((result) =>{
+      this.db.addFavourite(this.id, this.userX.getId(), this.recipeName, this.description).then((result) =>{
         alert(this.recipeName + " has been added!");
         this.router.navigate(['/my-recipe/favourite']);
       }).catch((err) => {
