@@ -217,9 +217,8 @@ app.post('/newFav', function (request, response) {
         var userID = request.body.userid;
         var name = request.body.recipeName;
         var description = request.body.description;
-   
 
-        if (name && type && region && cooktime && servings && chef) {
+        if (recipeid, userID, name, description) {
                 connection.query("INSERT INTO FavouriteRecipes (recipe_id, userid, recipeName, description) VALUES(?, ?, ?, ?)", [recipeid, userID, name, description], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
