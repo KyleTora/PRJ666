@@ -213,7 +213,7 @@ app.post('/newRecipe', function (request, response) {
 });
 
 app.post('/newFav', function (request, response) {
-        var recipe_id = request.body.recipeid;
+        var recipeid = request.body.recipeid;
         var userID = request.body.userid;
         var name = request.body.recipeName;
         var description = request.body.description;

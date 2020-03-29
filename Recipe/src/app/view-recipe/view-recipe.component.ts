@@ -53,6 +53,7 @@ export class ViewRecipeComponent implements OnInit {
         alert(this.recipeName + " has been added!");
         this.router.navigate(['/my-recipe/favourite']);
       }).catch((err) => {
+        console.log(this.id,this.userX.getId(), this.recipeName, this.description);
         console.log("Favourite Error: ", err);
       })
     }
