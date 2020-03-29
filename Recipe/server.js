@@ -237,7 +237,7 @@ app.post('/deleteRecipe', function (request, response) {
         var id = request.body.id;
      
         if (id > 0) {
-                connection.query("DELETE * FROM Recipes WHERE recipe_id = ?", [id], function (error, results, fields) {
+                connection.query("DELETE FROM Recipes WHERE recipe_id = ?", [id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
