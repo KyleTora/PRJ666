@@ -215,7 +215,7 @@ app.post('/newRecipe', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
-        console.log("server/ks: ", instructions.length, instructions); 
+        console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
         
         if(instructions){   
                 for(var i = 0; i < instructions.length; i++){                     
