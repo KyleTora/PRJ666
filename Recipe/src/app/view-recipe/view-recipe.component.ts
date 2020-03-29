@@ -39,11 +39,22 @@ export class ViewRecipeComponent implements OnInit {
       if(confirm("  Are you sure you want to delete this recipe?\n  This action can not be reversed!")){ 
         this.db.deleteRecipe(this.id).then((result) => {
           alert(this.recipeName + " has been deleted!");
-          this.router.navigate(['/my-recipe']);
+          this.router.navigate(['/my-recipe/recipe']);
         }).catch((err) => {
           console.log("Delete Error: ", err);
         })
       } 
+    }
+  }
+
+  favourite(){
+    if(confirm("  Add this recipe to your list of favourites?")){
+      this.db.addFavourite(this.id, this.recipeName, this.description).then((result) =>{
+        alert(this.recipeName + " has been added!");
+        this.router.navigate(['/my-recipe/favourite']);
+      }).catch((err) => {
+        console.log("Favourite Error: ", err);
+      })
     }
   }
 

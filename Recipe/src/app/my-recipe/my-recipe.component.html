@@ -61,6 +61,9 @@
 
     <div class="col-sm-8">
       <ul id="recipe-list" style="margin-top: 32px;"><br>
+        <div id="message" *ngIf="showMsg">
+          <h5 style="text-align: center; margin-bottom: 30px;">{{message}}</h5>
+        </div>
         <a *ngFor="let x of id; let i = index">
 
           <div class="row">

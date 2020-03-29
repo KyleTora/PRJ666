@@ -15,7 +15,8 @@ export class MyRecipeComponent implements OnInit {
   name = [];
   desc = [];
   size: number;
-
+  message: string;
+  showMsg = false;
   type: string;
   //recipes = [{id:0},{name: " "},{desc: " "}];
 
@@ -30,6 +31,10 @@ export class MyRecipeComponent implements OnInit {
       if(this.type == "recipe"){
         this.db.loadUserRecipe(this.userID).then((result)=>{
           console.log("Recipe Result: ", result);
+          if(result.length < 1){
+            this.showMsg = true;
+            this.message = "You have no recipes! Create one today!";
+          }
           var i = 0;
           for (let recipe of result){
             this.id[i] = recipe.recipe_id;
@@ -38,9 +43,13 @@ export class MyRecipeComponent implements OnInit {
             i++;
           }
         })
-      }else if(this.type = "playlist"){
+      }else if(this.type == "playlist"){
         this.db.loadPlaylist(this.userID).then((result) => {
           console.log("Playlist Result: ", result);
+          if(result.length < 1){
+            this.showMsg = true;
+            this.message = "You have no playlists! Create one today!";
+          }
           var i = 0;
           for (let recipe of result){
             this.id[i] = recipe.recipe_id;
@@ -49,9 +58,13 @@ export class MyRecipeComponent implements OnInit {
             i++;
           }
         })
-      }else if(this.type = "favourite"){
+      }else if(this.type == "favourite"){
         this.db.loadFavourite(this.userID).then((result) => {
           console.log("Favourite Result: ", result);
+          if(result.length < 1){
+            this.showMsg = true;
+            this.message = "You have no favourite recipes!";
+          }
           var i = 0;
           for (let recipe of result){
             this.id[i] = recipe.recipe_id;
