@@ -28,21 +28,20 @@
     max-width: 80%;
     resize: none;
     overflow-y: scroll;
-    border: 3px solid #4d4d4d;
+    margin-left: 10px;
   }
 
   #name {
     width: 50%;
     max-width: 80%;
-    border: 3px solid #4d4d4d;
     resize: none;
+    margin-left: 10px;
   }
 
   #play-list {
     max-height: 700px;
     height: 450px;
     text-indent: 10px;
-    border: 10px solid #4d4d4d;
   }
 
   .options {
@@ -55,4 +54,5 @@
     display: inline-block;
     font-size: 16px;
     width: 200px;
+    margin-left: 10px;
   }

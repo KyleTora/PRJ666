@@ -4,9 +4,11 @@
 
   .searchBar {
     width: auto;
-    border-radius: 15px;
-    border: 1px black solid;
-    padding: 10px 5px 5px 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    border: 1px white;
+    padding: 10px 5px 10px 20px;
   }
 
   .center {
@@ -33,7 +35,7 @@
   .glow {
     border:20px white;
     border-radius: 50px;
-    box-shadow: 0 0 0 1px rgb(255, 255, 255);
+    box-shadow: 0 0 0 1px transparent;
     }
 
   .glow:hover {
