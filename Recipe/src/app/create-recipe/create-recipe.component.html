@@ -1,17 +1,18 @@
 <form>
-<div class="container text-center">
+  <div class="container text-center">
     <div class="row">
       <div class="col-sm-12">
         <div class="well">
           <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-              <input class="navbar-brand mr-3" type="text" placeholder="Recipe Name" style="color: black;" [(ngModel)]="recipeName" name="recipeName">
+              <input class="navbar-brand mr-3 recipeTitle" type="text" placeholder="Recipe Name" [(ngModel)]="recipeName"
+                name="recipeName">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="recipeCollapse">
                 <div class="navbar-nav ml-auto">
-                  <button class="save" (click)=save()>Save Recipe</button>
+                  <button class="save addButton" style="margin-bottom: 10px;" (click)=save()>Save Recipe</button>
                 </div>
               </div>
             </div>
@@ -23,121 +24,176 @@
 
   <div id="errorMessage" *ngIf="showErrorMessage">
     <h5>{{errorMessage}}</h5>
-</div>
-  <!-- First Row for Ingredients and Image -->
+  </div>
+  <!-- First Row for Image -->
   <div class="container text-center size">
     <div class="row">
       <div class="col-sm-4" style="margin-top: 32px;">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <button type="button" style="margin-top: 10px;">Add Photo</button>
+        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%;" alt="Image">
+        <button type="button" class="addButton">Add Photo</button>
       </div>
 
-      <div class="col-sm-3" style="padding-top: 30px;">
-        <label for="mealType">Select the Type of Meal</label>
-        <br>
-        <select id="mealType" [(ngModel)]="mealType" name="mealType">
-          <option value= "breakfast">Breakfast</option>
-          <option value= "lunch">Lunch</option>
-          <option value= "dinner">Dinner</option>
-          <option value= "appetizer">Appetizer</option>
-          <option value= "dessert">Dessert</option>
-          <option value= "snack">Snack</option>
-          <option value= "other">Other</option>
-        </select>
+      <div class="col-sm-8" style="color: #353a40; ">
+        <div class="well">
+          <!--<label class="sectionTitle">Description</label>-->
+          <textarea id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"
+            style="height: 230px; margin-top: 32px; background-color: white; color: #353a40; border-radius: 20px; padding: 10px;"></textarea>
+        </div>
       </div>
-      <div class="col-sm-2" style="padding-top: 30px;">
-        <label for="region">Select the Region</label>
-        <br>
-        <select id="region" [(ngModel)]="region" name="region">
-          <option value= "european">European</option>
-          <option value= "asian">Asian</option>
-          <option value= "middleEastern">Middle Eastern</option>
-          <option value= "southAmerican">South American</option>
-          <option value= "mediterranean">Mediterranean</option>
-          <option value= "african">African</option>
-          <option value= "other">Other</option>
-        </select>
-      </div>
-      <div class="col-sm-3" style="padding-top: 30px;">
-        <label for="region">Select the Lifestyle</label>
-        <br>
-        <select id="lifestyle" [(ngModel)]="lifestyle" name="lifestyle">
-          <option value= "vegan">Vegan</option>
-          <option value= "vegetarian">Vegetarian</option>
-          <option value= "keto">Keto</option>
-          <option value= "other">Other</option>
-          <option value= "none">None</option>
-        </select>
-      </div>
+
     </div>
-    
+
   </div>
-  <br>
   <br>
 
   <!-- First Row for Description, Cook Time, and Number of Servings -->
-  <div class="container text-center">
+  <div class="container" style="color: white; background-color: #353a40; padding: 30px; width: 1110px;">
+    <br>
     <div class="row">
-      <div class="col-sm-8">
-        <div class="well">
-          <label class="sectionTitle">Description</label>
-          <textarea id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"></textarea>
-        </div>
+      <div class="col-sm-2">
+        <fieldset>
+          <legend>Fruits</legend>
+          <a *ngFor="let x of fruit">
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other:
+          <br>
+        </fieldset>
       </div>
-      <div class="col-sm-4" style="margin-top: 15px;">
-        
-        <div class="well" id="extra">
-          <label style="margin-right: 5px;">Cooktime: </label>
-          <input type="number" placeholder="0" min="0" max = "10" step=".25" [(ngModel)]="cooktime" name="cooktime">
-          <label style="margin-left: 5px;"> hour(s)</label>
 
+      <div class="col-sm-2">
+        <fieldset>
+          <legend>Vegetables</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other:
+          <br>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-2">
+        <fieldset>
+          <legend>Dairy Products</legend>
+          <a *ngFor="let x of dairy">
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+          </a>
+          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other:
+          <br>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
+          <label for="mealType">Select the Meal Type</label>
+          <br>
+          <select id="mealType" [(ngModel)]="mealType" name="mealType" style="width: 160px;">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="appetizer">Appetizer</option>
+            <option value="dessert">Dessert</option>
+            <option value="snack">Snack</option>
+            <option value="other">Other</option>
+          </select>
         </div>
 
-        <div class="well" id="extra">
+        <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
+          <label for="mealType">Region</label>
+          <br>
+          <select id="region" [(ngModel)]="region" name="region" style="width: 160px;">
+            <option value="european">European</option>
+            <option value="asian">Asian</option>
+            <option value="middleEastern">Middle Eastern</option>
+            <option value="southAmerican">South American</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="african">African</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
+          <label for="mealType">Lifestyle</label>
+          <br>
+          <select id="lifestyle" [(ngModel)]="lifestyle" name="lifestyle" style="width: 160px;">
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="keto">Keto</option>
+            <option value="other">Other</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+
+        <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
           <label for="mealType" style="margin-right: 5px;">Number of Servings:</label>
-          <select id="mealType" [(ngModel)]="servings" name="servings">
-            <option value= "1">1</option>
-            <option value= "2">2</option>
-            <option value= "3">3</option>
-            <option value= "4">4</option>
-            <option value= "5">5</option>
-            <option value= "6">6</option>
-            <option value= "7">7</option>
-            <option value= "8">8</option>
-            <option value= "9">9</option>
-            <option value= "10">10+</option>
-          </select>        
+          <select id="mealType" [(ngModel)]="servings" name="servings" style="width: 160px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10+</option>
+          </select>
+        </div>
+
+        <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
+          <label style="margin-right: 5px;">Cooktime: </label>
+          <input type="number" placeholder="0" min="0" max="10" step=".25" [(ngModel)]="cooktime" name="cooktime">
+          <label style="margin-left: 5px;"> hour(s)</label>
         </div>
       </div>
     </div>
   </div><br>
 
-  <div class="container text-center">
+  <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
+    <h5 style="padding-top:30px; margin-left: 45px; color: white;">Instructions</h5>
     <div class="row">
-      <div class="col-sm-4">
-        <label class="sectionTitle">Instructions</label>
-        <ul id="recipe-instruction">
-          <input type="text" maxlength="90" placeholder="Step 1" style="color: black;" [(ngModel)]="step1" name="step1">
-          <input type="text" maxlength="90" placeholder="Step 2" style="color: black;" [(ngModel)]="step2" name="step2">
-          <input type="text" maxlength="90" placeholder="Step 3" style="color: black;" [(ngModel)]="step3" name="step3">
-          <input type="text" maxlength="90" placeholder="Step 4" style="color: black;" [(ngModel)]="step4" name="step4">
-          <input type="text" maxlength="90" placeholder="Step 5" style="color: black;" [(ngModel)]="step5" name="step5">
-          <input type="text" maxlength="90" placeholder="Step 6" style="color: black;" [(ngModel)]="step6" name="step6">
-          <input type="text" maxlength="90" placeholder="Step 7" style="color: black;" [(ngModel)]="step7" name="step7">
-          <input type="text" maxlength="90" placeholder="Step 8" style="color: black;" [(ngModel)]="step8" name="step8">
-          <input type="text" maxlength="90" placeholder="Step 9" style="color: black;" [(ngModel)]="step9" name="step9">
-        </ul>
-      </div>
+      <ul id="recipe-instruction">
+        <input type="text" maxlength="90" placeholder="Step 1"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step1"
+          name="step1"><br>
+        <input type="text" maxlength="90" placeholder="Step 2"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step2"
+          name="step2"><br>
+        <input type="text" maxlength="90" placeholder="Step 3"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step3"
+          name="step3"><br>
+        <input type="text" maxlength="90" placeholder="Step 4"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step4"
+          name="step4"><br>
+        <input type="text" maxlength="90" placeholder="Step 5"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step5"
+          name="step5"><br>
+        <input type="text" maxlength="90" placeholder="Step 6"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step6"
+          name="step6"><br>
+        <input type="text" maxlength="90" placeholder="Step 7"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step7"
+          name="step7"><br>
+        <input type="text" maxlength="90" placeholder="Step 8"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step8"
+          name="step8"><br>
+        <input type="text" maxlength="90" placeholder="Step 9"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step9"
+          name="step9"><br>
+        <input type="text" maxlength="90" placeholder="Step 10"
+          style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" [(ngModel)]="step10"
+          name="step10"><br>
+      </ul>
     </div>
   </div>
 
+  <!--
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
         <fieldset>
           <legend>Fruits</legend>
           <a *ngFor="let x of fruit">
-            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
           </a>
           <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other:
           <br>
@@ -148,9 +204,9 @@
         <fieldset>
           <legend>Vegetables</legend>
           <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
           </a>
-          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other: 
+          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other:
           <br>
         </fieldset>
       </div>
@@ -159,17 +215,18 @@
         <fieldset>
           <legend>Dairy Products</legend>
           <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked] = "isAvailable">{{x}}<br>
+            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
           </a>
-          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other: 
+          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other:
           <br>
         </fieldset>
       </div>
 
     </div>
   </div>
+-->
 
-      <!--
+  <!--
       <div class="col-sm-4">
         <label class="sectionTitle">Cookware (Optional)</label>
         <ul id="cookware-list" >
@@ -187,4 +244,4 @@
     </div>
   </div><br>
   -->
-  </form>
+</form>
