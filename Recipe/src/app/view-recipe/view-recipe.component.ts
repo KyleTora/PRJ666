@@ -51,7 +51,7 @@ export class ViewRecipeComponent implements OnInit {
     if(confirm("  Add this recipe to your list of favourites?")){
       this.db.addFavourite(this.id, this.userX.getId(), this.recipeName, this.description).then((result) =>{
         alert(this.recipeName + " has been added!");
-        this.router.navigate(['/my-recipe/favourite']);
+        window.location.reload();
       }).catch((err) => {
         console.log("Favourite Error: ", err);
       })
@@ -62,6 +62,7 @@ export class ViewRecipeComponent implements OnInit {
     if(confirm("  Are you sure you want to unfavourite this recipe?")){
       this.db.deleteFav(this.id, this.userX.getId()).then ((result) => {
         alert(this.recipeName + " has been removed!");
+        window.location.reload();
       }).catch((err) => {
         console.log("Favourite Error: ", err);
       })
