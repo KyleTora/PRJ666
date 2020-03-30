@@ -32,10 +32,6 @@ div#grid figure figcaption {
   line-height: 1.5;
 }
 
-div#grid:hover figure:not(:hover) {
-  opacity: 0.6;
-}
-
 @media screen and (max-width: 750px) { 
   #columns { column-gap: 0px; }
   #columns figure { width: 100%; }
