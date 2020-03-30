@@ -87,7 +87,6 @@ export class CreateRecipeComponent implements OnInit {
     if(this.step10){
       this.instructions.push(this.step10);
     }
-    console.log(this.instructions); 
 
     this.showErrorMessage = false;
     if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifestyle){
@@ -110,7 +109,7 @@ export class CreateRecipeComponent implements OnInit {
         }).catch((err) =>{
           console.log("Steps Error: ", err);
         })
-        this.router.navigate(['/my-recipe']);
+        this.router.navigate(['/my-recipe/recipe']);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
