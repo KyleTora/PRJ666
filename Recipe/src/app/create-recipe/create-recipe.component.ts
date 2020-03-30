@@ -32,6 +32,7 @@ export class CreateRecipeComponent implements OnInit {
   step7: string;
   step8: string;
   step9: string;
+  step10: string;
 
   isAvailable: any;
   //display ingredients
@@ -83,7 +84,9 @@ export class CreateRecipeComponent implements OnInit {
     if(this.step9){
       this.instructions.push(this.step9);
     }
-    
+    if(this.step10){
+      this.instructions.push(this.step10);
+    }
     console.log(this.instructions); 
 
     this.showErrorMessage = false;
