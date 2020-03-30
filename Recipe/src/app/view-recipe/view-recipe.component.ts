@@ -53,11 +53,21 @@ export class ViewRecipeComponent implements OnInit {
         alert(this.recipeName + " has been added!");
         this.router.navigate(['/my-recipe/favourite']);
       }).catch((err) => {
-        console.log(this.id,this.userX.getId(), this.recipeName, this.description);
         console.log("Favourite Error: ", err);
       })
     }
   }
+
+  unfavourite(){
+    if(confirm("  Are you sure you want to unfavourite this recipe?")){
+      this.db.deleteFav(this.id, this.userX.getId()).then ((result) => {
+        alert(this.recipeName + " has been removed!");
+      }).catch((err) => {
+        console.log("Favourite Error: ", err);
+      })
+    }
+  }
+
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {

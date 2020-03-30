@@ -270,6 +270,23 @@ app.post('/deleteRecipe', function (request, response) {
         }
 });
 
+app.post('/deleteFav', function (request, response) {
+        var recipeid = request.body.recipeId;
+        var userid = request.body.userId;
+
+        if (recipeid > 0 && userid > 0) {
+                connection.query("DELETE FROM FavouriteRecipes WHERE recipe_id = ? AND userid = ?", [recipeid, userid], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Favourite Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
 app.post('/loadRecipe', function (request, response) {
         var id = request.body.id;
      
