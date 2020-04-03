@@ -321,7 +321,7 @@ app.post('/deleteOthers', function (request, response) {
         var recipeid = request.body.recipeId;
 
         if (recipeid > 0 ) {
-                connection.query("DELETE * FROM Ingredients WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
+                connection.query("DELETE FROM Ingredients WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Favourite Format!');
                         } else {
@@ -329,7 +329,7 @@ app.post('/deleteOthers', function (request, response) {
                         }
                 });
 
-                connection.query("DELETE * FROM Instructions WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
+                connection.query("DELETE FROM Instructions WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Favourite Format!');
                         } else {
