@@ -66,6 +66,7 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   save(){   
+    console.log(this.ingredients);
     this.instructions = [];
     if(this.step1){
       this.instructions.push(this.step1);
@@ -114,16 +115,18 @@ export class CreateRecipeComponent implements OnInit {
     }else{   
       this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
-        this.databaseService.newSteps(this.instructions, result).then((result2)=>{
-          console.log("Steps Result: ", result2);
-          this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, result).then((result3) => {
-            console.log("Ingredients Result:", result3);
-          }).catch((err) => {
-            console.log("Ingredients Error: ", err);
+        this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, result).then((result3) => {
+          console.log("Ingredients Result:", result3);
+          this.databaseService.newSteps(this.instructions, result).then((result2)=>{
+            console.log("Steps Result: ", result2);
+          }).catch((err) =>{
+            console.log("Steps Error: ", err);
           })
-        }).catch((err) =>{
-          console.log("Steps Error: ", err);
+
+        }).catch((err) => {
+          console.log("Ingredients Error: ", err);
         })
+      
         this.router.navigate(['/my-recipe/recipe']);
       }).catch((err)=>{
         console.log("Recipe Error: ", err);

@@ -408,6 +408,22 @@ app.post('/loadSteps', function (req, res){
         }
 });
 
+app.post('/loadIngredients', function (req, res){
+        var id = req.body.id;
+     
+        if (id > 0) {
+                connection.query("SELECT step FROM Ingredients WHERE recipe_id = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                res.send('Incorrect Recipe Format!');
+                        } else {
+                                res.json(results);
+                        }
+                });
+        } else {
+                res.send('Please enter Steps!');
+        }
+});
+
 
 
 

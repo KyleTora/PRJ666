@@ -14,9 +14,9 @@ export class ViewRecipeComponent implements OnInit {
   private sub: any;
 
 
-  amount = ["21", "1", "125 mL", "25 g"];
-  ingredients = ["oranges", "egg", "water", "sugar"];
-
+  amount = [];
+  ingredients = [];
+  measure = [];
 
   chef: string;
   recipeName: string;
@@ -104,7 +104,6 @@ export class ViewRecipeComponent implements OnInit {
             }
           }
         })
-        //only gets first step
         this.db.loadSteps(this.id).then((result) => {
           console.log("Steps result: ", result);
           for(var i = 0; i < result.length; i++){
@@ -113,6 +112,18 @@ export class ViewRecipeComponent implements OnInit {
         }).catch((err) => {
           console.log("Instructions Error: " , err);
         })
+
+        this.db.loadIngredients(this.id).then((result) => {
+          console.log("Ingredients result: ", result);
+          for(var i = 0; i < result.length; i++){
+            this.ingredients.push(result[i].ingredient_name);
+            this.amount.push(result[i].amount);
+            this.measure.push(result[i].measure);
+          }
+        }).catch((err) => {
+          console.log("Instructions Error: " , err);
+        })
+
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
