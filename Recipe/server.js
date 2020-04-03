@@ -320,7 +320,7 @@ app.post('/deleteFav', function (request, response) {
 app.post('/deleteOthers', function (request, response) {
         var recipeid = request.body.recipeId;
 
-        if (recipeid > 0 && userid > 0) {
+        if (recipeid > 0 ) {
                 connection.query("DELETE * FROM Ingredients WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Favourite Format!');
