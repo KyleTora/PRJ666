@@ -230,7 +230,7 @@ app.post('/newRecipe', function (request, response) {
                                 recipe = results.insertId;
                         }
                 });
-                connection.end();
+               // connection.end();
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
@@ -240,7 +240,7 @@ app.post('/newRecipe', function (request, response) {
                                 }   
                         });
                 }
-                connection.end();
+               // connection.end();
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
