@@ -102,8 +102,6 @@ app.post('/signinCheck', function (request, response) {
         } else {
                 response.send('Please enter Username and Password!');
         }
-
-        connection.end();
 });
 
 app.post('/signupCheck', function (request, response) {
@@ -121,7 +119,7 @@ app.post('/signupCheck', function (request, response) {
                                 request.session.username = username;
                                 response.json(results[0]);
 
-                              /*  var mailOptions = {
+                                var mailOptions = {
                                         //to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
@@ -133,7 +131,7 @@ app.post('/signupCheck', function (request, response) {
                                                 console.log('Email sent: ' + info.response);
                                         }
                                 })
-*/
+
                         }
                 });
         } else {
@@ -370,28 +368,6 @@ app.post('/loadSteps', function (req, res){
 });
 
 
-app.get("/editProfile", (req, res) => {
-        if (req.session && req.ression.user) {
-                res.locals.user = user;
-                res.render(__dirname + "/profilePage.html");
-        } else {
-                req.session.reset();
-                res.redirect('/signIn.html');
-        }
-        //res.sendFile(__dirname + "/profilePage.html");
-});
-
-app.get("/recipePage", function (req, res) {
-
-
-        res.render('recipePage', {
-                recipe_name: recipe[1],
-                ingredients: recipe[2],
-                servings: recipe[3],
-                description: recipe[4]
-        });
-        //res.render(__dirname + "/recipePage.html");
-});
 
 
 /*
@@ -487,3 +463,4 @@ app.on('error', (err) => {
         console.log(err.message);
 });
 
+connection.end();
