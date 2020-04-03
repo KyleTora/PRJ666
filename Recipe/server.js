@@ -248,6 +248,7 @@ app.post('/newFav', function (request, response) {
         } else {
                 response.send('Please enter Recipe!');
         }
+        connection.close();
 });
 
 
@@ -266,10 +267,12 @@ app.post('/newSteps', function(req, res){
                                         //res.json(results);
                                 }   
                         });
+                        
                 }
         }else {
                 res.send('Please enter Instructions!');
         }
+        connection.close();
 
 });
 
@@ -295,7 +298,7 @@ app.post('/newIngredients', function(req, res){
         }else {
                 res.send('Please enter Ingredients!');
         }
-
+        connection.close();
 });
 
 app.post('/deleteRecipe', function (request, response) {
