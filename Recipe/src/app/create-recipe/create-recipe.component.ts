@@ -34,6 +34,23 @@ export class CreateRecipeComponent implements OnInit {
   step9: string;
   step10: string;
 
+  ingredients = new Array;
+  amount = new Array;
+  measure = new Array;
+  
+  arr = Array;
+  size = 1;
+  addRow(){
+    this.size++;
+    
+    console.log(this.ingredients);
+  }
+  check(){
+    this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, 2).then((result3) => {
+      console.log("Ingredients Result:", result3);
+    }).catch((err) => {
+      console.log("Ingredients Error: ", err);
+    })  }
   isAvailable: any;
   //display ingredients
   fruit = ["Lemon","Apple","Banana","Lime","Strawberry","Orange","Pineapple","Blueberry","Raisin", "Coconut","Grape","Peach","Raspberry","Cranberry","Mango","Pear","Blackberry","Cherry"];
@@ -106,6 +123,11 @@ export class CreateRecipeComponent implements OnInit {
         console.log("Recipe Result: ", result);
         this.databaseService.newSteps(this.instructions, result).then((result2)=>{
           console.log("Steps Result: ", result2);
+          // this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, result).then((result3) => {
+          //   console.log("Ingredients Result:", result3);
+          // }).catch((err) => {
+          //   console.log("Ingredients Error: ", err);
+          // })
         }).catch((err) =>{
           console.log("Steps Error: ", err);
         })

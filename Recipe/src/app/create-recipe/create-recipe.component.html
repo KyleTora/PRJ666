@@ -40,9 +40,7 @@
             style="height: 230px; margin-top: 32px; background-color: white; color: #353a40; border-radius: 20px; padding: 10px;"></textarea>
         </div>
       </div>
-
     </div>
-
   </div>
   <br>
 
@@ -50,6 +48,25 @@
   <div class="container" style="color: white; background-color: #353a40; padding: 30px; width: 1110px;">
     <br>
     <div class="row">
+
+
+  <div class = "col-sm-8" id="extra" style="padding: 20px; border-radius: 20px;">
+    <a *ngFor="let size of arr(size).fill(1), let i = index">
+      <input style="border-radius: 20px; color: #353a40; padding-left: 10px; margin-top: 5px;" type="text"  placeholder="Ingredient Name" [(ngModel)]="ingredients[i]" name="ingredients[i]">
+      <input type="number" placeholder="0" min="0" value="amount[i]" [(ngModel)]="amount[i]" name="amount[i]">
+      
+      <select id="measureType" [(ngModel)]="measure[i]" name="measure[i]" style="width: 160px;">
+        <option value="cup">cup</option>
+        <option value="tbsp">tbsp</option>
+        <option value="tsp">tsp</option>
+      </select>
+      <br>
+    </a>
+    <button class="save addButton" style="margin-bottom: 10px;" (click)=addRow()>Add Ingredient</button>
+    <button class="save addButton" style="margin-bottom: 10px;" (click)=check()>Check Ingredients</button>
+
+  </div>
+  <!--
       <div class="col-sm-2">
         <fieldset>
           <legend>Fruits</legend>
@@ -82,6 +99,7 @@
           <br>
         </fieldset>
       </div>
+    -->
       <div class="col-md-6">
         <div class="well" id="extra" style="padding: 20px; border-radius: 20px; width: 200px; margin-left: 200px;">
           <label for="mealType">Select the Meal Type</label>
@@ -184,7 +202,7 @@
           name="step10"><br>
       </ul>
     </div>
-  </div>
+</div>
 
   <!--
   <div class="container">
@@ -221,10 +239,9 @@
           <br>
         </fieldset>
       </div>
-
-    </div>
-  </div>
 -->
+  
+
 
   <!--
       <div class="col-sm-4">

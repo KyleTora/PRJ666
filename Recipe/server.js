@@ -272,6 +272,29 @@ app.post('/newSteps', function(req, res){
 
 });
 
+app.post('/newIngredients', function(req, res){
+        var ingredients = req.body.instructions;
+        var amount = req.body.amount;
+        var measure = req.body.measure;
+        var recipe = req.body.recipe_id;
+       // console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
+        
+        if(ingredients){   
+                for(var i = 0; i < ingredients.length; i++){                     
+                        connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
+                                if (error) { throw error;
+                                        //res.send('Incorrect Instructions Format!');
+                                } else {
+                                        //res.json(results);
+                                }   
+                        });
+                }
+        }else {
+                res.send('Please enter Instructions!');
+        }
+
+});
+
 app.post('/deleteRecipe', function (request, response) {
         var id = request.body.id;
      

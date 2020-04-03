@@ -48,13 +48,19 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   favourite(){
-    if(confirm("  Add this recipe to your list of favourites?")){
-      this.db.addFavourite(this.id, this.userX.getId(), this.recipeName, this.description).then((result) =>{
-        alert(this.recipeName + " has been added!");
-        window.location.reload();
-      }).catch((err) => {
-        console.log("Favourite Error: ", err);
-      })
+    if(this.userX.getId()){
+      if(confirm("  Add this recipe to your list of favourites?")){
+        this.db.addFavourite(this.id, this.userX.getId(), this.recipeName, this.description).then((result) =>{
+          alert(this.recipeName + " has been added!");
+          window.location.reload();
+        }).catch((err) => {
+          console.log("Favourite Error: ", err);
+        })
+      }
+    }else{
+      if (confirm("  You need to be logged in to access this feature...\n  Would you like to login now?")){
+        this.router.navigate(['/login']);
+      }
     }
   }
 
