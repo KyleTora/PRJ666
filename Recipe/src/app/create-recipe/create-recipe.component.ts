@@ -51,6 +51,9 @@ export class CreateRecipeComponent implements OnInit {
     this.userID = user.getId();
   }
 
+  upload(){
+    console.log("Add photo");
+  }
 
 
   save(){   
