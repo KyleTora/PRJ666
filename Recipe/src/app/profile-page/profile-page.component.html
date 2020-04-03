@@ -4,7 +4,10 @@
     <div class="container emp-profile">
         <div class="row">
             <div class="col-md-3">
-                <img src="assets/img_avatar.png" alt="Avatar">
+                <img *ngIf="!url" src="assets/img_avatar.png">
+                <img *ngIf="url" [src]="url" class="img-responsive">
+                <input type="file" (change)="onChange($event)"class="photo addButton">
+                <button class="save addButton" (click)="checkImage()">Check Image</button>
             </div>
             <!-- Image, Name, Bio -->
             <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">

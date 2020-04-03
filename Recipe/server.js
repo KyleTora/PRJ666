@@ -204,7 +204,21 @@ app.post('/updateBio', function (request, response) {
                 response.send('Enter a password');
         }
 });
-
+app.post('/newProfilePic', function (request, response) {
+        var image = request.body.image;
+        var id = request.body.id;
+        if (password) {
+                connection.query('UPDATE User SET profilePic = ? WHERE user_ID = ?', [image, id], function (error, results, fields) {
+                        if (error) {
+                                response.send('error');
+                        } else {
+                                response.json(results.affectedRows);
+                        }
+                });
+        } else {
+                response.send('Enter an image');
+        }
+});
 app.post('/newRecipe', function (request, response) {
         var userID = request.body.userID;
         var name = request.body.recipeName;

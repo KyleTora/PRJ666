@@ -45,16 +45,30 @@ export class CreateRecipeComponent implements OnInit {
     this.size++;
   }
   isAvailable: any;
- 
+  url;
+
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
     this.chef = user.getUsername();
     this.userID = user.getId();
   }
 
-  upload(){
-    console.log("Add photo");
+  onChange(event) {
+    var reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      this.url = event.target.result;
+    };
+    reader.onerror = (event: any) => {
+      console.log("File could not be read: " + event.target.error.code);
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+    console.log(event);
   }
 
+  checkImage(){
+    console.log(this.url);
+  }
 
   save(){   
     console.log(this.ingredients);

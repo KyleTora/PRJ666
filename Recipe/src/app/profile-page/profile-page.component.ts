@@ -15,6 +15,7 @@ export class ProfilePageComponent{
   id = 0;
   bio: string;
   recipes: number;
+  url;
 
   constructor(user: User, private db: DatabaseService){
     this.name = user.getUsername();
@@ -26,8 +27,31 @@ export class ProfilePageComponent{
       this.recipes = result.length;
 
     });
-    console.log(this.name);
 
+   
+  
     
-  }
+  } 
+  onChange(event) {
+      var reader = new FileReader();
+  
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      };
+      reader.onerror = (event: any) => {
+        console.log("File could not be read: " + event.target.error.code);
+      };
+  
+      reader.readAsDataURL(event.target.files[0]);
+      console.log(event);
+    }
+  
+    checkImage(){
+      console.log(this.url);
+      this.db.newProfilePic(this.url, this.id).then((result)=>{
+        console.log("Steps Result: ", result);   
+      }).catch((err) =>{
+        console.log("Steps Error: ", err);
+      })
+    }
 }

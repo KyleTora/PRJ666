@@ -115,6 +115,23 @@ export class DatabaseService {
     }
   }
 
+  async newProfilePic(image:string, id:number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {image, id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/newProfilePic`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
   async newRecipe(userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
