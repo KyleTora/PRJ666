@@ -228,7 +228,6 @@ app.post('/newRecipe', function (request, response) {
                         } else {
                                 //response.json(results.insertId);
                                 recipe = results.insertId;
-                                console.log(recipe, " " , results.insertId);
                         }
                 });
                // connection.end();
