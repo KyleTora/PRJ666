@@ -262,6 +262,7 @@ app.post('/newSteps', function(req, res){
                                 if (error) { throw error;
                                         //res.send('Incorrect Instructions Format!');
                                 } else {
+                                        alert("working instructions!");
                                         //res.json(results);
                                 }   
                         });
@@ -285,6 +286,8 @@ app.post('/newIngredients', function(req, res){
                                 if (error) { throw error;
                                         //res.send('Incorrect Instructions Format!');
                                 } else {
+                                        alert("working ingredients!");
+
                                         //res.json(results);
                                 }   
                         });
