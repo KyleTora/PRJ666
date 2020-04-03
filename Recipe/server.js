@@ -257,7 +257,7 @@ app.post('/newSteps', function(req, res){
         console.log("server,steps: ", instructions, recipe); 
         
         if(instructions){   
-                for(var i = 0; i < instructions.length; i++){                     
+                for(var i = 0; i <= instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
                                         res.send('Incorrect Instructions Format!');
@@ -280,10 +280,10 @@ app.post('/newIngredients', function(req, res){
         console.log("server/ks: ", ingredients, amount, measure, recipe); 
         
         if(ingredients){   
-                for(var i = 0; i < ingredients.length; i++){                     
+                for(var i = 0; i <= ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
-                                        res.json('Incorrect Instructions Format!');
+                                        res.json('Incorrect Ingredients Format!');
                                 } else {
                                         res.json(results);
                                 }   
