@@ -160,7 +160,7 @@
                 <h3>Ingredients</h3>
                 <ul>
                     <a *ngFor="let amt of amount; let i = index;">
-                        <li>{{ingredients[i]}}: {{amt}} {{measure[i]}}(s)</li>
+                        <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1">s</a> {{ingredients[i]}}</li>
                     </a>
                 </ul>
             </section>
