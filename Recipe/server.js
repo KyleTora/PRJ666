@@ -85,7 +85,7 @@ app.get("/signin", (req, res) => {
         res.sendFile(__dirname + "/signIn.html");
 });
 
-app.post('/signinCheck', function (request, response) {
+app.get('/signinCheck', function (request, response) {
         var username = request.body.username;
         var password = request.body.password;
         if (username && password) {
