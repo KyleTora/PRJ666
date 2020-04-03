@@ -22,7 +22,7 @@ try {
         console.error("Test SSL is: ", err);
 }
 
-
+/*
 //set our email
 var transporter = mailer.createTransport({
         host: 'smtp.office365.com',
@@ -46,7 +46,7 @@ transporter.verify(function(error, success) {
           console.log("Server is ready to take our messages");
         }
 });
-
+*/
 var connection = require('./config');
 var recipe;
 
@@ -118,9 +118,9 @@ app.post('/signupCheck', function (request, response) {
                                 request.session.loggedin = true;
                                 request.session.username = username;
                                 response.json(results[0]);
-
+/*
                                 var mailOptions = {
-                                        //to: "kyletora1@gmail.com",
+                                        to: email,
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
@@ -128,10 +128,10 @@ app.post('/signupCheck', function (request, response) {
                                         if (error) {
                                                 console.log(error);
                                         } else {
-                                                console.log('Email sent: ' + info.response);
+                                                console.log('Email sent to: ' + email);
                                         }
                                 })
-
+*/
                         }
                 });
         } else {
@@ -139,7 +139,7 @@ app.post('/signupCheck', function (request, response) {
         }
 });
 
-app.post('/checkEmail', function (request, response) {
+app.get('/checkEmail', function (request, response) {
         var email = request.body.email;
         if (email) {
                 connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
@@ -287,7 +287,7 @@ app.post('/deleteFav', function (request, response) {
         }
 });
 
-app.post('/loadRecipe', function (request, response) {
+app.get('/loadRecipe', function (request, response) {
         var id = request.body.id;
      
         if (id > 0) {
@@ -303,7 +303,7 @@ app.post('/loadRecipe', function (request, response) {
         }
 });
 
-app.post('/loadRecipeType', function (request, response) {
+app.get('/loadRecipeType', function (request, response) {
         var type = request.body.type;
      
         if (type) {
@@ -319,7 +319,7 @@ app.post('/loadRecipeType', function (request, response) {
         }
 });
 
-app.post('/loadUserRecipe', function (request, response) {
+app.get('/loadUserRecipe', function (request, response) {
         var id = request.body.userID;
      
         if (id > 0) {
@@ -335,7 +335,7 @@ app.post('/loadUserRecipe', function (request, response) {
         }
 });
 
-app.post('/loadFavourite', function (request, response) {
+app.get('/loadFavourite', function (request, response) {
         var id = request.body.userID;
      
         if (id > 0) {
@@ -351,7 +351,7 @@ app.post('/loadFavourite', function (request, response) {
         }
 });
 
-app.post('/loadSteps', function (req, res){
+app.get('/loadSteps', function (req, res){
         var id = req.body.id;
      
         if (id > 0) {
