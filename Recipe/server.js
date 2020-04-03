@@ -22,7 +22,7 @@ try {
         console.error("Test SSL is: ", err);
 }
 
-/*
+
 //set our email
 var transporter = mailer.createTransport({
         host: 'smtp.office365.com',
@@ -46,7 +46,7 @@ transporter.verify(function(error, success) {
           console.log("Server is ready to take our messages");
         }
 });
-*/
+
 var connection = require('./config');
 var recipe;
 
