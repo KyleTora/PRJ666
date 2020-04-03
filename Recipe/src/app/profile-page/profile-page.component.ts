@@ -43,11 +43,10 @@ export class ProfilePageComponent{
       };
   
       reader.readAsDataURL(event.target.files[0]);
-      console.log(event);
     }
   
     checkImage(){
-      console.log(this.url);
+      console.log(this.url.length);
       this.db.newProfilePic(this.url, this.id).then((result)=>{
         console.log("Steps Result: ", result);   
       }).catch((err) =>{
