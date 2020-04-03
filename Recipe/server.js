@@ -254,7 +254,7 @@ app.post('/newFav', function (request, response) {
 app.post('/newSteps', function(req, res){
         var instructions = req.body.instructions;
         var recipe = req.body.recipe_id;
-       // console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
+        console.log("server,steps: ", instructions, recipe); 
         
         if(instructions){   
                 for(var i = 0; i < instructions.length; i++){                     
@@ -277,7 +277,7 @@ app.post('/newIngredients', function(req, res){
         var amount = req.body.amount;
         var measure = req.body.measure;
         var recipe = req.body.recipe_id;
-       // console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
+        console.log("server/ks: ", ingredients, amount, measure, recipe); 
         
         if(ingredients){   
                 for(var i = 0; i < ingredients.length; i++){                     
