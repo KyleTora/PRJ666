@@ -232,7 +232,7 @@ app.post('/newRecipe', function (request, response) {
                 });
                // connection.end();
                 for(var i = 0; i < instructions.length; i++){                     
-                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [this.recipe, instructions[i]],  function (error, results, fields) {
+                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [results.insertId, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
                                         response.send(error);
                                 } else {
