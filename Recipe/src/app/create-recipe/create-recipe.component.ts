@@ -10,6 +10,7 @@ import { User } from '../global.service';
   styleUrls: ['./create-recipe.component.css']
 })
 export class CreateRecipeComponent implements OnInit {
+  num: number;
   recipeName: string;
   mealType: string;
   region: string;
@@ -115,22 +116,24 @@ export class CreateRecipeComponent implements OnInit {
     }else{   
       this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
-        this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, result).then((result3) => {
-          console.log("Ingredients Result:", result3);
-          this.databaseService.newSteps(this.instructions, result).then((result2)=>{
-            console.log("Steps Result: ", result2);
-          }).catch((err) =>{
-            console.log("Steps Error: ", err);
-          })
-
-        }).catch((err) => {
-          console.log("Ingredients Error: ", err);
-        })
-      
-        this.router.navigate(['/my-recipe/recipe']);
+        this.num = result;
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
+
+      this.databaseService.newSteps(this.instructions, this.num).then((result2)=>{
+        console.log("Steps Result: ", result2);   
+      }).catch((err) =>{
+        console.log("Steps Error: ", err);
+      })
+
+      this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, this.num).then((result3) => {
+        console.log("Ingredients Result:", result3); 
+      }).catch((err) => {
+        console.log("Ingredients Error: ", err);
+      })        
+      this.router.navigate(['/my-recipe/recipe']);
+
     }
   }
 

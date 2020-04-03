@@ -237,7 +237,6 @@ app.post('/newFav', function (request, response) {
         var description = request.body.description;
 
         if (recipeid, userID, name, description) {
-                connection.connect();
                 connection.query("INSERT INTO FavouriteRecipes (recipe_id, userid, recipeName, description) VALUES(?, ?, ?, ?)", [recipeid, userID, name, description], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
@@ -249,7 +248,6 @@ app.post('/newFav', function (request, response) {
         } else {
                 response.send('Please enter Recipe!');
         }
-        connection.close();
 });
 
 
@@ -259,22 +257,18 @@ app.post('/newSteps', function(req, res){
        // console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
         
         if(instructions){   
-                connection.connect();
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { throw error;
                                         //res.send('Incorrect Instructions Format!');
                                 } else {
-                                        alert("working instructions!");
                                         //res.json(results);
                                 }   
                         });
-                        
                 }
         }else {
                 res.send('Please enter Instructions!');
         }
-        connection.close();
 
 });
 
@@ -291,8 +285,6 @@ app.post('/newIngredients', function(req, res){
                                 if (error) { throw error;
                                         //res.send('Incorrect Instructions Format!');
                                 } else {
-                                        alert("working ingredients!");
-
                                         //res.json(results);
                                 }   
                         });
@@ -300,7 +292,7 @@ app.post('/newIngredients', function(req, res){
         }else {
                 res.send('Please enter Ingredients!');
         }
-        connection.close();
+
 });
 
 app.post('/deleteRecipe', function (request, response) {
