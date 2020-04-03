@@ -217,7 +217,6 @@ app.post('/newRecipe', function (request, response) {
         var lifestyle = request.body.lifestyle;
 
         if (name && type && region && cooktime && servings && chef) {
-                connection.connect();
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
