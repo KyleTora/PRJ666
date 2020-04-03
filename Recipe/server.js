@@ -85,7 +85,7 @@ app.get("/signin", (req, res) => {
         res.sendFile(__dirname + "/signIn.html");
 });
 
-app.get('/signinCheck', function (request, response) {
+app.post('/signinCheck', function (request, response) {
         var username = request.body.username;
         var password = request.body.password;
         if (username && password) {
@@ -118,9 +118,9 @@ app.post('/signupCheck', function (request, response) {
                                 request.session.loggedin = true;
                                 request.session.username = username;
                                 response.json(results[0]);
-/*
-                                var mailOptions = {
-                                        to: email,
+
+                              /*  var mailOptions = {
+                                        //to: "kyletora1@gmail.com",
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
@@ -128,7 +128,7 @@ app.post('/signupCheck', function (request, response) {
                                         if (error) {
                                                 console.log(error);
                                         } else {
-                                                console.log('Email sent to: ' + email);
+                                                console.log('Email sent: ' + info.response);
                                         }
                                 })
 */
@@ -139,7 +139,7 @@ app.post('/signupCheck', function (request, response) {
         }
 });
 
-app.get('/checkEmail', function (request, response) {
+app.post('/checkEmail', function (request, response) {
         var email = request.body.email;
         if (email) {
                 connection.query('SELECT * FROM User WHERE email = ?', [email], function (error, results, fields) {
@@ -287,7 +287,7 @@ app.post('/deleteFav', function (request, response) {
         }
 });
 
-app.get('/loadRecipe', function (request, response) {
+app.post('/loadRecipe', function (request, response) {
         var id = request.body.id;
      
         if (id > 0) {
@@ -303,7 +303,7 @@ app.get('/loadRecipe', function (request, response) {
         }
 });
 
-app.get('/loadRecipeType', function (request, response) {
+app.post('/loadRecipeType', function (request, response) {
         var type = request.body.type;
      
         if (type) {
@@ -319,7 +319,7 @@ app.get('/loadRecipeType', function (request, response) {
         }
 });
 
-app.get('/loadUserRecipe', function (request, response) {
+app.post('/loadUserRecipe', function (request, response) {
         var id = request.body.userID;
      
         if (id > 0) {
@@ -335,7 +335,7 @@ app.get('/loadUserRecipe', function (request, response) {
         }
 });
 
-app.get('/loadFavourite', function (request, response) {
+app.post('/loadFavourite', function (request, response) {
         var id = request.body.userID;
      
         if (id > 0) {
@@ -351,7 +351,7 @@ app.get('/loadFavourite', function (request, response) {
         }
 });
 
-app.get('/loadSteps', function (req, res){
+app.post('/loadSteps', function (req, res){
         var id = req.body.id;
      
         if (id > 0) {
