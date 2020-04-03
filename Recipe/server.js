@@ -227,9 +227,8 @@ app.post('/newRecipe', function (request, response) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
                                 //response.json(results.insertId);
-                                //console.log(results.insertId);
-                                //recipe = results.insertId;
-                                this.recipe = results.insertId;
+                                recipe = results.insertId;
+                                console.log(recipe, " " , results.insertId);
                         }
                 });
                // connection.end();
