@@ -38,11 +38,15 @@ export class ViewRecipeComponent implements OnInit {
     if(this.userX.getUsername() == this.chef){
       if(confirm("  Are you sure you want to delete this recipe?\n  This action can not be reversed!")){ 
         this.db.deleteRecipe(this.id).then((result) => {
-          alert(this.recipeName + " has been deleted!");
         }).catch((err) => {
           console.log("Delete Error: ", err);
         })
         this.db.deleteFav(this.id, this.userX.getId()).then((result) => {
+        }).catch((err) => {
+          console.log("Delete Error: ", err);
+        })
+        this.db.deleteOthers(this.id).then((result) => {
+          alert(this.recipeName + " has been deleted!");
           this.router.navigate(['/my-recipe/recipe']);
         }).catch((err) => {
           console.log("Delete Error: ", err);

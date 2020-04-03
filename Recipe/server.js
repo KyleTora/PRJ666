@@ -252,35 +252,12 @@ app.post('/newFav', function (request, response) {
         }
 });
 
-
-app.post('/newSteps', function(req, res){
-        var instructions = req.body.instructions;
-        var recipe = req.body.recipe_id;
-        console.log("server,steps: ", instructions, recipe); 
-        
-        if(instructions){   
-                for(var i = 0; i < instructions.length; i++){                     
-                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
-                                if (error) { 
-                                        res.send('Incorrect Instructions Format!');
-                                } else {
-                                        res.json(results);
-                                }   
-                        });
-                }
-        }else {
-                res.send('Please enter Instructions!');
-        }
-
-});
-
 app.post('/newIngredients', function(req, res){
         var instructions = req.body.instructions;
         var ingredients = req.body.ingredients;
         var amount = req.body.amount;
         var measure = req.body.measure;
         var recipe = req.body.recipe_id;
-       // console.log("server/ks: ", ingredients.length, ingredients, amount, measure, recipe); 
         
         if(ingredients && instructions){   
                 for(var i = 0; i < instructions.length; i++){                     
@@ -292,7 +269,6 @@ app.post('/newIngredients', function(req, res){
                                 }   
                         });
                 }
-               // connection.end();
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
@@ -340,6 +316,32 @@ app.post('/deleteFav', function (request, response) {
                 response.send('Please enter Recipe!');
         }
 });
+
+app.post('/deleteOthers', function (request, response) {
+        var recipeid = request.body.recipeId;
+
+        if (recipeid > 0 && userid > 0) {
+                connection.query("DELETE * FROM Ingredients WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Favourite Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+
+                connection.query("DELETE * FROM Instructions WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Favourite Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
+
 
 app.post('/loadRecipe', function (request, response) {
         var id = request.body.id;
