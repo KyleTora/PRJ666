@@ -232,7 +232,7 @@ app.post('/newRecipe', function (request, response) {
                 });
                // connection.end();
                 for(var i = 0; i < instructions.length; i++){                     
-                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
+                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [this.recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
                                         response.send(error);
                                 } else {
@@ -244,7 +244,7 @@ app.post('/newRecipe', function (request, response) {
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
-                                        response.json('Incorrect Ingredients Format!');
+                                        response.json(error);
                                 } else {
                                         //response.json(results);
                                 }   
