@@ -226,7 +226,7 @@ app.post('/newRecipe', function (request, response) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                response.json(results.insertId);
+                                //response.json(results.insertId);
                                 recipe = results.insertId;
                         }
                 });
@@ -236,7 +236,7 @@ app.post('/newRecipe', function (request, response) {
                                 if (error) { 
                                         response.send('Incorrect Instructions Format!');
                                 } else {
-                                        response.json(results);
+                                       // response.json(results);
                                 }   
                         });
                 }
@@ -246,7 +246,7 @@ app.post('/newRecipe', function (request, response) {
                                 if (error) { 
                                         response.json('Incorrect Ingredients Format!');
                                 } else {
-                                        response.json(results);
+                                        //response.json(results);
                                 }   
                         });
                 }
