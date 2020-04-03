@@ -220,7 +220,7 @@ app.post('/newRecipe', function (request, response) {
         var amount = request.body.amount;
         var measure = request.body.measure;
         var recipe = 0;
-        
+
         if (name && type && region && cooktime && servings && chef) {
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
@@ -230,7 +230,7 @@ app.post('/newRecipe', function (request, response) {
                                 recipe = results.insertId;
                         }
                 });
-                connection.close();
+                connection.end();
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
@@ -240,7 +240,7 @@ app.post('/newRecipe', function (request, response) {
                                 }   
                         });
                 }
-                connection.close();
+                connection.end();
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
