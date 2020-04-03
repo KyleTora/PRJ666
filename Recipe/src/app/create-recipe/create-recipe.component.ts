@@ -44,27 +44,14 @@ export class CreateRecipeComponent implements OnInit {
   addRow(){
     this.size++;
   }
-
   isAvailable: any;
-  //display ingredients
-  fruit = ["Lemon","Apple","Banana","Lime","Strawberry","Orange","Pineapple","Blueberry","Raisin", "Coconut","Grape","Peach","Raspberry","Cranberry","Mango","Pear","Blackberry","Cherry"];
-  vegetable = [ "Onion", "Garlic", "Tomato", "Potato", "Carrot", "Bell Pepper", "Basil", "Parsley", "Broccoli", "Corn", "Spinach", "Mushroom", "Ginger", "Chili Pepper","Avacado", "Olive", "Cilantro"];
-  dairy = [  "Milk",  "Cream",  "Yogurt",  "Ice Cream",  "Yogurt",  "Butter",  "Egg"];
-  bakingAndGrain = ["Rice","Pasta","Flour","Bread","Baking Powder", "Baking Soda", "Bread Crumbs", "Cornstarch", "Yeast"];
-  sweet = ["Sugar","Brown Sugar", "Honey", "Maple Syrup", "Molasses"];
-  spice = ["Cinnamon", "Vanilla", "Garlic Powder", "Paprika", " Oregano", "Chili Powder", "Cayenne", "Thyme", "Chive"];
-  meat = ["Chicken Breast", " Chicken Thighs", "Chicken Leg", "Chicken Wings", "Ground Beef", "Bacon", "Sausage", "Steak", "Ham", "Hot Dog", "Pork Chops", "Turkey", "Pork", "Pepporoni", "Ribs", "Lamb"];
-  seafood = ["Shrimp", "Crab", "Scallop", "Lobster", "Calamari", "Canned Tuna","Salmon","Tilapia","Fish Fillets","Cod","Canned Salmon", "Anchovy", "Smoked Salmon", "Sardines", "Halibut","Trout"];
-  //condiments, sauces, seasoning
-  oil = ["Olive Oil", "Vegetable Oil", "Cooking Spray", "Canola Oil", "Peanut Oil", "Sesame Oil"];
-  alcohol = ["White Wine", "Red Wine", "Beer", "Whiskey", "Vodka", "Rum"];
-  soup = ["Chicken Broth", "Mushroom Soup", "Beef Broth", "Tomato Soup", "Vegetable Stock"];
-  nut = ["Peanut Butter", "Almond", "Walnut", "Pecan", "Peanut", "Cashew", "Flax"];
-
+ 
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) {  
     this.chef = user.getUsername();
     this.userID = user.getId();
   }
+
+
 
   save(){   
     console.log(this.ingredients);
@@ -124,17 +111,7 @@ export class CreateRecipeComponent implements OnInit {
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
-
-    
-/*
-      this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, this.num).then((result3) => {
-        console.log("Ingredients Result:", result3); 
-      }).catch((err) => {
-        console.log("Ingredients Error: ", err);
-      })        
-*/
       this.router.navigate(['/my-recipe/recipe']);
-
     }
   }
 

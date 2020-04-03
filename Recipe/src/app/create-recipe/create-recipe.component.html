@@ -30,8 +30,13 @@
     <div class="row">
       <div class="col-sm-4" style="margin-top: 32px;">
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%;" alt="Image">
-        <button type="button" class="addButton">Add Photo</button>
+        <input #imageInput
+        type="file"
+        accept="image/*"
+        (change)="processFile(imageInput)">
       </div>
+
+      
 
       <div class="col-sm-8" style="color: #353a40; ">
         <div class="well">
