@@ -267,7 +267,6 @@ app.post('/newSteps', function(req, res){
                                         res.json(results);
                                 }   
                         });
-                        connection.close();
                 }
         }else {
                 res.send('Please enter Instructions!');

@@ -132,7 +132,7 @@ export class DatabaseService {
     }
   }
 
-  async newSteps(instructions: string[], ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
+  async newIngredients(instructions: string[], ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -149,23 +149,23 @@ export class DatabaseService {
     }
   }
 
-  async newIngredients(ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
-    try {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      });
-      const body = {ingredients, amount, measure, recipe_id};
-     // console.log(instructions);
-      const result = await this.http.post(`${`${HOST}:${PORT}`}/newIngredients`, body, { headers }).toPromise();
+  // async newIngredients(ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
+  //   try {
+  //     const headers = new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //       'Access-Control-Allow-Origin': '*'
+  //     });
+  //     const body = {ingredients, amount, measure, recipe_id};
+  //    // console.log(instructions);
+  //     const result = await this.http.post(`${`${HOST}:${PORT}`}/newIngredients`, body, { headers }).toPromise();
     
-      return result;
-    } catch (err) {
-      throw err;
+  //     return result;
+  //   } catch (err) {
+  //     throw err;
       
-    }
-  }
+  //   }
+  // }
 
   async loadRecipe(id: number): Promise<any>{
     try {
