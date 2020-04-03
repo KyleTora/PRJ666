@@ -273,7 +273,7 @@ app.post('/newSteps', function(req, res){
 });
 
 app.post('/newIngredients', function(req, res){
-        var ingredients = req.body.instructions;
+        var ingredients = req.body.ingredients;
         var amount = req.body.amount;
         var measure = req.body.measure;
         var recipe = req.body.recipe_id;
@@ -290,7 +290,7 @@ app.post('/newIngredients', function(req, res){
                         });
                 }
         }else {
-                res.send('Please enter Instructions!');
+                res.send('Please enter Ingredients!');
         }
 
 });
