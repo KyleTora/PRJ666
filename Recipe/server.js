@@ -370,6 +370,7 @@ app.post('/loadSteps', function (req, res){
 
 
 
+
 /*
 if(req.url === "/signup"){
       fs.readFile("signUp.html", function (error, pgResp){
@@ -463,4 +464,3 @@ app.on('error', (err) => {
         console.log(err.message);
 });
 
-connection.end();
