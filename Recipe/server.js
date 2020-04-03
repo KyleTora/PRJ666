@@ -102,6 +102,8 @@ app.post('/signinCheck', function (request, response) {
         } else {
                 response.send('Please enter Username and Password!');
         }
+
+        connection.end();
 });
 
 app.post('/signupCheck', function (request, response) {
