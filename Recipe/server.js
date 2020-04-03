@@ -234,7 +234,7 @@ app.post('/newRecipe', function (request, response) {
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { 
-                                        response.send('Incorrect Instructions Format!');
+                                        response.send(error);
                                 } else {
                                        // response.json(results);
                                 }   
