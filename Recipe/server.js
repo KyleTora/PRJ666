@@ -318,7 +318,7 @@ app.post('/deleteFav', function (request, response) {
 });
 
 app.post('/deleteOthers', function (request, response) {
-        var recipeid = request.body.recipeId;
+        var recipeid = request.body.id;
 
         if (recipeid > 0 ) {
                 connection.query("DELETE FROM Ingredients WHERE recipe_id = ?", [recipeid], function (error, results, fields) {
