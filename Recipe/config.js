@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
 	user     : 'prj666_201a06',
 	password : 'rfLG@8559',
 	database : 'prj666_201a06'
-}, 'pool');
+});
 
 connection.connect(function(err){
 	if(!err) {
@@ -16,3 +16,5 @@ connection.connect(function(err){
 });
 
 module.exports = connection; 
+
+connection.end();
