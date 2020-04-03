@@ -114,18 +114,19 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Enter at least one instruction!"; 
       this.showErrorMessage = true;
     }else{   
-      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.instructions, this.ingredients, this.amount, this.measure,).then((result)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
         console.log("Recipe Result: ", result);
+          this.databaseService.newSteps(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
+            console.log("Steps Result: ", result2);   
+          }).catch((err) =>{
+            console.log("Steps Error: ", err);
+          })
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
-/*
-      this.databaseService.newSteps(this.instructions, this.num).then((result2)=>{
-        console.log("Steps Result: ", result2);   
-      }).catch((err) =>{
-        console.log("Steps Error: ", err);
-      })
 
+    
+/*
       this.databaseService.newIngredients(this.ingredients, this.amount, this.measure, this.num).then((result3) => {
         console.log("Ingredients Result:", result3); 
       }).catch((err) => {

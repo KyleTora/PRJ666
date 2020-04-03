@@ -215,41 +215,17 @@ app.post('/newRecipe', function (request, response) {
         var servings = request.body.servings;
         var chef = request.body.chef;
         var lifestyle = request.body.lifestyle;
-        var instructions = request.body.instructions;
-        var ingredients = request.body.ingredients;
-        var amount = request.body.amount;
-        var measure = request.body.measure;
-        var recipe;
+    
 
         if (name && type && region && cooktime && servings && chef) {
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                //response.json(results.insertId);
-                                recipe = results.insertId;
+                                response.json(results.insertId);
+                                //recipe = results.insertId;
                         }
                 });
-               // connection.end();
-                for(var i = 0; i < instructions.length; i++){                     
-                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [results.insertId, instructions[i]],  function (error, results, fields) {
-                                if (error) { 
-                                        response.send(error);
-                                } else {
-                                       // response.json(results);
-                                }   
-                        });
-                }
-               // connection.end();
-                for(var i = 0; i < ingredients.length; i++){                     
-                        connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
-                                if (error) { 
-                                        response.json(error);
-                                } else {
-                                        //response.json(results);
-                                }   
-                        });
-                }
 
         } else {
                 response.send('Please enter Recipe!');
@@ -300,19 +276,30 @@ app.post('/newSteps', function(req, res){
 });
 
 app.post('/newIngredients', function(req, res){
+        var instructions = req.body.instructions;
         var ingredients = req.body.ingredients;
         var amount = req.body.amount;
         var measure = req.body.measure;
         var recipe = req.body.recipe_id;
-        console.log("server/ks: ", ingredients.length, ingredients, amount, measure, recipe); 
+       // console.log("server/ks: ", ingredients.length, ingredients, amount, measure, recipe); 
         
-        if(ingredients){   
+        if(ingredients && instructions){   
+                for(var i = 0; i < instructions.length; i++){                     
+                        connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
+                                if (error) { 
+                                        response.send(error);
+                                } else {
+                                       // response.json(results);
+                                }   
+                        });
+                }
+               // connection.end();
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { 
-                                        res.json('Incorrect Ingredients Format!');
+                                        response.send(error);
                                 } else {
-                                        res.json(results);
+                                        //response.json(results);
                                 }   
                         });
                 }
