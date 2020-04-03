@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 var mailer = require('nodemailer');
 const cors = require('cors');
+var mysql = require('mysql');
 
 let ssl;
 
@@ -47,8 +48,25 @@ transporter.verify(function(error, success) {
         }
 });
 */
-var connection = require('./config');
-var recipe;
+//var connection = require('./config');
+
+var connection = mysql.createConnection({
+	host     : 'mymysql.senecacollege.ca',
+	user     : 'prj666_201a06',
+	password : 'rfLG@8559',
+	database : 'prj666_201a06'
+});
+
+connection.connect(function(err){
+	if(!err) {
+		console.log("Database is connected");
+	} else {
+		console.log("Error while connecting with database");
+	}
+});
+
+module.exports = connection; 
+
 
 var app = express();
 
