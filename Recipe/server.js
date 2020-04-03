@@ -217,6 +217,7 @@ app.post('/newRecipe', function (request, response) {
         var lifestyle = request.body.lifestyle;
 
         if (name && type && region && cooktime && servings && chef) {
+                connection.connect();
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
@@ -237,6 +238,7 @@ app.post('/newFav', function (request, response) {
         var description = request.body.description;
 
         if (recipeid, userID, name, description) {
+                connection.connect();
                 connection.query("INSERT INTO FavouriteRecipes (recipe_id, userid, recipeName, description) VALUES(?, ?, ?, ?)", [recipeid, userID, name, description], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
@@ -258,6 +260,7 @@ app.post('/newSteps', function(req, res){
        // console.log("server/ks: ", instructions.length, instructions[0], instructions[3]); 
         
         if(instructions){   
+                connection.connect();
                 for(var i = 0; i < instructions.length; i++){                     
                         connection.query("INSERT INTO Instructions(recipe_id, step) VALUES(?,?)", [recipe, instructions[i]],  function (error, results, fields) {
                                 if (error) { throw error;
