@@ -219,7 +219,7 @@ app.post('/newRecipe', function (request, response) {
         var ingredients = request.body.ingredients;
         var amount = request.body.amount;
         var measure = request.body.measure;
-        var recipe = 0;
+        var recipe;
 
         if (name && type && region && cooktime && servings && chef) {
                 connection.query("INSERT INTO Recipes (userid, recipeName, chef, mealType, region, lifestyle, description, cooktime, servings) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [userID, name, chef, type, region, lifestyle, description, cooktime, servings], function (error, results, fields) {
@@ -227,6 +227,7 @@ app.post('/newRecipe', function (request, response) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
                                 //response.json(results.insertId);
+                                console.log(results.insertId);
                                 recipe = results.insertId;
                         }
                 });
