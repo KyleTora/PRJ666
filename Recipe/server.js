@@ -262,7 +262,7 @@ app.post('/newSteps', function(req, res){
                                 if (error) { throw error;
                                         //res.send('Incorrect Instructions Format!');
                                 } else {
-                                        //res.json(results);
+                                        res.json(results);
                                 }   
                         });
                 }
@@ -283,9 +283,8 @@ app.post('/newIngredients', function(req, res){
                 for(var i = 0; i < ingredients.length; i++){                     
                         connection.query("INSERT INTO Ingredients(ingredient_name, amount, measure, recipe_id) VALUES(?,?,?,?)", [ingredients[i], amount[i], measure[i], recipe],  function (error, results, fields) {
                                 if (error) { throw error;
-                                        //res.send('Incorrect Instructions Format!');
                                 } else {
-                                        //res.json(results);
+                                        res.json(results);
                                 }   
                         });
                 }
