@@ -15,6 +15,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'profile-page',
     component: ProfilePageComponent
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent
   },
   {
     path: 'logout',

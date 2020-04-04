@@ -192,7 +192,7 @@ app.post('/resetPass', function (request, response) {
 app.post('/updateBio', function (request, response) {
         var bio = request.body.bio;
         var id = request.body.id;
-        if (password) {
+        if (bio) {
                 connection.query('UPDATE User SET bio = ? WHERE email = ?', [bio, id], function (error, results, fields) {
                         if (error) {
                                 response.send('error');

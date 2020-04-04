@@ -6,10 +6,12 @@
             <div class="col-md-3">
                 <img *ngIf="!url" src="assets/img_avatar.png">
                 <img *ngIf="url" [src]="url" class="img-responsive">
+                <input type="file" (change)="onChange($event)"class="photo addButton">
             </div>
             <!-- Image, Name, Bio -->
             <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">
-                <button class="save addButton" [routerLink]="['/edit-profile']" style="float: right;">Edit Profile</button>
+                <button class="save addButton" (click)="checkImage()" style="float: right;">Save Profile</button>
+
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
                     {{name}}       
                 </p>

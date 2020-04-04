@@ -3,13 +3,13 @@ import { User } from '../global.service';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
 @Injectable()
 
-export class ProfilePageComponent{
+export class EditProfileComponent{
   name: string = null;
   email: string = null;
   id = 0;
@@ -51,6 +51,11 @@ export class ProfilePageComponent{
         console.log("Pic Result: ", result);   
       }).catch((err) =>{
         console.log("Pic Error: ", err);
+      })
+      this.db.updateBio(this.bio, this.id).then((result) =>{
+        console.log("Bio Result: ", result);   
+      }).catch((err) =>{
+        console.log("Bio Error: ", err);
       })
     }
 }

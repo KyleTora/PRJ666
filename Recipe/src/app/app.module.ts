@@ -22,6 +22,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 //import { ServicesComponent } from './services/services.component';z
 
@@ -34,7 +35,7 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
     RegisterComponent,
     BrowseRecipesComponent,
     NavComponent, 
-    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent, ResetPasswordComponent, NewPasswordComponent, ViewRecipeComponent, EditRecipeComponent
+    RecipeListComponent, CreateRecipeComponent, CreatePlaylistComponent, EditPlaylistComponent, ProfilePageComponent, LogoutComponent, ResetPasswordComponent, NewPasswordComponent, ViewRecipeComponent, EditRecipeComponent, EditProfileComponent
     
 
   ],
