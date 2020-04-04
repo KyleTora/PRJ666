@@ -48,9 +48,9 @@ export class ProfilePageComponent{
     checkImage(){
       console.log(this.url.length);
       this.db.newProfilePic(this.url, this.id).then((result)=>{
-        console.log("Steps Result: ", result);   
+        console.log("Pic Result: ", result);   
       }).catch((err) =>{
-        console.log("Steps Error: ", err);
+        console.log("Pic Error: ", err);
       })
     }
 }
