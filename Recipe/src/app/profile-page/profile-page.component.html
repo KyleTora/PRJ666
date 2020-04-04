@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-3">
                 <img *ngIf="!url" src="assets/img_avatar.png">
-                <img *ngIf="url" [src]="url" class="img-responsive">
+                <img *ngIf="url" [src]="url" class="img-responsive" style="object-fit: contain;">
             </div>
             <!-- Image, Name, Bio -->
             <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">

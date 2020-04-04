@@ -45,7 +45,7 @@
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
             <img *ngIf="!image" src="assets/western.jfif" class="img-responsive" style="width:100%" >
-            <img *ngIf="image" [src]="image" class="img-responsive" style="width:100%">
+            <img *ngIf="image" [src]="image" class="img-responsive" style="width:100%; object-fit: contain; max-height: 400px; ">
         </div>
 
         <div class="col-sm-6" style="margin-top: 8px; padding-left: 100px; font-weight: bold;">
