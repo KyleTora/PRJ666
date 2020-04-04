@@ -22,6 +22,8 @@ export class ProfilePageComponent{
     this.email = user.getEmail();
     this.id = user.getId();    
     this.bio = user.getBio();
+    console.log(this.bio);
+    
 
     this.db.loadUserRecipe(this.id).then((result)=>{
       
@@ -31,26 +33,9 @@ export class ProfilePageComponent{
     this.db.loadPic(this.id).then((result) =>{
       this.url = result[0].profilePic;
     });
+    this.db.loadBio(this.id).then((result) =>{
+      this.bio = result[0].bio;
+    })
   } 
-  onChange(event) {
-      var reader = new FileReader();
   
-      reader.onload = (event: any) => {
-        this.url = event.target.result;
-      };
-      reader.onerror = (event: any) => {
-        console.log("File could not be read: " + event.target.error.code);
-      };
-  
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  
-    checkImage(){
-      console.log(this.url.length);
-      this.db.newProfilePic(this.url, this.id).then((result)=>{
-        console.log("Pic Result: ", result);   
-      }).catch((err) =>{
-        console.log("Pic Error: ", err);
-      })
-    }
 }

@@ -9,7 +9,7 @@ export class User{
     password: string;
     email: string;
     bio: string;
-
+    
     setUser(ID, user, pass, emai, bio) {
         this.id = ID;
         this.username = user;

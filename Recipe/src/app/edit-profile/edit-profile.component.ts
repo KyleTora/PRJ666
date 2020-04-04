@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../global.service';
 import { DatabaseService } from '../services/database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -17,7 +18,7 @@ export class EditProfileComponent{
   recipes: number;
   url;
 
-  constructor(user: User, private db: DatabaseService){
+  constructor(private router: Router, user: User, private db: DatabaseService){
     this.name = user.getUsername();
     this.email = user.getEmail();
     this.id = user.getId();    
@@ -46,7 +47,7 @@ export class EditProfileComponent{
     }
   
     checkImage(){
-      console.log(this.url.length);
+      console.log(this.url.length, this.bio);
       this.db.newProfilePic(this.url, this.id).then((result)=>{
         console.log("Pic Result: ", result);   
       }).catch((err) =>{
@@ -57,5 +58,8 @@ export class EditProfileComponent{
       }).catch((err) =>{
         console.log("Bio Error: ", err);
       })
+      alert("Your profile has been successfully updated!");
+      this.router.navigate(['/profile-page']);
+
     }
 }
