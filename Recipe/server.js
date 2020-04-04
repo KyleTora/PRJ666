@@ -207,7 +207,7 @@ app.post('/updateBio', function (request, response) {
 app.post('/newProfilePic', function (request, response) {
         var image = request.body.image;
         var id = request.body.id;
-        if (password) {
+        if (id && image) {
                 connection.query('UPDATE User SET profilePic = ? WHERE user_ID = ?', [image, id], function (error, results, fields) {
                         if (error) {
                                 response.send('error');
