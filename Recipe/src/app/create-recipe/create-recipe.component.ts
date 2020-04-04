@@ -22,7 +22,8 @@ export class CreateRecipeComponent implements OnInit {
   errorMessage: string;
   showErrorMessage: boolean;
   lifestyle: string;
-  //tips: string;
+  image ="image";
+
   instructions = new Array;
   step1: string;
   step2: string;
@@ -118,7 +119,7 @@ export class CreateRecipeComponent implements OnInit {
       this.errorMessage = "Enter at least one instruction!"; 
       this.showErrorMessage = true;
     }else{   
-      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle).then((result)=>{
+      this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.image).then((result)=>{
         console.log("Recipe Result: ", result);
           this.databaseService.newIngredients(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
             console.log("Steps Result: ", result2);   
