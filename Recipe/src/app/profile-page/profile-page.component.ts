@@ -27,10 +27,9 @@ export class ProfilePageComponent{
       this.recipes = result.length;
 
     });
-
-   
-  
-    
+    this.db.loadPic(this.id).then((result) =>{
+      this.url = result;
+    });
   } 
   onChange(event) {
       var reader = new FileReader();

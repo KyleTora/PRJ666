@@ -219,6 +219,20 @@ app.post('/newProfilePic', function (request, response) {
                 response.send('Enter an image');
         }
 });
+app.post('/loadPic', function (request, response) {
+        var id = request.body.user_id;
+        if (id) {
+                connection.query('SELECT profilePic FROM User WHERE user_ID = ?', [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('error');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Enter an image');
+        }
+});
 app.post('/newRecipe', function (request, response) {
         var userID = request.body.userID;
         var name = request.body.recipeName;
