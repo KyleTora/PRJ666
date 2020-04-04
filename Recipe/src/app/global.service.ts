@@ -15,7 +15,7 @@ export class User{
         this.username = user;
         this.password = pass;
         this.email = emai;
-        this.bio = bio;
+       // this.bio = bio;
         this.logged = true;
     }
 
