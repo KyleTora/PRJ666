@@ -152,4 +152,5 @@
 
   .thumbnail {
   border-radius: 20%;
+  max-height: 125px;
 }

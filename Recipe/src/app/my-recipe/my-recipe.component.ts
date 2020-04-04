@@ -18,6 +18,7 @@ export class MyRecipeComponent implements OnInit {
   message: string;
   showMsg = false;
   type: string;
+  url = [];
   //recipes = [{id:0},{name: " "},{desc: " "}];
 
   constructor(user: User, private route: ActivatedRoute, private db: DatabaseService){
@@ -40,6 +41,7 @@ export class MyRecipeComponent implements OnInit {
             this.id[i] = recipe.recipe_id;
             this.name[i] = recipe.recipeName;
             this.desc[i] = recipe.description;
+            this.url[i] = recipe.image;
             i++;
           }
         })
@@ -70,6 +72,7 @@ export class MyRecipeComponent implements OnInit {
             this.id[i] = recipe.recipe_id;
             this.name[i] = recipe.recipeName;
             this.desc[i] = recipe.description;
+            this.url[i] = recipe.image;
             i++;
           }
         })

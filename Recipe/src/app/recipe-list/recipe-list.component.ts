@@ -14,6 +14,7 @@ export class RecipeListComponent implements OnInit {
   name = [];
   desc = [];
   chef = [];
+  url = [];
   size: number;
 
   constructor(private route: ActivatedRoute, private db: DatabaseService){ }
@@ -30,6 +31,7 @@ export class RecipeListComponent implements OnInit {
           this.name[i] = recipe.recipeName;
           this.desc[i] = recipe.description;
           this.chef[i] = recipe.chef;
+          this.url[i] = recipe.image;
           i++;
         }
       })
