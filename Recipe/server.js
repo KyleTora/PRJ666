@@ -265,10 +265,8 @@ app.post('/newRecipe', function (request, response) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
                                 response.json(results.insertId);
-                                //recipe = results.insertId;
                         }
                 });
-
         } else {
                 response.send('Please enter Recipe!');
         }

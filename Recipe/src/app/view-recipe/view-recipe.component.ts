@@ -31,6 +31,7 @@ export class ViewRecipeComponent implements OnInit {
   notes: string;
   isFav: boolean;
   usersRecipe : boolean;
+  image: string;
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
@@ -98,6 +99,7 @@ export class ViewRecipeComponent implements OnInit {
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
+        this.image = result.image;
         if(this.chef == this.userX.getUsername()){
           this.usersRecipe = true;
         }else{
