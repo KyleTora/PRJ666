@@ -115,3 +115,21 @@
   border: none;
   width: 500px;
 }
+
+.profilePic {
+  border-radius: 20%;
+  height: 225px;
+  width: 315px;
+  object-fit: cover;
+}
+
+.inputBar2 {
+  border-radius: 20px; 
+  color: #353a40; 
+  padding-left: 10px; 
+  margin-top: 5px;
+  border: none;
+  margin-right: 10px;
+  margin-left: 9px;
+  width: 850px;
+}

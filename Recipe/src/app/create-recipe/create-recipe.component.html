@@ -29,13 +29,12 @@
   <div class="container text-center size">
     <div class="row">
       <div class="col-sm-4" style="margin-top: 32px;">
-        <img *ngIf="!url" src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%; ">
-        <img *ngIf="url" [src]="url" class="img-responsive" style="width:100%; max-height: 200px; flex-shrink: 0;object-fit: cover;">
-        <input type="file" (change)="onChange($event)"class="photo addButton">
-        <button class="save addButton" (click)="checkImage()">Check Image</button>
+        <img *ngIf="!url" src="https://placehold.it/150x80?text=IMAGE" class="img-responsive profilePic">
+        <img *ngIf="url" [src]="url" class="img-responsive profilePic">
+        <input type="file" (change)="onChange($event)" class="photo addButton">
       </div>
 
-      
+
 
       <div class="col-sm-8" style="color: #353a40; ">
         <div class="well">
@@ -176,26 +175,23 @@
     </div>
   </div><br>
 
-  <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
-    <h5 style="padding-top:30px; margin-left: 45px; color: white;">Instructions</h5>
-    <div class="row">
-      <ul id="recipe-instruction">
-        <input class="steps" type="text" maxlength="90" placeholder="Step 1" [(ngModel)]="step1" name="step1"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 2" [(ngModel)]="step2" name="step2"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 3" [(ngModel)]="step3" name="step3"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 4" [(ngModel)]="step4" name="step4"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 5" [(ngModel)]="step5" name="step5"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 6" [(ngModel)]="step6" name="step6"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 7" [(ngModel)]="step7" name="step7"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 8" [(ngModel)]="step8" name="step8"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 9" [(ngModel)]="step9" name="step9"><br>
-        <input class="steps" type="text" maxlength="90" placeholder="Step 10" [(ngModel)]="step10" name="step10"><br>
 
-      </ul>
+  <!-- Instructions -->
+  <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
+    <div class="row" style="height: 700px;">
+      <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
+        <a *ngFor="let size of arr(size).fill(1), let i = index">
+          <input class="inputBar2" type="text" placeholder="Next Instruction"
+            name="ingredients[i]">
+        </a>
+        <br>
+        <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
+          Instruction</button>
+      </div>
     </div>
   </div>
 
-  <!--
+    <!--
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
@@ -234,7 +230,7 @@
 
 
 
-  <!--
+    <!--
       <div class="col-sm-4">
         <label class="sectionTitle">Cookware (Optional)</label>
         <ul id="cookware-list" >
