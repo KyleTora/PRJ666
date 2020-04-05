@@ -433,6 +433,7 @@ export class DatabaseService {
   }
 
   async loadUserPlaylist(id: number): Promise<any>{
+    console.log("YEET");
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
