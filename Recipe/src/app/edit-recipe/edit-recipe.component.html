@@ -1,134 +1,193 @@
-<div class="container text-center">
-    <div class="row">
+<form>
+    <div class="container text-center">
+      <div class="row">
         <div class="col-sm-12">
-        <div class="well">
+          <div class="well">
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-            <div class="container-fluid">
-                <label class="navbar-brand mr-3" style="margin-top: 5px; text-transform: capitalize;">{{recipeName}} by {{chef}}</label>
+              <div class="container-fluid">
+                <input class="navbar-brand mr-3 recipeTitle" type="text" placeholder="Recipe Name"
+                  [(ngModel)]="recipeName" name="recipeName">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
-                <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="recipeCollapse">
-                    <div class="navbar-nav ml-auto">
-                      <a href="" class="nav-item nav-link">Favourite</a>
-                      <a href="" class="nav-item nav-link">Rate Recipe</a>
-                      <a href="" class="nav-item nav-link">Share</a>
-                      <a [routerLink] = "['/view-recipe', id]" class="nav-item nav-link">View Recipe</a>
-                    </div>
+                  <div class="navbar-nav ml-auto">
+                    <button class="save addButton" style="margin-bottom: 10px;" (click)=save()>Save Recipe</button>
                   </div>
-            </div>
+                </div>
+              </div>
             </nav>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    </div>   
-    <!-- First Row for Ingredients and Image -->
-    <div class="container size">
-
-    <div class="row">
-        <div class="col-sm-6" style="margin-top: 32px;">
-            <img src="assets/western.jfif" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        
-
-        <div class="col-sm-6" style="margin-top: 30px;">
-       
-            <section id="ingred">
-                <h2>Ingredients</h2>
-                <ul>
-                    <li>4 ripe avocados</li>
-                    <li>5 cloves garlic, minced</li>
-                    <li>125 mL can jalape&ntilde;o peppers, minced</li>
-                    <li>1 tbsp lime juice</li>
-                    <li>1 tsp salt</li>
-                    <li>1/2 tsp pepper</li>
-                </ul>
-            </section>
-         
-            <section id="steps">
-            <h2>Instructions</h2>
-            <ol>
-                <li>Scoop out the flesh of the avocados into a bowl.</li>
-                <li>Combine all of the other ingredients in the bowl.</li>
-                <li>Mash with a potato masher until the desired consistency
-                is reached.</li>
-            </ol>
-            </section>
-        </div>
+  
+    <div id="errorMessage" *ngIf="showErrorMessage">
+      <h5>{{errorMessage}}</h5>
     </div>
-</div>
-
-
+    <!-- First Row for Image -->
+    <div class="container text-center size">
+      <div class="row">
+        <div class="col-sm-4" style="margin-top: 32px;">
+          <img *ngIf="!url" src="https://placehold.it/150x80?text=IMAGE" class="img-responsive profilePic">
+          <img *ngIf="url" [src]="url" class="img-responsive profilePic">
+          <input type="file" (change)="onChange($event)" class="photo addButton">
+        </div>
+  
+  
+  
+        <div class="col-sm-8" style="color: #353a40; ">
+          <div class="well">
+            <!--<label class="sectionTitle">Description</label>-->
+            <textarea id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"
+              style="height: 230px; margin-top: 32px; background-color: white; color: #353a40; border-radius: 20px; padding: 10px;"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  
+    <!-- First Row for Ingredients, Cook Time, and Number of Servings -->
+    <div class="container" style="color: white; background-color: #353a40; width: 1110px;">
+  
+      <div class="row" style="height: 700px;">
+        <div class="col-sm-7" id="extra" style="padding: 20px; border-radius: 20px;">
+          <a *ngFor="let size of arr(size).fill(1), let i = index">
+            <input class="inputBar" type="text" placeholder="Ingredient Name" [(ngModel)]="ingredients[i]"
+              name="ingredients[i]">
+            <input class="inputBar" type="number" placeholder="0" min="0" value="amount[i]" [(ngModel)]="amount[i]"
+              name="amount[i]">
+  
+            <select class="inputBar" id="measureType" [(ngModel)]="measure[i]" name="measure[i]" style="width: 160px;">
+              <option value="cup">Cup(s)</option>
+              <option value="litre">Litre(s)</option>
+              <option value="gram">Gram(s)</option>
+              <option value="kg">Kilogram(s)</option>
+              <option value="oz">Ounce(s)</option>
+              <option value="tbsp">Tablespoon(s)</option>
+              <option value="tsp">Teaspoon(s)</option>
+              <option value=" ">None</option>
+  
+            </select>
+          </a>
+          <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
+            Ingredient</button>
+  
+        </div>
         <!--
-        <div class = "col-sm-6" style="margin-top: 32px;">
-            <div class="extra">Ingredients:</div><br>
-            <a *ngFor="let ings of ingredients">
-                <p>{{ings}}</p>
-            </a>       
-        -->
-
+        <div class="col-sm-2">
+          <fieldset>
+            <legend>Fruits</legend>
+            <a *ngFor="let x of fruit">
+              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+            </a>
+            <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other:
+            <br>
+          </fieldset>
+        </div>
   
-    <br>
-    <br>
-
-    <!-- First Row for Description, Cook Time, and Number of Servings -->
-        
-    <div class="row" style="text-align: center; text-transform: capitalize;">
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Type of Meal: {{mealType}}</div>
-    </div>
-
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Region: {{region}}</div>
-    </div>
+        <div class="col-sm-2">
+          <fieldset>
+            <legend>Vegetables</legend>
+            <a *ngFor="let x of dairy">
+              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+            </a>
+            <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other:
+            <br>
+          </fieldset>
+        </div>
   
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Lifestyle: {{lifeStyle}}</div>
-    </div>
- 
-</div>
-    <div class="container text-center">
-    <div class="row">
-        <div class="col-sm-8">
-        <div class="well">
-            <label class="sectionTitle">Description</label>
-            <label id="description" rows="5">{{description}}</label>
+        <div class="col-sm-2">
+          <fieldset>
+            <legend>Dairy Products</legend>
+            <a *ngFor="let x of dairy">
+              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
+            </a>
+            <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other:
+            <br>
+          </fieldset>
         </div>
+      -->
+        <div class="col-md-3">
+          <div class="well chooseBar" id="extra" style="margin-top: 55px;">
+            <label class="labs" for="mealType">Select the Meal Type</label>
+            <br>
+            <select class="dropPick" id="mealType" [(ngModel)]="mealType" name="mealType">
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="appetizer">Appetizer</option>
+              <option value="dessert">Dessert</option>
+              <option value="snack">Snack</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+  
+          <div class="well chooseBar" id="extra">
+            <label class="labs" for="mealType">Region</label>
+            <br>
+            <select class="dropPick" id="region" [(ngModel)]="region" name="region">
+              <option value="european">European</option>
+              <option value="asian">Asian</option>
+              <option value="middleEastern">Middle Eastern</option>
+              <option value="southAmerican">South American</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="african">African</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+  
+          <div class="well chooseBar" id="extra">
+            <label class="labs" for="mealType">Lifestyle</label>
+            <br>
+            <select class="dropPick" id="lifestyle" [(ngModel)]="lifestyle" name="lifestyle">
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="keto">Keto</option>
+              <option value="other">Other</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+  
+          <div class="well chooseBar" id="extra">
+            <label class="labs" for="mealType" style="margin-right: 5px;">Number of Servings:</label>
+            <select class="dropPick" id="mealType" [(ngModel)]="servings" name="servings">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10+</option>
+            </select>
+          </div>
+  
+          <div class="well chooseBar" id="extra">
+            <label class="labs" style="margin-right: 5px;">Cooktime: </label>
+            <input type="number" placeholder="0" min="0" max="10" step=".25" [(ngModel)]="cooktime" name="cooktime"
+              style="padding-left: 10px; border-radius: 20px; margin-left: 15px; border: none;">
+            <label style="margin-left: 5px;"> hour(s)</label>
+          </div>
         </div>
-        <div class="col-sm-4" style="margin-top: 15px;">
-        
-        <div class="well" id="extra" style="margin-top: 25px;">
-            <label style="margin-right: 5px;">Total Cooktime: </label>
-            <label style="margin-left: 5px;">{{cooktime}} hour(s)</label>
-
-        </div>
-
-        <div class="well" id="extra">
-            <label for="mealType" style="margin-right: 5px;">Number of Servings:</label>
-            <label>{{servings}}</label>
-        </div>
-        </div>
-    </div>
+      </div>
     </div><br>
-
-    <div class="container text-center">
-    <div class="row">
-        <div class="col-sm-4">
-        <label class="sectionTitle">Instructions</label>
-        <ol id="recipe-instruction" style="text-transform: capitalize;">
-            <label>{{instructions}}</label>
-        </ol>
+  
+  
+    <!-- Instructions -->
+    <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
+      <div class="row" style="height: 700px;">
+        <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
+          <a *ngFor="let size of arr(size).fill(1), let i = index">
+            <input class="inputBar2" type="text" placeholder="Next Instruction"
+              name="ingredients[i]">
+          </a>
+          <br>
+          <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
+            Instruction</button>
         </div>
-        <div class="col-sm-4">
-        <label class="sectionTitle">Cookware</label>
-        <ul id="cookware-list">
-            <li>{{cookware}}</li>
-           
-        </ul>
-        </div>
-        <div class="col-sm-4">
-        <label class="sectionTitle">Tips & Notes</label>
-        <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes"></textarea>
-        </div>
+      </div>
     </div>
-    </div><br>
+  </form>
