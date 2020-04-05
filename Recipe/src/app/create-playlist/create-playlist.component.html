@@ -19,7 +19,7 @@
       <h4>Playlist Name:</h4>
     </div>
     <div class="row" style="margin-top: 10px;">
-      <textarea id="name" rows="1" placeholder="Name"></textarea>
+      <textarea id="name" rows="1" placeholder="Name" [(ngModel)]="playlistName" name="playlistName"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
       <h4>Description:</h4>
@@ -28,7 +28,7 @@
       <textarea id="description" style="width: 700px;" rows="5" placeholder="(Optional)"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
-      <button type="button" style="margin-top: 10px;" style="float: left;" class="options">Create Playlist</button>
+      <button type="button" style="margin-top: 10px;" style="float: left;" (click)=save() class="options">Create Playlist</button>
     </div>
   </ul>
 </div>
