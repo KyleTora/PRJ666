@@ -46,7 +46,7 @@ export class MyRecipeComponent implements OnInit {
           }
         })
       }else if(this.type == "playlist"){
-        this.db.loadPlaylist(this.userID).then((result) => {
+        this.db.loadPlaylists(this.userID).then((result) => {
           console.log("Playlist Result: ", result);
           if(result.length < 1){
             this.showMsg = true;

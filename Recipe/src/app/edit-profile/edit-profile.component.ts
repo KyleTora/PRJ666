@@ -22,13 +22,15 @@ export class EditProfileComponent{
     this.name = user.getUsername();
     this.email = user.getEmail();
     this.id = user.getId();    
-    this.bio = user.getBio();
 
     this.db.loadUserRecipe(this.id).then((result)=>{
       
       this.recipes = result.length;
 
     });
+    this.db.loadBio(this.id).then((result) => {
+      this.bio = result[0].bio;
+    })
     this.db.loadPic(this.id).then((result) =>{
       this.url = result[0].profilePic;
     });

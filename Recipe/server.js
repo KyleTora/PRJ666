@@ -292,6 +292,23 @@ app.post('/newFav', function (request, response) {
         }
 });
 
+app.post('/newPlaylist', function (request, response) {
+        var userID = request.body.userID;
+        var name = request.body.playlistName;
+
+        if ( userID, name) {
+                connection.query("INSERT INTO Playlists (user_id, playlistName) VALUES(?, ?)", [userID, name], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Playlist!');
+        }
+});
+
 app.post('/newIngredients', function(req, res){
         var instructions = req.body.instructions;
         var ingredients = req.body.ingredients;
@@ -446,6 +463,23 @@ app.post('/loadFavourite', function (request, response) {
                 response.send('Please enter Recipe!');
         }
 });
+
+app.post('/loadPlaylists', function (request, response) {
+        var id = request.body.userID;
+     
+        if (id > 0) {
+                connection.query("SELECT * FROM Playlists WHERE user_id = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Playlist!');
+        }
+});
+
 
 app.post('/loadSteps', function (req, res){
         var id = req.body.id;
