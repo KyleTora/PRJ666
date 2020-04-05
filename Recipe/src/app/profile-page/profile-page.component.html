@@ -8,10 +8,12 @@
                 <img *ngIf="url" [src]="url" class="img-responsive profilePic">
             </div>
             <!-- Image, Name, Bio -->
-            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px; height: 200px; border-radius: 20px; margin-top: 8px;">
-                <button class="save addButton" [routerLink]="['/edit-profile']" style="float: right; margin-top: 20px;">Edit Profile</button>
+            <div class="col-md-9"
+                style="background-color: #353a40; margin-bottom: 50px; height: 200px; border-radius: 20px; margin-top: 8px;">
+                <button class="save addButton" [routerLink]="['/edit-profile']"
+                    style="float: right; margin-top: 20px;">Edit Profile</button>
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
-                    {{name}}       
+                    {{name}}
                 </p>
 
                 <br>

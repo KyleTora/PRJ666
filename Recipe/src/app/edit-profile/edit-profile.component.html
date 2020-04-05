@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 
 <div id="page-wrapper">
-    <div class="container emp-profile">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <img *ngIf="!url" src="assets/img_avatar.png">
-                <img *ngIf="url" [src]="url" class="img-responsive">
-                <input type="file" (change)="onChange($event)"class="photo addButton">
+                <img *ngIf="url" [src]="url" class="img-responsive profilePic">
             </div>
             <!-- Image, Name, Bio -->
-            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">
-                <button class="save addButton" (click)="checkImage()" style="float: right;">Save Profile</button>
+            <div class="col-md-9"
+                style="background-color: #353a40; margin-bottom: 50px; border-radius: 20px; height: 200px; margin-top: 8px;">
+                <button class="save addButton" (click)="checkImage()" style="float: right; margin-top: 20px;">Save
+                    Profile</button>
 
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
-                    {{name}}       
+                    {{name}}
                 </p>
 
                 <br>
 
-                <p class="profileDescription" style="color: white; margin-left: 20px;">
-                    <span>About Me: <br>
-                    </span> 
-                    <input type="text" style="width: 100%;" value={{bio}} [(ngModel)] = "bio">
-                </p>
+                <h6 style="color: white; margin-left: 10px;">Add Profile Picture:</h6>
+                <input type="file" (change)="onChange($event)" class="photo addButton">
             </div>
 
+            <div class="profileDescription"
+                style="color: white; margin-left: 20px; background-color: #353a40; width: 1120px; border-radius: 20px; height: 120px;">
+                <div style="padding: 20px;">
+                    <h5>About Me</h5>
+                    <input class="aboutSection" type="text" value={{bio}}
+                        [(ngModel)]="bio">
+                </div>
+            </div>
         </div>
+
+        <br>
 
         <!-- About Information -->
         <div class="row">
             <div class="col-md-3">
-                <div class="profile-work" style="background-color: lightskyblue; margin-top: 5px;">
+                <div class="profile-work" style="background-color: lightskyblue; margin-top: 0px; border-radius: 20px;">
                     <h4 routerLink="/my-recipe/recipe" style="cursor: pointer;">Recipes</h4><br>
                     <h4 routerLink="/my-recipe/playlist" style="cursor: pointer;">Playlists</h4><br>
                     <h4 routerLink="/my-recipe/favourite" style="cursor: pointer;">Favourited</h4>
                 </div>
             </div>
-            <div class="col-md-9" style="background-color: #353a40;">
+            <div class="col-md-9" style="background-color: #353a40; border-radius: 20px;">
                 <h5 style="color: white; margin-top: 20px; margin-left: 20px;">Details</h5>
                 <br>
                 <div class="row">
