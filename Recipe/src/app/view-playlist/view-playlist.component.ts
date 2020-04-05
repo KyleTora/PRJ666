@@ -22,7 +22,8 @@ export class ViewPlaylistComponent implements OnInit {
   playlistName: string;
   description: string;
   recipes = [];
-
+  url;
+  
   isFav: boolean;
   usersPlaylist : boolean;
 
@@ -43,36 +44,6 @@ export class ViewPlaylistComponent implements OnInit {
           this.usersPlaylist = false;
         }
         
-        /*
-        this.db.loadFavourite(this.userX.getId()).then((result) => {
-          console.log("Favourite result: ", result);
-          this.isFav = false;
-          for(var i = 0; i < result.length; i++){
-            if(this.id == result[i].recipe_id){
-              this.isFav = true;
-            }
-          }
-        })
-        this.db.loadSteps(this.id).then((result) => {
-          console.log("Steps result: ", result);
-          for(var i = 0; i < result.length; i++){
-            this.instructions.push(result[i].step);
-          }
-        }).catch((err) => {
-          console.log("Instructions Error: " , err);
-        })
-
-        this.db.loadIngredients(this.id).then((result) => {
-          console.log("Ingredients result: ", result);
-          for(var i = 0; i < result.length; i++){
-            this.ingredients.push(result[i].ingredient_name);
-            this.amount.push(result[i].amount);
-            this.measure.push(result[i].measure);
-          }
-        }).catch((err) => {
-          console.log("Instructions Error: " , err);
-        })
-*/
       }).catch((err)=>{
         console.log("Playlist Error: ", err);
       })
