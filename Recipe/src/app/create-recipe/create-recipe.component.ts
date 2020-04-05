@@ -65,10 +65,6 @@ export class CreateRecipeComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
   }
 
-  checkImage(){
-    console.log(this.url);
-  }
-
   save(){   
     console.log(this.ingredients);
     this.instructions = [];
