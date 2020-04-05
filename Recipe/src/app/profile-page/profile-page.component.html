@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
 <div id="page-wrapper">
-    <div class="container emp-profile">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <img *ngIf="!url" src="assets/img_avatar.png">
-                <img *ngIf="url" [src]="url" class="img-responsive" style="object-fit: contain;">
+                <img *ngIf="url" [src]="url" class="img-responsive profilePic">
             </div>
             <!-- Image, Name, Bio -->
-            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px;">
-                <button class="save addButton" [routerLink]="['/edit-profile']" style="float: right;">Edit Profile</button>
+            <div class="col-md-9" style="background-color: #353a40; margin-bottom: 50px; height: 250px; border-radius: 20px;">
+                <button class="save addButton" [routerLink]="['/edit-profile']" style="float: right; margin-top: 20px;">Edit Profile</button>
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
                     {{name}}       
                 </p>
@@ -26,13 +26,13 @@
         <!-- About Information -->
         <div class="row">
             <div class="col-md-3">
-                <div class="profile-work" style="background-color: lightskyblue; margin-top: 5px;">
+                <div class="profile-work" style="background-color: lightskyblue; margin-top: 0px; border-radius: 20px;">
                     <h4 routerLink="/my-recipe/recipe" style="cursor: pointer;">Recipes</h4><br>
                     <h4 routerLink="/my-recipe/playlist" style="cursor: pointer;">Playlists</h4><br>
                     <h4 routerLink="/my-recipe/favourite" style="cursor: pointer;">Favourited</h4>
                 </div>
             </div>
-            <div class="col-md-9" style="background-color: #353a40;">
+            <div class="col-md-9" style="background-color: #353a40; border-radius: 20px;">
                 <h5 style="color: white; margin-top: 20px; margin-left: 20px;">Details</h5>
                 <br>
                 <div class="row">
