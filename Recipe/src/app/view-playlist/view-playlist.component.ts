@@ -34,14 +34,15 @@ export class ViewPlaylistComponent implements OnInit {
 
       this.db.loadUserPlaylist(this.id).then((result)=>{
         console.log("Recipe Result: ", result);
-        this.playlistName = result.playlistName;
-        this.description = result.description;
-        this.user = result.user_id;
+        this.playlistName = result[0].playlistName;
+        this.description = result[0].description;
+        this.user = result[0].user_id;
         if(this.user == this.userX.getId()){
           this.usersPlaylist = true;
         }else{
           this.usersPlaylist = false;
         }
+        
         /*
         this.db.loadFavourite(this.userX.getId()).then((result) => {
           console.log("Favourite result: ", result);

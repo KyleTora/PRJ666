@@ -4,7 +4,7 @@
         <div class="well">
           <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-              <label class="navbar-brand mr-3">{{playlistName}}</label>
+              <label class="navbar-brand mr-3" style="text-transform: capitalize;">{{playlistName}}</label>
             </div>
           </nav>
         </div>
@@ -19,7 +19,7 @@
         <ul id="options-list"><br>
           
           <div class="row">
-            <textarea id="playlist-description" placeholder="description of playlist"></textarea>
+            <label id="playlist-description" style="height: 200px; background-color: white; text-align: left; word-wrap: normal;">{{description}}</label>
           </div><br>
           <div class="row">
             <button type="button" class="options">Add Recipe(s)</button>
@@ -31,18 +31,26 @@
       </div>
 
       <div class="col-sm-8">
-        <label>Recipes</label>
-        <ul id="recipe-list"><br>
+        <br>
 
-            <div class="row">
+        <ul id="recipe-list" style="margin-top: 8px;"><br>
+
+          <a *ngFor="let x of id; let i = index">
+              <div class="row">
                 <div class="img">
-                    <img src="assets/western.jfif" alt="Image 1">
-                  </div>
-                  <ul id="eachRecipe">
-                    <li>Recipe 1</li>
-                    <li>Creator: Name</li>
+                  <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
+                  <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
+  
+                  <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
+                    Recipe</button>
+                </div>
+                <ul id="eachRecipe">
+                  <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
+                  <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
                 </ul>
+  
               </div><br>
+            </a>
 
         </ul>
         <button type="button" class="deletePlaylist">Delete Playlist</button>
