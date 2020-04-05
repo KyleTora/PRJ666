@@ -468,7 +468,7 @@ app.post('/loadPlaylists', function (request, response) {
         var id = request.body.userID;
      
         if (id > 0) {
-                connection.query("SELECT * FROM Playlists WHERE userid = ?", [id], function (error, results, fields) {
+                connection.query("SELECT * FROM Playlists WHERE user_id = ?", [id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Playlist Format!');
                         } else {
