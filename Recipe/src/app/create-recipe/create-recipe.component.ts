@@ -109,8 +109,11 @@ export class CreateRecipeComponent implements OnInit {
     }else if(this.recipeName.length > 32){
       this.errorMessage = "Recipe name is too long!";
       this.showErrorMessage = true;
-    }else if(!this.step1){
+    }else if(!this.instructions[0]){
       this.errorMessage = "Enter at least one instruction!"; 
+      this.showErrorMessage = true;
+    }else if(!this.ingredients[0]){
+      this.errorMessage = "Enter at least one ingredient!"; 
       this.showErrorMessage = true;
     }else{   
       this.databaseService.newRecipe(this.userID, this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifestyle, this.url).then((result)=>{
