@@ -14,7 +14,7 @@ export class CreatePlaylistComponent implements OnInit {
   chef:string;
   userID:number;
   playlistName: string;
-
+  
 
 
   constructor(user: User, private router: Router, private databaseService: DatabaseService, private cookieService: CookieService) { 
@@ -32,7 +32,7 @@ export class CreatePlaylistComponent implements OnInit {
     }).catch((err) =>{
       console.log("Steps Error: ", err);
     })
-    this.router.navigate(['/my-recipe/recipe']);
+    this.router.navigate(['/my-recipe/playlist']);
 
   }
 }
