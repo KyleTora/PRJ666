@@ -67,37 +67,37 @@ export class CreateRecipeComponent implements OnInit {
 
   save(){   
     console.log(this.ingredients);
-    this.instructions = [];
-    if(this.step1){
-      this.instructions.push(this.step1);
-    }
-    if(this.step2){
-      this.instructions.push(this.step2);
-    }
-    if(this.step3){
-      this.instructions.push(this.step3);
-    }
-    if(this.step4){
-      this.instructions.push(this.step4);
-    }
-    if(this.step5){
-      this.instructions.push(this.step5);
-    }
-    if(this.step6){
-      this.instructions.push(this.step6);
-    }
-    if(this.step7){
-      this.instructions.push(this.step7);
-    }
-    if(this.step8){
-      this.instructions.push(this.step8);
-    }
-    if(this.step9){
-      this.instructions.push(this.step9);
-    }
-    if(this.step10){
-      this.instructions.push(this.step10);
-    }
+    console.log(this.instructions);
+    // if(this.step1){
+    //   this.instructions.push(this.step1);
+    // }
+    // if(this.step2){
+    //   this.instructions.push(this.step2);
+    // }
+    // if(this.step3){
+    //   this.instructions.push(this.step3);
+    // }
+    // if(this.step4){
+    //   this.instructions.push(this.step4);
+    // }
+    // if(this.step5){
+    //   this.instructions.push(this.step5);
+    // }
+    // if(this.step6){
+    //   this.instructions.push(this.step6);
+    // }
+    // if(this.step7){
+    //   this.instructions.push(this.step7);
+    // }
+    // if(this.step8){
+    //   this.instructions.push(this.step8);
+    // }
+    // if(this.step9){
+    //   this.instructions.push(this.step9);
+    // }
+    // if(this.step10){
+    //   this.instructions.push(this.step10);
+    // }
 
     this.showErrorMessage = false;
     if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifestyle){

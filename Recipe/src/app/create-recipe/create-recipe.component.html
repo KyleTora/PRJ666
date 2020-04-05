@@ -182,7 +182,7 @@
       <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
         <a *ngFor="let size of arr(size).fill(1), let i = index">
           <input class="inputBar2" type="text" placeholder="Next Instruction"
-            name="instructions[i]" [(ngModel)="instructions[i]">
+            name="instructions[i]" [(ngModel)]="instructions[i]">
         </a>
         <br>
         <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
@@ -190,62 +190,4 @@
       </div>
     </div>
   </div>
-
-    <!--
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
-        <fieldset>
-          <legend>Fruits</legend>
-          <a *ngFor="let x of fruit">
-            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-          </a>
-          <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other:
-          <br>
-        </fieldset>
-      </div>
-
-      <div class="col-sm-3">
-        <fieldset>
-          <legend>Vegetables</legend>
-          <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-          </a>
-          <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other:
-          <br>
-        </fieldset>
-      </div>
-
-      <div class="col-sm-3">
-        <fieldset>
-          <legend>Dairy Products</legend>
-          <a *ngFor="let x of dairy">
-            <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-          </a>
-          <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other:
-          <br>
-        </fieldset>
-      </div>
--->
-
-
-
-    <!--
-      <div class="col-sm-4">
-        <label class="sectionTitle">Cookware (Optional)</label>
-        <ul id="cookware-list" >
-          <input type="text" placeholder="Cookware 1" style="color: black;" [(ngModel)]="cookware1" name="cookware1">
-          <input type="text" placeholder="Cookware 2" style="color: black;" [(ngModel)]="cookware2" name="cookware2">
-          <input type="text" placeholder="Cookware 3" style="color: black;" [(ngModel)]="cookware3" name="cookware3">
-          <input type="text" placeholder="Cookware 4" style="color: black;" [(ngModel)]="cookware4" name="cookware4">
-          <input type="text" placeholder="Cookware 5" style="color: black;" [(ngModel)]="cookware5" name="cookware5">
-          <input type="text" placeholder="Cookware 6" style="color: black;" [(ngModel)]="cookware6" name="cookware6">
-          <input type="text" placeholder="Cookware 7" style="color: black;" [(ngModel)]="cookware7" name="cookware7">
-          <input type="text" placeholder="Cookware 8" style="color: black;" [(ngModel)]="cookware8" name="cookware8">
-          <input type="text" placeholder="Cookware 9" style="color: black;" [(ngModel)]="cookware9" name="cookware9">
-        </ul>
-      </div>
-    </div>
-  </div><br>
-  -->
 </form>
