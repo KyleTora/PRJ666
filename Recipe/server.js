@@ -296,7 +296,7 @@ app.post('/newPlaylist', function (request, response) {
         var userID = request.body.userID;
         var name = request.body.playlistName;
 
-        if (recipeid, userID, name, description) {
+        if ( userID, name) {
                 connection.query("INSERT INTO Playlists (user_id, playlistName) VALUES(?, ?)", [userID, name], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Playlist Format!');
