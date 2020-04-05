@@ -16,6 +16,7 @@ import { NewPasswordComponent } from './new-password/new-password.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,18 @@ const routes: Routes = [
   {
     path: 'edit-playlist',
     component: EditPlaylistComponent
+  },
+  {
+    path: 'edit-playlist/:id',
+    component: EditPlaylistComponent
+  },
+  {
+    path: 'view-playlist',
+    component: ViewPlaylistComponent
+  },
+  {
+    path: 'view-playlist/:id',
+    component: ViewPlaylistComponent
   },
   {
     path: 'profile-page',

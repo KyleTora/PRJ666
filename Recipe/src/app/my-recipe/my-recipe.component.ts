@@ -54,8 +54,8 @@ export class MyRecipeComponent implements OnInit {
           }
           var i = 0;
           for (let recipe of result){
-            this.id[i] = recipe.recipe_id;
-            this.name[i] = recipe.recipeName;
+            this.id[i] = recipe.playlist;
+            this.name[i] = recipe.playlistName;
             this.desc[i] = recipe.description;
             i++;
           }
