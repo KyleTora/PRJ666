@@ -75,4 +75,11 @@ export class EditRecipeComponent implements OnInit {
       })
    })
   }
+
+
+  save(){   
+    console.log(this.ingredients);
+    
+  }
+
 }
