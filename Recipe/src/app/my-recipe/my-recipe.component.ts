@@ -70,10 +70,15 @@ export class MyRecipeComponent implements OnInit {
           var i = 0;
           for (let recipe of result){
             this.id[i] = recipe.recipe_id;
-            this.name[i] = recipe.recipeName;
-            this.desc[i] = recipe.description;
-            this.url[i] = recipe.image;
-            i++;
+
+            this.db.loadRecipe(this.id[i]).then((result)=>{
+              console.log("Recipe Result: ", result, i);
+              this.id[i] = result.recipe_id;
+              this.name[i] = result.recipeName;
+              this.desc[i] = result.description;
+              this.url[i] = result.image;
+              i++;
+            })
           }
         })
       }else{

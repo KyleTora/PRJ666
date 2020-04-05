@@ -420,7 +420,7 @@ app.post('/loadRecipeType', function (request, response) {
         var type = request.body.type;
      
         if (type) {
-                connection.query("SELECT * FROM Recipes WHERE mealType = ?", [type], function (error, results, fields) {
+                connection.query("SELECT * FROM Recipes WHERE mealType = ? or lifestyle = ? or region = ?", [type], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
