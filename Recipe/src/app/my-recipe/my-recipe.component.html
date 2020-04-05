@@ -64,23 +64,35 @@
           <h5 style="text-align: center; margin-bottom: 30px;">{{message}}</h5>
         </div>
         <a *ngFor="let x of id; let i = index">
+          <a *ngIf="type != 'playlist'">
+            <div class="row">
+              <div class="img">
+                <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
+                <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
 
-          <div class="row">
-            <div class="img">
-              
-              <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
-              <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
+                <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
+                  Recipe</button>
+              </div>
+              <ul id="eachRecipe">
+                <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
+                <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
+                <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
+              </ul>
 
-              <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
-                Recipe</button>
-            </div>
-            <ul id="eachRecipe">
-              <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
-              <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
-              <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
-            </ul>
+            </div><br>
+          </a>
+          <a *ngIf="type == 'playlist'">
+            <div class="row">
+              <button [routerLink]="['/view-playlist', x]" class="viewRecipe" style="margin-left: 20px;">View Playlist</button>
+          
+              <ul id="eachRecipe">
+                <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
+                <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
+                <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
+              </ul>
 
-          </div><br>
+            </div><br>
+          </a>
         </a>
       </ul>
     </div>
