@@ -479,7 +479,20 @@ app.post('/loadPlaylists', function (request, response) {
                 response.send('Please enter Playlist!');
         }
 });
-
+app.post('/loadUserPlaylist', function (request, response) {
+        var id = request.body.id;
+        if (id > 0) {
+                connection.query("SELECT * FROM Playlists WHERE id = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
 
 app.post('/loadSteps', function (req, res){
         var id = req.body.id;

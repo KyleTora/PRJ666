@@ -20,11 +20,36 @@ export class EditRecipeComponent implements OnInit {
   servings: number;
   lifeStyle: string;
   instructions: string;
-  ingredients = [];
   cookware = [];
   notes: string;
+  errorMessage: string;
+  showErrorMessage: boolean;
+  url;
+
+  ingredients = new Array;
+  amount = new Array;
+  measure = new Array;
   
+  arr = Array;
+  size = 1;
+  addRow(){
+    this.size++;
+  }
+
   constructor(private db: DatabaseService, private route: ActivatedRoute) { }
+
+  onChange(event) {
+    var reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      this.url = event.target.result;
+    };
+    reader.onerror = (event: any) => {
+      console.log("File could not be read: " + event.target.error.code);
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
