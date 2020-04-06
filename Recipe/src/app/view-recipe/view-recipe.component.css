@@ -145,7 +145,8 @@
   .instructionsSection{
     background-color: #353a40; 
     color: white; 
-    width: 1110px;
+    width: 100%;
     border-radius: 20px;
     padding: 20px;
+    margin-bottom: 10px;
   }
