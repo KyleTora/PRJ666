@@ -180,14 +180,14 @@ export class DatabaseService {
       
     }
   }
-  async newPlaylist(userID: number, playlistName: string): Promise<any>{
+  async newPlaylist(userID: number, playlistName: string, description:string): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {userID, playlistName};
+      const body = {userID, playlistName, description};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newPlaylist`, body, { headers }).toPromise();
     
       return result;

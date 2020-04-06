@@ -295,9 +295,10 @@ app.post('/newFav', function (request, response) {
 app.post('/newPlaylist', function (request, response) {
         var userID = request.body.userID;
         var name = request.body.playlistName;
+        var desc = request.body.description;
 
-        if ( userID, name) {
-                connection.query("INSERT INTO Playlists (user_id, playlistName) VALUES(?, ?)", [userID, name], function (error, results, fields) {
+        if ( userID, name, desc) {
+                connection.query("INSERT INTO Playlists (user_id, playlistName, description) VALUES(?, ?, ?)", [userID, name, desc], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Playlist Format!');
                         } else {

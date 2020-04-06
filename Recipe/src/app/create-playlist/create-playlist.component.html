@@ -25,7 +25,7 @@
       <h5>Description:</h5>
     </div>
     <div class="row textSection">
-      <textarea class="playDescription" style="width: 1000px;" id="description" rows="5" placeholder="(Optional)"></textarea>
+      <textarea class="playDescription" style="width: 1000px;" id="description" rows="5" placeholder="Description" [(ngModel)]="description" name="description"></textarea>
     </div><br>
     <div class="row">
       <button class="createButton" type="button" (click)=save() >Create Playlist</button>
