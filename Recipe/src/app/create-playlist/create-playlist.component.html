@@ -1,10 +1,10 @@
 <div class="container text-center">
-  <div class="row">
-    <div class="col-sm-12">
+  <div class="row" style="width: 1110px; margin-left: 0px;">
+    <div class="col-sm-12 titleSection">
       <div class="well">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+        <nav class="navbar ">
           <div class="container-fluid">
-            <label class="navbar-brand mr-3">New Playlist</label>
+            <label class="navbar-brand mr-3" style="margin-top: 5px;">New Playlist</label>
           </div>
         </nav>
       </div>
@@ -12,23 +12,23 @@
   </div>
 </div>
 
-<div class="container" style="background-color: #353a40; color: white; width: 80%;">
+<div class="container formSection">
   <br>
-  <ul id="play-list" style="color: 353a40;"><br>
+  <ul id="play-list" style="color: white;"><br>
     <div class="row">
-      <h4>Playlist Name:</h4>
+      <h5>Playlist Name:</h5>
     </div>
-    <div class="row" style="margin-top: 10px;">
-      <textarea id="name" rows="1" placeholder="Name" [(ngModel)]="playlistName" name="playlistName"></textarea>
+    <div class="row">
+      <textarea class="playNameSection" id="name" rows="1" placeholder="Name" [(ngModel)]="playlistName" name="playlistName"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
-      <h4>Description:</h4>
+      <h5>Description:</h5>
     </div>
-    <div class="row" style="margin-top: 10px;">
-      <textarea id="description" style="width: 700px;" rows="5" placeholder="(Optional)"></textarea>
+    <div class="row textSection">
+      <textarea class="playDescription" style="width: 1000px;" id="description" rows="5" placeholder="(Optional)"></textarea>
     </div><br>
-    <div class="row" style="margin-top: 10px;">
-      <button type="button" style="margin-top: 10px;" style="float: left;" (click)=save() class="options">Create Playlist</button>
+    <div class="row">
+      <button class="createButton" type="button" (click)=save() >Create Playlist</button>
     </div>
   </ul>
 </div>
