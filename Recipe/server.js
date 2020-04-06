@@ -274,7 +274,7 @@ app.post('/newRecipe', function (request, response) {
 
 app.post('/rateRecipe', function (request, response) {
         var id = request.body.id;
-        var rating = request.body.id;
+        var rating = request.body.rating;
 
         if (id && rating) {
                 connection.query('UPDATE Recipes SET rating = rating + ?, num_of_ratings = num_of_ratings + 1 WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
