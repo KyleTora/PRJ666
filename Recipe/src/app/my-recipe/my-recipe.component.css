@@ -59,7 +59,7 @@
   #options-list {
     list-style: none;
     max-height: 700px;
-    height: 700px;
+    height: 100%;
     text-indent: 10px;
     border: 10px solid #4d4d4d;
     background-color: #4d4d4d;
@@ -105,11 +105,13 @@
     border: none;
     color: black;
     padding: 15px 32px;
+    margin: 5px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     width: 200px;
+
   }
 
   .deleteOption {
@@ -120,7 +122,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    width: 200px;
+    width: 70%;
     background-color: rgb(248, 83, 83);
   }
 
