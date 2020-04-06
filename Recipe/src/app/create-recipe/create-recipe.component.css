@@ -133,3 +133,7 @@
   margin-left: 9px;
   width: 850px;
 }
+
+.navbar-collapse.in {
+  display: block !important;
+}
