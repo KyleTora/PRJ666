@@ -2,10 +2,9 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="well">
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 titleSection">
                     <div class="container-fluid">
-                        <label class="navbar-brand mr-3"
-                            style="margin-top: 5px; text-transform: capitalize; font-size: 30px;">{{recipeName}} by
+                        <label class="navbar-brand mr-3" style="font-weight: bold;">{{recipeName}} by
                             {{chef}}</label>
                         <button type="button" class="navbar-toggler" data-toggle="collapse"
                             data-target="#recipeCollapse">
@@ -34,7 +33,7 @@
     </div>
 </div>
 
-<div class="container well" style=" width: 1110px; background-color: #353a40;">
+<div class="container well descriptionSection">
     <h5 style="color: white; padding-top: 15px;">Description</h5>
     <label style="color: white; height: 75px;" id="description" rows="5">{{description}}</label>
 </div>
@@ -44,29 +43,29 @@
 
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
-            <img *ngIf="!image" src="assets/western.jfif" class="img-responsive" style="width:100%" >
-            <img *ngIf="image" [src]="image" class="img-responsive" style="width:100%; object-fit: contain; max-height: 400px; ">
+            <img *ngIf="!image" src="assets/western.jfif" class="img-responsive foodPicture">
+            <img *ngIf="image" [src]="image" class="img-responsive foodPicture">
         </div>
 
-        <div class="col-sm-6" style="margin-top: 8px; padding-left: 100px; font-weight: bold;">
+        <div class="col-sm-6 detailSection">
 
-            <div class="well" id="extra" style="margin-top: 25px; width: 300px;">
+            <div class="well details" id="extra">
                 <label style="margin-right: 5px;">Total Cooktime: {{cooktime}} hour(s)</label>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <label for="mealType" style="margin-right: 5px;">Number of Servings: {{servings}}</label>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Type of Meal: {{mealType}}</div>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Region: {{region}}</div>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Lifestyle: {{lifeStyle}}</div>
             </div>
 
@@ -154,7 +153,7 @@
 </div><br>
 -->
 
-<div class="container" style="background-color: #353a40; color: white; width: 1110px;">
+<div class="container instructionsSection">
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
             <section id="ingred">
