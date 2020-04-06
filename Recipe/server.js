@@ -277,15 +277,15 @@ app.post('/rateRecipe', function (request, response) {
         var rating = request.body.id;
 
         if (id && rating) {
-                connection.query('INSERT INTO Recipes (rating, num_of_ratings) VALUES (rating + ?, num_of_ratings + 1) WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
+                connection.query('UPDATE Recipes SET rating = rating + ? AND num_of_ratings = num_of_ratings + 1 WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
                         if (error) {
-                                response.send('error');
+                                response.send('Rating Error:', error);
                         } else {
                                 response.json(results);
                         }
                 });
         } else {
-                response.send('Enter a bio');
+                response.send('Enter a rating');
         }
 });
 
