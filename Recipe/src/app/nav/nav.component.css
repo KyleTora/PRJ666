@@ -4,3 +4,7 @@
     width: 100%;
     z-index: 6;
 }
+
+.navbar-collapse.in {
+    display: block !important;
+}
