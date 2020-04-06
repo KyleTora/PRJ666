@@ -14,6 +14,9 @@
 
 <div class="container formSection">
   <br>
+  <div id="errorMsg" *ngIf="showMsg">
+    <h5>{{errorMsg}}</h5>
+  </div>
   <ul id="play-list" style="color: white;"><br>
     <div class="row">
       <h5>Playlist Name:</h5>

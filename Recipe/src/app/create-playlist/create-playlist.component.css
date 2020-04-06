@@ -63,7 +63,7 @@
     max-width: 1110px;
     border-radius: 20px;
     margin-top: 10px;
-    height: 500px;
+    height: 520px;
   }
 
   .playNameSection {
@@ -93,4 +93,13 @@
     font-size: 18px;
     width: 200px;
     font-weight: bold;
+  }
+
+  #errorMsg {
+    background-color: #f44336;
+    color: white;
+    width: auto;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
   }

@@ -28,14 +28,14 @@ export class CreatePlaylistComponent implements OnInit {
 
 
   save(){
-    if(this.description.length > 150){
+    if(!this.description || !this.playlistName){
+      this.errorMsg = "Please fill in both fields!";
+      this.showMsg = true;
+    }else if(this.description.length > 150){
       this.errorMsg = "Description is too long!";
       this.showMsg = true;
     }else if(this.playlistName.length > 30){
       this.errorMsg = "Playlist name is too long!";
-      this.showMsg = true;
-    }else if(!this.description || !this.playlistName){
-      this.errorMsg = "Please fill in both fields!";
       this.showMsg = true;
     }else{
       this.showMsg = false;
