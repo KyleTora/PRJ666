@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="well">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-          <div class="container-fluid" style="text-transform: capitalize;">
-            <label class="navbar-brand mr-3">My {{type}}s</label>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 titleSection">
+          <div class="container-fluid">
+            <label class="navbar-brand mr-3 titleSection">My {{type}}s</label>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#recipeCollapse">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,9 +25,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4" style="margin-top: 8px;">
+    <div class="col-sm-4 optionsTab">
       <br>
-      <ul id="options-list"><br>
+      <ul class="optionsList" id="options-list"><br>
         <div class="row">
           <button type="button" onclick="window.location.href='/create-recipe'" style="margin-top: 10px;"
             class="options">Create Recipe</button>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-sm-8">
-      <ul id="recipe-list" style="margin-top: 32px;"><br>
+      <ul id="recipe-list" class="recipe-list"><br>
         <div id="message" *ngIf="showMsg">
           <h5 style="text-align: center; margin-bottom: 30px;">{{message}}</h5>
         </div>
@@ -69,11 +69,12 @@
               <div class="img">
                 <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
                 <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
+                <br>
 
-                <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
+                <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 8px;">View
                   Recipe</button>
               </div>
-              <ul id="eachRecipe">
+              <ul id="eachRecipe" style="margin-top: 20px;">
                 <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
                 <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
                 <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
