@@ -32,7 +32,7 @@ export class ViewRecipeComponent implements OnInit {
   isFav: boolean;
   usersRecipe : boolean;
   image: string;
-  rating: number;
+  rating = 2;
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
   delete(){
@@ -57,10 +57,16 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   rate(){
-    if(this.userX){
+    if(this.chef == this.userX.getUsername()){
+      if(confirm("  You can't rate your own recipe!")){
+      
+      }
+    }
+    else if(this.userX){
       if(confirm("  Rate this recipe a " + this.rating + " out of 5?")){
         this.db.rateRecipe(this.rating, this.id).then((result) =>{
-          this.router.navigate(['view-recipe', this.id]);
+          console.log("Rate success: ", result);
+          window.location.reload();
         }).catch((err) => {
           console.log("Rate error: ", err);
         })
