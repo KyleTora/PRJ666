@@ -374,6 +374,22 @@ app.post('/deleteFav', function (request, response) {
         }
 });
 
+app.post('/deletePlaylist', function (request, response) {
+        var id = request.body.id;
+
+        if (id > 0) {
+                connection.query("DELETE FROM Playlists WHERE playlist = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Playlist!');
+        }
+});
+
 app.post('/deleteOthers', function (request, response) {
         var recipeid = request.body.id;
 

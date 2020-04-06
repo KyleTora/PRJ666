@@ -29,6 +29,19 @@ export class ViewPlaylistComponent implements OnInit {
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
+  delete(){
+    if(this.userX.getId() == this.user){
+      if(confirm("  Are you sure you want to delete this playlist?\n  This action can not be reversed!")){ 
+        this.db.deletePlaylist(this.id).then((result) => {
+          alert(this.playlistName + " has been deleted!");
+          this.router.navigate(['/my-recipe/playlist']);
+        }).catch((err) => {
+          console.log("Delete Error: ", err);
+        })  
+      } 
+    }
+  }
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
