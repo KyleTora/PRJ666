@@ -272,6 +272,7 @@ export class DatabaseService {
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
+      console.log(rating, id);
       const body = {rating, id};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/rateRecipe`, body, { headers }).toPromise();
     

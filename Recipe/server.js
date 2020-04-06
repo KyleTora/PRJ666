@@ -277,7 +277,7 @@ app.post('/rateRecipe', function (request, response) {
         var rating = request.body.id;
 
         if (id && rating) {
-                connection.query('UPDATE Recipes SET rating = rating + ? AND num_of_ratings = num_of_ratings + 1 WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
+                connection.query('UPDATE Recipes SET rating = rating + ?, num_of_ratings = num_of_ratings + 1 WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
                         if (error) {
                                 response.send('Rating Error:', error);
                         } else {
