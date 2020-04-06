@@ -265,6 +265,22 @@ export class DatabaseService {
     }
   }
 
+  async rateRecipe(rating: number, id: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {rating, id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/rateRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
 
   async deleteOthers(id: number): Promise<any>{
     try {

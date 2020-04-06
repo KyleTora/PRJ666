@@ -32,7 +32,7 @@ export class ViewRecipeComponent implements OnInit {
   isFav: boolean;
   usersRecipe : boolean;
   image: string;
-
+  rating = 2;
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
   delete(){
@@ -53,6 +53,19 @@ export class ViewRecipeComponent implements OnInit {
           console.log("Delete Error: ", err);
         })
       } 
+    }
+  }
+
+  rate(){
+    if(this.userX){
+      if(confirm(" Confirm rating")){
+        this.db.rateRecipe(this.rating, this.id).then((result) =>{
+          alert(this.recipeName + " has been rated!");
+        }).catch((err) => {
+          console.log("Rate error: ", err);
+        })
+
+      }
     }
   }
 

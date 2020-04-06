@@ -272,6 +272,23 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
+app.post('/rateRecipe', function (request, response) {
+        var id = request.body.id;
+        var rating = request.body.id;
+
+        if (id && rating) {
+                connection.query('INSERT INTO Recipes (rating, num_of_ratings) VALUES (rating + ?, num_of_ratings + 1) WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
+                        if (error) {
+                                response.send('error');
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Enter a bio');
+        }
+});
+
 app.post('/newFav', function (request, response) {
         var recipeid = request.body.recipeid;
         var userID = request.body.userid;
