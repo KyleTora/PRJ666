@@ -61,7 +61,9 @@
   #options-list {
     list-style: none;
     max-height: 700px;
-    height: 700px;
+    height: 100%;
+    max-width: 500px;
+    width: 100%;
     text-indent: 10px;
     border: 10px solid #353a40;
     background-color: #353a40;
@@ -107,6 +109,7 @@
     border: none;
     color: black;
     padding: 15px 32px;
+    margin: 0px 15%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
