@@ -294,7 +294,7 @@ app.post('/newFav', function (request, response) {
         var userID = request.body.userid;
         var name = request.body.recipeName;
         var description = request.body.description;
-
+        console.log(recipeid, userID, name, description);
         if (recipeid, userID, name, description) {
                 connection.query("INSERT INTO FavouriteRecipes (recipe_id, userid, recipeName, description) VALUES(?, ?, ?, ?)", [recipeid, userID, name, description], function (error, results, fields) {
                         if (error) {

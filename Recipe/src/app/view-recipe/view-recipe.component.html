@@ -4,8 +4,8 @@
             <div class="well">
                 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 titleSection">
                     <div class="container-fluid">
-                        <label class="navbar-brand mr-3" style="font-weight: bold;">{{recipeName}} by
-                            {{chef}}</label>
+                        <label class="navbar-brand mr-3" style="font-weight: bold;">{{recipeName}} <span *ngIf="chef"> by
+                            {{chef}}</span></label>
                         <button type="button" class="navbar-toggler" data-toggle="collapse"
                             data-target="#recipeCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
 
 <div class="container well descriptionSection">
     <h5 style="color: white; padding-top: 15px;">Description</h5>
-    <label style="color: white; height: 75px;" id="description" rows="5">{{description}}</label>
+    <label style="color: white; height: 75px;" id="description" >{{description}}</label>
 </div>
 
 <!-- First Row for Ingredients and Image -->
