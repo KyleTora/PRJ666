@@ -13,7 +13,6 @@ export class ViewRecipeComponent implements OnInit {
   id: number;
   private sub: any;
 
-
   amount = [];
   ingredients = [];
   measure = [];

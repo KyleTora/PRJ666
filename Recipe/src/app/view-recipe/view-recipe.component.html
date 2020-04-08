@@ -35,7 +35,7 @@
 
 <div class="container well descriptionSection">
     <h5 style="color: white; padding-top: 15px;">Description</h5>
-    <label style="color: white; height: 75px;" id="description" >{{description}}</label>
+    <label [innerHTML]="description" style="color: white; height: 75px;" id="description" ></label>
 </div>
 
 <!-- First Row for Ingredients and Image -->
@@ -160,7 +160,12 @@
                 <h3>Ingredients</h3>
                 <ul>
                     <a *ngFor="let amt of amount; let i = index;">
-                        <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1 && measure[i]">s</a> {{ingredients[i]}}</li>
+                        <a *ngIf = "chef">
+                            <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1 && measure[i]">s</a> {{ingredients[i]}}</li>
+                        </a>
+                        <a *ngIf = "!chef">
+                            <li>{{amt}} {{measure[i]}} {{ingredients[i]}}</li>
+                        </a>
                     </a>
                 </ul>
             </section>
