@@ -18,7 +18,7 @@
                                 <input *ngIf="isFav" class="nav-item nav-link"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Un-Favourite Recipe" (click)="unfavourite()">
-                                <a class="nav-item nav-link" (click)="rate()">Rate Recipe</a>
+                                <a class="nav-item nav-link" *ngIf="!usersRecipe" (click)="rate()">Rate Recipe</a>
                                 <a href="" class="nav-item nav-link">Share</a>
                                 <a *ngIf="usersRecipe" [routerLink]="['/edit-recipe', id]" class="nav-item nav-link">Edit Recipe</a>
                                 <input *ngIf="usersRecipe" class="nav-item nav-link"
@@ -160,7 +160,7 @@
                 <h3>Ingredients</h3>
                 <ul>
                     <a *ngFor="let amt of amount; let i = index;">
-                        <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1">s</a> {{ingredients[i]}}</li>
+                        <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1 && measure[i]">s</a> {{ingredients[i]}}</li>
                     </a>
                 </ul>
             </section>
