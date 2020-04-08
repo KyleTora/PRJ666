@@ -164,6 +164,23 @@ export class DatabaseService {
     }
   }
 
+  async updateRecipe(recipeID: number, userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string, image:string): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {recipeID, userID, recipeName, chef, image, mealType, region, description, cooktime, servings,lifestyle};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/updateRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
   async newIngredients(instructions: string[], ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
     try {
       const headers = new HttpHeaders({

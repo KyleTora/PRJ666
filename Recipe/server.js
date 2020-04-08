@@ -272,6 +272,32 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
+app.post('/updateRecipe', function (request, response) {
+        var recipeID = request.body.recipeID;
+        var userID = request.body.userID;
+        var name = request.body.recipeName;
+        var type = request.body.mealType;
+        var region = request.body.region;
+        var description = request.body.description;
+        var cooktime = request.body.cooktime;
+        var servings = request.body.servings;
+        var chef = request.body.chef;
+        var lifestyle = request.body.lifestyle;
+        var image = request.body.image;
+
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("UPDATE Recipes SET userid = ?, recipeName = ?, chef = ?,  image = ?, mealType = ?, region = ?, lifestyle = ?, description = ?, cooktime = ?, servings = ? WHERE recipe_id = ?", [userID, name, chef, image, type, region, lifestyle, description, cooktime, servings, recipeID], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results.insertId);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
 app.post('/rateRecipe', function (request, response) {
         var id = request.body.id;
         var rating = request.body.rating;
@@ -294,7 +320,7 @@ app.post('/newFav', function (request, response) {
         var userID = request.body.userid;
         var name = request.body.recipeName;
         var description = request.body.description;
-        console.log(recipeid, userID, name, description);
+
         if (recipeid, userID, name, description) {
                 connection.query("INSERT INTO FavouriteRecipes (recipe_id, userid, recipeName, description) VALUES(?, ?, ?, ?)", [recipeid, userID, name, description], function (error, results, fields) {
                         if (error) {
