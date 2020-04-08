@@ -59,7 +59,6 @@ export class ViewRecipeComponent implements OnInit {
   rate(){
     if(this.chef == this.userX.getUsername()){
       if(confirm("  You can't rate your own recipe!")){
-      
       }
     }
     else if(this.userX){
@@ -70,7 +69,6 @@ export class ViewRecipeComponent implements OnInit {
         }).catch((err) => {
           console.log("Rate error: ", err);
         })
-
       }
     }
   }
