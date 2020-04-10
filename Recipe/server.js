@@ -272,6 +272,49 @@ app.post('/newRecipe', function (request, response) {
         }
 });
 
+app.post('/updateRecipe', function (request, response) {
+        var recipeID = request.body.recipeID;
+        var userID = request.body.userID;
+        var name = request.body.recipeName;
+        var type = request.body.mealType;
+        var region = request.body.region;
+        var description = request.body.description;
+        var cooktime = request.body.cooktime;
+        var servings = request.body.servings;
+        var chef = request.body.chef;
+        var lifestyle = request.body.lifestyle;
+        var image = request.body.image;
+
+        if (name && type && region && cooktime && servings && chef) {
+                connection.query("UPDATE Recipes SET userid = ?, recipeName = ?, chef = ?,  image = ?, mealType = ?, region = ?, lifestyle = ?, description = ?, cooktime = ?, servings = ? WHERE recipe_id = ?", [userID, name, chef, image, type, region, lifestyle, description, cooktime, servings, recipeID], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Recipe Format!');
+                        } else {
+                                response.json(results.insertId);
+                        }
+                });
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+
+app.post('/rateRecipe', function (request, response) {
+        var id = request.body.id;
+        var rating = request.body.rating;
+
+        if (id && rating) {
+                connection.query('UPDATE Recipes SET rating = rating + ?, num_of_ratings = num_of_ratings + 1 WHERE recipe_id = ?', [rating, id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Rating Error:', error);
+                        } else {
+                                response.json(results);
+                        }
+                });
+        } else {
+                response.send('Enter a rating');
+        }
+});
+
 app.post('/newFav', function (request, response) {
         var recipeid = request.body.recipeid;
         var userID = request.body.userid;
@@ -295,9 +338,10 @@ app.post('/newFav', function (request, response) {
 app.post('/newPlaylist', function (request, response) {
         var userID = request.body.userID;
         var name = request.body.playlistName;
+        var desc = request.body.description;
 
-        if ( userID, name) {
-                connection.query("INSERT INTO Playlists (user_id, playlistName) VALUES(?, ?)", [userID, name], function (error, results, fields) {
+        if ( userID, name, desc) {
+                connection.query("INSERT INTO Playlists (user_id, playlistName, description) VALUES(?, ?, ?)", [userID, name, desc], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Playlist Format!');
                         } else {
@@ -371,6 +415,22 @@ app.post('/deleteFav', function (request, response) {
                 });
         } else {
                 response.send('Please enter Recipe!');
+        }
+});
+
+app.post('/deletePlaylist', function (request, response) {
+        var id = request.body.id;
+
+        if (id > 0) {
+                connection.query("DELETE FROM Playlists WHERE playlist = ?", [id], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+        } else {
+                response.send('Please enter Playlist!');
         }
 });
 

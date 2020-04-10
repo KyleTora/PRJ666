@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../global.service';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -19,13 +20,12 @@ export class EditRecipeComponent implements OnInit {
   cooktime: number;
   servings: number;
   lifeStyle: string;
-  instructions: string;
-  cookware = [];
   notes: string;
   errorMessage: string;
   showErrorMessage: boolean;
   url;
 
+  instructions = new Array;
   ingredients = new Array;
   amount = new Array;
   measure = new Array;
@@ -36,7 +36,7 @@ export class EditRecipeComponent implements OnInit {
     this.size++;
   }
 
-  constructor(private db: DatabaseService, private route: ActivatedRoute) { }
+  constructor(private user: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute) { }
 
   onChange(event) {
     var reader = new FileReader();
@@ -65,11 +65,28 @@ export class EditRecipeComponent implements OnInit {
         this.servings = result.servings;
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
-     
-        this.instructions = "yeet";
-         console.log(this.instructions);
-      
-        //set instrucitons
+        this.url = result.image;
+
+        this.db.loadSteps(this.id).then((result) => {
+          console.log("Steps result: ", result);
+          for(var i = 0; i < result.length; i++){
+            this.instructions.push(result[i].step);
+          }
+        }).catch((err) => {
+          console.log("Instructions Error: " , err);
+        })
+
+        this.db.loadIngredients(this.id).then((result) => {
+          console.log("Ingredients result: ", result);
+          for(var i = 0; i < result.length; i++){
+            this.ingredients.push(result[i].ingredient_name);
+            this.amount.push(result[i].amount);
+            this.measure.push(result[i].measure);
+          }
+        }).catch((err) => {
+          console.log("Instructions Error: " , err);
+        })
+
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
@@ -79,7 +96,35 @@ export class EditRecipeComponent implements OnInit {
 
   save(){   
     console.log(this.ingredients);
-    
+    this.showErrorMessage = false;
+    if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifeStyle){
+      this.errorMessage = "Please fill out all required fields!";
+      this.showErrorMessage = true;
+    }else if(this.description.length > 200){
+      this.errorMessage = "Description is too long!";
+      this.showErrorMessage = true;
+    }else if(this.recipeName.length > 32){
+      this.errorMessage = "Recipe name is too long!";
+      this.showErrorMessage = true;
+    }else if(!this.instructions[0]){
+      this.errorMessage = "Enter at least one instruction!"; 
+      this.showErrorMessage = true;
+    }else if(!this.ingredients[0]){
+      this.errorMessage = "Enter at least one ingredient!"; 
+      this.showErrorMessage = true;
+    }else{   
+      this.db.updateRecipe(this.id, this.user.getId(), this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifeStyle, this.url).then((result)=>{
+        console.log("Recipe Result: ", result);
+          // this.db.updateIngredients(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
+          //   console.log("Steps Result: ", result2);   
+          // }).catch((err) =>{
+          //   console.log("Steps Error: ", err);
+          // })
+      }).catch((err)=>{
+        console.log("Recipe Error: ", err);
+      })
+      this.router.navigate(['/my-recipe/recipe']);
+    }
   }
 
 }

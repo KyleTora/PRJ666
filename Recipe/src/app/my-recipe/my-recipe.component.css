@@ -32,13 +32,16 @@
 
   #recipe-list {
     list-style: none;
-    max-height: 700px;
+    max-height: 100%;
     overflow-y: scroll;
-    text-indent: 10px;
+    overflow-x: hidden;
     border: 10px solid #353a40;
     background-color: #353a40;
     color: white;
     text-align: left;
+    margin-top: 32px;
+    border-radius: 20px;
+    max-height: 700px;
   }
 
   #eachrecipe {
@@ -108,14 +111,48 @@
     background-color: white;
     border: none;
     color: black;
-    padding: 15px 32px;
-    margin: 0px 10%;
+    padding: 20px;
+    margin-left: 5%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    width: 70%;
+    width: 80%;
     cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .optionsGreen {
+    background-color: rgb(0, 220, 100);
+    border: none;
+    color: white;
+    padding: 20px;
+    margin-left: 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 80%;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .optionsRed {
+    background-color: rgb(248, 83, 83);
+    border: none;
+    color: white;
+    padding: 20px;
+    margin-left: 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 80%;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
   }
 
   .deleteOption {
@@ -155,5 +192,45 @@
 
   .thumbnail {
   border-radius: 20%;
-  max-height: 125px;
+  height: 125px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.titleSection {
+  margin-top: 5px; 
+  text-transform: capitalize; 
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: #353a40;
+  color: white;
+  font-weight: bold;
+}
+
+.optionsList {
+  border-radius: 20px;
+  height: 700px;
+}
+
+.optionsTab {
+  margin-top: 8px;
+  height: 700px; 
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px white; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: grey; 
 }

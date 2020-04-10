@@ -52,62 +52,13 @@
   
       <div class="row" style="height: 700px;">
         <div class="col-sm-7" id="extra" style="padding: 20px; border-radius: 20px;">
-          <a *ngFor="let size of arr(size).fill(1), let i = index">
-            <input class="inputBar" type="text" placeholder="Ingredient Name" [(ngModel)]="ingredients[i]"
-              name="ingredients[i]">
-            <input class="inputBar" type="number" placeholder="0" min="0" value="amount[i]" [(ngModel)]="amount[i]"
-              name="amount[i]">
-  
-            <select class="inputBar" id="measureType" [(ngModel)]="measure[i]" name="measure[i]" style="width: 160px;">
-              <option value="cup">Cup(s)</option>
-              <option value="litre">Litre(s)</option>
-              <option value="gram">Gram(s)</option>
-              <option value="kg">Kilogram(s)</option>
-              <option value="oz">Ounce(s)</option>
-              <option value="tbsp">Tablespoon(s)</option>
-              <option value="tsp">Teaspoon(s)</option>
-              <option value=" ">None</option>
-  
-            </select>
-          </a>
-          <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
-            Ingredient</button>
-  
+          <a *ngFor="let ing of ingredients; let i = index;">
+            <input class="inputBar" type="text" value = {{ing}}>
+            <input class="inputBar" type="text" value= {{amount[i]}}>
+            <input class="inputBar" type="text" value= {{measure[i]}}>
+          </a>  
         </div>
-        <!--
-        <div class="col-sm-2">
-          <fieldset>
-            <legend>Fruits</legend>
-            <a *ngFor="let x of fruit">
-              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-            </a>
-            <input type="checkbox" name="fruit" [(ngModel)]="fruit">Other:
-            <br>
-          </fieldset>
-        </div>
-  
-        <div class="col-sm-2">
-          <fieldset>
-            <legend>Vegetables</legend>
-            <a *ngFor="let x of dairy">
-              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-            </a>
-            <input type="checkbox" name="vegetable" [(ngModel)]="vegetable">Other:
-            <br>
-          </fieldset>
-        </div>
-  
-        <div class="col-sm-2">
-          <fieldset>
-            <legend>Dairy Products</legend>
-            <a *ngFor="let x of dairy">
-              <input type="checkbox" [checked]="isAvailable">{{x}}<br>
-            </a>
-            <input type="checkbox" name="dairy" [(ngModel)]="dairy">Other:
-            <br>
-          </fieldset>
-        </div>
-      -->
+
         <div class="col-md-3">
           <div class="well chooseBar" id="extra" style="margin-top: 55px;">
             <label class="labs" for="mealType">Select the Meal Type</label>
@@ -180,13 +131,12 @@
     <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
       <div class="row" style="height: 700px;">
         <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
-          <a *ngFor="let size of arr(size).fill(1), let i = index">
-            <input class="inputBar2" type="text" placeholder="Next Instruction"
-              name="ingredients[i]">
+          <a *ngFor="let x of instructions, let i = index">
+            <input class="inputBar2" type="text" value={{x}}
+              name="instructions[i]">
           </a>
           <br>
-          <button class="save addButton" style="margin-bottom: 10px; margin-left: 9px;" (click)=addRow()>Add
-            Instruction</button>
+   
         </div>
       </div>
     </div>

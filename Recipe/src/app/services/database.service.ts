@@ -164,6 +164,23 @@ export class DatabaseService {
     }
   }
 
+  async updateRecipe(recipeID: number, userID: number, recipeName: string, chef: string, mealType: string, region: string, description: string, cooktime:number, servings:number, lifestyle:string, image:string): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {recipeID, userID, recipeName, chef, image, mealType, region, description, cooktime, servings,lifestyle};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/updateRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
   async newIngredients(instructions: string[], ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
     try {
       const headers = new HttpHeaders({
@@ -180,14 +197,31 @@ export class DatabaseService {
       
     }
   }
-  async newPlaylist(userID: number, playlistName: string): Promise<any>{
+
+  async updateIngredients(ingredient_id:number, instructions: string[], ingredients: string[], amount: number[], measure: string[], recipe_id: number): Promise<any>{
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      const body = {userID, playlistName};
+      const body = {ingredient_id, instructions, ingredients, amount, measure, recipe_id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/updateIngredients`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+  async newPlaylist(userID: number, playlistName: string, description:string): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {userID, playlistName, description};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/newPlaylist`, body, { headers }).toPromise();
     
       return result;
@@ -240,6 +274,40 @@ export class DatabaseService {
       });
       const body = {id};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/deleteRecipe`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+  async deletePlaylist(id: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/deletePlaylist`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+  async rateRecipe(rating: number, id: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {rating, id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/rateRecipe`, body, { headers }).toPromise();
     
       return result;
     } catch (err) {

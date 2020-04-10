@@ -1,62 +1,66 @@
 <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="well">
-          <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-            <div class="container-fluid">
-              <label class="navbar-brand mr-3" style="text-transform: capitalize;">{{playlistName}}</label>
-            </div>
-          </nav>
-        </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+          <div class="container-fluid">
+            <label class="navbar-brand mr-3">{{playlistName}}</label>
+          </div>
+        </nav>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-4" style="margin-top: 8px;">
-        <br>
-        <ul id="options-list"><br>
-          
-          <div class="row">
-            <label id="playlist-description" style="height: 200px; background-color: white; text-align: left; word-wrap: normal;">{{description}}</label>
-          </div><br>
-          <div class="row">
-            <button type="button" class="options">Add Recipe(s)</button>
-          </div>
-          <div class="row">
-            <button type="button" style="margin-top: 10px;" class="deleteOption">Remove Recipe(s)</button>
-          </div><br>
-          </ul>  
-      </div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-4" style="margin-top: 8px;">
+      <br>
+      <ul id="options-list" style="border-radius: 20px;"><br>
 
-      <div class="col-sm-8">
-        <br>
-
-        <ul id="recipe-list" style="margin-top: 8px;"><br>
-
-          <a *ngFor="let x of id; let i = index">
-              <div class="row">
-                <div class="img">
-                  <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
-                  <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
-  
-                  <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
-                    Recipe</button>
-                </div>
-                <ul id="eachRecipe">
-                  <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">recipe name</label><br>
-                  <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> recipe description</label><br>
-                </ul>
-  
-              </div><br>
-            </a>
-
-        </ul>
-        <button type="button" class="deletePlaylist">Delete Playlist</button>
-        <button type="button" class="savePlaylist">Save Playlist</button>
-      </div>
-      
+        <div class="row">
+          <label id="playlist-description" class="descriptionSection">{{description}}</label>
+        </div><br>
+        <div class="row">
+          <button type="button" class="options">Add Recipe(s)</button>
+        </div>
+        <div class="row">
+          <button type="button" style="margin-top: 10px;" class="deleteOption">Remove Recipe(s)</button>
+        </div>
+        <div class="row">
+          <button type="button" style="margin-top: 150px;" class="savePlaylist">Save Playlist</button>
+        </div>
+        <div class="row">
+          <button type="button" class="deletePlaylist" (click)="delete()">Delete Playlist</button> </div><br>
+      </ul>
     </div>
 
+    <div class="col-sm-8">
+      <br>
+
+      <ul id="recipe-list" style="margin-top: 8px; border-radius: 20px;"><br>
+
+        <a *ngFor="let x of id; let i = index">
+          <div class="row">
+            <div class="img">
+              <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1"
+                style="margin-left: 8px;"><br>
+              <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
+
+              <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
+                Recipe</button>
+            </div>
+            <ul id="eachRecipe">
+              <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">recipe name</label><br>
+              <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> recipe description</label><br>
+            </ul>
+
+          </div><br>
+        </a>
+
+      </ul>
     </div>
+
+  </div>
+
+</div>

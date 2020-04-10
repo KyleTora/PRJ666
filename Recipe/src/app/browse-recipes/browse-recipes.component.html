@@ -4,7 +4,9 @@
   <h1 class="categoryTitle">Browse</h1>
   <br><br>
 
-  <input type="text" class="searchBar center" placeholder="Search...">
+  <input type="text" class="searchBar center" placeholder="Search..." [(ngModel)] = "search" name="search"> 
+  <br>
+  <button class="save addButton center2" (click)=searchThis()>Search</button>
   <br><br>
 
   <!-- Meal Type -->

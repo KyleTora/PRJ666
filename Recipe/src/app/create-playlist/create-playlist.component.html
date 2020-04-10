@@ -1,24 +1,29 @@
 <div class="container mb-3" style="background-color: #353a40; color: white; width: 80%;">
   <label class="navbar-brand mr-3">New Playlist</label>
+
 </div>
 
-<div class="container" style="background-color: #353a40; color: white; width: 80%;">
+<div class="container formSection">
   <br>
-  <ul id="play-list" style="color: 353a40;"><br>
+  <div id="errorMsg" *ngIf="showMsg">
+    <h5>{{errorMsg}}</h5>
+  </div>
+  <ul id="play-list" style="color: white;"><br>
     <div class="row">
-      <h4>Playlist Name:</h4>
+      <h5>Playlist Name:</h5>
     </div>
-    <div class="row" style="margin-top: 10px;">
-      <textarea id="name" rows="1" placeholder="Name" [(ngModel)]="playlistName" name="playlistName"></textarea>
+    <div class="row">
+      <textarea class="playNameSection" id="name" rows="1" placeholder="Name" [(ngModel)]="playlistName" name="playlistName"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
-      <h4>Description:</h4>
+      <h5>Description:</h5>
     </div>
     <div class="row" style="margin-top: 10px;">
       <textarea id="description" style="width: 70%;" rows="5" placeholder="(Optional)"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
       <button type="button" style="margin-top: 10px;" style="float: left;" (click)=save() class="options mb-3">Create Playlist</button>
+
     </div>
   </ul>
 </div>

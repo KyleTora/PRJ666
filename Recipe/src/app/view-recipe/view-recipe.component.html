@@ -2,11 +2,10 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="well">
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 titleSection">
                     <div class="container-fluid">
-                        <label class="navbar-brand mr-3"
-                            style="margin-top: 5px; text-transform: capitalize; font-size: 30px;">{{recipeName}} by
-                            {{chef}}</label>
+                        <label class="navbar-brand mr-3" style="font-weight: bold;">{{recipeName}} <span *ngIf="chef"> by
+                            {{chef}}</span></label>
                         <button type="button" class="navbar-toggler" data-toggle="collapse"
                             data-target="#recipeCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -19,9 +18,9 @@
                                 <input *ngIf="isFav" class="nav-item nav-link"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Un-Favourite Recipe" (click)="unfavourite()">
-                                <a href="" class="nav-item nav-link">Rate Recipe</a>
+                                <a class="nav-item nav-link" *ngIf="!usersRecipe" (click)="rate()">Rate Recipe</a>
                                 <a href="" class="nav-item nav-link">Share</a>
-                                <a [routerLink]="['/edit-recipe', id]" class="nav-item nav-link">Edit Recipe</a>
+                                <a *ngIf="usersRecipe" [routerLink]="['/edit-recipe', id]" class="nav-item nav-link">Edit Recipe</a>
                                 <input *ngIf="usersRecipe" class="nav-item nav-link"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Delete Recipe" (click)="delete()">
@@ -34,9 +33,9 @@
     </div>
 </div>
 
-<div class="container well" style=" width: 1110px; background-color: #353a40;">
+<div class="container well descriptionSection">
     <h5 style="color: white; padding-top: 15px;">Description</h5>
-    <label style="color: white; height: 75px;" id="description" rows="5">{{description}}</label>
+    <label [innerHTML]="description" style="color: white; height: 75px;" id="description" ></label>
 </div>
 
 <!-- First Row for Ingredients and Image -->
@@ -44,29 +43,29 @@
 
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
-            <img *ngIf="!image" src="assets/western.jfif" class="img-responsive" style="width:100%" >
-            <img *ngIf="image" [src]="image" class="img-responsive" style="width:100%; object-fit: contain; max-height: 400px; ">
+            <img *ngIf="!image" src="assets/western.jfif" class="img-responsive foodPicture">
+            <img *ngIf="image" [src]="image" class="img-responsive foodPicture">
         </div>
 
-        <div class="col-sm-6" style="margin-top: 8px; padding-left: 100px; font-weight: bold;">
+        <div class="col-sm-6 detailSection">
 
-            <div class="well" id="extra" style="margin-top: 25px; width: 300px;">
-                <label style="margin-right: 5px;">Total Cooktime: {{cooktime}} hour(s)</label>
+            <div class="well details" id="extra">
+                <label style="margin-right: 5px;">Total Cooktime: {{cooktime}} minute(s)</label>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <label for="mealType" style="margin-right: 5px;">Number of Servings: {{servings}}</label>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Type of Meal: {{mealType}}</div>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Region: {{region}}</div>
             </div>
 
-            <div class="well" id="extra" style="margin-top: 15px; width: 300px;">
+            <div class="well details" id="extra">
                 <div>Lifestyle: {{lifeStyle}}</div>
             </div>
 
@@ -154,14 +153,19 @@
 </div><br>
 -->
 
-<div class="container" style="background-color: #353a40; color: white; width: 1110px;">
+<div class="container instructionsSection">
     <div class="row">
         <div class="col-sm-6" style="margin-top: 32px;">
             <section id="ingred">
                 <h3>Ingredients</h3>
                 <ul>
                     <a *ngFor="let amt of amount; let i = index;">
-                        <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1">s</a> {{ingredients[i]}}</li>
+                        <a *ngIf = "chef">
+                            <li>{{amt}} {{measure[i]}}<a *ngIf = "amt > 1 && measure[i]">s</a> {{ingredients[i]}}</li>
+                        </a>
+                        <a *ngIf = "!chef">
+                            <li>{{amt}} {{measure[i]}} {{ingredients[i]}}</li>
+                        </a>
                     </a>
                 </ul>
             </section>
