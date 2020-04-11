@@ -33,7 +33,7 @@ export class ViewRecipeComponent implements OnInit {
   image: string;
   rating: number;  
   numRating: number;
-  average: string;
+  average: number;
   avg:number;
   newRating: number;
 
@@ -130,7 +130,8 @@ export class ViewRecipeComponent implements OnInit {
         this.rating = result.rating;
         this.numRating = result.num_of_ratings;
         this.avg = this.rating/this.numRating;
-        this.average = this.avg.toFixed(1);
+        var tmp = this.avg.toFixed(1);
+        this.average = +tmp;
         console.log(this.average);
         if(this.chef == this.userX.getUsername()){
           this.usersRecipe = true;
