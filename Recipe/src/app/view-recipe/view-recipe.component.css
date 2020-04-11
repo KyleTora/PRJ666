@@ -164,6 +164,10 @@
   border-radius: 20px;
 }
 
+ .nostar {
+   color: none;
+ }
+
   .recipeTitle {
     font-weight: bold;
     overflow: hidden;
@@ -182,7 +186,7 @@
   .centered {
     position: absolute;
     margin-top: 82px;
-    left: 50%;
+    left: 36%;
     transform: translate(45%, -35%);
     color: white;
     text-shadow: 10px black;
