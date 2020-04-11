@@ -11,7 +11,7 @@
       </div>
 
       <a [routerLink]="['/view-recipe', x]"><img *ngIf="!url[i]" src="assets/western.jfif"> <img *ngIf="url[i]"
-          [src]="url[i]" class="img-responsive" style="object-fit: cover; max-height: 400px; max-width: 400px;"></a>
+          [src]="url[i]" class="img-responsive pictureStyle"></a>
 
       <figcaption class="descriptionStyle">Description: {{desc[i]}} </figcaption>
     </figure>
