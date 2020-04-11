@@ -16,6 +16,7 @@ div#grid figure {
   padding: 15px;
   padding-bottom: 10px;
   transition: opacity .4s ease-in-out;
+  
 }
 
 div#grid figure a img {
