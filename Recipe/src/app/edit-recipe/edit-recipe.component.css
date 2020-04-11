@@ -56,6 +56,7 @@
   text-align: center;
   font-size: 16px;
 }
+
 .photo{
   background-color: #353a40; 
   border: none;
@@ -72,7 +73,16 @@
   padding: 10px;
   border: none;
 }
-
+.removeButton {
+  border-radius: 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
 .recipeTitle {
   color: #353a40; 
   border-radius: 20px; 

@@ -12,6 +12,11 @@ export class EditRecipeComponent implements OnInit {
   id: number;
   private sub: any;
   
+  new:string;
+  newMsg: string;
+  newAmt: string;
+  newIng: string;
+
   chef: string;
   recipeName: string;
   mealType: string;
@@ -31,9 +36,30 @@ export class EditRecipeComponent implements OnInit {
   measure = new Array;
   
   arr = Array;
-  size = 1;
+  size = 0;
+  size2 = 0;
+
   addRow(){
     this.size++;
+  }
+  addRow2(){
+    this.size2++;
+  }
+
+  removeStep(msg: string){
+    const index: number = this.instructions.indexOf(msg);
+    if (index !== -1) {
+      this.instructions.splice(index, 1);
+    }     
+  }
+
+  removeIngredient(ing: string){
+    const index: number = this.ingredients.indexOf(ing);
+    if (index !== -1) {
+      this.ingredients.splice(index, 1);
+      this.amount.splice(index, 1);
+      this.measure.splice(index, 1);
+    }     
   }
 
   constructor(private user: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute) { }
@@ -97,6 +123,14 @@ export class EditRecipeComponent implements OnInit {
   save(){   
     console.log(this.ingredients);
     this.showErrorMessage = false;
+    if(this.new){
+      this.instructions.push(this.new);
+    }
+    if(this.newIng && this.newAmt && this.newMsg){
+      this.ingredients.push(this.newIng);
+      this.amount.push(this.newAmt);
+      this.measure.push(this.newMsg);
+    }
     if(!this.recipeName || !this.mealType || !this.region || !this.cooktime || !this.servings || !this.chef || !this.description || !this.lifeStyle){
       this.errorMessage = "Please fill out all required fields!";
       this.showErrorMessage = true;
@@ -113,18 +147,18 @@ export class EditRecipeComponent implements OnInit {
       this.errorMessage = "Enter at least one ingredient!"; 
       this.showErrorMessage = true;
     }else{   
+      this.db.deleteOthers(this.id).then((result) =>{
+        console.log("Delete Result: ", result);
+      }).catch((err) =>{
+        console.log("Delete Error: ", err);
+      })
       this.db.updateRecipe(this.id, this.user.getId(), this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifeStyle, this.url).then((result)=>{
         console.log("Recipe Result: ", result);
-            this.db.deleteOthers(this.id).then((result3) =>{
-              console.log("Delete Result: ", result3);
-            }).catch((err) =>{
-              console.log("Delete Error: ", err);
-            })
-            this.db.newIngredients(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
-              console.log("Steps Result: ", result2);   
-            }).catch((err) =>{
-              console.log("Steps Error: ", err);
-            })
+          this.db.newIngredients(this.instructions, this.ingredients, this.amount, this.measure, this.id).then((result2)=>{
+            console.log("Steps Result: ", result2);   
+          }).catch((err) =>{
+            console.log("Steps Error: ", err);
+          })
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })

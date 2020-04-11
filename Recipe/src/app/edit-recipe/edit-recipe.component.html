@@ -52,11 +52,34 @@
   
       <div class="row" style="height: 700px;">
         <div class="col-sm-7" id="extra" style="padding: 20px; border-radius: 20px;">
-          <a *ngFor="let ing of ingredients; let i = index;">
-            <input class="inputBar" type="text" value = {{ing}}>
-            <input class="inputBar" type="text" value= {{amount[i]}}>
-            <input class="inputBar" type="text" value= {{measure[i]}}>
-          </a>  
+          <h3>Ingredients</h3>
+          <ol>
+              <a *ngFor="let ing of ingredients; let i = index">
+                  <li>
+                    <button class="removeButton" (click)=removeIngredient(ing)>Remove</button>
+                    {{amount[i]}}
+                    {{measure[i]}}
+                    {{ing}}
+                  </li>
+              </a>
+          </ol>
+       
+            <input class="inputBar" type="text" placeholder="Ingredient Name" [(ngModel)]="newIng"
+              name="newIng">
+            <input class="inputBar" type="number" placeholder="0" min="0" [(ngModel)]="newAmt"
+              name="newAmt">
+  
+            <select class="inputBar" id="measureType" [(ngModel)]="newMsg" name="newMsg" style="width: 160px;">
+              <option value="cup">Cup(s)</option>
+              <option value="litre">Litre(s)</option>
+              <option value="gram">Gram(s)</option>
+              <option value="kg">Kilogram(s)</option>
+              <option value="oz">Ounce(s)</option>
+              <option value="tbsp">Tablespoon(s)</option>
+              <option value="tsp">Teaspoon(s)</option>
+              <option value=" ">None</option>
+  
+            </select>  
         </div>
 
         <div class="col-md-3">
@@ -118,9 +141,9 @@
   
           <div class="well chooseBar" id="extra">
             <label class="labs" style="margin-right: 5px;">Cooktime: </label>
-            <input type="number" placeholder="0" min="0" max="10" step=".25" [(ngModel)]="cooktime" name="cooktime"
+            <input type="number" placeholder="0" min="0" max="200" step="5" [(ngModel)]="cooktime" name="cooktime"
               style="padding-left: 10px; border-radius: 20px; margin-left: 15px; border: none;">
-            <label style="margin-left: 5px;"> hour(s)</label>
+            <label style="margin-left: 5px;"> minutes</label>
           </div>
         </div>
       </div>
@@ -131,12 +154,20 @@
     <div class="container" style="width: 1110px; color: white; background-color: #353a40;">
       <div class="row" style="height: 700px;">
         <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
-          <a *ngFor="let x of instructions, let i = index">
-            <input class="inputBar2" type="text" value={{x}}
-              name="instructions[i]">
-          </a>
+          <h3>Instructions</h3>
+          <ol>
+              <a *ngFor="let steps of instructions;">
+                  <li>
+                    <button class="removeButton" (click)=removeStep(steps)>Remove</button>
+                    {{steps}}
+                  </li>
+              </a>
+          </ol>
+          <input class="inputBar2" type="text" placeholder="New Instruction" name="new"
+              [(ngModel)]="new">
           <br>
    
+
         </div>
       </div>
     </div>
