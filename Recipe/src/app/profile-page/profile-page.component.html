@@ -3,13 +3,13 @@
 <div id="page-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-top: 5%;">
                 <img *ngIf="!url" src="assets/img_avatar.png">
                 <img *ngIf="url" [src]="url" class="img-responsive profilePic">
             </div>
             <!-- Image, Name, Bio -->
             <div class="col-md-9"
-                style="background-color: #353a40; margin-bottom: 50px; height: 200px; border-radius: 20px; margin-top: 8px;">
+                style="background-color: #353a40; margin-bottom: 50px; height: 200px; border-radius: 20px; margin-top: 5%;">
                 <button class="save addButton" [routerLink]="['/edit-profile']"
                     style="float: right; margin-top: 20px;">Edit Profile</button>
                 <p class="profileName" style="color: white; margin-left: 20px; margin-top: 20px;">
@@ -28,13 +28,13 @@
         <!-- About Information -->
         <div class="row">
             <div class="col-md-3">
-                <div class="profile-work" style="background-color: lightskyblue; margin-top: 0px; border-radius: 20px;">
-                    <h4 routerLink="/my-recipe/recipe" style="cursor: pointer;">Recipes</h4><br>
-                    <h4 routerLink="/my-recipe/playlist" style="cursor: pointer;">Playlists</h4><br>
-                    <h4 routerLink="/my-recipe/favourite" style="cursor: pointer;">Favourited</h4>
+                <div class="profile-work" style="background-color: #353a40; margin-top: 0px; border-radius: 5%;">
+                    <h4 routerLink="/my-recipe/recipe" style="cursor: pointer; color: white;">Recipes</h4><br>
+                    <h4 routerLink="/my-recipe/playlist" style="cursor: pointer; color: white;">Playlists</h4><br>
+                    <h4 routerLink="/my-recipe/favourite" style="cursor: pointer; color: white;">Favourited</h4>
                 </div>
             </div>
-            <div class="col-md-9" style="background-color: #353a40; border-radius: 20px;">
+            <div class="col-md-9" style="background-color: #353a40; border-radius: 20px; ">
                 <h5 style="color: white; margin-top: 20px; margin-left: 20px;">Details</h5>
                 <br>
                 <div class="row">
