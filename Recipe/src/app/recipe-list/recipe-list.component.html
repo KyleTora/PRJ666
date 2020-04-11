@@ -1,17 +1,18 @@
-<div id="top" style="text-align: center;">
+<div id="top" style="text-align: center; margin: 50px;">
   <h1 style="text-transform: capitalize;">{{type}} Recipes</h1>
 </div>
 
-<div id="grid" style="grid-auto-flow: row;">
+<div class="grid" >
   <a *ngFor="let x of id; let i = index">
     <figure>
       <div class="row">
-        <label class="nameStyle">{{name[i]}}</label><span *ngIf="chef[i]">&nbsp;Chef:&nbsp; <label
+        <label class="nameStyle"  style="text-transform: capitalize;">{{name[i]}}</label><span *ngIf="chef[i]">&nbsp;Chef:&nbsp; <label
             class="chefStyle">{{chef[i]}}</label></span>
       </div>
 
-      <a [routerLink]="['/view-recipe', x]"><img *ngIf="!url[i]" src="assets/western.jfif"> <img *ngIf="url[i]"
-          [src]="url[i]" class="img-responsive pictureStyle"></a>
+      <a [routerLink]="['/view-recipe', x]">
+         <img *ngIf="url[i]" [src]="url[i]">
+      </a>
 
       <figcaption [innerHTML]="desc[i]" class="descriptionStyle">Description: {{desc[i]}} </figcaption>
     </figure>

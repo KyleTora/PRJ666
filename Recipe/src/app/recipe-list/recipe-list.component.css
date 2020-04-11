@@ -1,57 +1,46 @@
 
-#grid {
-  
+.grid {
   display: grid;
+  margin: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 10px;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto;
-  padding: 10px;
 }
 
-div#grid figure {
+
+figure {
   background: #fefefe;
   border: 2px solid #fcfcfc;
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   margin: 0 2px 15px;
   padding: 15px;
-  padding-bottom: 10px;
-  transition: opacity .4s ease-in-out;
-  
+  padding-bottom: 10px;  
 }
 
-div#grid figure a img {
-  width: 100%; height: auto;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
-  margin-bottom: 5px;
+img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+.descriptionStyle {
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  max-width: 400px;
 }
 
-div#grid figure figcaption {
+figcaption {
   font-size: .9rem;
   color: #444;
   line-height: 1.5;
 }
 
-@media screen and (max-width: 750px) { 
-  #columns { column-gap: 0px; }
-  #columns figure { width: 100%; }
-}
-
-.descriptionStyle {
-  display:block; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
-  width: 400px;
-}
-
 .nameStyle {
-  display:block; 
   overflow: hidden; 
   text-overflow: ellipsis; 
   margin-left: 15px;
   white-space: nowrap; 
-  width: 250px;
+  max-width: 250px;
+  width:100%;
 }
 
 .chefStyle { 
@@ -59,8 +48,33 @@ div#grid figure figcaption {
   float: right;
 }
 
-.pictureStyle {
-  object-fit: cover; 
-  max-height: 400px; 
-  max-width: 400px;
+
+
+@media (max-width: 1200px) {
+  #photos {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
 }
