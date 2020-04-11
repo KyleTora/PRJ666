@@ -36,3 +36,31 @@ div#grid figure figcaption {
   #columns { column-gap: 0px; }
   #columns figure { width: 100%; }
 }
+
+.descriptionStyle {
+  display:block; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  width: 400px;
+}
+
+.nameStyle {
+  display:block; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  margin-left: 15px;
+  white-space: nowrap; 
+  width: 250px;
+}
+
+.chefStyle { 
+  text-transform: capitalize;
+  float: right;
+}
+
+.pictureStyle {
+  object-fit: cover; 
+  max-height: 400px; 
+  max-width: 400px;
+}
