@@ -20,15 +20,15 @@
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Un-Favourite Recipe" (click)="unfavourite()">
 
-                                <a class="nav-item nav-link" *ngIf="!usersRecipe" (click)="rate()">
+                                <a class="nav-item nav-link" *ngIf="!usersRecipe">
                                     <div class="dropdown">
-                                        <button class="ratebtn buttonColour">Rate Recipe</button>
-                                        <div class="dropdown-content">
-                                            <a href="#">1</a>
-                                            <a href="#">2</a>
-                                            <a href="#">3</a>
-                                            <a href="#">4</a>
-                                            <a href="#">5</a>
+                                        <button class="ratebtn buttonColour" >Rate Recipe</button>
+                                        <div class="dropdown-content" >
+                                            <a value="1" (click)="rate(1)">1</a>
+                                            <a value="2" (click)="rate(2)">2</a>
+                                            <a value="3" (click)="rate(3)">3</a>
+                                            <a value="4" (click)="rate(4)">4</a>
+                                            <a value="5" (click)="rate(5)">5</a>
                                         </div>
                                     </div>
                                 </a>

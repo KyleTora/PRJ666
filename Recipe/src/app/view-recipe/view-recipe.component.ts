@@ -35,7 +35,7 @@ export class ViewRecipeComponent implements OnInit {
   numRating: number;
   average: number;
 
-  newRating = 0;
+  newRating: number;
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
@@ -60,19 +60,25 @@ export class ViewRecipeComponent implements OnInit {
     }
   }
 
-  rate(){
-    if(this.chef == this.userX.getUsername()){
-      if(confirm("  You can't rate your own recipe!")){
+  rate(num:number){
+    if(this.userX.getId()){
+      if(this.chef == this.userX.getUsername()){
+        if(confirm("  You can't rate your own recipe!")){
+        }
       }
-    }
-    else if(this.userX){
-      if(confirm("  Rate this recipe a " + this.newRating + " out of 5?")){
-        this.db.rateRecipe(this.newRating, this.id).then((result) =>{
-          console.log("Rate success: ", result);
-          window.location.reload();
-        }).catch((err) => {
-          console.log("Rate error: ", err);
-        })
+      else if(this.userX){
+        if(confirm("  Rate this recipe a " + num + " out of 5?")){
+          this.db.rateRecipe(num, this.id).then((result) =>{
+            console.log("Rate success: ", result);
+            window.location.reload();
+          }).catch((err) => {
+            console.log("Rate error: ", err);
+          })
+        }
+      }
+    }else{
+      if (confirm("  You need to be logged in to access this feature...\n  Would you like to login now?")){
+        this.router.navigate(['/login']);
       }
     }
   }
