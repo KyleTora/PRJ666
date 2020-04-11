@@ -163,3 +163,18 @@
   max-width: 170px;
   border-radius: 20px;
 }
+
+  .recipeTitle {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 600px;
+  }
+
+  .chefSection {
+    margin-top: 5px; 
+    text-transform: capitalize; 
+    font-size: 20px;
+    border-radius: 20px;
+    margin-left: 35%;
+  }
