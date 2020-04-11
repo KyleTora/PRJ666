@@ -50,7 +50,7 @@
   <!-- First Row for Ingredients, Cook Time, and Number of Servings -->
   <div class="container formShape format">
 
-    <div class="row" style="height: 700px;">
+    <div class="row" style="height: 70%;">
       <div class="col-sm-7" id="extra" style="padding: 20px; border-radius: 20px;">
         <a *ngFor="let size of arr(size).fill(1), let i = index">
           <input class="inputBar" type="text" placeholder="Ingredient Name" [(ngModel)]="ingredients[i]"
@@ -178,8 +178,8 @@
 
   <!-- Instructions -->
   <div class="container format" style="margin-bottom: 10px;">
-    <div class="row" style="height: 700px;">
-      <div class="col-sm-10" id="extra" style="padding: 20px; border-radius: 20px; margin-left: 87px;">
+    <div class="row" style="height: 70%;">
+      <div class="col-sm-10" id="extra" style="padding: 2%; border-radius: 20px; margin-left: 5%; height: 70%;">
         <a *ngFor="let size of arr(size).fill(1), let i = index">
           <input class="inputBar2" type="text" placeholder="Next Instruction" name="instructions[i]"
             [(ngModel)]="instructions[i]">
