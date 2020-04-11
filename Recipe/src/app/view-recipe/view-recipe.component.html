@@ -13,17 +13,30 @@
                         </button>
                         <div class="collapse navbar-collapse" id="recipeCollapse">
                             <div class="navbar-nav ml-auto">
-                                <input *ngIf="!isFav" class="nav-item nav-link"
+                                <input *ngIf="!isFav" class="nav-item nav-link buttonColour"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Favourite Recipe" (click)="favourite()">
-                                <input *ngIf="isFav" class="nav-item nav-link"
+                                <input *ngIf="isFav" class="nav-item nav-link buttonColour"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Un-Favourite Recipe" (click)="unfavourite()">
-                                <a class="nav-item nav-link" *ngIf="!usersRecipe" (click)="rate()">Rate Recipe</a>
-                                <a href="" class="nav-item nav-link">Share</a>
+
+                                <a class="nav-item nav-link" *ngIf="!usersRecipe" (click)="rate()">
+                                    <div class="dropdown">
+                                        <button class="ratebtn buttonColour">Rate Recipe</button>
+                                        <div class="dropdown-content">
+                                            <a href="#">1</a>
+                                            <a href="#">2</a>
+                                            <a href="#">3</a>
+                                            <a href="#">4</a>
+                                            <a href="#">5</a>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="nav-item nav-link buttonColour">Share</a>
                                 <a *ngIf="usersRecipe" [routerLink]="['/edit-recipe', id]"
-                                    class="nav-item nav-link">Edit Recipe</a>
-                                <input *ngIf="usersRecipe" class="nav-item nav-link"
+                                    class="nav-item nav-link buttonColour">Edit Recipe</a>
+                                <input *ngIf="usersRecipe" class="nav-item nav-link buttonColour"
                                     style="background-color:transparent; border: transparent;" type="submit"
                                     value="Delete Recipe" (click)="delete()">
                             </div>

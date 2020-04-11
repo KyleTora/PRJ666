@@ -188,3 +188,36 @@
     text-shadow: 10px black;
     font-size: 40px;
   }
+
+.ratebtn {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #353a40;
+  width: 115px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {color: #353a40; background-color: white;}
+.dropdown:hover .dropdown-content {display: block;}
+
+.buttonColour {
+  color: #a2adac;
+}
