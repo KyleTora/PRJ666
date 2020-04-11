@@ -53,7 +53,9 @@
                 <img *ngIf="average>3 && average < 4.1" class="star" src="assets/Silver-Star.jpg">
                 <img *ngIf="average>4 && average < 5.1" class="star" src="assets/Gold-Star.jpg">
                 <img *ngIf="!average" class="star" src="assets/White-Star.jpg">
-                <label class="centered">{{average}}</label>
+                <label *ngIf="average" class="centered">{{average}}</label>
+                <label *ngIf="!average" class="centered" style="color: black">0</label>
+
             </div>
         </div>
     </div>
