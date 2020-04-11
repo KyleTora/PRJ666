@@ -115,11 +115,16 @@ export class EditRecipeComponent implements OnInit {
     }else{   
       this.db.updateRecipe(this.id, this.user.getId(), this.recipeName, this.chef, this.mealType, this.region, this.description, this.cooktime, this.servings, this.lifeStyle, this.url).then((result)=>{
         console.log("Recipe Result: ", result);
-          // this.db.updateIngredients(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
-          //   console.log("Steps Result: ", result2);   
-          // }).catch((err) =>{
-          //   console.log("Steps Error: ", err);
-          // })
+            this.db.deleteOthers(this.id).then((result3) =>{
+              console.log("Delete Result: ", result3);
+            }).catch((err) =>{
+              console.log("Delete Error: ", err);
+            })
+            this.db.newIngredients(this.instructions, this.ingredients, this.amount, this.measure, result).then((result2)=>{
+              console.log("Steps Result: ", result2);   
+            }).catch((err) =>{
+              console.log("Steps Error: ", err);
+            })
       }).catch((err)=>{
         console.log("Recipe Error: ", err);
       })
