@@ -46,13 +46,14 @@
             </div>
         </div>
 
+
         <div class="col-sm-2">
             <div class="container well">
-                <img *ngIf="average < 3.1"  class="star" src="assets/Bronze-Star.jpg">
-                <img *ngIf="average>3 && average < 4.1"  class="star" src="assets/Silver-Star.jpg">
-                <img *ngIf="average>4 && average < 5.1"  class="star" src="assets/Gold-Star.jpg">
+                <img *ngIf="average < 3.1" class="star" src="assets/Bronze-Star.jpg">
+                <img *ngIf="average>3 && average < 4.1" class="star" src="assets/Silver-Star.jpg">
+                <img *ngIf="average>4 && average < 5.1" class="star" src="assets/Gold-Star.jpg">
                 <img *ngIf="!average" class="star" src="assets/White-Star.jpg">
-                <h1 class="centered">{{average}}</h1>
+                <label class="centered">{{average}}</label>
             </div>
         </div>
     </div>
