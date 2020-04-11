@@ -31,7 +31,12 @@ export class ViewRecipeComponent implements OnInit {
   isFav: boolean;
   usersRecipe : boolean;
   image: string;
-  rating = 2;
+  rating: number;  
+  numRating: number;
+  average: number;
+
+  newRating = 0;
+
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
   delete(){
@@ -61,8 +66,8 @@ export class ViewRecipeComponent implements OnInit {
       }
     }
     else if(this.userX){
-      if(confirm("  Rate this recipe a " + this.rating + " out of 5?")){
-        this.db.rateRecipe(this.rating, this.id).then((result) =>{
+      if(confirm("  Rate this recipe a " + this.newRating + " out of 5?")){
+        this.db.rateRecipe(this.newRating, this.id).then((result) =>{
           console.log("Rate success: ", result);
           window.location.reload();
         }).catch((err) => {
@@ -116,6 +121,10 @@ export class ViewRecipeComponent implements OnInit {
         this.lifeStyle = result.lifestyle;
         this.chef = result.chef;
         this.image = result.image;
+        this.rating = result.rating;
+        this.numRating = result.num_of_ratings;
+        this.average = this.rating/this.numRating;
+
         if(this.chef == this.userX.getUsername()){
           this.usersRecipe = true;
         }else{
