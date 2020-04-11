@@ -33,8 +33,8 @@ export class ViewRecipeComponent implements OnInit {
   image: string;
   rating: number;  
   numRating: number;
-  average: number;
-
+  average: string;
+  avg:number;
   newRating: number;
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
@@ -129,8 +129,9 @@ export class ViewRecipeComponent implements OnInit {
         this.image = result.image;
         this.rating = result.rating;
         this.numRating = result.num_of_ratings;
-        this.average = this.rating/this.numRating;
-
+        this.avg = this.rating/this.numRating;
+        this.average = this.avg.toFixed(1);
+        console.log(this.average);
         if(this.chef == this.userX.getUsername()){
           this.usersRecipe = true;
         }else{
