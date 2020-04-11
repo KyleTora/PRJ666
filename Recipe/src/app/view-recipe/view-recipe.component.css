@@ -181,7 +181,7 @@
 
   .centered {
     position: absolute;
-    top: 50%;
+    margin-top: 82px;
     left: 50%;
     transform: translate(45%, -35%);
     color: white;
