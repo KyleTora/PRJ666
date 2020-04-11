@@ -49,7 +49,8 @@
 
         <div class="col-sm-2">
             <div class="container well">
-                <label class="centered">{{average}}</label>
+                <label *ngIf="average" class="centered">{{average}}</label>
+                <label *ngIf="!average" class="centered" style="color: black">0</label>
                 <img *ngIf="average < 3.1" class="star" src="assets/Bronze-Star.jpg">
                 <img *ngIf="average>3 && average < 4.1" class="star" src="assets/Silver-Star.jpg">
                 <img *ngIf="average>4 && average < 5.1" class="star" src="assets/Gold-Star.jpg">
