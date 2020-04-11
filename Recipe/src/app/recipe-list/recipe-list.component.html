@@ -6,12 +6,14 @@
   <a *ngFor="let x of id; let i = index">
     <figure>
       <div class="row">
-        <label style="text-transform: capitalize; margin-left: 15px;">{{name[i]}}</label><span *ngIf="chef[i]">&nbsp;by&nbsp; <label style="text-transform: capitalize;">{{chef[i]}}</label></span>
+        <label class="nameStyle">{{name[i]}}</label><span *ngIf="chef[i]">&nbsp;Chef:&nbsp; <label
+            class="chefStyle">{{chef[i]}}</label></span>
       </div>
-      
-      <a [routerLink] = "['/view-recipe', x]"><img *ngIf="!url[i]" src="assets/western.jfif"> <img *ngIf="url[i]"  [src]="url[i]" class="img-responsive" style="object-fit: cover; max-height: 400px; max-width: 400px;"></a>
 
-      <figcaption style="display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 400px;">Description: {{desc[i]}} </figcaption>
+      <a [routerLink]="['/view-recipe', x]"><img *ngIf="!url[i]" src="assets/western.jfif"> <img *ngIf="url[i]"
+          [src]="url[i]" class="img-responsive pictureStyle"></a>
+
+      <figcaption class="descriptionStyle">Description: {{desc[i]}} </figcaption>
     </figure>
   </a>
 </div>
