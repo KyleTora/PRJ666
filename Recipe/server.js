@@ -508,7 +508,7 @@ app.post('/loadUserRecipe', function (request, response) {
         }
 });
 
-app.post('/getUserRecipes', function (request, response) {
+app.post('/getNewRecipes', function (request, response) {
     
         connection.query("SELECT * FROM Recipes order by date_created DESC", function (error, results, fields) {
                 if (error) {
