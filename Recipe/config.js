@@ -1,13 +1,15 @@
 
 
 var mysql = require('mysql');
-
-var connection = mysql.createConnection({
+var client = {'host' : 'mymysql.senecacollege.ca', 'user' : 'prj666_201a06','password' : 'rfLG@8559','database' : 'prj666_201a06'}
+/*var connection = mysql.createConnection({
 	host     : 'mymysql.senecacollege.ca',
 	user     : 'prj666_201a06',
 	password : 'rfLG@8559',
 	database : 'prj666_201a06'
-});
+});*/
+var connection = mysql.createConnection(client);
+handleDisconnect(connection);
 
 connection.connect(function(err){
 	if(!err) {
@@ -47,7 +49,7 @@ var server = http.createServer(function (req, res) {
 // server.listen(3000, function () {
 //   console.log('HTTP server listening on port 3000');
 // });
-
+*/
 function handleDisconnect(client) {
   client.on('error', function (error) {
     if (!error.fatal) return;
@@ -55,11 +57,9 @@ function handleDisconnect(client) {
 
     console.error('> Re-connecting lost MySQL connection: ' + error.stack);
 
-    mysqlClient = mysql.createConnection(client.config);
-    handleDisconnect(mysqlClient);
-    mysqlClient.connect();
+    connection = mysql.createConnection(client.config);
+    handleDisconnect(connection);
+    connection.connect();
   });
 };
 
-module.exports = mysqlConfig;
-*/
