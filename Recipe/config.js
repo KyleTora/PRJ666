@@ -1,4 +1,4 @@
-/*
+
 
 var mysql = require('mysql');
 
@@ -18,9 +18,9 @@ connection.connect(function(err){
 });
 
 module.exports = connection; 
-*/
 
 
+/*
 var http = require('http');
 var mysql = require('mysql');
 
@@ -62,3 +62,4 @@ function handleDisconnect(client) {
 };
 
 module.exports = mysqlConfig;
+*/
