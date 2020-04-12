@@ -13,7 +13,7 @@ handleDisconnect(connection);
 
 connection.connect(function(err){
 	if(!err) {
-		console.log("Database is connected");
+		console.log("Database is connected now");
 	} else {
 		console.log("Error while connecting with database");
 	}
