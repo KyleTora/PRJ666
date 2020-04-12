@@ -508,6 +508,19 @@ app.post('/loadUserRecipe', function (request, response) {
         }
 });
 
+app.post('/getUserRecipes', function (request, response) {
+    
+        connection.query("SELECT * FROM Recipes order by date_created DESC", function (error, results, fields) {
+                if (error) {
+                        response.send('Incorrect Recipe Format!');
+                } else {
+                        response.json(results);
+                }
+        });
+
+});
+
+
 app.post('/loadFavourite', function (request, response) {
         var id = request.body.userID;
      

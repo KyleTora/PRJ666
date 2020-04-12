@@ -22,19 +22,35 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.type = params['type'];
-      
-      this.db.loadRecipeType(this.type).then((result)=>{
-        console.log("Recipe Result: ", result);
-        var i = 0;
-        for (let recipe of result){
-          this.id[i] = recipe.recipe_id;
-          this.name[i] = recipe.recipeName;
-          this.desc[i] = recipe.description;
-          this.chef[i] = recipe.chef;
-          this.url[i] = recipe.image;
-          i++;
+      if(this.type == "new" || this.type == "popular" || this.type == "top"){
+        if(this.type == "new"){
+          this.db.getNewRecipes().then((result) =>{
+            console.log("New Result: ", result);
+            var i = 0;
+            for (let recipe of result){
+              this.id[i] = recipe.recipe_id;
+              this.name[i] = recipe.recipeName;
+              this.desc[i] = recipe.description;
+              this.chef[i] = recipe.chef;
+              this.url[i] = recipe.image;
+              i++;
+            }
+          })
         }
-      })
+      }else{
+        this.db.loadRecipeType(this.type).then((result)=>{
+          console.log("Recipe Result: ", result);
+          var i = 0;
+          for (let recipe of result){
+            this.id[i] = recipe.recipe_id;
+            this.name[i] = recipe.recipeName;
+            this.desc[i] = recipe.description;
+            this.chef[i] = recipe.chef;
+            this.url[i] = recipe.image;
+            i++;
+          }
+        })
+    }
     })
   }
 }

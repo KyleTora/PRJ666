@@ -14,13 +14,13 @@
 
   <div class="imageContainer">
     <div class="imageRow">
-      <a href="/recipePage.html">
+      <a [routerLink]="['/recipe-list', 'top']">
         <img src="/assets/TopRated.jpg" class="imageSpace glow">
       </a>
-      <a href="/recipePage.html">
+      <a [routerLink]="['/recipe-list', 'popular']">
         <img src="/assets/Popular.jpg" class="imageSpace glow">
       </a>
-      <a href="/recipePage.html">
+      <a [routerLink]="['/recipe-list', 'new']">
         <img src="/assets/New.jpg" class="imageSpace glow">
       </a>
     </div>
