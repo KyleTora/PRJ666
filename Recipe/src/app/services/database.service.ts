@@ -399,7 +399,36 @@ export class DatabaseService {
       
     }
   }
-
+  async getTopRecipes(): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/getTopRecipes`, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+  async getPopularRecipes(): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/getPopularRecipes`, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
 
   async loadRecipeType(type: string): Promise<any>{
     try {

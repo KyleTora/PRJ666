@@ -519,7 +519,28 @@ app.post('/getNewRecipes', function (request, response) {
         });
 
 });
+app.post('/getPopularRecipes', function (request, response) {
+    
+        connection.query("SELECT * FROM Recipes order by num_of_ratings DESC", function (error, results, fields) {
+                if (error) {
+                        response.send('Incorrect Recipe Format!');
+                } else {
+                        response.json(results);
+                }
+        });
 
+});
+app.post('/getTopRecipes', function (request, response) {
+    
+        connection.query("SELECT * FROM Recipes order by CAST(rating AS DECIMAL) / num_of_ratings DESC", function (error, results, fields) {
+                if (error) {
+                        response.send('Incorrect Recipe Format!');
+                } else {
+                        response.json(results);
+                }
+        });
+
+});
 
 app.post('/loadFavourite', function (request, response) {
         var id = request.body.userID;
