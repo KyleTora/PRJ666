@@ -532,7 +532,7 @@ app.post('/getPopularRecipes', function (request, response) {
 });
 app.post('/getTopRecipes', function (request, response) {
     
-        connection.query("SELECT * FROM Recipes order by CAST(rating AS DECIMAL) / num_of_ratings DESC", function (error, results, fields) {
+        connection.query("SELECT * FROM Recipes order by rating / num_of_ratings DESC", function (error, results, fields) {
                 if (error) {
                         response.send('Incorrect Recipe Format!');
                 } else {
