@@ -28,21 +28,21 @@ var mysqlConfig = {'host': 'mymysql.senecacollege.ca', 'user': 'prj666_201a06', 
 var mysqlClient = mysql.createConnection(mysqlConfig); // This is the global MySQL client
 handleDisconnect(mysqlClient);
 
-// var server = http.createServer(function (req, res) {
-//   req.resume(); // Discard any request body
+var server = http.createServer(function (req, res) {
+  req.resume(); // Discard any request body
 
-//   mysqlClient.query('SELECT * FROM `test`;', function (error, rows) {
-//     if (error) {
-//       console.error(error.stack);
-//       res.statusCode = 500;
-//       res.end();
-//       return;
-//     }
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/plain');
-//     res.end(JSON.stringify(rows, null, 2));
-//   });
-// });
+  mysqlClient.query('SELECT * FROM `User`;', function (error, rows) {
+    if (error) {
+      console.error(error.stack);
+      res.statusCode = 500;
+      res.end();
+      return;
+    }
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(JSON.stringify(rows, null, 2));
+  });
+});
 
 // server.listen(3000, function () {
 //   console.log('HTTP server listening on port 3000');
