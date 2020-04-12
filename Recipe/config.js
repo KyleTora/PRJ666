@@ -21,7 +21,7 @@ module.exports = connection;
 */
 
 
-//var http = require('http');
+var http = require('http');
 var mysql = require('mysql');
 
 var mysqlConfig = {'host': 'mymysql.senecacollege.ca', 'user': 'prj666_201a06', 'password' : 'rfLG@8559', 'database': 'prj666_201a06'};
