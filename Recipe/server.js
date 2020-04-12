@@ -521,7 +521,7 @@ app.post('/getNewRecipes', function (request, response) {
 });
 app.post('/getPopularRecipes', function (request, response) {
     
-        connection.query("SELECT * FROM Recipes", function (error, results, fields) {
+        connection.query("SELECT * FROM Recipes order by num_of_ratings DESC", function (error, results, fields) {
                 if (error) {
                         response.send('Incorrect Recipe Format!');
                 } else {

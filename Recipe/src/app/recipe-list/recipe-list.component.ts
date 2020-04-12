@@ -36,7 +36,33 @@ export class RecipeListComponent implements OnInit {
               i++;
             }
           })
-        }
+        }else if(this.type == "popular"){
+          this.db.getPopularRecipes().then((result) =>{
+            console.log("Popular Result: ", result);
+            var i = 0;
+            for (let recipe of result){
+              this.id[i] = recipe.recipe_id;
+              this.name[i] = recipe.recipeName;
+              this.desc[i] = recipe.description;
+              this.chef[i] = recipe.chef;
+              this.url[i] = recipe.image;
+              i++;
+            }
+          })
+        }else if(this.type == "top"){
+          this.db.getTopRecipes().then((result) =>{
+            console.log("Top Result: ", result);
+            var i = 0;
+            for (let recipe of result){
+              this.id[i] = recipe.recipe_id;
+              this.name[i] = recipe.recipeName;
+              this.desc[i] = recipe.description;
+              this.chef[i] = recipe.chef;
+              this.url[i] = recipe.image;
+              i++;
+            }
+          })
+        }    
       }else{
         this.db.loadRecipeType(this.type).then((result)=>{
           console.log("Recipe Result: ", result);
