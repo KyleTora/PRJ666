@@ -48,8 +48,8 @@ transporter.verify(function(error, success) {
         }
 });
 */
-//var connection = require('./config');
-
+var connection = require('./config');
+/*
 var connection = mysql.createConnection({
 	host     : 'mymysql.senecacollege.ca',
 	user     : 'prj666_201a06',
@@ -67,6 +67,7 @@ connection.connect(function(err){
 
 module.exports = connection; 
 
+*/
 
 var app = express();
 
