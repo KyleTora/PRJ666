@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 
-<div id="page-wrapper" >
+<div id="page-wrapper">
   <h1 class="categoryTitle">Browse</h1>
   <br><br>
 
-  <input type="text" class="searchBar center" placeholder="Search..." [(ngModel)] = "search" name="search"> 
+  <input type="text" class="searchBar center" placeholder="Search..." [(ngModel)]="search" name="search">
   <br>
   <button class="save addButton center2" (click)=searchThis()>Search</button>
+  <br><br>
+
+  <!-- Top Tabs -->
+  <br><br>
+
+  <div class="imageContainer">
+    <div class="imageRow">
+      <a href="/recipePage.html">
+        <img src="/assets/TopRated.jpg" class="imageSpace glow">
+      </a>
+      <a href="/recipePage.html">
+        <img src="/assets/Popular.jpg" class="imageSpace glow">
+      </a>
+      <a href="/recipePage.html">
+        <img src="/assets/New.jpg" class="imageSpace glow">
+      </a>
+    </div>
+  </div>
   <br><br>
 
   <!-- Meal Type -->
@@ -15,26 +33,26 @@
 
   <div class="imageContainer">
     <div class="imageRow">
-      <a [routerLink] = "['/recipe-list', 'breakfast']">
+      <a [routerLink]="['/recipe-list', 'breakfast']">
         <img src="/assets/Breakfast.jpg" class="imageSpace glow">
       </a>
-    
-      <a [routerLink] = "['/recipe-list', 'lunch']">
+
+      <a [routerLink]="['/recipe-list', 'lunch']">
         <img src="/assets/Lunch.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'dinner']">
+      <a [routerLink]="['/recipe-list', 'dinner']">
         <img src="/assets/Dinner.jpg" class="imageSpace glow">
       </a>
     </div>
 
     <div class="imageRow">
-      <a [routerLink] = "['/recipe-list', 'appetizer']">
+      <a [routerLink]="['/recipe-list', 'appetizer']">
         <img src="/assets/Appetizers.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'dessert']">
+      <a [routerLink]="['/recipe-list', 'dessert']">
         <img src="/assets/Dessert.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'snack']">
+      <a [routerLink]="['/recipe-list', 'snack']">
         <img src="/assets/Snacks.jpg" class="imageSpace glow">
       </a>
     </div>
@@ -47,13 +65,13 @@
 
   <div class="imageContainer">
     <div class="imageRow">
-      <a [routerLink] = "['/recipe-list', 'keto']">
+      <a [routerLink]="['/recipe-list', 'keto']">
         <img src="/assets/Keto.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'vegetarian']">
+      <a [routerLink]="['/recipe-list', 'vegetarian']">
         <img src="/assets/Vegetarian.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'vegan']">
+      <a [routerLink]="['/recipe-list', 'vegan']">
         <img src="/assets/Vegan.jpg" class="imageSpace glow">
       </a>
     </div>
@@ -66,25 +84,25 @@
 
   <div class="imageContainer">
     <div class="imageRow">
-      <a [routerLink] = "['/recipe-list', 'european']">
+      <a [routerLink]="['/recipe-list', 'european']">
         <img src="/assets/European.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'asian']">
+      <a [routerLink]="['/recipe-list', 'asian']">
         <img src="/assets/Asian.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'middleEastern']">
+      <a [routerLink]="['/recipe-list', 'middleEastern']">
         <img src="/assets/MiddleEastern.jpg" class="imageSpace glow">
       </a>
     </div>
 
     <div class="imageRow">
-      <a [routerLink] = "['/recipe-list', 'southAmerican']">
+      <a [routerLink]="['/recipe-list', 'southAmerican']">
         <img src="/assets/SouthAmerica.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'mediterranean']">
+      <a [routerLink]="['/recipe-list', 'mediterranean']">
         <img src="/assets/Mediterranean.jpg" class="imageSpace glow">
       </a>
-      <a [routerLink] = "['/recipe-list', 'african']">
+      <a [routerLink]="['/recipe-list', 'african']">
         <img src="/assets/African.jpg" class="imageSpace glow">
       </a>
     </div>
@@ -118,28 +136,4 @@
     </div>
   </div>
   <br><br><br>
-
-  <!-- Seasonal -->
-  <h2 class="categoryTitle">Seasonal</h2>
-  <br>
-
-  <div class="imageContainer">
-    <div class="imageRow">
-      <a href="/recipePage.html">
-        <img src="/assets/Spring.jpg" class="imageSpace glow">
-      </a>
-      <a href="/recipePage.html">
-        <img src="/assets/Summer.jpg" class="imageSpace glow">
-      </a>
-    </div>
-
-    <div class="imageRow">
-      <a href="/recipePage.html">
-        <img src="/assets/Fall.jpg" class="imageSpace glow">
-      </a>
-      <a href="/recipePage.html">
-        <img src="/assets/Winter.jpg" class="imageSpace glow">
-      </a>
-    </div>
-  </div>
 </div>
