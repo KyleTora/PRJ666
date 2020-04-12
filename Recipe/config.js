@@ -24,7 +24,7 @@ module.exports = connection;
 //var http = require('http');
 var mysql = require('mysql');
 
-var mysqlConfig = {'host': 'mymysql.senecacollege.ca', 'user': 'prj666_201a06', 'database': 'prj666_201a06'};
+var mysqlConfig = {'host': 'mymysql.senecacollege.ca', 'user': 'prj666_201a06', 'password' : 'rfLG@8559', 'database': 'prj666_201a06'};
 var mysqlClient = mysql.createConnection(mysqlConfig); // This is the global MySQL client
 handleDisconnect(mysqlClient);
 
@@ -60,3 +60,5 @@ function handleDisconnect(client) {
     mysqlClient.connect();
   });
 };
+
+module.exports = mysqlConfig;
