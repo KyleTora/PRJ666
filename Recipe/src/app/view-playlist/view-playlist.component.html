@@ -42,17 +42,12 @@
 
         <a *ngFor="let x of recipes; let i = index">
           <div class="row">
-            <div class="img">
-              <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1"
-                style="margin-left: 8px;"><br>
-              <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
-
+          
               <button [routerLink]="['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;">View
                 Recipe</button>
-            </div>
             <ul id="eachRecipe">
-              <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">recipe name</label><br>
-              <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> recipe description</label><br>
+              <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{names[i]}}</label><br>
+              <label style="margin-left: 10px; max-width: 300px; max-height: 50px;"> {{descs[i]}}</label><br>
             </ul>
 
           </div><br>

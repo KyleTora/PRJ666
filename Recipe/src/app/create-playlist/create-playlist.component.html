@@ -19,7 +19,7 @@
       <h5>Description:</h5>
     </div>
     <div class="row" style="margin-top: 10px;">
-      <textarea id="description" style="width: 70%;" rows="5" placeholder="(Optional)"></textarea>
+      <textarea id="description" style="width: 70%;" rows="5" placeholder="(Optional)" [(ngModel)]="description" name="description"></textarea>
     </div><br>
     <div class="row" style="margin-top: 10px;">
       <button type="button" style="margin-top: 10px;" style="float: left;" (click)=save() class="options mb-3">Create Playlist</button>

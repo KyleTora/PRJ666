@@ -22,6 +22,8 @@ export class ViewPlaylistComponent implements OnInit {
   playlistName: string;
   description: string;
   recipes = [];
+  names = [];
+  descs = [];
   url;
   
   isFav: boolean;
@@ -59,7 +61,11 @@ export class ViewPlaylistComponent implements OnInit {
         }
         this.db.loadUserPlaylistR(this.id).then((result)=>{
           console.log("Recipe Result: ", result);
-
+          for(var i = 0; i < result.length; i++){
+            this.recipes[i] = result[i].recipe_id;
+            this.names[i] = result[i].recipeName;
+            this.descs[i] = result[i].description;
+          }
         }).catch((err)=>{
           console.log("Playlist Error: ", err);
         })
@@ -68,5 +74,4 @@ export class ViewPlaylistComponent implements OnInit {
       })
     })
   }
-
 }
