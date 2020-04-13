@@ -52,22 +52,22 @@
 
     <div class="row">
 
-        <div class="col-sm-9">
-            <div class="container well descriptionSection">
+        <div class="col-sm-9" style="margin-bottom: 20px;">
+            <div class="descriptionSection">
                 <h5 style="color: white; padding-top: 15px;">Description</h5>
-                <label [innerHTML]="description" style="color: white; height: 75px;" id="description"></label>
+                <label [innerHTML]="description" id="description"></label>
             </div>
         </div>
 
 
-        <div class="col-sm-2">
-            <div class="container well">
-                <label *ngIf="average" class="centered">{{average}}</label>
-                <label *ngIf="!average" class="centered nostar"></label>
+        <div class="col-sm-3">
+            <div class="container well" style="position: relative;">
                 <img *ngIf="average < 3.1" class="star" src="assets/Bronze-Star.jpg">
                 <img *ngIf="average>3 && average < 4.1" class="star" src="assets/Silver-Star.jpg">
                 <img *ngIf="average>4 && average < 5.1" class="star" src="assets/Gold-Star.jpg">
                 <img *ngIf="!average" class="star" src="assets/White-Star.jpg">
+                <div *ngIf="average" class="centered2">{{average}}</div>
+                <div *ngIf="!average" class="centered2 nostar"></div>
             </div>
         </div>
     </div>
@@ -139,10 +139,6 @@
                 <p>{{ings}}</p>
             </a>       
         -->
-
-
-<br>
-<br>
 
 <!-- First Row for Description, Cook Time, and Number of Servings -->
 <!--
