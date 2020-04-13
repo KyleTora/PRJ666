@@ -11,8 +11,8 @@ var mailer = require('nodemailer');
 const cors = require('cors');
 var mysql = require('mysql');
 
+// ssl was done by Han Sol Cho
 let ssl;
-
 
 try {
         ssl = {
@@ -22,31 +22,33 @@ try {
 } catch (err) {
         console.error("Test SSL is: ", err);
 }
+//_________________________________
 
 
-//set our email
-var transporter = mailer.createTransport({
-        host: 'smtp.office365.com',
-        port: 587,
-        secure: false,
-        auth:{
-                user: 'prj666_201a06@myseneca.ca',
-                pass: '15NBgf*@g65J' // new password
-        },
-        tls:{
-                rejectUnauthorized: false
-        }
+// this was given to me by the professor
 
+        var transporter = mailer.createTransport({
+                host: 'smtp.office365.com',
+                port: 587,
+                secure: false,
+                auth:{
+                        user: 'prj666_201a06@myseneca.ca',
+                        pass: '15NBgf*@g65J' // new password
+                },
+                tls:{
+                        rejectUnauthorized: false
+                }
+        });
 
-});
+        transporter.verify(function(error, success) {
+                if (error) {
+                console.log(error);
+                } else {
+                console.log("Server is ready to take our messages");
+                }
+        });
 
-transporter.verify(function(error, success) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Server is ready to take our messages");
-        }
-});
+//____________________________________
 
 var connection = require('./config');
 
@@ -82,6 +84,8 @@ app.get("/signin", (req, res) => {
         res.sendFile(__dirname + "/signIn.html");
 });
 
+// All of these app.post querys are referenced from online sources, but no code was copied 
+
 app.post('/signinCheck', function (request, response) {
         var username = request.body.username;
         var password = request.body.password;
@@ -90,7 +94,6 @@ app.post('/signinCheck', function (request, response) {
                         if (results.length > 0) {
                                 request.session.loggedin = true;
                                 request.session.username = username;
-                                //returning user object
                                 response.json(results[0]);
                         } else {
                                 response.send('Incorrect Username and/or Password!');
@@ -412,7 +415,6 @@ app.post('/deletePlaylist', function (request, response) {
                         if (error) {
                                 response.send('Incorrect Playlist Format!');
                         } else {
-                                //response.json(results[0]);
                         }    
                 });
         } else {
@@ -661,10 +663,15 @@ app.post('/loadIngredients', function (req, res){
         }
 });
 
+//___________________________________
+
 
 app.get("/*", (req, res) => {
         res.sendFile(path.join(__dirname, 'dist', 'Recipe', 'index.html'));
 });
+
+
+//this was done by Han Sol Cho
 
 if (ssl)
         require("https")
@@ -683,3 +690,4 @@ app.on('error', (err) => {
         console.log(err.message);
 });
 
+//----------------------------
