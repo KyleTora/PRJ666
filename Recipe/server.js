@@ -632,6 +632,14 @@ app.post('/loadUserPlaylist', function (request, response) {
                                 response.send(results);
                         }
                 });
+                
+        } else {
+                response.send('Please enter Recipe!');
+        }
+});
+app.post('/loadUserPlaylistR', function (request, response) {
+        var id = request.body.id;
+        if (id > 0) {
                 connection.query("SELECT * FROM recipePlaylists WHERE playlist_id = ?", [id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
@@ -639,12 +647,10 @@ app.post('/loadUserPlaylist', function (request, response) {
                                 response.send(results);
                         }
                 });
-                
         } else {
                 response.send('Please enter Recipe!');
-        }
+}       
 });
-
 app.post('/loadSteps', function (req, res){
         var id = req.body.id;
      

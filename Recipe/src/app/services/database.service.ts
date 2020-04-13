@@ -583,4 +583,20 @@ export class DatabaseService {
       
     }
   }
+  async loadUserPlaylistR(id: number): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {id};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/loadUserPlaylistR`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
 }
