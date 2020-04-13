@@ -51,6 +51,9 @@ export class ViewPlaylistComponent implements OnInit {
         this.playlistName = result[0].playlistName;
         this.description = result[0].description;
         this.user = result[0].user_id;
+        for(var i = 0; i < result[0].length; i++){
+          this.recipes[i] = result[i].recipe_id;
+        }
         if(this.user == this.userX.getId()){
           this.usersPlaylist = true;
         }else{

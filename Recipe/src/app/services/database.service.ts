@@ -283,6 +283,42 @@ export class DatabaseService {
     }
   }
 
+
+  async savePlaylist(id: number, user_id:number, recipeName: string, desc: string): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {id,user_id,recipeName,desc};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/savePlayist`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+  async addRecipes(id: number, recipes: number[]): Promise<any>{
+    try {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const body = {id,recipes};
+      const result = await this.http.post(`${`${HOST}:${PORT}`}/addRecipes`, body, { headers }).toPromise();
+    
+      return result;
+    } catch (err) {
+      throw err;
+      
+    }
+  }
+
+
   async rateRecipe(rating: number, id: number): Promise<any>{
     try {
       const headers = new HttpHeaders({
@@ -532,7 +568,6 @@ export class DatabaseService {
   }
 
   async loadUserPlaylist(id: number): Promise<any>{
-    console.log("YEET");
     try {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',

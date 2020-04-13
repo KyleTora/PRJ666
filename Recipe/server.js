@@ -430,10 +430,58 @@ app.post('/deletePlaylist', function (request, response) {
                                 response.json(results[0]);
                         }
                 });
+                connection.query("DELETE FROM recipePlaylists WHERE playlist_id = ?", [id], function(error, results, fields){
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                //response.json(results[0]);
+                        }    
+                });
         } else {
                 response.send('Please enter Playlist!');
         }
 });
+
+app.post('/savePlaylist', function (request, response) {
+        var id = request.body.id;
+        var user_id = request.body.user_id;
+        var name = request.body.playlistName;
+        var desc = request.body.desc;
+
+        if (id > 0) {
+                connection.query("INSERT INTO Playlists (playlist, user_id, playlistName, description) VALUES(?,?,?,?)", [id,user_id, name, desc], function (error, results, fields) {
+                        if (error) {
+                                response.send('Incorrect Playlist Format!');
+                        } else {
+                                response.json(results[0]);
+                        }
+                });
+                
+        } else {
+                response.send('Please enter Playlist!');
+        }
+});
+
+app.post('/addRecipes', function (request, response) {
+        var id = request.body.id;
+        var recipes = request.body.recipes;
+
+        if (id && recipes) {
+                for(var i = 0; i < recipes.length; i++){                     
+                        connection.query("INSERT INTO recipePlaylists (recipe_id, playlist_id) VALUES(?,?)", [recipes[i], id], function (error, results, fields) {
+                                if (error) {
+                                        response.send('Incorrect Playlist Format!');
+                                } else {
+                                        response.json(results[0]);
+                                }
+                        });
+                }
+        } else {
+                response.send('Please enter Playlist!');
+        }
+});
+
+
 
 app.post('/deleteOthers', function (request, response) {
         var recipeid = request.body.id;
@@ -577,7 +625,7 @@ app.post('/loadPlaylists', function (request, response) {
 app.post('/loadUserPlaylist', function (request, response) {
         var id = request.body.id;
         if (id > 0) {
-                connection.query("SELECT * FROM Playlists WHERE playlist = ?", [id], function (error, results, fields) {
+                connection.query("SELECT * FROM Playlists WHERE playlist = ?(SELECT * FROM recipePlaylists WHERE playlist_id = ?", [id, id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {

@@ -22,7 +22,7 @@
           <label id="playlist-description" class="descriptionSection">{{description}}</label>
         </div><br>
         <div class="row">
-          <button type="button" class="options">Add Recipe(s)</button>
+          <button type="button" class="options" [routerLink]="['/edit-playlist', id]" >Add Recipe(s)</button>
         </div>
         <div class="row">
           <button type="button" style="margin-top: 10px;" class="deleteOption">Remove Recipe(s)</button>
@@ -40,7 +40,7 @@
 
       <ul id="recipe-list" style="margin-top: 8px; border-radius: 20px;"><br>
 
-        <a *ngFor="let x of id; let i = index">
+        <a *ngFor="let x of recipes; let i = index">
           <div class="row">
             <div class="img">
               <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1"
