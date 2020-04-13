@@ -58,7 +58,8 @@ export class ViewPlaylistComponent implements OnInit {
           this.usersPlaylist = false;
         }
         this.db.loadUserPlaylistR(this.id).then((result)=>{
-        
+          console.log("Recipe Result: ", result);
+
         }).catch((err)=>{
           console.log("Playlist Error: ", err);
         })
