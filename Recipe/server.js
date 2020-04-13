@@ -627,7 +627,7 @@ app.post('/loadUserPlaylist', function (request, response) {
         if (id > 0) {
                 connection.query("SELECT * FROM Playlists WHERE playlist = ?(SELECT * FROM recipePlaylists WHERE playlist_id = ?)", [id, id], function (error, results, fields) {
                         if (error) {
-                                response.send('Incorrect Recipe Format!');
+                                response.send('Incorrect Recipe Formats!');
                         } else {
                                 response.json(results);
                         }
