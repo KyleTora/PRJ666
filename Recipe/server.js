@@ -49,31 +49,9 @@ transporter.verify(function(error, success) {
 });
 */
 var connection = require('./config');
-/*
-var connection = mysql.createConnection({
-	host     : 'mymysql.senecacollege.ca',
-	user     : 'prj666_201a06',
-	password : 'rfLG@8559',
-	database : 'prj666_201a06'
-});
-
-connection.connect(function(err){
-	if(!err) {
-		console.log("Database is connected");
-	} else {
-		console.log("Error while connecting with database");
-	}
-});
-
-module.exports = connection; 
-
-*/
 
 var app = express();
 
-
-//app.engine('html', require('ejs').renderFile);
-// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({limit: '50mb', extended: true}));
 app.use(cors());
 
@@ -684,84 +662,9 @@ app.post('/loadIngredients', function (req, res){
 });
 
 
-
-
-
-/*
-if(req.url === "/signup"){
-      fs.readFile("signUp.html", function (error, pgResp){
-              if(error){
-                      res.writeHead(404);
-                      res.write('404 page');
-              }else{
-                      res.writeHead(200, {'Content-Type': 'text/html'});
-                      res.write(pgResp);
-              }
-              res.end();
-
-      });
- }else if(req.url === "/signin"){
-      fs.readFile("signIn.html", function (error, pgResp){
-              if(error){
-                      res.writeHead(404);
-                      res.write('404 page');
-              }else{
-                      res.writeHead(200, {'Content-Type': 'text/html'});
-                      res.write(pgResp);		
-              }
-              res.end();
-
-      });
-}else if(req.url === "/forgotPassword"){
-      fs.readFile("forgotPass.html", function (error, pgResp){
-              if(error){
-                      res.writeHead(404);
-                      res.write('404 page');
-              }else{
-                      res.writeHead(200, {'Content-Type': 'text/html'});
-                      res.write(pgResp);
-              }
-              res.end();
-
-      });
- 
-  }else if(req.url === "/editProfile"){
-      fs.readFile("userEditProfile.php", function (error, pgResp){
-              if(error){
-                      res.writeHead(404);
-                      res.write('404 page');
-              }else{
-                      res.writeHead(200, {'Content-Type': 'text/html'});
-                      res.write(pgResp);
-              }
-              res.end();
-
-      });
-}else if(req.url === "/recipePage"){
-      fs.readFile("recipePage.html", function (error, pgResp){
-              if(error){
-                      res.writeHead(404);
-                      res.write('404 page');
-              }else{
-                      res.writeHead(200, {'Content-Type': 'text/html'});
-                      res.write(pgResp);
-              }
-              res.end();
-
-      });
-}
-*/
-
 app.get("/*", (req, res) => {
         res.sendFile(path.join(__dirname, 'dist', 'Recipe', 'index.html'));
 });
-
-// require('http')
-//         .createServer(app)
-//         .listen(port, () => {
-//                 console.log(`Server running at http://${hostname}:${port}/`);
-//         });
-
 
 if (ssl)
         require("https")
