@@ -22,8 +22,8 @@
 
                                 <a class="nav-item nav-link" *ngIf="!usersRecipe">
                                     <div class="dropdown">
-                                        <button class="ratebtn buttonColour" >Rate Recipe</button>
-                                        <div class="dropdown-content" >
+                                        <button class="ratebtn buttonColour">Rate Recipe</button>
+                                        <div class="dropdown-content">
                                             <a value="1" (click)="rate(1)">1</a>
                                             <a value="2" (click)="rate(2)">2</a>
                                             <a value="3" (click)="rate(3)">3</a>
@@ -103,86 +103,9 @@
             <div class="well details" id="extra">
                 <div>Lifestyle: {{lifeStyle}}</div>
             </div>
-
-            <!-- <div class="well" id="extra" style="width: 250px;">
-                <label for="mealType" style="margin-right: 5px;">Number of Servings: {{servings}}</label>
-            </div> -->
-
-            <!--
-            <section id="ingred">
-                <h3>Ingredients</h3>
-                <ul>
-                    <a *ngFor="let amt of amount; let i = index;">
-                        <li>{{amt}} {{ingredients[i]}}</li>
-                    </a>
-                </ul>
-            </section>
-
-            <section id="steps">
-                <h3>Instructions</h3>
-                <ol>
-                    <a *ngFor="let steps of instructions">
-                        <li>{{steps}}</li>
-                    </a>
-                </ol>
-            </section>
-        -->
         </div>
     </div>
 </div>
-
-
-<!--
-        <div class = "col-sm-6" style="margin-top: 32px;">
-            <div class="extra">Ingredients:</div><br>
-            <a *ngFor="let ings of ingredients">
-                <p>{{ings}}</p>
-            </a>       
-        -->
-
-<!-- First Row for Description, Cook Time, and Number of Servings -->
-<!--
-<div class="row" style="text-align: center; text-transform: capitalize;">
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Type of Meal: {{mealType}}</div>
-    </div>
-
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Region: {{region}}</div>
-    </div>
-
-    <div class="col-sm-4" style="padding-top: 30px;">
-        <div class="extra">Lifestyle: {{lifeStyle}}</div>
-    </div>
-
-</div>
--->
-<!--
-<div class="container text-center">
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="well">
-            <label class="sectionTitle">Description</label>
-            <label id="description" rows="5">{{description}}</label>
-        </div>
-        
-        </div>
-        <div class="col-sm-4" style="margin-top: 15px;">
-
-            <div class="well" id="extra" style="margin-top: 25px;">
-                <label style="margin-right: 5px;">Total Cooktime: </label>
-                <label style="margin-left: 5px;">{{cooktime}} hour(s)</label>
-            </div>
-
-            <div class="well" id="extra">
-                <label for="mealType" style="margin-right: 5px;">Number of Servings:</label>
-                <label>{{servings}}</label>
-            </div>
-        </div>
-    
-    </div>
-</div><br>
--->
 
 <div class="container instructionsSection">
     <div class="row">
@@ -214,24 +137,3 @@
         </div>
     </div>
 </div>
-
-
-<!--
-        <div class="col-sm-4">
-            <label class="sectionTitle" style="color: white;">Instructions</label>
-            <ol id="recipe-instruction" style="text-transform: capitalize;">
-                <label>{{instructions}}</label>
-            </ol>
-        </div>
-        <div class="col-sm-4">
-            <label class="sectionTitle" style="color: white;">Cookware</label>
-            <ul id="cookware-list">
-                <li>{{cookware}}</li>
-
-            </ul>
-        </div>
-        <div class="col-sm-4">
-            <label class="sectionTitle" style="color: white;">Tips & Notes</label>
-            <textarea id="tips-and-notes" rows="47" placeholder="Tips & Notes"></textarea>
-        </div>
-    -->

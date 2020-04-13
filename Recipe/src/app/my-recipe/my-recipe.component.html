@@ -9,12 +9,6 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="recipeCollapse">
-              <!-- <div class="navbar-nav ml-auto">
-                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Favourite</a>
-                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Rate {{type}}</a>
-                <a href="" *ngIf="type != 'favourite'" class="nav-item nav-link">Save {{type}}</a>
-                <a href="" class="nav-item nav-link">Share</a>
-              </div> -->
             </div>
           </div>
         </nav>
@@ -67,7 +61,8 @@
           <a *ngIf="type != 'playlist'">
             <div class="row">
               <div class="img">
-                <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1" style="margin-left: 8px;"><br>
+                <img *ngIf="!url[i]" class="thumbnail" src="assets/western.jfif" alt="Image 1"
+                  style="margin-left: 8px;"><br>
                 <img *ngIf="url[i]" [src]="url[i]" class="thumbnail" style="margin-left: 8px;">
                 <br>
 
@@ -76,20 +71,20 @@
               </div>
               <ul id="eachRecipe" style="margin-top: 20px;">
                 <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
-                <label style=" overflow: hidden; text-overflow: ellipsis;  max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
-                <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
+                <label style=" overflow: hidden; text-overflow: ellipsis;  max-width: 300px; max-height: 50px;">
+                  {{desc[i]}}</label><br>
               </ul>
 
             </div><br>
           </a>
           <a *ngIf="type == 'playlist'">
             <div class="row">
-              <button [routerLink]="['/view-playlist', x]" class="viewRecipe" style="margin-left: 20px;">View Playlist</button>
-          
+              <button [routerLink]="['/view-playlist', x]" class="viewRecipe" style="margin-left: 20px;">View
+                Playlist</button>
+
               <ul id="eachRecipe">
                 <label style="text-transform: capitalize; font-size: 30px; font-weight: bold;">{{name[i]}}</label><br>
                 <label style=" max-width: 300px; max-height: 50px;"> {{desc[i]}}</label><br>
-                <!-- <button [routerLink] = "['/view-recipe', x]" class="viewRecipe" style="margin-left: 20px;" >View Recipe</button> -->
               </ul>
 
             </div><br>
