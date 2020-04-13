@@ -629,14 +629,14 @@ app.post('/loadUserPlaylist', function (request, response) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                response.json(results);
+                                response.send(results);
                         }
                 });
                 connection.query("SELECT * FROM recipePlaylists WHERE playlist_id = ?", [id], function (error, results, fields) {
                         if (error) {
                                 response.send('Incorrect Recipe Format!');
                         } else {
-                                response.json(results);
+                                response.send(results);
                         }
                 });
                 
