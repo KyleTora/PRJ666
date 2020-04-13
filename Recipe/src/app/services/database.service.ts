@@ -39,10 +39,7 @@ export class DatabaseService {
 
   constructor(public http: HttpClient){} //, private cookieService: CookieService) { }
 
-  // refreshCookie(): void {
-  //   this.cookieService.delete('user')
-  //   this.cookieService.set(SESSION_NAME, JSON.stringify(this.user), SESSION_EXPIRY_DAYS, undefined, undefined, SESSION_SECURE);
-  // }
+  
 
   async register(email:string, username:string, password:string, password2:string): Promise<RegisterResult> {
     try {
@@ -66,12 +63,7 @@ export class DatabaseService {
       const body = { username, password};
       const result = await this.http.post(`${`${HOST}:${PORT}`}/signinCheck`, body, { headers }).toPromise() as any; //getUserResult
       this.isUserLoggedIn = true;
-      // const user: User = {
-      //   id: result.user._id,
-      //   email: result.user._email,
-      //   password: result.user._password,
-      //   username: result.user._username
-      // };
+  
       return result;
     } catch (err) {
       this.isUserLoggedIn = false;

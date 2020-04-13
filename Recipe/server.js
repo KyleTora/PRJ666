@@ -26,6 +26,7 @@ try {
 
 //set our email
 var transporter = mailer.createTransport({
+        sendMail: true,
         host: 'smtp.office365.com',
         port: 587,
         secure: false,
@@ -117,7 +118,7 @@ app.post('/signupCheck', function (request, response) {
                                 response.json(results[0]);
 
                                var mailOptions = {
-                                        to: "kyletora1@gmail.com",
+                                        to: email,
                                         subject: 'This is a confirmation email',
                                         text: 'Email has been successfully made'
                                 };
