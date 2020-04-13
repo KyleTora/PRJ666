@@ -13,11 +13,6 @@ export class EditPlaylistComponent implements OnInit {
   id: number;
   private sub: any;
 
-
-  amount = [];
-  ingredients = [];
-  measure = [];
-
   user: number;
   playlistName: string;
   description: string;
@@ -26,9 +21,6 @@ export class EditPlaylistComponent implements OnInit {
   
   isFav: boolean;
   usersPlaylist : boolean;
-
-
-
 
   constructor(private userX: User, private db: DatabaseService, private router: Router, private route: ActivatedRoute, private cookie: CookieService) { }
 
@@ -40,6 +32,23 @@ export class EditPlaylistComponent implements OnInit {
           this.router.navigate(['/my-recipe/playlist']);
         }).catch((err) => {
           console.log("Delete Error: ", err);
+        })  
+      } 
+    }
+  }
+  save(){
+    if(this.userX.getId() == this.user){
+      if(confirm("  Are you sure you want to save this playlist?")){ 
+        this.db.savePlaylist(this.id, this.userX.getId(), this.playlistName, this.description).then((result) => {
+          this.db.addRecipes(this.id, this.recipes).then((result) => {
+          }).catch((err) => {
+            console.log("add Error: ", err);
+          })  
+          alert(this.playlistName + " has been saved!");
+          this.router.navigate(['/my-recipe/playlist']);
+
+        }).catch((err) => {
+          console.log("save Error: ", err);
         })  
       } 
     }
@@ -59,7 +68,7 @@ export class EditPlaylistComponent implements OnInit {
         }else{
           this.usersPlaylist = false;
         }
-        
+                
       }).catch((err)=>{
         console.log("Playlist Error: ", err);
       })
